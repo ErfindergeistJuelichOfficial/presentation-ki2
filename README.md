@@ -10,9 +10,10 @@
 
 - install quarto for ur OS
 - install extension for ur Code Editor
-- Got to git folder and:
+- vs code installed python from astral.sh (uv.exe) for me
 
 ```shell
+quarto install tinytex
 quarto preview
 ```
 

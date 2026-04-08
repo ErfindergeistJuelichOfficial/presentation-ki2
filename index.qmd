@@ -12,6 +12,10 @@ format:
     fig-cap-location: bottom
     footer: KI-Workshop 2
     theme: dark
+  pdf:
+    documentclass: report
+    margin-left: 30mm
+    margin-right: 30mm
 
 ---
 
