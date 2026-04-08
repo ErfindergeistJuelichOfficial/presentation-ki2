@@ -1,5 +1,4 @@
-# presentation-ki2
-KI-Workshop 2
+# KI-Workshop 2
 
 ## Tools
 
@@ -16,6 +15,11 @@ KI-Workshop 2
 ```shell
 quarto preview
 ```
-##
+
+## Documentation Presentation
+
+<https://quarto.org/docs/presentations/revealjs/>
+
+## Author
 
 <https://erfindergeist.org>

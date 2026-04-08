@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "today"
+  title: "KI-Workshop 2"
   navbar:
     left:
       - href: index.qmd
@@ -11,6 +11,10 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme:
+      - darkly
     css: styles.css
     toc: true
+
+
+

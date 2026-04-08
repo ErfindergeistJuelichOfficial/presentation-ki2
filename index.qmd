@@ -10,13 +10,13 @@ format:
     scroll-view: true
     logo: images/logo.svg
     fig-cap-location: bottom
-    footer: https://erfindergeist.org
+    footer: KI-Workshop 2
     theme: dark
+
 ---
 
 Titelfolie (Cover): Unternehmensname, Präsentationstitel, Datum und Präsentator.
 Einleitung/Agenda: Vo
-
 
 ## Vorstellung Erfindergeist Jülich e.V
 
@@ -27,10 +27,17 @@ Einleitung/Agenda: Vo
   * Repair Cafe
   * Offene Werkstatt (3D-Drucker, Lasergravur, Holzverarbeitung, Textilveredelung, etc.)
 
+::: footer
+Vorstellung
+:::
 
 ## Weiters
 
 Hallo Welt
+
+::: aside
+Fussnote: Some additional commentary of more peripheral interest.
+:::
 
 ## Ende
 
