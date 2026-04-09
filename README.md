@@ -19,7 +19,9 @@ quarto preview
 
 ## Documentation Presentation
 
-<https://quarto.org/docs/presentations/revealjs/>
+- <https://quarto.org/docs/presentations/revealjs/>
+- DEMO: https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd
+- DEMO: https://quarto.org/docs/presentations/revealjs/demo
 
 ## Author
 
