@@ -1,0 +1,34 @@
+name: 🚀 Deploy Presentation ki2
+
+on:
+  push:
+    branches:    
+      - 'main' 
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy at https://erfindergeist.org/
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: quarto setup
+      uses: quarto-dev/quarto-actions/setup@v2
+      with:
+        tinytex: true
+
+    - name: quarto render website & pdf
+      uses: quarto-dev/quarto-actions/render@v2
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      with:
+        server: ${{ secrets.FTP_SERVER_PRESENTATIONS }}
+        username: ${{ secrets.FTP_USERNAME_PRESENTATIONS }}
+        password: ${{ secrets.FTP_PASSWORD_PRESENTATIONS }}
+        local-dir: ./_site
+        protocol: ftps
+        state-name: .ftp-deploy-presentation-ki2.json
+        server-dir: /ki2/
