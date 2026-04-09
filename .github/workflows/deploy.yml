@@ -28,7 +28,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER_PRESENTATIONS }}
         username: ${{ secrets.FTP_USERNAME_PRESENTATIONS }}
         password: ${{ secrets.FTP_PASSWORD_PRESENTATIONS }}
-        local-dir: ./_site
+        local-dir: ./_site/
         protocol: ftps
         state-name: .ftp-deploy-presentation-ki2.json
         server-dir: /ki2/
