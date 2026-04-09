@@ -57,6 +57,7 @@ Vorstellung 2/2
 
 * Was ist KI?
 * Was sind Token?
+* Was sind Parameter?
 * Lokal: Ollama und OpenWeb UI (Fragen, Zusammenfassung, Diskussion)
 * Lokal: OpenCode (Programmierhilfe)
 * Lokal: ConfyUI (Bilderzeugung)
@@ -101,6 +102,33 @@ Was sind Token? 2/3
 ::: footer
 Was sind Token? 3/3
 :::
+
+## Was sind Parameter?
+
+- Parameter sind die "Einstellungen" oder "Regler", die die Funktionsweise eines KI-Modells beeinflussen. Sie bestimmen, wie das Modell auf Eingaben reagiert und welche Art von Ausgaben es generiert.
+
+- Je Mehr Parameter ein Modell hat, desto komplexer und leistungsfähiger ist es in der Regel, aber es wird auch mehr RAM benötigt.
+
+::: footer
+Was sind Parameter? 1/2
+:::
+
+## RAM Anforderungen von KI-Modellen
+
+* 3B (3 Milliarden Parameter): ~6 GB 
+* 7B (7 Milliarden Parameter): ~14 GB
+* 13B (13 Milliarden Parameter): ~26 GB 
+* 70B (70 Milliarden Parameter): ~140 GB
+
+::: footer
+Was sind Parameter? 2/2
+:::
+
+## Tokens pro Sekunde
+
+- Tokens pro Sekunde (TPS) ist eine Metrik, die angibt, wie viele Tokens ein KI-Modell in einer Sekunde verarbeiten oder generieren kann. Es ist ein Maß für die Geschwindigkeit und Effizienz eines Modells.
+
+- Beispiel: eine Nvidia RTX 4090 kann zwischen 4-8 TPS erreichen, abhängig von der Modellgröße und der Komplexität der Aufgabe.
 
 ## Lokal: Ollama und OpenWeb UI
 
