@@ -167,7 +167,20 @@ Hallo Welt
 Fussnote: Some additional commentary of more peripheral interest.
 :::
 
+## Referenzen
+
+- [openai.com](https://openai.com)
+- [ollama.com](https://ollama.com)
+- [openwebui.com](https://openwebui.com)
+- [opencode.ai](https://opencode.ai)
+- [confyui.com](https://confyui.com)
+- [meshy.ai](https://meshy.ai)
+- [Azure KI](https://azure.microsoft.com/de-de/solutions/ai)
+
 ## Ende
 
 - Vielen Dank für die Teilnahme!
-- Download Präsentation als [PDF](https://presentations.erfindergeist.org/ki2/index.pdf)
+- [Präsentation Online anschauen](https://presentations.erfindergeist.org/ki2/)
+- [Download Präsentation als PDF](https://presentations.erfindergeist.org/ki2/index.pdf)
+- [erfindergeist.org](https://erfindergeist.org)
+- TODO: Fragen, Anmerkungen, Feedback?
