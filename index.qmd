@@ -1,18 +1,24 @@
 ---
 title: KI-Workshop 2
-title-slide-attributes:
-  data-background-image: images/title.svg
-  data-background-size: 40%
 subtitle: XX.XX.2026
 format:
   revealjs:
+    transition: fade
+    # transition-speed: fast
+    touch: true
+    overview: true
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true
     slide-number: true
+    show-slide-number: all
     chalkboard: true
-    scroll-view: true
-    logo: images/logo.svg
-    fig-cap-location: bottom
-    footer: KI-Workshop 2
-    theme: dark
+    # scroll-view: true
+    # logo: images/logo.svg
+    # fig-cap-location: bottom
+    # footer: KI-Workshop 2
+    # theme: dark
+    progress: true
   pdf:
     documentclass: report
     margin-left: 30mm
@@ -20,7 +26,7 @@ format:
 
 ---
 
-## Vorstellung Erfindergeist Jülich e.V
+# Vorstellung Erfindergeist Jülich e.V
 
 * Gemeinnütziger Verein mit Sitz in Jülich, gegründet 2021
 * **Ziel**: Förderung von Kreativität und Innovation durch praktisches Lernen und Zusammenarbeit
@@ -29,11 +35,7 @@ format:
   * Repair Cafe
   * Offene Werkstatt (3D-Drucker, Lasergravur, Holzverarbeitung, Textilveredelung, etc.)
 
-::: footer
-Vorstellung 1/2
-:::
-
-## Vorstellung Sprecher
+# Vorstellung Sprecher
 
 ::: columns
 ::: {.column width="35%"}
@@ -49,11 +51,7 @@ text text text text text text text text text
 :::
 
 
-::: footer
-Vorstellung 2/2
-:::
-
-## Agenda
+# Agenda
 
 * Was ist KI?
 * Was sind Token?
@@ -64,11 +62,15 @@ Vorstellung 2/2
 * Cloud: Meshy (3D-Modellierung)
 * Cloud: Azure Showcases
 
-## Was st KI?
+::: {.notes}
+Speaker notes go here.
+:::
+
+# Was st KI?
 
 Künstliche Intelligenz (KI) sind Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. Large Language Models (LLM) sind eine spezielle Form der KI, die auf riesigen Textmengen trainiert werden. Sie verstehen und erzeugen Sprache, beantworten Fragen, schreiben Texte oder helfen bei der Analyse von Informationen
 
-## Was sind Token?
+# Was sind Token?
 
 - Es ist eine Art von "Währung", die verwendet wird, um die Nutzung von Cloud KI-Modellen zu bezahlen.
 
@@ -79,18 +81,17 @@ Künstliche Intelligenz (KI) sind Computersysteme, die menschliche Fähigkeiten 
 
 - Faustregel: 100 Token entsprechen etwa 75 Wörtern.
 
-::: footer
-Was sind Token? 1/3
-:::
 
 ## Kosten ChatGPT
 
-Auszug `https://openai.com/de-DE/api/pricing/` vom 09.04.2026
+
 ![](images/chat_gpt_costs.png)
 
-::: footer
-Was sind Token? 2/3
+::: aside
+Auszug `https://openai.com/de-DE/api/pricing/` vom 09.04.2026
 :::
+
+
 
 ## Beispiel Rechnung Buch
 
@@ -99,19 +100,12 @@ Was sind Token? 2/3
 
 - Achtung, keine KI kann ein ganzes Buch auf einmal verarbeiten, es müsste in kleinere Abschnitte aufgeteilt werden, was die Kosten erhöhen könnte.
 
-::: footer
-Was sind Token? 3/3
-:::
-
 ## Was sind Parameter?
 
 - Parameter sind die "Einstellungen" oder "Regler", die die Funktionsweise eines KI-Modells beeinflussen. Sie bestimmen, wie das Modell auf Eingaben reagiert und welche Art von Ausgaben es generiert.
 
 - Je Mehr Parameter ein Modell hat, desto komplexer und leistungsfähiger ist es in der Regel, aber es wird auch mehr RAM benötigt.
 
-::: footer
-Was sind Parameter? 1/2
-:::
 
 ## RAM Anforderungen von KI-Modellen
 
@@ -120,17 +114,13 @@ Was sind Parameter? 1/2
 * 13B (13 Milliarden Parameter): ~26 GB 
 * 70B (70 Milliarden Parameter): ~140 GB
 
-::: footer
-Was sind Parameter? 2/2
-:::
-
 ## Tokens pro Sekunde
 
 - Tokens pro Sekunde (TPS) ist eine Metrik, die angibt, wie viele Tokens ein KI-Modell in einer Sekunde verarbeiten oder generieren kann. Es ist ein Maß für die Geschwindigkeit und Effizienz eines Modells.
 
 - Beispiel: eine Nvidia RTX 4090 kann zwischen 4-8 TPS erreichen, abhängig von der Modellgröße und der Komplexität der Aufgabe.
 
-## Lokal: Ollama und OpenWeb UI
+# Lokal: Ollama und OpenWeb UI
 
 - Ollama ist ein lokal bereitgestellter KI-Modell-Runner, der es Benutzern ermöglicht, große Sprachmodelle (LLMs) direkt auf ihrem PC auszuführen, ohne auf Cloud-Dienste angewiesen zu sein. Es bietet eine benutzerfreundliche Oberfläche und unterstützt verschiedene KI-Modelle, die lokal installiert werden können.
 
@@ -138,28 +128,28 @@ Was sind Parameter? 2/2
 
 - Beispiele in OpenWeb Ui zeigen. Überlegen was gut ist
 
-## Loka: OpenCode
+# Loka: OpenCode
 
 - OpenCode ist eine KI-gestützte Programmierhilfe, die Entwicklern dabei hilft, Code schneller und effizienter zu schreiben. Es bietet Funktionen wie Code-Vervollständigung, Fehlererkennung und Vorschläge für Verbesserungen, um den Entwicklungsprozess zu optimieren.
 
 - Beispiele in OpenCode zeigen. Überlegen was gut ist
 
-## Lokal: ConfyUI
+# Lokal: ConfyUI
 
 - ConfyUI ist eine KI-gestützte Anwendung zur Bilderzeugung, die es Benutzern ermöglicht, durch die Eingabe von Textbeschreibungen oder anderen Anweisungen automatisch Bilder zu generieren. Es nutzt fortschrittliche KI-Modelle, um kreative und realistische Bilder basierend auf den gegebenen Eingaben zu erstellen.
 
 TODO: Beispiel Bilder einfügen
 
-## Cloud: Meshy
+# Cloud: Meshy
 
 - Meshy ist eine KI-gestützte 3D-Modellierungsplattform, die es Benutzern ermöglicht, komplexe 3D-Modelle durch einfache Textbeschreibungen oder andere Anweisungen zu erstellen. Es nutzt fortschrittliche KI-Technologien, um realistische und detaillierte 3D-Modelle zu generieren, die in verschiedenen Anwendungen wie Spieleentwicklung, Animation oder Produktdesign verwendet werden können.
 
 TODO: Gezeichnetes Bild -> 3D-Modell Abbildung einfügen
 
-## Cloud: Azure Showcases
+# Cloud: Azure Showcases
 
 
-## Aside
+# Aside
 
 Hallo Welt
 
@@ -167,7 +157,7 @@ Hallo Welt
 Fussnote: Some additional commentary of more peripheral interest.
 :::
 
-## Referenzen
+# Referenzen
 
 - [openai.com](https://openai.com)
 - [ollama.com](https://ollama.com)
@@ -177,7 +167,7 @@ Fussnote: Some additional commentary of more peripheral interest.
 - [meshy.ai](https://meshy.ai)
 - [Azure KI](https://azure.microsoft.com/de-de/solutions/ai)
 
-## Ende
+# Ende
 
 - Vielen Dank für die Teilnahme!
 - [Präsentation Online anschauen](https://presentations.erfindergeist.org/ki2/)
