@@ -21,6 +21,8 @@ format:
     progress: true
   pdf:
     documentclass: report
+    toc: true
+    papersize: a4
     margin-left: 30mm
     margin-right: 30mm
 
@@ -66,7 +68,7 @@ text text text text text text text text text
 Speaker notes go here.
 :::
 
-# Was st KI?
+# Was ist KI?
 
 Künstliche Intelligenz (KI) sind Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. Large Language Models (LLM) sind eine spezielle Form der KI, die auf riesigen Textmengen trainiert werden. Sie verstehen und erzeugen Sprache, beantworten Fragen, schreiben Texte oder helfen bei der Analyse von Informationen
 
