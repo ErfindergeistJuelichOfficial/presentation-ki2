@@ -1,0 +1,10 @@
+color:
+  palette:
+    dark-grey: "#222222"
+    mint: "#159989"
+    white: "#ffffff"
+  background: dark-grey
+  foreground: white
+  primary: mint
+
+
