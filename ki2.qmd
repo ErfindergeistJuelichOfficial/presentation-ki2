@@ -56,8 +56,8 @@ text text text text text text text text text
 # Agenda
 
 * Was ist KI?
-* Was sind Token?
-* Was sind Parameter?
+* Token
+* 
 * Lokal: Ollama und OpenWeb UI (Fragen, Zusammenfassung, Diskussion)
 * Lokal: OpenCode (Programmierhilfe)
 * Lokal: ConfyUI (Bilderzeugung)
@@ -70,57 +70,81 @@ Speaker notes go here.
 
 # Was ist KI?
 
-Künstliche Intelligenz (KI) sind Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. Large Language Models (LLM) sind eine spezielle Form der KI, die auf riesigen Textmengen trainiert werden. Sie verstehen und erzeugen Sprache, beantworten Fragen, schreiben Texte oder helfen bei der Analyse von Informationen
+- **Künstliche Intelligenz (KI)** bezeichnet Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. Indem es Mathematische Modelle und Algorithmen verwendet, kann KI Muster erkennen, Vorhersagen treffen und Probleme lösen.
 
-# Was sind Token?
+- KI umfasst viele Bereiche: Bilderkennung, Sprachverarbeitung, Empfehlungssysteme und mehr.
 
-- Es ist eine Art von "Währung", die verwendet wird, um die Nutzung von Cloud KI-Modellen zu bezahlen.
+- **Large Language Models (LLM)** sind eine spezielle Form der KI, trainiert auf riesigen Textmengen — sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
 
-- Jedes Wort, Satzzeichen oder Leerzeichen zählt meist als 1 Token. Es kommt auf den Anbieter und das Modell an.
--  Beispiel: „Hallo Welt!“ → 3 Token („Hallo“, „ Welt“, „!“).
+# Was ist KI?: 73
 
-- Ein Token ist nicht immer ein ganzes Wort. Das Wort „Apfel“ ist vielleicht ein Token, „Verständnisfragen“ hingegen werden in mehrere Tokens zerlegt.
+- Experiment. besuchen Sie **https://chatgpt.com/** und fragen Sie "Nenne mir eine zufällige Zahl."
+
+- KI generiert Antworten, indem es die wahrscheinlichsten nächsten Wörter vorhersagt, basierend auf den Mustern, die es in den Trainingsdaten gelernt hat. Daher ist die Antwort nicht wirklich zufällig, sondern eine Zahl, die in den Trainingsdaten häufig vorkommt oder als wahrscheinlich angesehen wird. In diesem Fall könnte es sein, dass die Zahl 73 oft in den Daten vorkommt.
+
+# Token
+
+- Token sind die kleinsten Texteinheiten, in die ein KI-Modell Text zerlegt. Gleichzeitig dienen sie als Abrechnungseinheit bei Cloud-Diensten.
+
+- Jedes Wort und Satzzeichen zählt meist als 1 Token. Leerzeichen werden typischerweise dem nächsten Token vorangestellt, nicht als eigenes Token gezählt.
+
+- Ein Token ist nicht immer ein ganzes Wort. Das Wort „Apfel” ist vielleicht ein Token, „Verständnisfragen” hingegen werden in mehrere Tokens zerlegt.
+
+
+## Token: Beispiele
+
+- Beispiel: „Hallo Welt!” → 3 Token („Hallo”, „ Welt”, „!”).
 
 - Faustregel: 100 Token entsprechen etwa 75 Wörtern.
 
+- Interaktiv ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
 
-## Kosten ChatGPT
-
+## Token: Kosten ChatGPT
 
 ![](images/chat_gpt_costs.png)
 
 ::: aside
-Auszug `https://openai.com/de-DE/api/pricing/` vom 09.04.2026
+Auszug `https://openai.com/de-DE/api/pricing/` vom 09.04.2026 — Preise ändern sich häufig, bitte aktuell prüfen.
 :::
 
-
-
-## Beispiel Rechnung Buch
+## Token: Beispiel Rechnung Buch
 
 - Moderne Krimis haben etwa 100.000 Wörter, das wären ca. 133.000 Token.
 - Bei ChatGPT würde dies ca. 2 USD kosten.
 
-- Achtung, keine KI kann ein ganzes Buch auf einmal verarbeiten, es müsste in kleinere Abschnitte aufgeteilt werden, was die Kosten erhöhen könnte.
+- Achtung: Jedes KI-Modell hat ein begrenztes **Kontextfenster** — die maximale Anzahl an Token, die es auf einmal verarbeiten kann (z.B. 128.000 Token bei GPT-4o). Ein ganzes Buch übersteigt dieses Limit und müsste in kleinere Abschnitte aufgeteilt werden, was die Kosten erhöhen könnte. Das Kontextfenster erklärt auch, warum eine KI frühere Gesprächsteile "vergessen" kann.
 
-## Was sind Parameter?
+## Token: Was sind Parameter?
 
 - Parameter sind die "Einstellungen" oder "Regler", die die Funktionsweise eines KI-Modells beeinflussen. Sie bestimmen, wie das Modell auf Eingaben reagiert und welche Art von Ausgaben es generiert.
 
 - Je Mehr Parameter ein Modell hat, desto komplexer und leistungsfähiger ist es in der Regel, aber es wird auch mehr RAM benötigt.
 
+## Token: RAM Anforderungen von KI-Modellen
 
-## RAM Anforderungen von KI-Modellen
+RAM-Bedarf bei voller Präzision (FP16, ~2 Bytes/Parameter):
 
-* 3B (3 Milliarden Parameter): ~6 GB 
+* 3B (3 Milliarden Parameter): ~6 GB
 * 7B (7 Milliarden Parameter): ~14 GB
-* 13B (13 Milliarden Parameter): ~26 GB 
+* 13B (13 Milliarden Parameter): ~26 GB
 * 70B (70 Milliarden Parameter): ~140 GB
 
-## Tokens pro Sekunde
+In der Praxis verwendet Ollama quantisierte Modelle (z.B. 4-bit) — d.h. die Gewichte werden mit weniger Präzision gespeichert, was den RAM-Bedarf auf ~25 % reduziert, bei kaum merklichem Qualitätsverlust — z.B. ~4–5 GB für ein 7B-Modell.
+
+## Token: Tokens pro Sekunde
 
 - Tokens pro Sekunde (TPS) ist eine Metrik, die angibt, wie viele Tokens ein KI-Modell in einer Sekunde verarbeiten oder generieren kann. Es ist ein Maß für die Geschwindigkeit und Effizienz eines Modells.
 
-- Beispiel: eine Nvidia RTX 4090 kann zwischen 4-8 TPS erreichen, abhängig von der Modellgröße und der Komplexität der Aufgabe.
+- Beispiel: eine Nvidia RTX 4090 (24 GB VRAM) erreicht mit Ollama typischerweise:
+  - ~80–120 TPS für ein 7B-Modell (Q4)
+  - ~40–60 TPS für ein 13B-Modell (Q4)
+  - 70B-Modelle passen nicht mehr in den VRAM einer einzelnen Karte
+
+## Token: Was sagt uns das nun?
+
+- Tokens in der Cloud sind nicht nur eine technische Einheit, sondern auch eine wirtschaftliche. Sie beeinflussen die Kosten der Nutzung von KI-Modellen, insbesondere bei Cloud-Diensten, und bestimmen, wie viel Text ein Modell auf einmal verarbeiten kann. Eher 500B Modelle in der Cloud, da sie lokal nicht mehr laufen.
+
+- Lokale Tokens  sind wichtig, um die Leistungsfähigkeit und Effizienz von KI-Modellen zu verstehen, insbesondere in Bezug auf RAM-Anforderungen und Verarbeitungsgeschwindigkeit. Sie helfen uns zu entscheiden, welche Modelle für unsere Bedürfnisse geeignet sind und wie wir sie optimal nutzen können. Eher 7B - 13B Modelle lokal, da sie mit quantisierten Modellen in den meisten modernen PCs laufen.
 
 # Lokal: Ollama und OpenWeb UI
 
