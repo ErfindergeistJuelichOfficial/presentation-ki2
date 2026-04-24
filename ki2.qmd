@@ -164,6 +164,12 @@ In der Praxis verwendet Ollama quantisierte Modelle (4-bit) — jede Zahl belegt
 
 : {tbl-colwidths="[22,39,39]"}
 
+# 3D-Modellierung
+
+openScad + Code -> 3D-Modell
+
+Beispiel: Hexenturm Jülich
+
 # Lokal: Ollama und OpenWeb UI
 
 - Ollama ist ein lokal bereitgestellter KI-Modell-Runner, der es Benutzern ermöglicht, große Sprachmodelle (LLMs) direkt auf ihrem PC auszuführen, ohne auf Cloud-Dienste angewiesen zu sein. Es bietet eine benutzerfreundliche Oberfläche und unterstützt verschiedene KI-Modelle, die lokal installiert werden können.
