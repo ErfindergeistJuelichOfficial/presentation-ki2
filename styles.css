@@ -1,1 +1,75 @@
-/* css styles */
+/* === Titelfolie === */
+.reveal .title { color: #159989; }
+.reveal .subtitle { color: #aaaaaa; font-style: italic; }
+
+/* === Überschriften mit Mint-Unterstrich === */
+.reveal h1 {
+  border-bottom: 2px solid #159989;
+  padding-bottom: 0.2em;
+}
+
+/* === Sekundäre Akzente (Amber) für Fetttext === */
+.reveal strong { color: #F9B338; }
+
+/* === Inline-Code in Amber === */
+.reveal p code,
+.reveal li code,
+.reveal td code { color: #F9B338; }
+
+/* === Code-Blöcke === */
+.reveal pre {
+  border-left: 4px solid #159989;
+  background: #2d2d2d;
+}
+
+/* === Tabellen === */
+.reveal table th {
+  background: #159989;
+  color: #222222;
+}
+.reveal table tr:nth-child(even) td {
+  background: #2d2d2d;
+}
+
+/* === Logo === */
+.reveal .slide-logo {
+  height: 100px !important;
+  max-height: unset !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+}
+
+/* === Fortschrittsbalken === */
+.reveal .progress span { background-color: #159989; }
+
+/* === Listen-Bullets === */
+.reveal ul > li::marker { color: #159989; }
+.reveal ol > li::marker { color: #F9B338; }
+
+/* === Token-Chip Hilfsklasse (Nutzung: [text]{.token-chip}) === */
+.token-chip {
+  background: #F9B338;
+  color: #222222;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+/* === Links immer Amber, alle Zustände === */
+.reveal {
+  --r-link-color: #F9B338;
+  --r-link-color-hover: #F9B338;
+}
+.reveal a,
+.reveal a:hover,
+.reveal a:visited {
+  color: #F9B338;
+}
+
+/* === Foliennummer === */
+.reveal .slide-number-a,
+.reveal .slide-number-delimiter,
+.reveal .slide-number-b {
+  font-size: 3em;
+}

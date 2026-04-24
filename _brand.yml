@@ -1,10 +1,17 @@
 color:
   palette:
     dark-grey: "#222222"
+    dark-medium: "#2d2d2d"
     mint: "#159989"
+    mint-light: "#1bbcb0"
+    amber: "#F9B338"
     white: "#ffffff"
+    light-grey: "#aaaaaa"
   background: dark-grey
   foreground: white
   primary: mint
+  secondary: amber
 
-
+typography:
+  headings:
+    weight: 700

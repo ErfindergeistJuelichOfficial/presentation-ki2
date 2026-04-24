@@ -14,7 +14,13 @@
 
 ```shell
 quarto install tinytex
-quarto preview
+quarto preview ki2.qmd --cache-refresh
+```
+
+alternate:
+
+```shell
+quarto preview ki2.qmd --no-cache
 ```
 
 ## Documentation Presentation
