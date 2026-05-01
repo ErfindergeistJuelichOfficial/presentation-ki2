@@ -41,35 +41,66 @@ format:
   * Repair Cafe
   * Offene Werkstatt (3D-Drucker, Lasergravur, Holzverarbeitung, Textilveredelung, etc.)
 
-# Vorstellung Sprecher
-
-::: columns
-::: {.column width="35%"}
-BILD BILD BILD BILD
-:::
-
-::: {.column width="3%"}
-:::
-
-::: {.column width="62%"}
-text text text text text text text text text
-:::
-:::
-
-
-# Agenda
-
-* Was ist KI?
-* Token
-* Lokal: Ollama und OpenWeb UI (Fragen, Zusammenfassung, Diskussion)
-* Lokal: OpenCode (Programmierhilfe)
-* Lokal: ConfyUI (Bilderzeugung)
-* Cloud: Meshy (3D-Modellierung)
-* Cloud: Azure Showcases
 
 ::: {.notes}
 Speaker notes go here.
 :::
+
+# Wie läuft es heute ab
+
+Heute führen wir Sie Schritt für Schritt durch die Welt der KI —
+von den Grundlagen bis zu echten Unternehmensanwendungen.
+
+Wir zeigen, demonstrieren und beantworten Ihre Fragen.
+
+## Wie läuft es heute ab: Theorie
+
+**Was wir erklären:**
+
+- Was ist KI — und was ist sie *nicht*?
+- Wie funktionieren große Sprachmodelle?
+- Was sind Token und warum sind sie wichtig?
+
+Ziel: gemeinsames Grundverständnis für alles, was danach kommt.
+
+## Wie läuft es heute ab: Lokal-Demos
+
+**Was wir live vorführen — auf unserer eigenen Hardware:**
+
+- **Ollama + OpenWeb UI** — KI-Chatbot ohne Internet und Cloud
+- **OpenCode** — KI unterstützt beim Programmieren
+- **ComfyUI** — KI generiert Bilder aus Text
+
+Sie sehen, wie leistungsfähig KI auf lokalem Equipment läuft.
+
+## Wie läuft es heute ab: Cloud-Demos
+
+**Was wir über Cloud-Dienste zeigen:**
+
+- **Meshy** — 3D-Modelle aus Text oder Skizzen erstellen
+- **Azure KI-Dienste** — Unternehmensgrade KI-Integration von Microsoft
+
+Sie sehen den Unterschied zwischen lokalem Betrieb und Cloud-Skalierung.
+
+## Wie läuft es heute ab: Unternehmens-Showcase
+
+**Echte KI-Anwendungen aus der Praxis:**
+
+- Eine Firma stellt mehrere konkrete Fallbeispiele vor
+- Von der Problemstellung zur KI-Lösung
+- Was funktioniert gut — und wo sind die Grenzen?
+
+Praxisbezug für alle, die KI im Berufs- oder Unternehmenskontext einsetzen wollen.
+
+## Wie läuft es heute ab: Fragen & Diskussion
+
+**Sie sind nicht nur Zuschauer:**
+
+- Nach jeder Phase: Zeit für Fragen
+- Am Ende: offene Diskussionsrunde
+
+Kein Vorwissen nötig — jede Frage ist willkommen.
+
 
 # Was ist KI?
 
