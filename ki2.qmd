@@ -77,7 +77,8 @@ Sie sehen, wie leistungsfähig KI auf lokalem Equipment läuft.
 
 **Was wir über Cloud-Dienste zeigen:**
 
-- **Meshy** — 3D-Modelle aus Text oder Skizzen erstellen
+- **3D-Modellierung: OpenSCAD + Claude Code** — 3D-Modelle aus Text erstellen (technisch)
+- **Meshy** — 3D-Modelle aus Text oder Skizzen erstellen (Kreativ)
 - **Azure KI-Dienste** — Unternehmensgrade KI-Integration von Microsoft
 
 Sie sehen den Unterschied zwischen lokalem Betrieb und Cloud-Skalierung.
@@ -195,11 +196,90 @@ In der Praxis verwendet Ollama quantisierte Modelle (4-bit) — jede Zahl belegt
 
 : {tbl-colwidths="[22,39,39]"}
 
-# 3D-Modellierung
+# 3D-Modellierung: OpenSCAD + Claude Code
 
-openScad + Code -> 3D-Modell
+**OpenSCAD** ist eine Programmiersprache für 3D-Modelle — statt mit der Maus zu modellieren, beschreibt man das Modell als Code.
 
-Beispiel: Hexenturm Jülich
+**Das Prinzip:** Prompt an Claude Code → SCAD-Code → fertiges 3D-Modell
+
+Beispiel: Der **Hexenturm Jülich** — ein historisches Wahrzeichen, nachgebaut aus Code.
+
+## 3D-Modellierung: Was ist OpenSCAD?
+
+::: columns
+::: {.column width="60%"}
+- OpenSCAD beschreibt 3D-Objekte als **parametrischen Code**
+- Grundformen wie Zylinder, Quader und Kugeln werden kombiniert, subtrahiert und transformiert
+- Parameterisierung ermöglicht einfache Änderung auch ohne Kenntnisse
+- Ideal für technische und architektonische Modelle
+:::
+::: {.column width="40%"}
+```
+// Beispiel: einfacher Turm mit Kuppel
+cylinder(h=50, r=10);
+translate([0,0,50])
+  sphere(r=5);
+
+```
+
+
+```
+
+// Beispiel: parameter
+// Breite
+roof_w       = 100;  
+//Tiefe
+roof_d       = 90;
+... 
+```
+:::
+:::
+
+## 3D-Modellierung: KI als Programmierpartner
+
+**Wie Claude Code beim Modellieren hilft:**
+
+1. Beschreibung des gewünschten Objekts in natürlicher Sprache
+2. Claude Code generiert den OpenSCAD-Code
+3. Modell wird geprüft und verfeinert — durch weitere Prompts
+4. Iterativer Prozess: Feedback → Anpassung → Verbesserung
+
+## 3D-Modellierung: Beispiel
+
+> *"Erstelle einen zylindrischen Turm mit konischem Dach und einer spitzen Turmspitze"*
+
+KI ersetzt hier keine CAD-Kenntnisse — sie macht den Einstieg drastisch einfacher.
+
+## 3D-Modellierung: Ergebnis — Hexenturm Jülich
+
+
+::: columns
+::: {.column width="60%"}
+
+![](images/scad/hexenturm_done.png){fig-align="center" height="500"}
+
+:::
+::: {.column width="40%"}
+
+Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe von Claude Code.
+:::
+:::
+
+## 3D-Modellierung: Modularer Aufbau
+
+![](images/scad/hexenturm_parts.png){fig-align="center" height="500"}
+
+::: aside
+Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
+:::
+
+## 3D-Modellierung: Details im Code
+
+![](images/scad/hexenturm details.png){fig-align="center" height="500"}
+
+::: aside
+Details wie Fensteröffnungen, Torbogen und Wandstruktur entstehen durch boolesche Operationen — Formen werden aus dem Hauptkörper herausgeschnitten.
+:::
 
 # Lokal: Ollama und OpenWeb UI
 
