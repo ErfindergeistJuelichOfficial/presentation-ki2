@@ -1,6 +1,6 @@
 ---
 title: KI-Workshop 2
-subtitle: XX.XX.2026
+subtitle: WORK IN PROGRESS - XX.XX.2026
 format:
   revealjs:
     transition: fade
@@ -45,6 +45,25 @@ format:
 ::: {.notes}
 Speaker notes go here.
 :::
+
+## Spenden
+
+
+::: columns
+::: {.column width="70%"}
+
+- Erfindergeist Jülich e.V. finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden. Wir Danken allen Unterstützern, die unsere Arbeit ermöglichen!
+
+- Spenden Konto und PayPal auf unserer Webseite [https://linktree.erfindergeist.org/](https://linktree.erfindergeist.org/)
+
+:::
+::: {.column width="30%"}
+
+![](images/linktree.svg){width="100%"}
+
+:::
+:::
+
 
 # Wie läuft es heute ab
 
@@ -273,12 +292,44 @@ Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe vo
 Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
 :::
 
+## 3D-Modellierung: Modularer Aufbau prompts
+
+::: columns
+::: {.column width="45%"}
+
+> *" Erstelle ein Rechteck wo ein Tunnel durchgeht. anbei ein Bild wie ich es mir vorstelle. Generiere Parameter für x,y,z sowie breite und höhe des quaders und Tunnels. zentriere das Objekt."*
+
+:::
+::: {.column width="55%"}
+
+![](images/scad/prompt_help.png){fig-align="center" height="500"}
+
+
+:::
+:::
+
 ## 3D-Modellierung: Details im Code
 
 ![](images/scad/hexenturm details.png){fig-align="center" height="500"}
 
 ::: aside
-Details wie Fensteröffnungen, Torbogen und Wandstruktur entstehen durch boolesche Operationen — Formen werden aus dem Hauptkörper herausgeschnitten.
+Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.
+:::
+
+## 3D-Modellierung: Detail prompts
+
+::: columns
+::: {.column width="55%"}
+
+> *"Entlang des Tunnels hätte ich gerne an nur einer Seite eine Verzierung. Und zwar sollen das Steine darstellen, die abwechselnd größer und kleiner werden. Oben mittig ist ein Spezialstein. Anbei ein Bild, wie ich es mir etwa vorstelle."*
+
+:::
+::: {.column width="45%"}
+
+![](images/scad/prompt2_help.png){fig-align="center" height="500"}
+
+
+:::
 :::
 
 # Lokal: Ollama und OpenWeb UI
@@ -331,6 +382,25 @@ Fussnote: Some additional commentary of more peripheral interest.
 - [confyui.com](https://confyui.com)
 - [meshy.ai](https://meshy.ai)
 - [Azure KI](https://azure.microsoft.com/de-de/solutions/ai)
+
+# Spenden
+
+
+::: columns
+::: {.column width="70%"}
+
+- Erfindergeist Jülich e.V. finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden. Wir Danken allen Unterstützern, die unsere Arbeit ermöglichen!
+
+- Spenden Konto und PayPal auf unserer Webseite [https://linktree.erfindergeist.org/](https://linktree.erfindergeist.org/)
+
+:::
+::: {.column width="30%"}
+
+![](images/linktree.svg){width="100%"}
+
+:::
+:::
+
 
 # Ende
 
