@@ -19,6 +19,9 @@ jobs:
       with:
         tinytex: true
 
+    - name: install rsvg-convert
+      run: sudo apt-get install -y librsvg2-bin
+
     - name: quarto render website & pdf
       uses: quarto-dev/quarto-actions/render@v2
 
