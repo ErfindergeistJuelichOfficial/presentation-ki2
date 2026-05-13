@@ -25,10 +25,10 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.6
       with:
-        server: ${{ secrets.FTP_SERVER_PRESENTATIONS }}
-        username: ${{ secrets.FTP_USERNAME_PRESENTATIONS }}
-        password: ${{ secrets.FTP_PASSWORD_PRESENTATIONS }}
+        server: erfindergeist.org
+        username: ${{ secrets.FTP_USERNAME_SHARE }}
+        password: ${{ secrets.FTP_PASSWORD_SHARE }}
         local-dir: ./_site/
         protocol: ftps
         state-name: .ftp-deploy-presentation-ki2.json
-        server-dir: /ki2/
+        server-dir: /presentations/ki2/
