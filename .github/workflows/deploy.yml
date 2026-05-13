@@ -23,7 +23,7 @@ jobs:
       uses: quarto-dev/quarto-actions/render@v2
 
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      uses: SamKirkland/FTP-Deploy-Action@v4.4.0
       with:
         server: erfindergeist.org
         username: ${{ secrets.FTP_USERNAME_SHARE }}
