@@ -102,6 +102,18 @@ Sie sehen, wie leistungsfähig KI auf lokalem Equipment läuft.
 
 Sie sehen den Unterschied zwischen lokalem Betrieb und Cloud-Skalierung.
 
+## Wie läuft es heute ab: HuggingFace
+
+**Was wir über HuggingFace zeigen:**
+
+- **FLUX.1** — Text-zu-Bild: aus einer Beschreibung wird ein Bild generiert
+- **Wan2.2** — Text-zu-Video: aus einer Beschreibung wird ein kurzes Video generiert
+- **Whisper** — Sprache-zu-Text: gesprochene Sprache wird automatisch transkribiert
+- **Kokoro TTS** — Text-zu-Sprache: Texte werden in natürliche Stimmen umgewandelt
+- **Pixal3D** — Bild-zu-3D: ein Foto wird in ein 3D-Modell verwandelt
+
+Offene Modelle, die jeder kostenlos ausprobieren kann — direkt im Browser.
+
 ## Wie läuft es heute ab: Unternehmens-Showcase
 
 **Echte KI-Anwendungen aus der Praxis:**
@@ -361,6 +373,247 @@ Beispiele in OpenCode zeigen.
 - Meshy ist eine KI-gestützte 3D-Modellierungsplattform, die es Benutzern ermöglicht, komplexe 3D-Modelle durch einfache Textbeschreibungen oder andere Anweisungen zu erstellen. Es nutzt fortschrittliche KI-Technologien, um realistische und detaillierte 3D-Modelle zu generieren, die in verschiedenen Anwendungen wie Spieleentwicklung, Animation oder Produktdesign verwendet werden können.
 
 <!-- TODO: Gezeichnetes Bild -> 3D-Modell Abbildung einfügen -->
+
+# HuggingFace
+
+**HuggingFace** ist die größte Plattform für offene KI-Modelle — vergleichbar mit GitHub, aber für KI.
+
+Heute zeigen wir fünf Demos aus verschiedenen Bereichen: Bild, Video, Sprache und 3D.
+
+## HuggingFace: Die Plattform
+
+- Über **1 Million Modelle** frei verfügbar: Sprache, Bild, Audio, Video
+- **Spaces**: Interaktive Demos, direkt im Browser — keine Installation nötig
+- Modelle von großen Laboren (Meta, Google, OpenAI) und Community-Entwicklern
+- Mit einem **Pro-Account** lassen sich leistungsfähigere GPU-Ressourcen nutzen
+
+::: aside
+[huggingface.co](https://huggingface.co) — kostenlose Basisnutzung, Pro-Account für erweiterte Ressourcen
+:::
+
+# HuggingFace: FLUX.1 — Text zu Bild
+
+**FLUX.1 [schnell]** von **Black Forest Labs** erzeugt hochwertige Bilder aus Textbeschreibungen — in wenigen Sekunden.
+
+> *„A red panda sitting on a rooftop at sunset, cinematic"* → fertiges Bild
+
+Demo: [huggingface.co/spaces/black-forest-labs/FLUX.1-schnell](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell)
+
+## HuggingFace: Was ist FLUX.1?
+
+::: columns
+::: {.column width="60%"}
+- Entwickelt von **Black Forest Labs** — gegründet von den Autoren von Stable Diffusion
+- **[schnell]** bedeutet: optimiert für Geschwindigkeit — 1–4 Schritte statt 20–50
+- Qualität vergleichbar mit Midjourney oder DALL·E 3
+- Architektur: **Diffusion** — Start aus Rauschen, schrittweise Verfeinerung
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Typ | Text-to-Image |
+| Schritte | 1–4 |
+| Lizenz | Offen |
+| Laufzeit | ~3–8 s/Bild |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+## HuggingFace: Wie funktioniert Text-to-Image?
+
+**Diffusion — vereinfacht in drei Schritten:**
+
+1. **Start**: Das Modell beginnt mit einem Bild aus purem Rauschen
+2. **Entrauschen**: Schritt für Schritt wird das Rauschen reduziert — geleitet vom Text-Prompt
+3. **Ergebnis**: Nach wenigen Schritten entsteht ein kohärentes Bild
+
+FLUX.1 [schnell] erreicht gute Qualität schon in **4 Schritten** — klassische Modelle brauchen 20–50.
+
+## HuggingFace: Tipps für gute Prompts
+
+**Was funktioniert gut:**
+
+- Stil nennen: *„watercolor painting", „photorealistic", „oil on canvas"*
+- Licht beschreiben: *„golden hour", „soft studio lighting", „dramatic shadows"*
+- Komposition angeben: *„close-up portrait", „wide angle", „bird's eye view"*
+
+**Was FLUX.1 nicht zuverlässig kann:**
+
+- Lesbaren Text im Bild erzeugen
+- Exakte Personenähnlichkeit reproduzieren
+
+# HuggingFace: Wan2.2 — Text zu Video
+
+**Wan2.2** ist ein offenes Video-Generierungsmodell von **Wan-AI** — es erzeugt aus einer Textbeschreibung ein kurzes Video.
+
+> *„A cat walking through a sunlit garden"* → fertiges Video
+
+Demo: [huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2](https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2)
+
+## HuggingFace: Was ist Wan2.2?
+
+::: columns
+::: {.column width="60%"}
+- Entwickelt von **Wan-AI** (wan.video), veröffentlicht als offenes Modell
+- Modellgröße: **14 Milliarden Parameter**
+- Aufgabe: **Text-to-Video** — aus einer Beschreibung wird ein kurzes Video synthetisiert
+- Architektur: **Diffusion** — dasselbe Prinzip wie FLUX.1, aber für Videosequenzen
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Parameter | 14B |
+| Typ | Text-to-Video |
+| Lizenz | Offen |
+| Laufzeit | ~30–60 s/Video |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+## HuggingFace: FP8 — Warum läuft das im Browser?
+
+Das Modell hat 14B Parameter — normalerweise **~28 GB RAM** nötig (FP16).
+
+Die Demo-Version nutzt **FP8-Quantisierung** (8 Bit statt 16 Bit pro Zahl):
+
+- RAM-Bedarf sinkt auf **~14 GB** — passt auf eine GPU-Instanz
+- Qualitätsverlust kaum wahrnehmbar
+- **AOTI** (Ahead-of-Time Compilation) beschleunigt die Inferenz zusätzlich
+
+HuggingFace stellt kostenlose GPU-Rechenzeit bereit (*Running on Zero*) — daher kann jeder die Demo gratis nutzen.
+
+# HuggingFace: Whisper — Sprache zu Text
+
+**Whisper** von **OpenAI** wandelt gesprochene Sprache automatisch in Text um — in über 90 Sprachen.
+
+Demo: Mikrofon aufnehmen oder Audio hochladen → Text erscheint automatisch.
+
+Demo: [huggingface.co/spaces/hf-audio/whisper-large-v3](https://huggingface.co/spaces/hf-audio/whisper-large-v3)
+
+## HuggingFace: Was kann Whisper?
+
+::: columns
+::: {.column width="60%"}
+- **Spracherkennung** in über 90 Sprachen
+- **Übersetzung**: direkt ins Englische ohne Zwischenschritt
+- Funktioniert mit Mikrofon oder hochgeladenen Audio-Dateien
+- Sehr robust gegenüber Dialekten, Akzenten und Hintergrundgeräuschen
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Typ | Speech-to-Text |
+| Sprachen | 90+ |
+| Lizenz | Offen (MIT) |
+| Laufzeit | Echtzeit |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+## HuggingFace: Wo wird Whisper eingesetzt?
+
+- Automatische Untertitel für Videos
+- Transkription von Meetings und Interviews
+- Barrierefreiheit: Gesprochenes für Hörgeschädigte in Text umwandeln
+- Basis für Sprachassistenten und Sprachsteuerung
+
+Whisper ist das **„Ohr"** der KI — Kokoro TTS ist die **„Stimme"**.
+
+# HuggingFace: Kokoro TTS — Text zu Sprache
+
+**Kokoro** erzeugt aus geschriebenem Text natürlich klingende Sprache — die Umkehrung von Whisper.
+
+> Whisper: Sprache → Text · Kokoro: Text → Sprache
+
+Demo: [huggingface.co/spaces/hexgrad/Kokoro-TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
+
+## HuggingFace: Was kann Kokoro TTS?
+
+::: columns
+::: {.column width="60%"}
+- Über **50 Stimmen** — verschiedene Altersgruppen, Akzente, Geschlechter
+- Mehrsprachig: Englisch, Deutsch, Französisch, Japanisch u.v.m.
+- Sehr natürlicher Klang — kaum von menschlicher Stimme zu unterscheiden
+- Läuft vollständig im Browser, keine Installation nötig
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Typ | Text-to-Speech |
+| Stimmen | 50+ |
+| Lizenz | Offen |
+| Laufzeit | ~2–5 s |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+## HuggingFace: Whisper + Kokoro = Sprach-Pipeline
+
+**Aus zwei Bausteinen wird ein vollständiger Sprachassistent:**
+
+```
+Mikrofon → [Whisper] → Text → [KI-Modell] → Text → [Kokoro] → Lautsprecher
+```
+
+- **Whisper**: Sprache → Text (Eingabe verstehen)
+- **KI-Modell**: Text → Text (antworten)
+- **Kokoro**: Text → Sprache (vorlesen)
+
+So entstehen Sprachassistenten — aus frei verfügbaren, offenen Bausteinen.
+
+# HuggingFace: Pixal3D — Bild zu 3D-Modell
+
+**Pixal3D** von Tencent ARC wandelt ein einzelnes Foto in ein vollständiges 3D-Modell um — mit Textur, direkt im Browser rotierbar.
+
+Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
+
+## HuggingFace: Was ist Pixal3D?
+
+::: columns
+::: {.column width="60%"}
+- Eingang: ein einzelnes Foto (Produkt, Gegenstand, Figur)
+- Ausgang: vollständiges 3D-Modell mit Textur als `.glb`-Datei
+- Basiert auf **Multi-View Diffusion** — das Modell ergänzt nicht sichtbare Seiten
+- Ergebnis direkt im Browser rotierbar und herunterladbar
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Typ | Image-to-3D |
+| Eingang | 1 Foto |
+| Ausgang | .glb / .obj |
+| Laufzeit | ~30–90 s |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+## HuggingFace: Pixal3D vs. OpenSCAD + KI
+
+**Zwei Wege zum 3D-Modell — beide mit KI:**
+
+::: columns
+::: {.column width="50%"}
+**OpenSCAD + Claude Code**
+
+- Eingang: Textbeschreibung
+- Ausgang: parametrischer Code → 3D
+- Stärke: präzise Maße, jederzeit änderbar
+- Geeignet für: technische Bauteile
+:::
+::: {.column width="50%"}
+**Pixal3D**
+
+- Eingang: ein Foto
+- Ausgang: fotorealistisches 3D-Modell
+- Stärke: organische Formen, Texturen
+- Geeignet für: kreative Assets, Spieleentwicklung
+:::
+:::
 
 # Cloud: Azure Showcases
 
