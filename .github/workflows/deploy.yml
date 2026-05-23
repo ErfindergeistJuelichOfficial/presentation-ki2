@@ -27,9 +27,9 @@ jobs:
 
     - name: render & copy PDFs
       run: |
-        quarto render ki2.qmd --to pdf
+        ## quarto render ki2.qmd --to pdf ## not needed, because already rendered in previous step
         quarto render handout.qmd --to pdf
-        cp ki2.pdf _site/ki2.pdf
+        ## cp ki2.pdf _site/ki2.pdf
         cp handout.pdf _site/handout.pdf
 
     - name: 📂 Sync files
