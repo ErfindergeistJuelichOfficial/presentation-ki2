@@ -25,6 +25,13 @@ jobs:
     - name: quarto render website & pdf
       uses: quarto-dev/quarto-actions/render@v2
 
+    - name: render & copy PDFs
+      run: |
+        quarto render ki2.qmd --to pdf
+        quarto render handout.qmd --to pdf
+        cp ki2.pdf _site/ki2.pdf
+        cp handout.pdf _site/handout.pdf
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.4.0
       with:

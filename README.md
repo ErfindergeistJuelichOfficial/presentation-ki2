@@ -23,6 +23,16 @@ alternate:
 quarto preview ki2.qmd --no-cache
 ```
 
+## PDFs lokal generieren
+
+```shell
+# Präsentation als PDF
+quarto render ki2.qmd --to pdf
+
+# Handout als PDF
+quarto render handout.qmd --to pdf
+```
+
 ## Documentation Presentation
 
 - <https://quarto.org/docs/presentations/revealjs/>

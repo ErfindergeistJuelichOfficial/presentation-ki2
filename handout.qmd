@@ -1,0 +1,63 @@
+---
+title: "KI-Workshop 2 — Handout"
+subtitle: "Erfindergeist Jülich e.V."
+lang: de
+format:
+  pdf:
+    documentclass: article
+    toc: true
+    toc-depth: 2
+    papersize: a4
+    margin-left: 25mm
+    margin-right: 25mm
+    margin-top: 25mm
+    margin-bottom: 25mm
+---
+
+# Erfindergeist Jülich e.V.
+
+<!-- TODO: Kurzvorstellung des Vereins -->
+
+# Was ist KI?
+
+<!-- TODO: Definition KI, LLMs, was KI nicht ist -->
+
+# Token, Parameter, Präzision, RAM
+
+<!-- TODO: Token-Erklärung, Parameter, Quantisierung, RAM-Bedarf, TPS -->
+
+# Lokale KI
+
+## Ollama & OpenWeb UI
+
+<!-- TODO: Beschreibung, Einsatzbereich -->
+
+## OpenCode
+
+<!-- TODO: Beschreibung -->
+
+## ComfyUI
+
+<!-- TODO: Beschreibung -->
+
+# Cloud-KI
+
+## OpenSCAD + Claude Code
+
+<!-- TODO: Beschreibung 3D-Modellierung via KI -->
+
+## Meshy
+
+<!-- TODO: Text-to-3D -->
+
+# HuggingFace — Open-Source Modelle
+
+<!-- TODO: FLUX, Wan2, Whisper, Kokoro TTS, Pixal3D -->
+
+# Unternehmens-Showcase
+
+<!-- TODO: Azure und weitere Enterprise-Anwendungen -->
+
+# Referenzen
+
+<!-- TODO: Links zu allen Tools mit Abrufdatum -->
