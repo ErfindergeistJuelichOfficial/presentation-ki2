@@ -39,3 +39,6 @@ jobs:
         protocol: ftps
         state-name: .ftp-deploy-presentation-ki2.json
         server-dir: /presentations/ki2/
+        exclude: |
+          handout.html
+          index.html
