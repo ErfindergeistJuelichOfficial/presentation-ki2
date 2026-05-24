@@ -124,6 +124,38 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 [Chip-Text]{.token-chip}   ← Gelber Chip im Monospace-Stil (z.B. für Token-Beispiele)
 ```
 
+## HTML-Demo-Folien
+
+Interaktive Demos werden als **eigenstandige HTML-Dateien** im Root abgelegt (z.B. `demo-heart.html`).
+Quarto kopiert sie automatisch nach `_site/` - keine Quarto-Konfiguration notig.
+
+JavaScript-Bibliotheken (GSAP etc.) mussen **lokal** unter `js/` liegen - nicht von externen CDNs laden,
+da die Prasentation stand-alone funktionieren muss (share.erfindergeist.org wird abgeschaltet).
+
+Einbindung in eine Folie via iframe:
+
+```markdown
+## Titel {background-color="#222222"}
+
+```{=html}
+<iframe src="demo-name.html"
+  style="width:100%;height:85vh;border:none;background:#222222;">
+</iframe>
+```
+```
+
+Regeln:
+
+- `background-color` auf der Folie immer mit dem Demo-Hintergrund abstimmen (`#222222` fur Dark)
+- Kein erklarender Text in der HTML-Datei - Erklarung auf Vor- oder Nachfolgefolie
+- GSAP laden via `<script src="js/gsap.min.js"></script>`
+
+Bestehende Demos:
+
+| Datei | Inhalt |
+| --- | --- |
+| `demo-heart.html` | GSAP-Pulsanimation: Kreis (alt) vs. Herzform (neu) |
+
 ## Build
 
 ```bash
