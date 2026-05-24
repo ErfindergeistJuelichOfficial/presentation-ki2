@@ -622,9 +622,24 @@ Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/T
 
 xxx love xxx
 
-# Prompt-Beispiel: Termine-Webseite
+# Termine-Webseite
 
 KI-generierte Webseite um den Termine und erklärungen wie die Termine öffentlich zur verfügung gestellt werden.
+
+
+## Plan erstellen
+
+Der Plan ist das Herzstück um die KI in die richtige richtung zu lenken. Es ist wichtig hier so genau wie möglich zu sein, damit die KI auch wirklich das generiert was man möchte.
+
+- Technologie einschränken
+- Zielgruppe definieren und Inhaltliche Schwerpunkte setzen
+- Alles in Bereiche aufbrechen (header, Footer, Bereiche definieren)
+- CI Definieren (Farben, Schriften, Logo, etc.)
+- Code Quality und Sicherheit definieren
+
+## Reicht ein Plan?
+
+Natürlich reicht ein guter Plan nicht aus. Verfeinerungen folgen.
 
 ## Prompt-Beispiel: Herzanimation
 
@@ -690,13 +705,15 @@ Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Se
 </script>
 ```
 
-# Aside
+## Claude.md
 
-Hallo Welt
+im Internet manchmal als Token-Fresser gebrandmarkt kann die Claude.md sehr hilfreich sein. Man kann Claude immer wieder sagen ergänze die Claude.md mit unseren letzten erkentnissen. 
 
-::: aside
-Fussnote: Some additional commentary of more peripheral interest.
-:::
+## Prompt-Beispiel: Archivments
+
+Die Minispiele wurden so angepasst dass gelber text oder anomationen diese an teaser. Es gab nur einen Prompt um den Archivment bereich zu erstellen:
+
+Finde alle klickbaren spiele mit gelben text. Erstelle eine Archivment bereich. Archivments sind zuerst grau. 
 
 # Referenzen
 
