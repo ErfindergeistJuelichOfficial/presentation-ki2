@@ -67,6 +67,41 @@
   color: #F9B338;
 }
 
+/* === Prompt-Bubble (Wiederverwendbar: .prompt-window > .prompt-window-bar + .prompt-window-body > .prompt-bubble) === */
+.prompt-window {
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 90%;
+  margin: 1rem auto;
+  box-shadow: 0 6px 28px #00000055;
+  font-family: system-ui, sans-serif;
+}
+.prompt-window-bar {
+  background: #2d2d2d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid #3a3a3a;
+  color: #aaaaaa;
+  font-size: 0.72em;
+  letter-spacing: 0.06em;
+}
+.prompt-window-body {
+  padding: 0.8rem;
+}
+.prompt-bubble {
+  background: #F9B338;
+  color: #1a1a1a;
+  border-radius: 16px 16px 3px 16px;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.88em;
+  line-height: 1.55;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
 /* === Foliennummer === */
 .reveal .slide-number-a,
 .reveal .slide-number-delimiter,

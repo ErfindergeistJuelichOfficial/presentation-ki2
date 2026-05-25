@@ -641,9 +641,10 @@ Der Plan ist das Herzstück um die KI in die richtige richtung zu lenken. Es ist
 
 Natürlich reicht ein guter Plan nicht aus. Verfeinerungen folgen.
 
-## Prompt-Beispiel: Herzanimation
+## Prompt-Beispiel: Herzanimation 1/2
 
-Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Seite verlinkt [gsap.com](https://gsap.com/community/forums/topic/28814-using-gsap-to-loop-a-pulsing-animation/) (fig. 1) folgend wurde gepromptet, dass die Animation mehr wie das eigentliche Herz aussehen soll (fig. 2).
+- Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Seite verlinkt [gsap.com](https://gsap.com/community/forums/topic/28814-using-gsap-to-loop-a-pulsing-animation/) (fig. 1)
+- folgend wurde gepromptet, dass die Animation mehr wie das eigentliche Herz aussehen soll (fig. 2).
 
 ```{=html}
 <style>
@@ -654,7 +655,7 @@ Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Se
   .hd-icon { position:relative; z-index:1; width:48px; height:48px; color:#F9B338; }
 </style>
 
-<div style="display:flex;justify-content:center;align-items:center;height:30vh;gap:160px;background:#222222;">
+<div style="display:flex;justify-content:center;align-items:center;height:20vh;gap:160px;background:#222222;">
 
   <div class="hd-wrap" id="hd-left">
     <div class="hd-ring circle"></div>
@@ -705,9 +706,33 @@ Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Se
 </script>
 ```
 
+## Prompt-Beispiel: Herzanimation 2/2
+
+```{=html}
+<div class="prompt-window">
+  <div class="prompt-window-bar">Prompt 1</div>
+  <div class="prompt-window-body">
+    <div class="prompt-bubble">
+      Erstelle im Sponsoring-Bereich ein Herz Icon und nutze die Animation von gsap.com/community/forums/topic/28814‑using‑gsap‑to‑loop‑a‑pulsing‑animation/
+    </div>
+  </div>
+</div>
+```
+
+```{=html}
+<div class="prompt-window">
+  <div class="prompt-window-bar">Prompt 2</div>
+  <div class="prompt-window-body">
+    <div class="prompt-bubble">
+      Die Animation vom Herz Icon im Sponsoring-Bereich soll mehr wie ein Herz aussehen.
+    </div>
+  </div>
+</div>
+```
+
 ## Claude.md
 
-im Internet manchmal als Token-Fresser gebrandmarkt kann die Claude.md sehr hilfreich sein. Man kann Claude immer wieder sagen ergänze die Claude.md mit unseren letzten erkentnissen. 
+im Internet manchmal als Token-Fresser gebrandmarkt kann die Claude.md sehr hilfreich sein. Man kann Claude immer wieder sagen ergänze die Claude.md mit unseren letzten erkenntnissen. 
 
 ## Prompt-Beispiel: Archivments
 
