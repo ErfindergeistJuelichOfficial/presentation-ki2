@@ -618,6 +618,11 @@ Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/T
 :::
 :::
 
+
+# Microsoft
+
+https://adoption.microsoft.com/de-de/scenario-library/
+
 # Cloud: Azure Showcases
 
 xxx love xxx
