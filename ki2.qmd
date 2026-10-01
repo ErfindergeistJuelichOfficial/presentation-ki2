@@ -141,9 +141,24 @@ Kein Vorwissen nötig — jede Frage ist willkommen.
 
 - **Künstliche Intelligenz (KI)** bezeichnet Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. Indem es Mathematische Modelle und Algorithmen verwendet, kann KI Muster erkennen, Vorhersagen treffen und Probleme lösen.
 
-- KI umfasst viele Bereiche: Bilderkennung, Sprachverarbeitung, Empfehlungssysteme und mehr.
 
 - **Large Language Models (LLM)** sind eine spezielle Form der KI, trainiert auf riesigen Textmengen — sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
+
+## Was sind LLM
+
+**Large Language Models (LLM)** sind KI-Modelle, die auf riesigen Textmengen trainiert wurden. Sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
+
+Beispiel: ChatGPT, Claude, Copilot, Qwen, Gemini, Deepseek
+
+Zu beachten ist das Dienste wie ChatGPT, Copilot oder Gemini auf LLMs basieren, aber nicht die LLMs selbst sind. Sie sind Anwendungen, die auf den Modellen aufbauen.
+
+## Andere arten von KI
+
+- **Computer Vision:** KI erkennt und interpretiert Bilder und Videos, z.B. für Gesichtserkennung oder medizinische Bildanalyse.
+
+- **Speech Recognition:** KI wandelt gesprochene Sprache in Text um, z.B. für virtuelle Assistenten oder Transkriptionen.
+
+- **Information extraction:** KI analysiert Texte, um relevante Informationen zu extrahieren, z.B. für Datenbanken oder Zusammenfassungen. 
 
 ## Was ist KI?: Was ist KI nicht
 
@@ -152,6 +167,154 @@ Kein Vorwissen nötig — jede Frage ist willkommen.
 - KI generiert Antworten, indem es die wahrscheinlichsten nächsten Wörter vorhersagt, basierend auf den Mustern, die es in den Trainingsdaten gelernt hat. Daher ist die Antwort nicht wirklich zufällig, sondern eine Zahl, die in den Trainingsdaten häufig vorkommt oder als wahrscheinlich angesehen wird. In diesem Fall könnte es sein, dass die Zahl 73 oft in den Daten vorkommt.
 
 <!-- Ziel ist es aufzuzeigen wo die unterscheide zwischen Tokens in der Cloud und Lokal liegen. Am ende muss jeder Teilnehmer die Unterschiede verstehen. Die Tiefe sollte sich auf Parameter und Präzision beschränken-->
+
+
+
+
+# Prompting
+
+- Ziel: Prompting verstehen und optimieren
+
+## Prompting: Was ist ein Prompt?
+
+- **System prompt:** definiert die Rolle des Modells und den Kontext der Aufgabe. Beispiel: *„Du bist ein hilfsbereiter Assistent, der komplexe Themen einfach erklärt."*
+
+- **User prompt:** enthält die eigentliche Frage oder Aufgabe, die das Modell beantworten soll. Beispiel: *„Erkläre mir den Unterschied zwischen KI und Machine Learning."*
+
+:::aside
+**Merke:** System prompts sind oft unsichtbar für den Benutzer, während user prompts direkt eingegeben werden. Beide zusammen bilden die Grundlage für die Interaktion mit dem Modell.
+:::
+
+## Prompting: SAND Methode
+
+::: {.plain-table}
+|   |   |
+|---|---|
+| **Situation** | Rolle KI-, Zielgruppe und Hintergrund definieren (Context wie z.B. E-Mail, Webseite, PDF, Bild etc. hinzufügen) |
+| **Aufgabe** | Was soll die KI tun? (z.B. Text generieren, Code schreiben, Bild erstellen) |
+| **Nebenbedingungen** | Regeln, Einschränkungen, (z.B. Beispiele anfügen) |
+| **Darstellung** | Ausgabe Format (z.B. als Liste, Tabelle, Fließtext) |
+
+: {tbl-colwidths="[30,70]"}
+:::
+
+## Prompting: Beispiel ohne SAND
+
+::: {.prompt-box .prompt-weak}
+Schreib eine Einladung zum KI-Workshop.
+:::
+
+::: {.fragment}
+Die KI muss raten:
+
+- Wer schreibt, an wen?
+- Was genau soll drinstehen?
+- Wie lang, welcher Ton?
+- Als E-Mail, Plakat oder Social-Media-Post?
+:::
+
+## Prompting: Beispiel mit SAND
+
+::: {.prompt-box}
+::: {.fragment}
+[S]{.sand-letter} Schreibe für einen MINT-Verein. Die Leser sind interessierte Laien ohne Vorwissen. (anhang: PDF des Workshops mit allen fakten)
+:::
+::: {.fragment}
+[A]{.sand-letter} Schreibe eine Einladung zu unserem nächsten KI-Workshop.
+:::
+::: {.fragment}
+[N]{.sand-letter} Maximal 120 Wörter, freundlich, Sie-Form, keine Fachbegriffe.
+:::
+::: {.fragment}
+[D]{.sand-letter} Als E-Mail mit Betreffzeile und drei Stichpunkten zum Ablauf.
+:::
+:::
+
+::: {.notes}
+Die vier Teile erscheinen nacheinander. Bei jedem Schritt kurz zurück auf die Fragen der vorherigen Folie verweisen: Jede SAND-Zeile beantwortet eine Frage, die die KI sonst hätte raten müssen.
+
+Idealerweise live vorführen: erst den kurzen Prompt, dann den SAND-Prompt in dieselbe KI eingeben und die Ergebnisse vergleichen.
+:::
+
+## Prompting: Chat-Umgebung
+
+Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
+
+::: columns
+::: {.column width="50%"}
+### **Mit Gedächtnis**
+
+- Merkt sich Vorlieben und Fakten
+- Kennt frühere Chats, Dateien, E-Mails
+- z.B. ChatGPT mit Memory, M365 Copilot
+:::
+::: {.column width="50%"}
+### **Ohne Gedächtnis**
+
+- Jeder Chat beginnt bei null
+- Weiß nur, was im Prompt steht
+- z.B. API, einfache Chat-Oberflächen
+:::
+:::
+
+## Prompting: Kontextfenster
+
+- Das **Arbeitsgedächtnis** des Modells
+- Gemessen in **Token** (Textbausteine, dazu gleich mehr)
+- Alles muss hineinpassen: Prompt, Anhänge, Chatverlauf und Antwort
+- Ist das Fenster voll, wird der Anfang des Chats „vergessen“
+
+::: aside
+**Merke:** Viel Kontext ist gut, aber nur so viel, wie hineinpasst.
+:::
+
+## Prompting: Kontext größe
+
+| Kontextfenster | entspricht ca. | typisch für |
+|---|---|---|
+| 4.000 Token | 6 Seiten | lokale Modelle (Voreinstellung Ollama) |
+| 128.000 Token | 180 Seiten | viele offene Modelle (z.B. Llama, Qwen) |
+| 1.000.000 Token | 1.400 Seiten | große Cloud-Modelle (z.B. Gemini, Claude) |
+
+: {tbl-colwidths="[30,25,45]"}
+
+::: aside
+**Faustregel:** 1 Seite deutscher Text ≈ 700 Token. Stand: Oktober 2026, Werte ändern sich schnell.
+:::
+
+## Prompting: Antworten (1/2)
+
+### **Nichtdeterminismus**
+
+Gleicher Prompt, unterschiedliche Antworten.
+
+[Das Modell berechnet Wahrscheinlichkeiten für die nächsten Wörter – dabei fließen zufällige Elemente ein.]{style="color:#aaaaaa"}
+
+### **Halluzination**
+
+Das Modell erfindet Fakten, die nicht korrekt sind.
+
+[Es erzeugt eine plausible Antwort, auch wenn es keine verlässlichen Informationen hat.]{style="color:#aaaaaa"}
+
+
+## Prompting: Antworten (2/2)
+
+### **Bias**
+
+Vorurteile und Verzerrungen aus den Trainingsdaten.
+
+[Sind die Trainingsdaten nicht ausgewogen, werden Antworten einseitig oder unfair.]{style="color:#aaaaaa"}
+
+### **Overreliance**
+
+Zu viel Vertrauen in die KI.
+
+[Eigene Fähigkeiten und kritisches Denken werden vernachlässigt.]{style="color:#aaaaaa"}
+
+::: aside
+**Merke:** Antworten der KI immer hinterfragen und überprüfen.
+:::
+
 # Token
 
 - Token sind die kleinsten Texteinheiten, in die ein KI-Modell Text zerlegt. Gleichzeitig dienen sie als Abrechnungseinheit bei Cloud-Diensten.

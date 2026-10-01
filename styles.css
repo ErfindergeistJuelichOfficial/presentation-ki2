@@ -31,6 +31,43 @@
   background: #2d2d2d;
 }
 
+/* === Tabelle ohne Rahmen (Nutzung: ::: {.plain-table}) === */
+.reveal .plain-table table tr th,
+.reveal .plain-table table tr td {
+  border: none;
+  background: none;
+}
+.reveal .plain-table td:first-child::first-letter { color: #159989; }
+
+/* === Prompt-Box (Nutzung: ::: {.prompt-box}, schwach: .prompt-weak) === */
+.reveal .prompt-box {
+  background: #2d2d2d;
+  border-left: 4px solid #159989;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+}
+.reveal .prompt-box.prompt-weak { border-left-color: #aaaaaa; }
+.reveal .prompt-box p {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+  margin: 0.5em 0;
+}
+
+/* === SAND-Buchstabe als Mint-Kreis (Nutzung: [S]{.sand-letter}) === */
+.sand-letter {
+  flex-shrink: 0;
+  width: 1.6em;
+  height: 1.6em;
+  line-height: 1.6em;
+  text-align: center;
+  border-radius: 50%;
+  background: #159989;
+  color: #222222;
+  font-weight: bold;
+}
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;

@@ -9,6 +9,7 @@
 <https://quarto.org/docs/get-started/>
 
 - install quarto for ur OS
+  - Fedora: use the tarball installion docu
 - install extension for ur Code Editor
 - vs code installed python from astral.sh (uv.exe) for me
 
