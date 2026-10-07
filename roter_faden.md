@@ -7,14 +7,9 @@ alles was man coden kann ist super für KI
 
 ## tests
 
-- hunde/cookies
-- Pinguine
 
-## überlegen prompot injection aufnehmen?
 
-## plan.md -> snake
 
-## karim papercli pdf 
 
 ## Neuer roter faden. ein haupteil Ziel Entwicklung von 3D-Druckbaren Objekten mit hilfe von KI.
 

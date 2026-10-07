@@ -125,6 +125,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.plain-table}          ← Tabelle ohne Rahmen/Zebra, 1. Buchstabe der 1. Spalte in Mint
 ::: {.prompt-box}           ← Prompt-Darstellung: dunkle Box mit Mint-Rand (.prompt-weak = grauer Rand)
 [S]{.sand-letter}           ← Buchstabe im Mint-Kreis (z.B. für SAND-Beispiel)
+::: {.chat-input}           ← Text als Chat-Eingabefeld (abgerundet, Mint-Senden-Button)
 ```
 
 ## HTML-Demo-Folien

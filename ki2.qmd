@@ -152,6 +152,93 @@ Beispiel: ChatGPT, Claude, Copilot, Qwen, Gemini, Deepseek
 
 Zu beachten ist das Dienste wie ChatGPT, Copilot oder Gemini auf LLMs basieren, aber nicht die LLMs selbst sind. Sie sind Anwendungen, die auf den Modellen aufbauen.
 
+## Arten von LLMs
+
+::: columns
+::: {.column width="50%"}
+### Text-Modelle
+
+- Eingabe: nur Text
+- Ausgabe: Text
+- z.B. Llama 3, DeepSeek-R1
+:::
+::: {.column width="50%"}
+### Multimodale Modelle
+
+- Eingabe: Text, **Bilder**, teils Audio
+- „Sehen“ Fotos, Screenshots, Diagramme, Handschrift
+- z.B. GPT, Claude, Gemini, Gemma 3
+:::
+:::
+
+::: aside
+Multimodal = mehrere Modalitäten, also Arten von Eingaben wie Text, Bild oder Ton.
+:::
+
+::: {.notes}
+Multimodale Modelle verarbeiten Bilder selbst: Ein Bild wird in kleine Bildausschnitte zerlegt und in Token umgewandelt – ähnlich wie Text. Dafür ist kein externes Werkzeug wie Texterkennung (OCR) nötig. Bilder verbrauchen dabei ebenfalls Token im Kontextfenster.
+
+Text-Modelle können mit einem Bild nichts anfangen. Viele Modelle gibt es in beiden Varianten, z.B. Qwen (Text) und Qwen-VL (Vision-Language).
+:::
+
+
+## Beispiel: Multimodale Modelle
+
+![](images/chihuahua-muffin.jpg){fig-align="center" height="420"}
+
+Chihuahua oder Muffin? Bild hochladen und die KI fragen.
+
+## Ergebnis: Chihuahua Muffin
+
+![](images/chihuahua-muffin-gemma.png){fig-align="center" height="520"}
+
+## Spezielle Coding-LLMs
+
+Sprachmodelle, die besonders viel **Programmcode** gelernt haben.
+
+- Schreiben und erklären Code
+- Vervollständigen Code beim Tippen
+- Können Programme selbst testen und Fehler beheben
+
+**Beispiele:** Claude Code, Qwen-Coder, Kimi K3
+
+
+
+::: {.notes}
+Coding-Modelle sind normale LLMs, die zusätzlich mit großen Mengen Quellcode trainiert wurden. Dadurch beherrschen sie Syntax und typische Muster vieler Sprachen besser.
+
+„Ergänzen mitten in einer Datei“ (Fill-in-the-Middle): Das Modell sieht Code vor und nach der Cursorposition und füllt die Lücke – die Grundlage für Autovervollständigung im Editor.
+
+Werkzeuge: Moderne Coding-Modelle sind darauf trainiert, selbstständig Dateien zu lesen, zu bearbeiten und Befehle (z.B. Tests) auszuführen. Das nutzen Coding-Agenten wie OpenCode oder Claude Code – dazu später mehr.
+
+Große Allround-Modelle wie Claude oder GPT sind ebenfalls sehr gut im Programmieren. Spezielle Coding-Modelle lohnen sich vor allem lokal, weil ein kleineres Spezialmodell auf eigener Hardware läuft und beim Code trotzdem gute Ergebnisse liefert.
+:::
+
+## Web-GUI mit Tools
+
+- **Web-GUI:** die Chat-Oberfläche im Browser, z.B. ChatGPT oder Open WebUI
+- **Tools:** Werkzeuge, die die KI bei Bedarf selbst aufruft
+
+Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen
+
+**Ablauf:** Frage → KI wählt Tool → Anwendung führt es aus → KI antwortet mit dem Ergebnis
+
+::: {.notes}
+Das Sprachmodell allein kann nur Text lesen und schreiben. Es kann nicht ins Internet schauen, nicht zuverlässig rechnen und keine Dateien öffnen.
+
+Die Web-GUI (Graphical User Interface = grafische Oberfläche) ist die Anwendung rund um das Modell. Sie stellt dem Modell Tools zur Verfügung. Das Modell entscheidet selbst, wann es ein Tool braucht, z.B. „Für diese Frage brauche ich aktuelle Infos → Websuche“. Die Anwendung führt die Suche aus und gibt das Ergebnis an das Modell zurück, das daraus die Antwort formuliert.
+
+Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann das Modell das nicht wissen.
+:::
+
+
+## Live Coding Snake
+
+::: {.chat-input}
+Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
+:::
+
+
 ## Andere arten von KI
 
 - **Computer Vision:** KI erkennt und interpretiert Bilder und Videos, z.B. für Gesichtserkennung oder medizinische Bildanalyse.

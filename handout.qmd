@@ -23,6 +23,28 @@ format:
 
 <!-- TODO: Kurzvorstellung des Vereins -->
 
+# Multimodale Modelle
+
+**Text-Modelle** verarbeiten nur Text (z.B. Llama 3, DeepSeek-R1). **Multimodale Modelle** verarbeiten zusätzlich Bilder, teils auch Audio (z.B. GPT, Claude, Gemini, Gemma 3). Sie „sehen“ Fotos, Screenshots, Diagramme und Handschrift – ohne zusätzliches Werkzeug.
+
+| Eingabe | Text-Modell | Multimodales Modell |
+|---|---|---|
+| Foto, Screenshot | nicht möglich | direkt, ohne Hilfswerkzeug |
+| PDF mit Text | Anwendung zieht vorher den Text heraus | Text, teils auch Seiten als Bild |
+| Gescanntes PDF | nur mit Texterkennung (OCR) | Seiten werden als Bilder gelesen |
+
+: {tbl-colwidths="[24,38,38]"}
+
+Bilder versteht das multimodale Modell selbst. PDFs bereitet meist die Anwendung auf – Diagramme und Layout können dabei verloren gehen.
+
+## Selbst ausprobieren: Chihuahua oder Muffin?
+
+Das Bild in ein multimodales Modell hochladen und fragen: *„Welche Bilder zeigen einen Hund, welche einen Muffin?“*
+
+![Fotos (Reihe 1 und 2, jeweils von links): Ksison24, Andy Li, Arana102, National Cancer Institute (Renee Comet), Bajinra, Niewiadomek, Busujima Miruku, Madonnazi. Alle gemeinfrei bzw. CC0 via Wikimedia Commons.](images/chihuahua-muffin.jpg){width="100%"}
+
+Auflösung: Reihe 1: Hund, Muffin, Hund, Muffin – Reihe 2: Muffin, Hund, Muffin, Hund.
+
 
 
 # Unternehmens-Showcase

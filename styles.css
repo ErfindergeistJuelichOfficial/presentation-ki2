@@ -55,6 +55,34 @@
   margin: 0.5em 0;
 }
 
+/* === Chat-Eingabefeld wie in einer Web-UI (Nutzung: ::: {.chat-input}) === */
+.reveal .chat-input {
+  position: relative;
+  margin: 2em auto 0;
+  max-width: 90%;
+  background: #2d2d2d;
+  border: 1px solid #aaaaaa;
+  border-radius: 1.2em;
+  padding: 0.6em 3.2em 0.6em 1.2em;
+  font-size: 0.85em;
+}
+.reveal .chat-input p { margin: 0; }
+.reveal .chat-input::after {
+  content: "↑";
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  text-align: center;
+  border-radius: 50%;
+  background: #159989;
+  color: #222222;
+  font-weight: bold;
+}
+
 /* === SAND-Buchstabe als Mint-Kreis (Nutzung: [S]{.sand-letter}) === */
 .sand-letter {
   flex-shrink: 0;
