@@ -21,9 +21,19 @@ format:
 
 # Erfindergeist Jülich e.V.
 
-<!-- TODO: Kurzvorstellung des Vereins -->
+- Gemeinnütziger Verein mit Sitz in Jülich, gegründet 2021
+- Ziel: Förderung von Kreativität und Innovation durch praktisches Lernen und Zusammenarbeit
+- Angebote: Workshops und Kreativ-Tage, Repair Café, Offene Werkstatt (3D-Drucker, Lasergravur, Holzverarbeitung, Textilveredelung)
 
-# Multimodale Modelle
+Der 3D-Drucker der Offenen Werkstatt (Prusa Core One) ist der Bezugspunkt für den Hauptteil dieses Workshops: Wie entsteht mit KI ein 3D-Modell, das man drucken kann?
+
+# Was ist KI?
+
+**Künstliche Intelligenz (KI)** bezeichnet Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. **Large Language Models (LLMs)** sind KI-Modelle, die auf riesigen Textmengen trainiert wurden. Sie verstehen und erzeugen Sprache.
+
+Dienste wie ChatGPT, Copilot oder Gemini basieren auf LLMs, sind aber nicht die LLMs selbst – sie sind Anwendungen, die auf den Modellen aufbauen.
+
+## Text-Modelle und multimodale Modelle
 
 **Text-Modelle** verarbeiten nur Text (z.B. Llama 3, DeepSeek-R1). **Multimodale Modelle** verarbeiten zusätzlich Bilder, teils auch Audio (z.B. GPT, Claude, Gemini, Gemma 3). Sie „sehen“ Fotos, Screenshots, Diagramme und Handschrift – ohne zusätzliches Werkzeug.
 
@@ -37,7 +47,7 @@ format:
 
 Bilder versteht das multimodale Modell selbst. PDFs bereitet meist die Anwendung auf – Diagramme und Layout können dabei verloren gehen.
 
-## Selbst ausprobieren: Chihuahua oder Muffin?
+### Selbst ausprobieren: Chihuahua oder Muffin?
 
 Das Bild in ein multimodales Modell hochladen und fragen: *„Welche Bilder zeigen einen Hund, welche einen Muffin?“*
 
@@ -45,13 +55,138 @@ Das Bild in ein multimodales Modell hochladen und fragen: *„Welche Bilder zeig
 
 Auflösung: Reihe 1: Hund, Muffin, Hund, Muffin – Reihe 2: Muffin, Hund, Muffin, Hund.
 
+## Spezielle Coding-LLMs
 
+Sprachmodelle, die besonders viel Programmcode gelernt haben. Sie schreiben und erklären Code, vervollständigen Code beim Tippen und können Programme selbst testen und Fehler beheben. Beispiele (Stand: Oktober 2026): Qwen3-Coder, Devstral, GPT-Codex.
 
-# Unternehmens-Showcase
+## Was KI nicht ist
 
-<!-- TODO: Azure und weitere Enterprise-Anwendungen -->
+KI ist kein Zufallsgenerator und kein Taschenrechner. Sie sagt das *wahrscheinlichste* nächste Wort voraus. Fragt man nach einer „zufälligen Zahl“, kommt daher oft eine Zahl, die in den Trainingsdaten häufig vorkommt.
 
-# Termine
+# Token, Parameter und Hardware
+
+- **Token** sind die kleinsten Texteinheiten, in die ein KI-Modell Text zerlegt. Faustregel: 100 Token entsprechen etwa 75 Wörtern.
+- **Parameter** sind die gelernten Zahlenwerte eines Modells. Ein 7B-Modell enthält 7 Milliarden davon.
+- **Präzision** gibt an, wie viele Bits eine Zahl belegt. Mit 4 Bit (Q4) statt 16 Bit (FP16) sinkt der RAM-Bedarf auf etwa ein Viertel.
+- **Tokens pro Sekunde (TPS)** misst, wie schnell ein Modell lokal antwortet.
+
+| Modell | 16 Bit (FP16) | 4 Bit (Q4) |
+|---|---|---|
+| 3B | ca. 6 GB | ca. 2 GB |
+| 7B | ca. 14 GB | ca. 4–5 GB |
+| 13B | ca. 26 GB | ca. 8 GB |
+| 70B | ca. 140 GB | ca. 40 GB |
+
+: RAM-Bedarf (Richtwerte) {tbl-colwidths="[30,35,35]"}
+
+| | Cloud | Lokal |
+|---|---|---|
+| Modellgröße | sehr groß (oft nicht veröffentlicht) | 7B–13B Parameter (quantisiert) |
+| Geschwindigkeit | hängt vom Anbieter ab | hängt von eigener Hardware ab |
+| Kontextfenster | bis ca. 1 Mio. Token | 4K–128K Token |
+| Daten | verlassen den eigenen Rechner | bleiben auf dem eigenen Rechner |
+| Kosten | laufend (Abo oder pro Token) | einmalig (Hardware) + Strom |
+
+: Cloud und lokal im Vergleich (Stand: Oktober 2026) {tbl-colwidths="[22,39,39]"}
+
+# Prompting
+
+Ein **Prompt** ist die Eingabe an die KI. Der *System-Prompt* legt Rolle und Rahmen fest (oft unsichtbar), der *User-Prompt* enthält die eigentliche Frage.
+
+## Die SAND-Methode
+
+| | |
+|---|---|
+| **Situation** | Rolle der KI, Zielgruppe und Hintergrund (Kontext wie E-Mail, Webseite, PDF, Bild) |
+| **Aufgabe** | Was soll die KI tun? (Text generieren, Code schreiben, Bild erstellen) |
+| **Nebenbedingungen** | Regeln, Einschränkungen, Stil, Länge, Formatierung, Beispiele |
+| **Darstellung** | Wie soll das Ergebnis aussehen? (Liste, Tabelle, Fließtext) |
+
+: {tbl-colwidths="[25,75]"}
+
+Beispiel ohne SAND: *„Schreib eine Einladung zum KI-Workshop.“* – die KI muss Zielgruppe, Ton, Länge und Format raten.
+
+Beispiel mit SAND:
+
+- **S:** Sie schreiben für einen Technik-Verein. Die Leser sind interessierte Laien ohne Vorwissen.
+- **A:** Schreiben Sie eine Einladung zu unserem nächsten KI-Workshop.
+- **N:** Maximal 120 Wörter, freundlich, Sie-Form, keine Fachbegriffe.
+- **D:** Als E-Mail mit Betreffzeile und drei Stichpunkten zum Ablauf.
+
+## Kontext und Kontextfenster
+
+Manche Anwendungen haben ein Gedächtnis (Memory, frühere Chats, Zugriff auf Dateien), andere beginnen jeden Chat bei null. **Je weniger die KI weiß, desto mehr Kontext muss der Prompt liefern.**
+
+Das **Kontextfenster** ist das Arbeitsgedächtnis des Modells. Prompt, Anhänge, Chatverlauf und Antwort müssen hineinpassen. Ist es voll, wird der Anfang des Chats „vergessen“. Faustregel: 1 Seite deutscher Text entspricht etwa 700 Token.
+
+## Grenzen der Antworten
+
+- **Nichtdeterminismus:** Gleicher Prompt, unterschiedliche Antworten.
+- **Halluzination:** Das Modell erfindet plausibel klingende, aber falsche Fakten.
+- **Bias:** Vorurteile aus den Trainingsdaten fließen in die Antworten ein.
+- **Overreliance:** Zu viel Vertrauen in die KI – eigenes kritisches Denken leidet.
+
+**Merke:** Antworten der KI immer hinterfragen und überprüfen.
+
+# Eingabemöglichkeiten
+
+| Art | Lokal | Cloud |
+|---|---|---|
+| Chat im Browser (Web-UI) | Open WebUI | ChatGPT, Claude.ai, Gemini |
+| Terminal / Agent (CLI) | OpenCode | Claude Code |
+| Im Editor (IDE) | VS Code + Continue | GitHub Copilot |
+
+: {tbl-colwidths="[30,30,40]"}
+
+- **Web-UI mit Tools:** Die Chat-Oberfläche stellt dem Modell Werkzeuge bereit (Websuche, Rechnen, Dateien lesen). Das Modell entscheidet, wann es ein Tool braucht; die Anwendung führt es aus.
+- **Ollama + Open WebUI:** Ollama startet Sprachmodelle auf dem eigenen Rechner, Open WebUI ist die Chat-Oberfläche dazu. Alle Daten bleiben lokal.
+- **Coding-Agenten (OpenCode, Claude Code):** KI im Terminal, die selbstständig Dateien liest und schreibt, Befehle ausführt und testet.
+- **IDE:** KI direkt im Code-Editor, z.B. GitHub Copilot oder Continue mit Ollama.
+
+**Code ist Text:** Alles, was man als Code beschreiben kann – Webseiten, Präsentationen, 3D-Modelle – kann KI gut erzeugen.
+
+# 3D-Generierung mit KI
+
+## Weg 1: Text – Code – 3D (OpenSCAD)
+
+OpenSCAD beschreibt 3D-Objekte als Programmcode statt mit der Maus. Grundformen wie Zylinder, Quader und Kugeln werden kombiniert und verschoben. Eine KI wie Claude Code (Cloud) oder OpenCode mit einem lokalen Coding-Modell schreibt diesen Code aus einer Beschreibung in natürlicher Sprache.
+
+Vorgehen: Objekt beschreiben, Code erzeugen lassen, Ergebnis prüfen, mit weiteren Prompts verfeinern. Bilder oder Skizzen als Teil des Prompts helfen sehr.
+
+**Merke:** KI ersetzt keine CAD-Kenntnisse – sie macht den Einstieg deutlich einfacher.
+
+## Weg 2: Bild – 3D
+
+Aus einem Foto oder einer Zeichnung erzeugt die KI ein 3D-Modell (Mesh). Sie ergänzt dabei auch die nicht sichtbaren Seiten.
+
+- **Lokal:** ComfyUI + Hunyuan3D – braucht eine leistungsstarke Grafikkarte
+- **Cloud:** Meshy (meshy.ai) – keine Installation nötig
+- **Ohne Installation testen:** Hunyuan3D-2.1 und Pixal3D auf HuggingFace
+
+## Vergleich
+
+| | Weg 1: OpenSCAD + KI | Weg 2: Bild zu 3D |
+|---|---|---|
+| Eingabe | Text (und Skizzen) | Foto oder Zeichnung |
+| Ergebnis | Code, exaktes Modell | Mesh (Dreiecksnetz) |
+| Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
+| Stärke | technische Teile, Gebäude | Figuren, organische Formen |
+| Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
+| Cloud | Claude Code | Meshy |
+
+: {tbl-colwidths="[18,41,41]"}
+
+# Vom Modell zum Druck
+
+1. **Export:** OpenSCAD exportiert direkt als STL. Bild-zu-3D-Werkzeuge liefern oft GLB oder OBJ.
+2. **Slicer** (z.B. PrusaSlicer): zerlegt das Modell in Schichten und erzeugt die Druckdatei.
+3. **Drucken:** z.B. in der Offenen Werkstatt des Erfindergeist Jülich e.V.
+
+Typische Probleme bei KI-Modellen: fehlende echte Maße (im Slicer skalieren), Löcher im Mesh, zu dünne Wände, Überhänge ohne Stützmaterial.
+
+<!-- TODO: Bonus HuggingFace (FLUX.1, Wan2.2, Whisper, Kokoro) kurz zusammenfassen -->
+
+# Bonus: Termine-Webseite
 
 ## Plan
 
@@ -341,7 +476,27 @@ Das Herz im Sponsoring-Bereich soll folgende animation haben https://gsap.com/co
 Die Puls Animation beim Herz im Sponsoring Bereich soll herzförmig aussehen statt als Kreis.
 ```
 
+# Bonus: Azure Showcases
+
+<!-- TODO: Unternehmens-Showcases ergänzen -->
+
+Weitere Szenarien: Microsoft Scenario Library, <https://adoption.microsoft.com/de-de/scenario-library/>
 
 # Referenzen
 
-<!-- TODO: Links zu allen Tools mit Abrufdatum -->
+Alle Links abgerufen am 09.10.2026.
+
+- Ollama: <https://ollama.com>
+- Open WebUI: <https://openwebui.com>
+- OpenCode: <https://opencode.ai>
+- Claude Code: <https://www.anthropic.com/claude-code>
+- OpenSCAD: <https://openscad.org>
+- ComfyUI: <https://www.comfy.org>
+- Meshy: <https://www.meshy.ai>
+- HuggingFace: <https://huggingface.co>
+- Hunyuan3D-2.1: <https://huggingface.co/spaces/tencent/Hunyuan3D-2.1>
+- Pixal3D: <https://huggingface.co/spaces/TencentARC/Pixal3D>
+- FLUX.1: <https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell>
+- Whisper: <https://huggingface.co/spaces/hf-audio/whisper-large-v3>
+- Kokoro TTS: <https://huggingface.co/spaces/hexgrad/Kokoro-TTS>
+- Präsentation online: <https://presentations.erfindergeist.org/ki2/>

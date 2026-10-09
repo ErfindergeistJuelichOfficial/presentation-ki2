@@ -44,9 +44,41 @@ format:
   * Repair Cafe
   * Offene Werkstatt (3D-Drucker, Lasergravur, Holzverarbeitung, Textilveredelung, etc.)
 
+::: {.notes}
+Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker ist später der rote Faden des Workshops.
+:::
+
+
+## Offene Werkstatt: 3D-Druck
+
+::: columns
+::: {.column width="55%"}
+- 3D-Drucker baut Objekte **Schicht für Schicht** aus Kunststoff
+- Aus einer Datei am Computer wird ein echtes Objekt
+- Ideal für Ersatzteile, Prototypen, Halterungen, Modelle
+- Bei uns: **Prusa Core One** in der Offenen Werkstatt
+:::
+::: {.column width="45%"}
+![](images/werkstatt-3d-druck.webp){fig-align="center" height="500"}
+:::
+:::
 
 ::: {.notes}
-Speaker notes go here.
+Das Foto zeigt den Prusa Core One der Offenen Werkstatt. Frage ans Publikum: Wer hat schon einmal etwas 3D-gedruckt?
+:::
+
+## Vom Modell zum Druck
+
+1. **3D-Modell** erstellen (z.B. als STL-Datei)
+2. **Slicer** zerlegt das Modell in Schichten (z.B. PrusaSlicer)
+3. **Drucker** druckt Schicht für Schicht
+
+**Heute im Fokus:** Wie KI beim ersten Schritt hilft — dem 3D-Modell.
+
+::: {.notes}
+Die größte Hürde für Einsteiger ist meist nicht der Drucker, sondern das 3D-Modell: Klassische CAD-Programme brauchen viel Einarbeitung. Genau hier setzt der Hauptteil des Workshops an – 3D-Modelle mit Hilfe von KI erstellen.
+
+STL = verbreitetes Dateiformat für 3D-Modelle (beschreibt die Oberfläche als Dreiecke).
 :::
 
 ## Spenden
@@ -67,75 +99,9 @@ Speaker notes go here.
 :::
 :::
 
-
-# Wie läuft es heute ab
-
-Heute führen wir Sie Schritt für Schritt durch die Welt der KI —
-von den Grundlagen bis zu echten Unternehmensanwendungen.
-
-Wir zeigen, demonstrieren und beantworten Ihre Fragen.
-
-## Wie läuft es heute ab: Theorie
-
-**Was wir erklären:**
-
-- Was ist KI — und was ist sie *nicht*?
-- Wie funktionieren große Sprachmodelle?
-- Was sind Token und warum sind sie wichtig?
-
-Ziel: gemeinsames Grundverständnis für alles, was danach kommt.
-
-## Wie läuft es heute ab: Lokal-Demos
-
-**Was wir live vorführen — auf unserer eigenen Hardware:**
-
-- **Ollama + OpenWeb UI** — KI-Chatbot ohne Internet und Cloud
-- **OpenCode** — KI unterstützt beim Programmieren
-- **ComfyUI** — KI generiert Bilder aus Text
-
-Sie sehen, wie leistungsfähig KI auf lokalem Equipment läuft.
-
-## Wie läuft es heute ab: Cloud-Demos
-
-**Was wir über Cloud-Dienste zeigen:**
-
-- **3D-Modellierung: OpenSCAD + Claude Code** — 3D-Modelle aus Text erstellen (technisch)
-- **Meshy** — 3D-Modelle aus Text oder Skizzen erstellen (Kreativ)
-- **Azure KI-Dienste** — Unternehmensgrade KI-Integration von Microsoft
-
-Sie sehen den Unterschied zwischen lokalem Betrieb und Cloud-Skalierung.
-
-## Wie läuft es heute ab: HuggingFace
-
-**Was wir über HuggingFace zeigen:**
-
-- **FLUX.1** — Text-zu-Bild: aus einer Beschreibung wird ein Bild generiert
-- **Wan2.2** — Text-zu-Video: aus einer Beschreibung wird ein kurzes Video generiert
-- **Whisper** — Sprache-zu-Text: gesprochene Sprache wird automatisch transkribiert
-- **Kokoro TTS** — Text-zu-Sprache: Texte werden in natürliche Stimmen umgewandelt
-- **Pixal3D** — Bild-zu-3D: ein Foto wird in ein 3D-Modell verwandelt
-
-Offene Modelle, die jeder kostenlos ausprobieren kann — direkt im Browser.
-
-## Wie läuft es heute ab: Unternehmens-Showcase
-
-**Echte KI-Anwendungen aus der Praxis:**
-
-- Eine Firma stellt mehrere konkrete Fallbeispiele vor
-- Von der Problemstellung zur KI-Lösung
-- Was funktioniert gut — und wo sind die Grenzen?
-
-Praxisbezug für alle, die KI im Berufs- oder Unternehmenskontext einsetzen wollen.
-
-## Wie läuft es heute ab: Fragen & Diskussion
-
-**Sie sind nicht nur Zuschauer:**
-
-- Nach jeder Phase: Zeit für Fragen
-- Am Ende: offene Diskussionsrunde
-
-Kein Vorwissen nötig — jede Frage ist willkommen.
-
+::: {.notes}
+Kurz auf Spendenmöglichkeiten hinweisen – nicht zu lange verweilen, am Ende kommt die Folie noch einmal.
+:::
 
 # Was ist KI?
 
@@ -144,6 +110,10 @@ Kein Vorwissen nötig — jede Frage ist willkommen.
 
 - **Large Language Models (LLM)** sind eine spezielle Form der KI, trainiert auf riesigen Textmengen — sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
 
+::: {.notes}
+Einstieg: KI ist ein Oberbegriff. LLMs sind nur ein Teil davon – aber der Teil, um den es heute hauptsächlich geht.
+:::
+
 ## Was sind LLM
 
 **Large Language Models (LLM)** sind KI-Modelle, die auf riesigen Textmengen trainiert wurden. Sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
@@ -151,6 +121,10 @@ Kein Vorwissen nötig — jede Frage ist willkommen.
 Beispiel: ChatGPT, Claude, Copilot, Qwen, Gemini, Deepseek
 
 Zu beachten ist das Dienste wie ChatGPT, Copilot oder Gemini auf LLMs basieren, aber nicht die LLMs selbst sind. Sie sind Anwendungen, die auf den Modellen aufbauen.
+
+::: {.notes}
+Wichtig ist die Unterscheidung Modell vs. Anwendung: ChatGPT ist die Anwendung, GPT das Modell dahinter. Das wird später bei den Eingabemöglichkeiten wieder wichtig.
+:::
 
 ## Arten von LLMs
 
@@ -188,9 +162,19 @@ Text-Modelle können mit einem Bild nichts anfangen. Viele Modelle gibt es in be
 
 Chihuahua oder Muffin? Bild hochladen und die KI fragen.
 
+::: {.notes}
+Live-Demo: Bild in ein multimodales Modell hochladen (z.B. Gemma 3 in Open WebUI oder ChatGPT) und fragen: „Welche Bilder zeigen einen Hund, welche einen Muffin?“
+
+Auflösung (Reihe für Reihe, von links): Hund, Muffin, Hund, Muffin – Muffin, Hund, Muffin, Hund.
+:::
+
 ## Ergebnis: Chihuahua Muffin
 
 ![](images/chihuahua-muffin-gemma.png){fig-align="center" height="520"}
+
+::: {.notes}
+Ergebnis des lokalen Modells besprechen: Was wurde richtig erkannt, wo lag es daneben?
+:::
 
 ## Spezielle Coding-LLMs
 
@@ -214,53 +198,137 @@ Werkzeuge: Moderne Coding-Modelle sind darauf trainiert, selbstständig Dateien 
 Große Allround-Modelle wie Claude oder GPT sind ebenfalls sehr gut im Programmieren. Spezielle Coding-Modelle lohnen sich vor allem lokal, weil ein kleineres Spezialmodell auf eigener Hardware läuft und beim Code trotzdem gute Ergebnisse liefert.
 :::
 
-## Web-GUI mit Tools
+## Andere Arten von KI
 
-- **Web-GUI:** die Chat-Oberfläche im Browser, z.B. ChatGPT oder Open WebUI
-- **Tools:** Werkzeuge, die die KI bei Bedarf selbst aufruft
+- **Bilderkennung (Computer Vision):** KI erkennt und interpretiert Bilder und Videos, z.B. für Gesichtserkennung oder medizinische Bildanalyse.
 
-Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen
+- **Spracherkennung (Speech Recognition):** KI wandelt gesprochene Sprache in Text um, z.B. für virtuelle Assistenten oder Transkriptionen.
 
-**Ablauf:** Frage → KI wählt Tool → Anwendung führt es aus → KI antwortet mit dem Ergebnis
+- **Informationsextraktion (Information Extraction):** KI analysiert Texte, um relevante Informationen zu extrahieren, z.B. für Datenbanken oder Zusammenfassungen. 
 
 ::: {.notes}
-Das Sprachmodell allein kann nur Text lesen und schreiben. Es kann nicht ins Internet schauen, nicht zuverlässig rechnen und keine Dateien öffnen.
-
-Die Web-GUI (Graphical User Interface = grafische Oberfläche) ist die Anwendung rund um das Modell. Sie stellt dem Modell Tools zur Verfügung. Das Modell entscheidet selbst, wann es ein Tool braucht, z.B. „Für diese Frage brauche ich aktuelle Infos → Websuche“. Die Anwendung führt die Suche aus und gibt das Ergebnis an das Modell zurück, das daraus die Antwort formuliert.
-
-Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann das Modell das nicht wissen.
+Nicht jede KI ist ein Sprachmodell. Viele Anwendungen im Alltag (Gesichtserkennung im Handy, Diktierfunktion) nutzen spezialisierte Modelle.
 :::
-
-
-## Live Coding Snake
-
-::: {.chat-input}
-Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
-:::
-
-
-## Andere arten von KI
-
-- **Computer Vision:** KI erkennt und interpretiert Bilder und Videos, z.B. für Gesichtserkennung oder medizinische Bildanalyse.
-
-- **Speech Recognition:** KI wandelt gesprochene Sprache in Text um, z.B. für virtuelle Assistenten oder Transkriptionen.
-
-- **Information extraction:** KI analysiert Texte, um relevante Informationen zu extrahieren, z.B. für Datenbanken oder Zusammenfassungen. 
 
 ## Was ist KI?: Was ist KI nicht
 
-- Experiment. besuchen Sie **https://chatgpt.com/** und fragen Sie "Nenne mir eine zufällige Zahl."
+**Experiment** auf [chatgpt.com](https://chatgpt.com/):
 
-- KI generiert Antworten, indem es die wahrscheinlichsten nächsten Wörter vorhersagt, basierend auf den Mustern, die es in den Trainingsdaten gelernt hat. Daher ist die Antwort nicht wirklich zufällig, sondern eine Zahl, die in den Trainingsdaten häufig vorkommt oder als wahrscheinlich angesehen wird. In diesem Fall könnte es sein, dass die Zahl 73 oft in den Daten vorkommt.
+::: {.chat-input}
+Nenne mir eine zufällige Zahl.
+:::
+
+::: {.fragment}
+KI ist **kein Zufallsgenerator**: Sie sagt das **wahrscheinlichste** nächste Wort voraus. Meistens 73, weil diese Zahl in den Trainingsdaten oft vorkommt.
+:::
+
+::: {.notes}
+KI generiert Antworten, indem sie die wahrscheinlichsten nächsten Wörter vorhersagt – basierend auf den Mustern aus den Trainingsdaten. Die Antwort ist daher nicht wirklich zufällig, sondern eine Zahl, die in den Trainingsdaten häufig vorkommt oder als wahrscheinlich gilt. Es könnte z.B. sein, dass die Zahl 73 oft in den Daten vorkommt.
+
+Tipp: Mehrere Teilnehmer gleichzeitig fragen lassen und die Antworten vergleichen.
+:::
+
+# Token
 
 <!-- Ziel ist es aufzuzeigen wo die unterscheide zwischen Tokens in der Cloud und Lokal liegen. Am ende muss jeder Teilnehmer die Unterschiede verstehen. Die Tiefe sollte sich auf Parameter und Präzision beschränken-->
 
+- Token sind die kleinsten Texteinheiten, in die ein KI-Modell Text zerlegt.
+
+- Jedes Wort und Satzzeichen zählt meist als 1 Token. Leerzeichen werden typischerweise dem nächsten Token vorangestellt, nicht als eigenes Token gezählt.
+
+- Ein Token ist nicht immer ein ganzes Wort. Das Wort „Apfel” ist vielleicht ein Token, „Verständnisfragen” hingegen werden in mehrere Tokens zerlegt.
+
+::: {.notes}
+Ziel der Section: verstehen, wie die KI Text „sieht“, und warum lokale Modelle kleiner sind als Cloud-Modelle.
+:::
 
 
+## Token: Beispiele
+
+- Beispiel: „Hallo Welt!” → 3 Token („Hallo”, „ Welt”, „!”).
+
+- Faustregel: 100 Token entsprechen etwa 75 Wörtern.
+
+- Interaktiv ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+
+::: {.notes}
+Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergleichen – deutsche Texte brauchen oft mehr Token.
+:::
+
+
+## Token: Was sind Parameter?
+
+Wer KI lokal betreiben will, muss verstehen: wie viel RAM braucht ein Modell? Das hängt direkt von den Parametern ab.
+
+- Parameter sind die gelernten Zahlenwerte eines Modells. Ein **7B-Modell** enthält **7.000.000.000 solcher Zahlen** — sie bestimmen gemeinsam, wie das Modell auf Eingaben reagiert.
+
+- Je mehr Parameter, desto leistungsfähiger — aber auch desto mehr RAM wird benötigt.
+
+::: {.notes}
+Bild: Parameter sind wie Stellschrauben, die beim Training eingestellt wurden. Mehr Stellschrauben = mehr Wissen und Fähigkeiten, aber auch mehr Speicherbedarf.
+:::
+
+## Token: Präzision und RAM-Bedarf
+
+**Präzision** = wie viele Bits eine Zahl im Modell belegt. Weniger Bits = weniger RAM.
+
+| Modell | 16 Bit (FP16) | 4 Bit (Q4) |
+|---|---|---|
+| 3B | ~6 GB | ~2 GB |
+| 7B | ~14 GB | ~4–5 GB |
+| 13B | ~26 GB | ~8 GB |
+| 70B | ~140 GB | ~40 GB |
+
+: {tbl-colwidths="[30,35,35]"}
+
+Ollama nutzt meist 4 Bit: **25 % des RAM**, kaum merklicher Qualitätsverlust.
+
+::: {.notes}
+FP16 = 16 Bit = 2 Byte pro Parameter. Ein 7B-Modell braucht also 7 Mrd. × 2 Byte ≈ 14 GB.
+
+Quantisierung (Q4) speichert jede Zahl mit nur 4 Bit. Der RAM-Bedarf sinkt auf etwa ein Viertel. Die Werte sind Richtwerte – dazu kommt noch Speicher für das Kontextfenster.
+:::
+
+## Token: Tokens pro Sekunde
+
+- **Tokens pro Sekunde (TPS)** misst die Geschwindigkeit: wie viele Token das Modell pro Sekunde ausgibt.
+
+- Beispiel: eine Nvidia RTX 4090 (24 GB VRAM) erreicht mit Ollama typischerweise:
+  - ~80–120 TPS für ein 7B-Modell (Q4) — flüssig lesbar
+  - ~40–60 TPS für ein 13B-Modell (Q4) — ebenfalls flüssig
+  - 70B-Modelle (Q4 ~40 GB) passen nicht mehr in den VRAM einer einzelnen Karte
+
+::: aside
+Richtwerte, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellungen.
+:::
+
+::: {.notes}
+Zum Vergleich: Menschen lesen etwa 5–10 Token pro Sekunde. Alles darüber wirkt flüssig.
+:::
+
+## Token: Was sagt uns das nun?
+
+| | **Cloud** | **Lokal** |
+|---|---|---|
+| Modellgröße | sehr groß (oft nicht veröffentlicht) | 7B–13B Parameter (quantisiert) |
+| Geschwindigkeit | hängt vom Anbieter ab | hängt von eigener Hardware ab (TPS) |
+| Kontextfenster | bis ca. 1 Mio. Token | 4K–128K Token |
+| Daten | verlassen den eigenen Rechner | bleiben auf dem eigenen Rechner |
+| Kosten | laufend (Abo oder pro Token) | einmalig (Hardware) + Strom |
+
+: {tbl-colwidths="[22,39,39]"}
+
+::: {.notes}
+Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
+:::
 
 # Prompting
 
 - Ziel: Prompting verstehen und optimieren
+
+::: {.notes}
+Ziel der Section: Die Qualität der Antwort hängt stark von der Frage ab.
+:::
 
 ## Prompting: Was ist ein Prompt?
 
@@ -270,6 +338,10 @@ Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
 
 :::aside
 **Merke:** System prompts sind oft unsichtbar für den Benutzer, während user prompts direkt eingegeben werden. Beide zusammen bilden die Grundlage für die Interaktion mit dem Modell.
+:::
+
+::: {.notes}
+Der System-Prompt ist bei ChatGPT & Co. unsichtbar vorgegeben. In Open WebUI kann man ihn selbst festlegen – das kann man kurz zeigen.
 :::
 
 ## Prompting: SAND Methode
@@ -285,6 +357,10 @@ Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
 : {tbl-colwidths="[30,70]"}
 :::
 
+::: {.notes}
+SAND ist eine Eselsbrücke. Nicht jeder Prompt braucht alle vier Teile – aber je wichtiger das Ergebnis, desto mehr lohnt es sich.
+:::
+
 ## Prompting: Beispiel ohne SAND
 
 ::: {.prompt-box .prompt-weak}
@@ -298,6 +374,10 @@ Die KI muss raten:
 - Was genau soll drinstehen?
 - Wie lang, welcher Ton?
 - Als E-Mail, Plakat oder Social-Media-Post?
+:::
+
+::: {.notes}
+Erst das Publikum fragen, was an diesem Prompt fehlt, dann die Fragen per Klick einblenden.
 :::
 
 ## Prompting: Beispiel mit SAND
@@ -344,10 +424,14 @@ Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
 :::
 :::
 
+::: {.notes}
+Fachbegriffe: zustandsbehaftet (stateful) vs. zustandslos (stateless). Das Sprachmodell selbst merkt sich nie etwas – das Gedächtnis kommt von der Anwendung, die im Hintergrund Informationen in den Prompt einfügt.
+:::
+
 ## Prompting: Kontextfenster
 
 - Das **Arbeitsgedächtnis** des Modells
-- Gemessen in **Token** (Textbausteine, dazu gleich mehr)
+- Gemessen in **Token** (Textbausteine)
 - Alles muss hineinpassen: Prompt, Anhänge, Chatverlauf und Antwort
 - Ist das Fenster voll, wird der Anfang des Chats „vergessen“
 
@@ -355,7 +439,11 @@ Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
 **Merke:** Viel Kontext ist gut, aber nur so viel, wie hineinpasst.
 :::
 
-## Prompting: Kontext größe
+::: {.notes}
+Bild: Das Kontextfenster ist wie ein Schreibtisch. Was nicht mehr draufpasst, fällt herunter – meist das Älteste zuerst.
+:::
+
+## Prompting: Wie groß ist ein Kontextfenster?
 
 | Kontextfenster | entspricht ca. | typisch für |
 |---|---|---|
@@ -367,6 +455,12 @@ Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
 
 ::: aside
 **Faustregel:** 1 Seite deutscher Text ≈ 700 Token. Stand: Oktober 2026, Werte ändern sich schnell.
+:::
+
+::: {.notes}
+Lokale Werkzeuge wie Ollama stellen das Kontextfenster oft klein ein, um Arbeitsspeicher zu sparen. Ein großes Kontextfenster braucht deutlich mehr RAM bzw. VRAM.
+
+Auch bei großen Fenstern gilt: Je voller, desto eher übersieht das Modell Details in der Mitte.
 :::
 
 ## Prompting: Antworten (1/2)
@@ -382,6 +476,12 @@ Gleicher Prompt, unterschiedliche Antworten.
 Das Modell erfindet Fakten, die nicht korrekt sind.
 
 [Es erzeugt eine plausible Antwort, auch wenn es keine verlässlichen Informationen hat.]{style="color:#aaaaaa"}
+
+::: {.notes}
+Nichtdeterminismus: Live denselben Prompt zweimal abschicken und die Antworten vergleichen.
+
+Halluzination: Das Modell erzeugt eine plausible Antwort, auch wenn es keine verlässlichen Informationen hat.
+:::
 
 
 ## Prompting: Antworten (2/2)
@@ -402,78 +502,163 @@ Zu viel Vertrauen in die KI.
 **Merke:** Antworten der KI immer hinterfragen und überprüfen.
 :::
 
-# Token
+::: {.notes}
+Bias: Vorurteile aus den Trainingsdaten werden übernommen.
 
-- Token sind die kleinsten Texteinheiten, in die ein KI-Modell Text zerlegt. Gleichzeitig dienen sie als Abrechnungseinheit bei Cloud-Diensten.
+Overreliance: Gerade bei Code und Fakten gilt – Ergebnis immer prüfen, bevor man es verwendet.
+:::
 
-- Jedes Wort und Satzzeichen zählt meist als 1 Token. Leerzeichen werden typischerweise dem nächsten Token vorangestellt, nicht als eigenes Token gezählt.
+# Eingabemöglichkeiten
 
-- Ein Token ist nicht immer ein ganzes Wort. Das Wort „Apfel” ist vielleicht ein Token, „Verständnisfragen” hingegen werden in mehrere Tokens zerlegt.
+Wie und wo kann man mit KI arbeiten?
 
-
-## Token: Beispiele
-
-- Beispiel: „Hallo Welt!” → 3 Token („Hallo”, „ Welt”, „!”).
-
-- Faustregel: 100 Token entsprechen etwa 75 Wörtern.
-
-- Interaktiv ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+::: {.notes}
+Überleitung: Wir wissen jetzt, wie KI funktioniert und wie man gut fragt. Jetzt geht es darum, wo und wie man KI konkret benutzt.
+:::
 
 
-## Token: Beispiel Rechnung Buch
+## Eingabemöglichkeiten: Übersicht
 
-- Moderne Krimis haben etwa 100.000 Wörter, das wären ca. 133.000 Token.
-- Bei ChatGPT (GPT-4o) würde dies ca. **0,33 USD** kosten — bei teureren Modellen entsprechend mehr (vgl. nächste Folie).
+| Art | Lokal | Cloud |
+|---|---|---|
+| Chat im Browser (Web-UI) | Open WebUI | ChatGPT, Claude.ai, Gemini |
+| Terminal / Agent (CLI) | OpenCode | Claude Code |
+| Im Editor (IDE) | VS Code + Continue | GitHub Copilot |
 
-- Achtung: Jedes KI-Modell hat ein begrenztes **Kontextfenster** — die maximale Anzahl an Token, die es auf einmal verarbeiten kann (z.B. 128.000 Token bei GPT-4o). Ein ganzes Buch übersteigt dieses Limit und müsste in kleinere Abschnitte aufgeteilt werden, was die Kosten erhöhen könnte. Das Kontextfenster erklärt auch, warum eine KI frühere Gesprächsteile "vergessen" kann.
+: {tbl-colwidths="[30,30,40]"}
 
-## Token: Was sind Parameter?
+Das Sprachmodell ist austauschbar — die Oberfläche bestimmt, **was die KI tun darf**.
 
-Wer KI lokal betreiben will, muss verstehen: wie viel RAM braucht ein Modell? Das hängt direkt von den Parametern ab.
+::: {.notes}
+Dasselbe Modell kann in verschiedenen Oberflächen laufen. Im Chat antwortet die KI nur mit Text. Als Agent im Terminal oder Editor darf sie zusätzlich Dateien anlegen, ändern und Befehle ausführen.
 
-- Parameter sind die gelernten Zahlenwerte eines Modells. Ein **7B-Modell** enthält **7.000.000.000 solcher Zahlen** — sie bestimmen gemeinsam, wie das Modell auf Eingaben reagiert.
+Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: Modell läuft beim Anbieter.
+:::
 
-- Je mehr Parameter, desto leistungsfähiger — aber auch desto mehr RAM wird benötigt.
+## Web-GUI mit Tools
 
-## Token: Präzision
+- **Web-GUI:** die Chat-Oberfläche im Browser, z.B. ChatGPT oder Open WebUI
+- **Tools:** Werkzeuge, die die KI bei Bedarf selbst aufruft
 
-**Präzision** beschreibt, wie viele Bits eine Zahl im Modell belegt. Mehr Bits = mehr RAM, aber nicht zwingend bessere Alltagsqualität.
+Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen
 
-RAM-Bedarf bei voller Präzision (FP16 = 16 Bit pro Zahl, 2 Bytes/Parameter)
+**Ablauf:** Frage → KI wählt Tool → Anwendung führt es aus → KI antwortet mit dem Ergebnis
 
-## Token: RAM Anforderungen
+::: {.notes}
+Das Sprachmodell allein kann nur Text lesen und schreiben. Es kann nicht ins Internet schauen, nicht zuverlässig rechnen und keine Dateien öffnen.
 
-* 3B (3 Milliarden Parameter): ~6 GB
-* 7B (7 Milliarden Parameter): ~14 GB
-* 13B (13 Milliarden Parameter): ~26 GB
-* 70B (70 Milliarden Parameter): ~140 GB
+Die Web-GUI (Graphical User Interface = grafische Oberfläche) ist die Anwendung rund um das Modell. Sie stellt dem Modell Tools zur Verfügung. Das Modell entscheidet selbst, wann es ein Tool braucht, z.B. „Für diese Frage brauche ich aktuelle Infos → Websuche“. Die Anwendung führt die Suche aus und gibt das Ergebnis an das Modell zurück, das daraus die Antwort formuliert.
 
-In der Praxis verwendet Ollama quantisierte Modelle (4-bit) — jede Zahl belegt nur noch 4 statt 16 Bit, der RAM-Bedarf sinkt auf **25 %**, bei kaum merklichem Qualitätsverlust — z.B. ~4–5 GB für ein 7B-Modell.
-
+Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann das Modell das nicht wissen.
+:::
 
 
-## Token: Tokens pro Sekunde
+## Lokal: Ollama und Open WebUI
 
-- **Tokens pro Sekunde (TPS)** ist das lokale Pendant zur Cloud-Abrechnung: statt Kosten pro Token misst man hier die Geschwindigkeit — wie viele Token das Modell pro Sekunde ausgibt.
+- **Ollama:** startet Sprachmodelle auf dem eigenen Rechner
+- Modelle per Befehl herunterladen, z.B. `ollama run gemma3`
+- **Open WebUI:** Chat-Oberfläche im Browser, ähnlich wie ChatGPT
+- Verbindet sich mit Ollama — alle Daten bleiben lokal
+- Dokumente hochladen, mehrere Modelle vergleichen
 
-- Beispiel: eine Nvidia RTX 4090 (24 GB VRAM) erreicht mit Ollama typischerweise:
-  - ~80–120 TPS für ein 7B-Modell (Q4) — flüssig lesbar
-  - ~40–60 TPS für ein 13B-Modell (Q4) — ebenfalls flüssig
-  - 70B-Modelle (Q4 ~35 GB) passen nicht mehr in den VRAM einer einzelnen Karte
+::: {.notes}
+Ollama ist der „Motor“: Es lädt und betreibt die Modelle. Open WebUI ist das „Armaturenbrett“: eine Weboberfläche, über die man mit den Modellen chattet.
 
-## Token: Was sagt uns das nun?
+Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Section Token.
+:::
 
-|                   | **Cloud**                        | **Lokal**                          |
-|-------------------|----------------------------------|------------------------------------|
-| Token =           | Abrechnungseinheit               | Geschwindigkeitsmaß (TPS)          |
-| Typische Modelle  | 500B+ Parameter                  | 7B–13B Parameter (quantisiert)     |
-| Kosten            | Laufend, pro Token               | Einmalig (Hardware)                |
-| Kontextfenster    | 128K+ Token                      | 4K–128K Token (modellabhängig)     |
-| RAM-Bedarf        | Kein eigener                     | 4–26 GB je nach Modell             |
+## Im Terminal: Coding-Agenten
 
-: {tbl-colwidths="[22,39,39]"}
+- **Agent:** KI, die selbstständig mehrere Schritte erledigt
+- Liest und schreibt Dateien, führt Befehle aus, testet
+- **OpenCode:** Open Source, auch mit lokalen Modellen über Ollama
+- **Claude Code:** von Anthropic, nutzt Claude-Modelle in der Cloud
 
-# 3D-Modellierung: OpenSCAD + Claude Code
+::: {.notes}
+Im Chat bekommt man Code als Text und muss ihn selbst kopieren und speichern. Ein Coding-Agent arbeitet direkt im Projektordner: Er legt Dateien an, ändert sie, startet Programme und reagiert auf Fehlermeldungen.
+
+OpenCode und Claude Code funktionieren ähnlich. Der Unterschied liegt vor allem im Modell: OpenCode kann lokale Modelle nutzen, Claude Code nutzt die Claude-Modelle von Anthropic.
+
+Beide werden später im 3D-Teil für OpenSCAD genutzt.
+:::
+
+## Im Editor (IDE)
+
+- **IDE:** Programm zum Schreiben von Code, z.B. VS Code
+- KI schlägt beim Tippen Code vor
+- Chat-Fenster direkt neben dem Code
+- **Cloud:** GitHub Copilot · **Lokal:** z.B. Continue + Ollama
+
+::: {.notes}
+IDE = Integrated Development Environment (Entwicklungsumgebung). Die KI sieht den Code, der gerade offen ist, und kann Vorschläge passend zum Projekt machen.
+
+Auch Claude Code und OpenCode lassen sich in VS Code einbinden – die Grenzen zwischen CLI und IDE verschwimmen.
+:::
+
+## Live Coding Snake
+
+::: {.chat-input}
+Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
+:::
+
+::: {.notes}
+Live-Demo: Denselben Prompt einmal im Web-UI (Open WebUI oder ChatGPT) und einmal im Coding-Agenten (OpenCode oder Claude Code) eingeben.
+
+Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden. Agent: Die Datei wird direkt angelegt und kann sofort geöffnet werden.
+:::
+
+## Ergebnis: Snake {background-color="#2c3e50"}
+
+```{=html}
+<iframe src="demo-snake.html"
+  style="width:100%;height:85vh;border:none;background:#2c3e50;">
+</iframe>
+```
+
+::: {.notes}
+Das Spiel live ausprobieren. Hinweis: Dieser Code wurde vollständig von der KI geschrieben.
+:::
+
+## Code ist Text
+
+LLMs schreiben Text — und **Code ist auch nur Text**.
+
+- Webseiten und Spiele (HTML, JavaScript)
+- Präsentationen (diese hier ist mit Quarto geschrieben)
+- **3D-Modelle** (OpenSCAD)
+
+**Merke:** Alles, was man als Code beschreiben kann, kann KI gut.
+
+::: {.notes}
+Überleitung zum Hauptteil: Wenn KI ein Spiel programmieren kann, kann sie auch ein 3D-Modell programmieren. Genau das macht OpenSCAD möglich.
+:::
+
+# 3D-Generierung mit KI
+
+Zwei Wege zum 3D-Modell:
+
+::: columns
+::: {.column width="50%"}
+### Weg 1: Text → Code → 3D
+
+- KI schreibt OpenSCAD-Code
+- Präzise Maße, jederzeit änderbar
+:::
+::: {.column width="50%"}
+### Weg 2: Bild → 3D
+
+- KI erzeugt aus einem Bild ein 3D-Modell
+- Organische Formen, Figuren
+:::
+:::
+
+Beide Wege gibt es **lokal** und in der **Cloud**.
+
+::: {.notes}
+Hauptteil des Workshops. Zwei grundverschiedene Ansätze: Bei Weg 1 schreibt die KI Code, bei Weg 2 erzeugt sie direkt eine 3D-Form.
+:::
+
+# Weg 1: Text → Code → 3D
 
 **OpenSCAD** ist eine Programmiersprache für 3D-Modelle — statt mit der Maus zu modellieren, beschreibt man das Modell als Code.
 
@@ -481,7 +666,11 @@ In der Praxis verwendet Ollama quantisierte Modelle (4-bit) — jede Zahl belegt
 
 Beispiel: Der **Hexenturm Jülich** — ein historisches Wahrzeichen, nachgebaut aus Code.
 
-## 3D-Modellierung: Was ist OpenSCAD?
+::: {.notes}
+Hier kommt alles zusammen: Coding-Agent (Eingabemöglichkeiten) + gute Prompts (SAND) + Code ist Text.
+:::
+
+## OpenSCAD: Was ist OpenSCAD?
 
 ::: columns
 ::: {.column width="60%"}
@@ -512,7 +701,11 @@ roof_d       = 90;
 :::
 :::
 
-## 3D-Modellierung: KI als Programmierpartner
+::: {.notes}
+OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite, Höhe) kann man später ändern, ohne den restlichen Code zu verstehen.
+:::
+
+## OpenSCAD: KI als Programmierpartner
 
 **Wie Claude Code beim Modellieren hilft:**
 
@@ -521,13 +714,21 @@ roof_d       = 90;
 3. Modell wird geprüft und verfeinert — durch weitere Prompts
 4. Iterativer Prozess: Feedback → Anpassung → Verbesserung
 
-## 3D-Modellierung: Beispiel
+::: {.notes}
+Wichtig ist der iterative Ablauf: nicht alles in einem Prompt, sondern Schritt für Schritt.
+:::
+
+## OpenSCAD: Beispiel
 
 > *"Erstelle einen zylindrischen Turm mit konischem Dach und einer spitzen Turmspitze"*
 
-KI ersetzt hier keine CAD-Kenntnisse — sie macht den Einstieg drastisch einfacher.
+**Merke:** KI ersetzt keine CAD-Kenntnisse — sie macht den Einstieg deutlich einfacher.
 
-## 3D-Modellierung: Ergebnis — Hexenturm Jülich
+::: {.notes}
+Der erste Prompt ist bewusst einfach. Details kommen in weiteren Prompts.
+:::
+
+## OpenSCAD: Ergebnis — Hexenturm Jülich
 
 
 ::: columns
@@ -542,7 +743,11 @@ Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe vo
 :::
 :::
 
-## 3D-Modellierung: Modularer Aufbau
+::: {.notes}
+Der Hexenturm ist ein Wahrzeichen von Jülich. Das Modell entstand in mehreren Schritten mit Claude Code.
+:::
+
+## OpenSCAD: Modularer Aufbau
 
 ![](images/scad/hexenturm_parts.png){fig-align="center" height="500"}
 
@@ -550,7 +755,11 @@ Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe vo
 Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
 :::
 
-## 3D-Modellierung: Modularer Aufbau prompts
+::: {.notes}
+Wie beim Prompting gilt: große Aufgaben in kleine Teile zerlegen. Jedes Modul wurde einzeln erstellt und dann zusammengesetzt.
+:::
+
+## OpenSCAD: Modularer Aufbau prompts
 
 ::: columns
 ::: {.column width="45%"}
@@ -566,7 +775,11 @@ Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mit
 :::
 :::
 
-## 3D-Modellierung: Details im Code
+::: {.notes}
+Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten (Bezug zur Folie Chihuahua oder Muffin).
+:::
+
+## OpenSCAD: Details im Code
 
 ![](images/scad/hexenturm details.png){fig-align="center" height="500"}
 
@@ -574,7 +787,11 @@ Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mit
 Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.
 :::
 
-## 3D-Modellierung: Detail prompts
+::: {.notes}
+Details wurden erst ergänzt, als die Grundform stand.
+:::
+
+## OpenSCAD: Detail prompts
 
 ::: columns
 ::: {.column width="55%"}
@@ -590,41 +807,230 @@ Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugef
 :::
 :::
 
-# Lokal: Ollama und OpenWeb UI
-
-- Ollama ist ein lokal bereitgestellter KI-Modell-Runner, der es Benutzern ermöglicht, große Sprachmodelle (LLMs) direkt auf ihrem PC auszuführen, ohne auf Cloud-Dienste angewiesen zu sein. Es bietet eine benutzerfreundliche Oberfläche und unterstützt verschiedene KI-Modelle, die lokal installiert werden können.
-
-- OpenWeb UI ist eine Open-Source-Webanwendung, die es Benutzern ermöglicht, KI-Modelle über eine benutzerfreundliche Weboberfläche zu nutzen. Es bietet Funktionen wie Textgenerierung, Chatbot-Interaktionen und mehr, und kann sowohl lokal als auch in der Cloud betrieben werden.
-
 ::: {.notes}
-Beispiele in OpenWeb UI zeigen.
+Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 :::
 
-# Lokal: OpenCode
+## OpenSCAD: Lokal mit OpenCode
 
-- OpenCode ist eine KI-gestützte Programmierhilfe, die Entwicklern dabei hilft, Code schneller und effizienter zu schreiben. Es bietet Funktionen wie Code-Vervollständigung, Fehlererkennung und Vorschläge für Verbesserungen, um den Entwicklungsprozess zu optimieren.
+<!-- TODO: Gleichen Prompt wie beim Hexenturm mit OpenCode + lokalem Coding-Modell (z.B. Qwen3-Coder über Ollama) ausführen, Screenshot einfügen -->
+
+- Gleicher Ablauf, aber mit **OpenCode** und einem **lokalen Coding-Modell**
+- Keine Daten verlassen den Rechner, keine laufenden Kosten
+- Ergebnis neben dem Claude-Ergebnis vergleichen
 
 ::: {.notes}
-Beispiele in OpenCode zeigen.
+Hier ehrlich zeigen, wo das lokale Modell an Grenzen stößt: komplexere Geometrie, mehr Nachbesserungen nötig, langsamere Antworten. Bezug zur Section Token: kleineres Modell, weniger Parameter.
 :::
 
-# Lokal: ConfyUI
+# Weg 2: Bild → 3D
 
-- ConfyUI ist eine KI-gestützte Anwendung zur Bilderzeugung, die es Benutzern ermöglicht, durch die Eingabe von Textbeschreibungen oder anderen Anweisungen automatisch Bilder zu generieren. Es nutzt fortschrittliche KI-Modelle, um kreative und realistische Bilder basierend auf den gegebenen Eingaben zu erstellen.
+Aus einem Foto oder einer Zeichnung wird ein 3D-Modell.
 
-<!-- TODO: Beispiel Bilder einfügen -->
+- KI „errät“ auch die nicht sichtbaren Seiten
+- Ergebnis: Oberfläche aus Dreiecken (Mesh), oft mit Farbe
+- Gut für Figuren und organische Formen, weniger für exakte Maße
 
-# Cloud: Meshy
+::: {.notes}
+Im Gegensatz zu Weg 1 entsteht hier kein Code, sondern direkt eine Oberfläche aus vielen kleinen Dreiecken. Das ist gut für Figuren, aber Maße lassen sich nachträglich kaum ändern.
+:::
 
-- Meshy ist eine KI-gestützte 3D-Modellierungsplattform, die es Benutzern ermöglicht, komplexe 3D-Modelle durch einfache Textbeschreibungen oder andere Anweisungen zu erstellen. Es nutzt fortschrittliche KI-Technologien, um realistische und detaillierte 3D-Modelle zu generieren, die in verschiedenen Anwendungen wie Spieleentwicklung, Animation oder Produktdesign verwendet werden können.
+## Lokal: ComfyUI + Hunyuan3D
+
+<!-- TODO: Beispielbilder einfügen (Workflow-Screenshot + Ergebnis) -->
+
+- **ComfyUI:** Oberfläche, in der man KI-Schritte als **Knoten** verbindet
+- Ursprünglich für Bilder, inzwischen auch für 3D
+- **Hunyuan3D** (Tencent): offenes Modell für Bild → 3D
+- Läuft auf eigener Grafikkarte — braucht aber viel Grafikspeicher
+
+::: {.notes}
+ComfyUI ist ein Knoten-Editor: Jeder Kasten ist ein Arbeitsschritt (Bild laden, Modell laden, 3D erzeugen, speichern). Die Kästen werden mit Linien verbunden. Fertige Workflows lassen sich als Datei teilen.
+
+Idee für eine Pipeline: Bild mit FLUX erzeugen → in Hunyuan3D zu 3D-Modell → als STL drucken.
+:::
+
+## Cloud: Meshy
 
 <!-- TODO: Gezeichnetes Bild -> 3D-Modell Abbildung einfügen -->
 
-# HuggingFace
+- Webseite für Text → 3D und Bild → 3D
+- Keine Installation, keine eigene Grafikkarte nötig
+- Export u.a. als STL für den 3D-Druck
+- Kostenloser Einstieg mit begrenztem Kontingent
+
+::: aside
+[meshy.ai](https://www.meshy.ai) — Stand: Oktober 2026, Preise und Kontingente ändern sich.
+:::
+
+::: {.notes}
+Live-Demo: Eine einfache Zeichnung hochladen und das Ergebnis im Browser drehen.
+:::
+
+## Ohne Installation: Hunyuan3D auf HuggingFace
+
+<!-- TODO: Space testen, Screenshot des Ergebnisses einfügen -->
+
+- Hunyuan3D-2.1 als Demo direkt im Browser
+- Bild hochladen → 3D-Modell herunterladen
+- Gut zum Ausprobieren, bevor man lokal installiert
+
+::: aside
+[huggingface.co/spaces/tencent/Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1) — Stand: Oktober 2026
+:::
+
+::: {.notes}
+Die Demo läuft auf geteilter Hardware – bei vielen Nutzern kann es Wartezeiten geben.
+:::
+
+## Ohne Installation: Pixal3D
+
+**Pixal3D** von Tencent ARC wandelt ein einzelnes Foto in ein vollständiges 3D-Modell um — mit Textur, direkt im Browser rotierbar.
+
+Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
+
+::: {.notes}
+Live-Demo: Ein Foto hochladen und das Ergebnis im Browser drehen.
+:::
+
+## Pixal3D: Wie funktioniert es?
+
+::: columns
+::: {.column width="60%"}
+- Eingang: ein einzelnes Foto (Produkt, Gegenstand, Figur)
+- Ausgang: vollständiges 3D-Modell mit Textur als `.glb`-Datei
+- Basiert auf **Multi-View Diffusion** — das Modell ergänzt nicht sichtbare Seiten
+- Ergebnis direkt im Browser rotierbar und herunterladbar
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Typ | Image-to-3D |
+| Eingang | 1 Foto |
+| Ausgang | .glb / .obj |
+| Laufzeit | ~30–90 s |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+::: {.notes}
+Das Modell ergänzt nicht sichtbare Seiten – es „rät“, wie die Rückseite aussehen könnte. Bei ungewöhnlichen Objekten kann das schiefgehen.
+:::
+
+## Vergleich der Wege
+
+| | **Weg 1: OpenSCAD + KI** | **Weg 2: Bild → 3D** |
+|---|---|---|
+| Eingabe | Text (und Skizzen) | Foto oder Zeichnung |
+| Ergebnis | Code → exaktes Modell | Mesh (Dreiecksnetz) |
+| Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
+| Stärke | technische Teile, Gebäude | Figuren, organische Formen |
+| Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
+| Cloud | Claude Code | Meshy |
+
+: {tbl-colwidths="[18,41,41]"}
+
+::: {.notes}
+Faustregel: Muss es passen (Ersatzteil, Halterung)? → Weg 1. Soll es gut aussehen (Figur, Deko)? → Weg 2.
+:::
+
+# Vom Modell zum Druck
+
+Das 3D-Modell ist fertig — wie wird daraus ein echtes Objekt?
+
+::: {.notes}
+Schließt den Kreis zur Vorstellung: Das Ziel ist ein echtes, gedrucktes Objekt.
+:::
+
+## Vom Modell zum Druck: Export
+
+- **OpenSCAD:** Modell rendern und als **STL** exportieren
+- **Meshy / Hunyuan3D:** oft GLB oder OBJ → bei Bedarf in STL umwandeln
+- **Slicer** (z.B. PrusaSlicer) zerlegt das Modell in Schichten
+- Ergebnis: Druckdatei für den 3D-Drucker
+
+::: {.notes}
+In OpenSCAD: F6 (rendern), dann Datei → Exportieren → STL. Slicer können meist STL, OBJ und 3MF direkt öffnen.
+:::
+
+## Vom Modell zum Druck: Typische Probleme
+
+- **Größe:** Bild-zu-3D-Modelle haben keine echten Maße → im Slicer skalieren
+- **Löcher im Mesh:** Oberfläche nicht geschlossen → reparieren
+- **Zu dünne Wände:** brechen oder werden nicht gedruckt
+- **Überhänge:** brauchen Stützmaterial
+- Bei OpenSCAD-Modellen deutlich seltener
+
+::: {.notes}
+Viele Slicer reparieren kleine Mesh-Fehler automatisch. Für größere Probleme hilft z.B. Blender.
+:::
+
+## Vom Modell zum Druck: Selbst ausprobieren
+
+<!-- TODO: Foto vom gedruckten Hexenturm einfügen (falls vorhanden) -->
+
+::: columns
+::: {.column width="55%"}
+- 3D-Drucker in der **Offenen Werkstatt** des Erfindergeist Jülich e.V.
+- Eigene KI-Modelle mitbringen und drucken
+:::
+::: {.column width="45%"}
+![](images/werkstatt-3d-druck.webp){fig-align="center" height="350"}
+:::
+:::
+
+::: {.notes}
+Einladung aussprechen: Wer ein eigenes Modell erstellt hat, kann es in der Offenen Werkstatt drucken.
+:::
+
+# Zusammenfassung
+
+::: {.notes}
+Kurzer Rückblick, bevor die Fragerunde startet.
+:::
+
+## Der rote Faden
+
+1. **Verstehen:** KI sagt das wahrscheinlichste nächste Token voraus
+2. **Richtig fragen:** SAND-Methode, Kontext mitgeben
+3. **Werkzeuge kennen:** Web-UI, Agent, Editor — lokal oder Cloud
+4. **Etwas bauen:** Code ist Text → 3D-Modelle mit KI
+5. **Drucken:** Vom Modell zum echten Objekt
+
+::: {.notes}
+Die fünf Schritte noch einmal in eigenen Worten zusammenfassen.
+:::
+
+## Das sollten Sie mitnehmen
+
+- Antworten der KI immer hinterfragen und überprüfen
+- Je weniger die KI weiß, desto mehr Kontext muss der Prompt liefern
+- Lokal: Daten bleiben bei Ihnen · Cloud: größere Modelle
+- Alles, was man als Code beschreiben kann, kann KI gut
+- KI ersetzt keine Fachkenntnisse — sie macht den Einstieg einfacher
+
+::: {.notes}
+Die Merke-Sätze aus den einzelnen Sections.
+:::
+
+# Fragen & Diskussion
+
+Haben Sie Fragen oder Anmerkungen?
+
+::: {.notes}
+Offene Runde. Danach je nach Zeit: Bonus-Teile.
+:::
+
+# Bonus: HuggingFace
 
 **HuggingFace** ist die größte Plattform für offene KI-Modelle — vergleichbar mit GitHub, aber für KI.
 
-Heute zeigen wir fünf Demos aus verschiedenen Bereichen: Bild, Video, Sprache und 3D.
+Zum Abschluss vier Demos aus weiteren Bereichen: Bild, Video und Sprache.
+
+::: {.notes}
+Bonus je nach verfügbarer Zeit. Alle Demos laufen kostenlos im Browser.
+:::
 
 ## HuggingFace: Die Plattform
 
@@ -637,6 +1043,10 @@ Heute zeigen wir fünf Demos aus verschiedenen Bereichen: Bild, Video, Sprache u
 [huggingface.co](https://huggingface.co) — kostenlose Basisnutzung, Pro-Account für erweiterte Ressourcen
 :::
 
+::: {.notes}
+Kurz die Startseite und einen Space zeigen.
+:::
+
 # HuggingFace: FLUX.1 — Text zu Bild
 
 **FLUX.1 [schnell]** von **Black Forest Labs** erzeugt hochwertige Bilder aus Textbeschreibungen — in wenigen Sekunden.
@@ -644,6 +1054,10 @@ Heute zeigen wir fünf Demos aus verschiedenen Bereichen: Bild, Video, Sprache u
 > *„A red panda sitting on a rooftop at sunset, cinematic"* → fertiges Bild
 
 Demo: [huggingface.co/spaces/black-forest-labs/FLUX.1-schnell](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell)
+
+::: {.notes}
+Live-Demo mit dem Beispielprompt. Bezug zu Weg 2: Ein so erzeugtes Bild kann Vorlage für ein 3D-Modell sein.
+:::
 
 ## HuggingFace: Was ist FLUX.1?
 
@@ -697,6 +1111,10 @@ FLUX.1 [schnell] erreicht gute Qualität schon in **4 Schritten** — klassische
 
 Demo: [huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2](https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2)
 
+::: {.notes}
+Live-Demo – die Erzeugung dauert etwas, ggf. vorher starten.
+:::
+
 ## HuggingFace: Was ist Wan2.2?
 
 ::: columns
@@ -738,6 +1156,10 @@ Demo: Mikrofon aufnehmen oder Audio hochladen → Text erscheint automatisch.
 
 Demo: [huggingface.co/spaces/hf-audio/whisper-large-v3](https://huggingface.co/spaces/hf-audio/whisper-large-v3)
 
+::: {.notes}
+Live-Demo: Einen Satz ins Mikrofon sprechen.
+:::
+
 ## HuggingFace: Was kann Whisper?
 
 ::: columns
@@ -776,6 +1198,10 @@ Whisper ist das **„Ohr"** der KI — Kokoro TTS ist die **„Stimme"**.
 
 Demo: [huggingface.co/spaces/hexgrad/Kokoro-TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
 
+::: {.notes}
+Live-Demo: Einen deutschen Satz vorlesen lassen.
+:::
+
 ## HuggingFace: Was kann Kokoro TTS?
 
 ::: columns
@@ -811,83 +1237,40 @@ Mikrofon → [Whisper] → Text → [KI-Modell] → Text → [Kokoro] → Lautsp
 
 So entstehen Sprachassistenten — aus frei verfügbaren, offenen Bausteinen.
 
-# HuggingFace: Pixal3D — Bild zu 3D-Modell
+# Bonus: Termine-Webseite
 
-**Pixal3D** von Tencent ARC wandelt ein einzelnes Foto in ein vollständiges 3D-Modell um — mit Textur, direkt im Browser rotierbar.
+Eine mit KI erstellte Webseite: Sie zeigt die Termine des Vereins und erklärt, wie diese öffentlich bereitgestellt werden.
 
-Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
-
-## HuggingFace: Was ist Pixal3D?
-
-::: columns
-::: {.column width="60%"}
-- Eingang: ein einzelnes Foto (Produkt, Gegenstand, Figur)
-- Ausgang: vollständiges 3D-Modell mit Textur als `.glb`-Datei
-- Basiert auf **Multi-View Diffusion** — das Modell ergänzt nicht sichtbare Seiten
-- Ergebnis direkt im Browser rotierbar und herunterladbar
+::: {.notes}
+Praxisbeispiel aus dem Verein: Die Termine-Webseite wurde mit KI programmiert.
 :::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
-|---|---|
-| Typ | Image-to-3D |
-| Eingang | 1 Foto |
-| Ausgang | .glb / .obj |
-| Laufzeit | ~30–90 s |
-
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-## HuggingFace: Pixal3D vs. OpenSCAD + KI
-
-**Zwei Wege zum 3D-Modell — beide mit KI:**
-
-::: columns
-::: {.column width="50%"}
-**OpenSCAD + Claude Code**
-
-- Eingang: Textbeschreibung
-- Ausgang: parametrischer Code → 3D
-- Stärke: präzise Maße, jederzeit änderbar
-- Geeignet für: technische Bauteile
-:::
-::: {.column width="50%"}
-**Pixal3D**
-
-- Eingang: ein Foto
-- Ausgang: fotorealistisches 3D-Modell
-- Stärke: organische Formen, Texturen
-- Geeignet für: kreative Assets, Spieleentwicklung
-:::
-:::
-
-
-# Microsoft
-
-https://adoption.microsoft.com/de-de/scenario-library/
-
-# Cloud: Azure Showcases
-
-xxx love xxx
-
-# Termine-Webseite
-
-KI-generierte Webseite um den Termine und erklärungen wie die Termine öffentlich zur verfügung gestellt werden.
 
 
 ## Plan erstellen
 
-Der Plan ist das Herzstück um die KI in die richtige richtung zu lenken. Es ist wichtig hier so genau wie möglich zu sein, damit die KI auch wirklich das generiert was man möchte.
+Der Plan ist das Herzstück, um die KI in die richtige Richtung zu lenken. Je genauer er ist, desto eher entsteht, was man sich vorstellt.
 
 - Technologie einschränken
-- Zielgruppe definieren und Inhaltliche Schwerpunkte setzen
-- Alles in Bereiche aufbrechen (header, Footer, Bereiche definieren)
-- CI Definieren (Farben, Schriften, Logo, etc.)
-- Code Quality und Sicherheit definieren
+- Zielgruppe festlegen und inhaltliche Schwerpunkte setzen
+- Alles in Bereiche aufteilen (Header, Footer, Inhaltsbereiche)
+- CI festlegen (Farben, Schriften, Logo)
+- Code-Qualität und Sicherheit festlegen
+
+::: {.notes}
+Der Plan entspricht der SAND-Methode im Großen: Situation, Aufgabe, Nebenbedingungen und Darstellung werden vorab festgelegt.
+:::
 
 ## Reicht ein Plan?
 
-Natürlich reicht ein guter Plan nicht aus. Verfeinerungen folgen.
+Nein — auch ein guter Plan liefert selten sofort das perfekte Ergebnis.
+
+- Ergebnis ansehen, dann **in kleinen Schritten** nachbessern
+- Ein Prompt pro Änderung
+- Beispiele auf den nächsten Folien: Herzanimation und Achievements
+
+::: {.notes}
+Überleitung zu den Prompt-Beispielen.
+:::
 
 ## Prompt-Beispiel: Herzanimation 1/2
 
@@ -954,6 +1337,10 @@ Natürlich reicht ein guter Plan nicht aus. Verfeinerungen folgen.
 </script>
 ```
 
+::: {.notes}
+Links die ursprüngliche Animation (Kreis), rechts nach dem zweiten Prompt (Herzform).
+:::
+
 ## Prompt-Beispiel: Herzanimation 2/2
 
 ```{=html}
@@ -978,25 +1365,71 @@ Natürlich reicht ein guter Plan nicht aus. Verfeinerungen folgen.
 </div>
 ```
 
-## Claude.md
+::: {.notes}
+Zwei kurze Prompts reichen – der erste mit Link als Vorlage, der zweite als Verfeinerung.
+:::
 
-im Internet manchmal als Token-Fresser gebrandmarkt kann die Claude.md sehr hilfreich sein. Man kann Claude immer wieder sagen ergänze die Claude.md mit unseren letzten erkenntnissen. 
+## CLAUDE.md
 
-## Prompt-Beispiel: Archivments
+- Textdatei im Projekt mit Regeln und Wissen für die KI
+- Wird bei jeder Sitzung automatisch mitgelesen
+- Im Internet manchmal als „Token-Fresser“ kritisiert — aber sehr hilfreich
+- Tipp: Die KI regelmäßig bitten, neue Erkenntnisse in der CLAUDE.md zu ergänzen
 
-Die Minispiele wurden so angepasst dass gelber text oder anomationen diese an teaser. Es gab nur einen Prompt um den Archivment bereich zu erstellen:
+::: {.notes}
+Die CLAUDE.md ist das Gedächtnis des Projekts (vgl. Folie Chat-Umgebung: mit/ohne Gedächtnis). Sie kostet bei jeder Anfrage etwas Kontext, spart aber viele Wiederholungen und Korrekturen.
+:::
 
-Finde alle klickbaren spiele mit gelben text. Erstelle eine Archivment bereich. Archivments sind zuerst grau. 
+## Prompt-Beispiel: Achievements
+
+Die Minispiele auf der Seite werden durch gelben Text oder Animationen angeteasert. Für den Achievement-Bereich reichte ein einziger Prompt:
+
+::: {.chat-input}
+Finde alle klickbaren Spiele mit gelbem Text. Erstelle einen Achievement-Bereich. Achievements sind zuerst grau.
+:::
+
+::: {.notes}
+Achievements = Erfolge/Abzeichen, die man durch das Finden der versteckten Spiele freischaltet.
+:::
+
+# Bonus: Azure Showcases
+
+KI-Anwendungen aus der Praxis von Unternehmen.
+
+<!-- TODO: Showcases einfügen -->
+
+::: aside
+Weitere Szenarien: [Microsoft Scenario Library](https://adoption.microsoft.com/de-de/scenario-library/) — abgerufen am 09.10.2026
+:::
+
+::: {.notes}
+Unternehmens-Showcase.
+:::
 
 # Referenzen
 
-- [openai.com](https://openai.com)
+Alle Links abgerufen am 09.10.2026.
+
+::: columns
+::: {.column width="50%"}
 - [ollama.com](https://ollama.com)
 - [openwebui.com](https://openwebui.com)
 - [opencode.ai](https://opencode.ai)
-- [confyui.com](https://confyui.com)
-- [meshy.ai](https://meshy.ai)
+- [Claude Code](https://www.anthropic.com/claude-code)
+- [openscad.org](https://openscad.org)
+- [comfy.org](https://www.comfy.org)
+- [meshy.ai](https://www.meshy.ai)
+:::
+::: {.column width="50%"}
+- [huggingface.co](https://huggingface.co)
+- [Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1)
+- [Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
+- [FLUX.1](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell)
+- [Whisper](https://huggingface.co/spaces/hf-audio/whisper-large-v3)
+- [Kokoro TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
 - [Azure KI](https://azure.microsoft.com/de-de/solutions/ai)
+:::
+:::
 
 # Spenden
 
@@ -1016,11 +1449,13 @@ Finde alle klickbaren spiele mit gelben text. Erstelle eine Archivment bereich. 
 :::
 :::
 
-
 # Ende
 
 - Vielen Dank für die Teilnahme!
 - [Präsentation Online anschauen](https://presentations.erfindergeist.org/ki2/)
 - [Download Präsentation als PDF](https://presentations.erfindergeist.org/ki2/index.pdf)
 - [erfindergeist.org](https://erfindergeist.org)
-- Haben Sie Fragen oder Anmerkungen?
+
+::: {.notes}
+Dank an alle Teilnehmer, Hinweis auf die Online-Version der Präsentation.
+:::

@@ -3,17 +3,20 @@
 ## Projektübersicht
 
 Quarto Reveal.js-Präsentation für den **KI-Workshop 2** des Erfindergeist Jülich e.V.
-Ziel: Teilnehmer ohne Vorwissen durch die Welt der KI führen — von Grundlagen bis zu echten Unternehmensanwendungen.
+Ziel: Teilnehmer ohne Vorwissen von den KI-Grundlagen bis zum **3D-druckbaren Objekt** führen.
+Roter Faden: verstehen → richtig fragen → Werkzeuge kennen → etwas Echtes bauen (Details: `roter_faden.md`, offene Punkte: `todo.md`).
 
 Die Präsentation deckt folgende Themen ab (Reihenfolge):
-1. Vorstellung Erfindergeist Jülich e.V.
-2. Ablauf und Agenda
-3. Was ist KI? / Was ist sie nicht?
-4. Token, Parameter, Präzision, RAM-Bedarf
-5. Lokale KI: Ollama + OpenWeb UI, OpenCode, ComfyUI
-6. Cloud-KI: OpenSCAD + Claude Code (3D-Modellierung), Meshy, Azure
-7. Unternehmens-Showcase
-8. Fragen & Diskussion
+1. Vorstellung Erfindergeist Jülich e.V. (inkl. Offene Werkstatt / 3D-Druck)
+2. Was ist KI? / Was ist sie nicht?
+3. Token, Parameter, Präzision, RAM-Bedarf — Unterschiede lokal vs. Cloud
+4. Prompting (SAND-Methode, Kontextfenster, Grenzen der Antworten)
+5. Eingabemöglichkeiten: Web-UI, CLI-Agenten, IDE (lokal und Cloud)
+6. 3D-Generierung (Hauptteil): Weg 1 Text → Code → 3D (OpenSCAD), Weg 2 Bild → 3D (ComfyUI + Hunyuan3D, Meshy, HuggingFace)
+7. Vom Modell zum Druck
+8. Zusammenfassung, Fragen & Diskussion
+9. Bonus: HuggingFace, Termine-Webseite, Azure Showcases (Unternehmens-Showcase)
+10. Referenzen, Spenden, Ende
 
 ## Dateien
 
@@ -159,6 +162,7 @@ Bestehende Demos:
 | Datei | Inhalt |
 | --- | --- |
 | `demo-heart.html` | GSAP-Pulsanimation: Kreis (alt) vs. Herzform (neu) |
+| `demo-snake.html` | KI-generiertes Snake-Spiel (eigener Hintergrund `#2c3e50`) |
 
 ## Build
 
