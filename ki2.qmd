@@ -419,13 +419,6 @@ Zu viel Vertrauen in die KI.
 
 - Interaktiv ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
 
-## Token: Kosten ChatGPT
-
-![](images/chat_gpt_costs.png)
-
-::: aside
-Auszug [https://openai.com/de-DE/api/pricing/](https://openai.com/de-DE/api/pricing/) vom 09.04.2026 — Preise ändern sich häufig, bitte aktuell prüfen.
-:::
 
 ## Token: Beispiel Rechnung Buch
 

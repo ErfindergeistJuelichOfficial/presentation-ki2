@@ -85,7 +85,6 @@ Kernbotschaft (aus `roter_faden.md`): **Alles, was man als Code beschreiben kann
 ### Konsistenz
 - [ ] Ablauf-Folien (Zeile ~71–137) an neue Reihenfolge anpassen; HuggingFace-Liste enthält noch kein Hunyuan3D
 - [ ] Kontextfenster widersprüchlich: „Token: Beispiel Rechnung Buch“ (128.000 bei GPT-4o) und Tabelle „Was sagt uns das nun?“ (128K+) vs. neue Folie (bis 1 Mio.)
-- [ ] Preise/Modelle aktualisieren: GPT-4o im Buch-Beispiel evtl. veraltet, Screenshot `chat_gpt_costs.png` vom 09.04.2026
 - [ ] HTML-Kommentar zu Tokens Cloud vs. lokal (Zeile ~256) steht in „Was ist KI nicht“ → in Section Token verschieben
 
 ### Zu viel Text (Folien sprengen)
