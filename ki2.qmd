@@ -291,19 +291,28 @@ Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergle
 
 ## Token: Was sind Parameter?
 
-Wer KI lokal betreiben will, muss verstehen: wie viel RAM braucht ein Modell? Das hängt direkt von den Parametern ab.
+Stellen Sie sich ein **riesiges Mischpult** vor:
 
-- Parameter sind die gelernten Zahlenwerte eines Modells. Ein **7B-Modell** enthält **7.000.000.000 solcher Zahlen** — sie bestimmen gemeinsam, wie das Modell auf Eingaben reagiert.
+- Jeder Drehregler ist ein **Parameter**
+- Beim Training werden alle Regler eingestellt — dort steckt das Gelernte
+- **7B** = 7 Milliarden Regler (B = englisch *billion*, Milliarde)
+- Mehr Regler = mehr Wissen und Können
 
-- Je mehr Parameter, desto leistungsfähiger — aber auch desto mehr RAM wird benötigt.
+::: {.fragment}
+Jede Reglerstellung muss gespeichert werden — darum braucht KI so viel **Arbeitsspeicher**.
+:::
 
 ::: {.notes}
-Bild: Parameter sind wie Stellschrauben, die beim Training eingestellt wurden. Mehr Stellschrauben = mehr Wissen und Fähigkeiten, aber auch mehr Speicherbedarf.
+Bezug zur Katze von vorhin: Die KI hat aus vielen Katzenfotos gelernt. Wo steckt dieses Wissen? In der Stellung der Regler. Beim Training wird jeder Regler ein kleines Stück gedreht, bis die Antworten stimmen.
+
+Ein einzelner Regler bedeutet nichts. Erst alle zusammen ergeben das „Wissen“ des Modells – ähnlich wie ein einzelner Pixel noch kein Bild ist.
+
+Technisch ist jeder Regler eine Zahl. Wie genau diese Zahl gespeichert wird, zeigt die nächste Folie (Präzision).
 :::
 
 ## Token: Präzision und RAM-Bedarf
 
-**Präzision** = wie viele Bits eine Zahl im Modell belegt. Weniger Bits = weniger RAM.
+**Präzision** = wie genau jede Reglerstellung gespeichert wird. Weniger genau = weniger RAM.
 
 | Modell | 16 Bit (FP16) | 4 Bit (Q4) |
 |---|---|---|
@@ -317,6 +326,8 @@ Bild: Parameter sind wie Stellschrauben, die beim Training eingestellt wurden. M
 Ollama nutzt meist 4 Bit: **25 % des RAM**, kaum merklicher Qualitätsverlust.
 
 ::: {.notes}
+Im Bild des Mischpults: Bei 16 Bit hat jeder Regler 65.536 Stufen, bei 4 Bit nur 16 Stufen. Gröber eingestellt – aber das Ergebnis klingt fast genauso.
+
 FP16 = 16 Bit = 2 Byte pro Parameter. Ein 7B-Modell braucht also 7 Mrd. × 2 Byte ≈ 14 GB.
 
 Quantisierung (Q4) speichert jede Zahl mit nur 4 Bit. Der RAM-Bedarf sinkt auf etwa ein Viertel. Die Werte sind Richtwerte – dazu kommt noch Speicher für das Kontextfenster.
