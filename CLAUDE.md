@@ -80,6 +80,8 @@ Spalten-Breiten immer explizit angeben und auf 100 % addieren.
 **`height="500"` ist der Standard für Vollbild-Bilder** — so bleibt das Bild im Bildschirm.
 Breiten-Prozent (`width="100%"`) nur in Spalten-Layouts.
 
+**Kein `.webp`** — der PDF-Export (LaTeX) in der Pipeline kann WebP nicht einbinden. Fotos als `.jpg`, Screenshots als `.png`, Grafiken als `.svg`.
+
 ### Fußnoten / Quellenangaben
 
 ```markdown

@@ -58,7 +58,7 @@ Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker 
 - Bei uns: **Prusa CORE One+** in der Offenen Werkstatt
 :::
 ::: {.column width="45%"}
-![](images/werkstatt-3d-druck.webp){fig-align="center" height="500"}
+![](images/werkstatt-3d-druck.jpg){fig-align="center" height="500"}
 :::
 :::
 
@@ -942,7 +942,7 @@ Hinweis: ComfyUI gibt Modelle nicht automatisch aus dem Speicher frei – zwisch
 
 ## Beispiel: Schritt 1 — Bild erzeugen
 
-![](images/comfyui-z-image-santa.webp){fig-align="center" height="480"}
+![](images/comfyui-z-image-santa.png){fig-align="center" height="480"}
 
 ::: {.notes}
 Prompt aus dem Wiki-Beispiel: „a cute simple low-poly santa claus figure, standing, smiling, full body, clean geometric shapes, solid white background, 3d print style model, light and shadows“
@@ -952,7 +952,7 @@ Wichtig: einfarbiger Hintergrund im Prompt – das erleichtert den nächsten Sch
 
 ## Beispiel: Schritt 2 — Bild → 3D-Modell
 
-![](images/comfyui-hunyuan3d-santa.webp){fig-align="center" height="480"}
+![](images/comfyui-hunyuan3d-santa.png){fig-align="center" height="480"}
 
 ::: {.notes}
 Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann. Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
@@ -1038,7 +1038,7 @@ Viele Slicer reparieren kleine Mesh-Fehler automatisch. Für größere Probleme 
 - Filament gegen Spende
 :::
 ::: {.column width="45%"}
-![](images/werkstatt-3d-druck.webp){fig-align="center" height="350"}
+![](images/werkstatt-3d-druck.jpg){fig-align="center" height="350"}
 :::
 :::
 
