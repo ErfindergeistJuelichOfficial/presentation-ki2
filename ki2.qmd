@@ -70,7 +70,7 @@ Das Foto zeigt den Prusa CORE One+ der Offenen Werkstatt (Bauraum 250 × 220 × 
 
 Wo bekommt man 3D-Modelle her?
 
-- CAD Kentnisse 
+- CAD - Selber Herstellen oder Kaufen
 - Kostenlose Modelle: [https://www.thingiverse.com/](https://www.thingiverse.com/) oder [https://www.printables.com/](https://www.printables.com/)
 - KI durch Text oder Bilder
 
@@ -145,6 +145,30 @@ Einstieg ohne Fachbegriffe. Frage ans Publikum: Wie würden Sie einem Computer e
 KI begegnet uns längst im Alltag: Gesichtserkennung am Handy, Spamfilter im E-Mail-Postfach, Stauprognose im Navi.
 
 KI ist ein Oberbegriff. Sprachmodelle (LLMs) wie ChatGPT sind nur ein Teil davon – aber der Teil, um den es heute hauptsächlich geht.
+:::
+
+## Wie ist ein KI-Modell aufgebaut?
+
+::: columns
+::: {.column width="50%"}
+![](images/neuronales-netz.svg){fig-align="center" width="100%"}
+:::
+::: {.column width="50%"}
+- **Eingabe:** Foto, Text oder Ton — als Zahlen
+- **Schichten** aus künstlichen „Nervenzellen“
+- Jede Verbindung hat einen **Regler**: Wie wichtig ist dieses Signal?
+- **Ausgabe:** Wahrscheinlichkeit, z.B. *Katze 97 %*
+:::
+:::
+
+::: {.notes}
+Das Vorbild ist grob das Gehirn: Nervenzellen, die über Verbindungen Signale weitergeben. Man nennt das „neuronales Netz“.
+
+Die ersten Schichten erkennen einfache Dinge wie Kanten und Farben. Spätere Schichten setzen daraus größere Muster zusammen: Ohren, Augen, Fell – und am Ende „Katze“.
+
+Training an Beispielen: Die KI rät, vergleicht mit der richtigen Antwort und dreht die Regler ein kleines Stück in die richtige Richtung. Das passiert millionenfach.
+
+Ein Sprachmodell wie ChatGPT funktioniert nach demselben Prinzip – nur ist die Eingabe Text und die Ausgabe das wahrscheinlichste nächste Wort. Die Regler tauchen später als „Parameter“ wieder auf.
 :::
 
 ## Was sind LLM
