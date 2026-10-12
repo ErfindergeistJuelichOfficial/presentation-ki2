@@ -49,14 +49,13 @@ Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker 
 :::
 
 
-## Offene Werkstatt: 3D-Druck
+## Offene Werkstatt: 3D-Druck 1/2
 
 ::: columns
 ::: {.column width="55%"}
 - 3D-Drucker baut Objekte **Schicht für Schicht** aus Kunststoff
-- Aus einer Datei am Computer wird ein echtes Objekt
 - Ideal für Ersatzteile, Prototypen, Halterungen, Modelle
-- Bei uns: **Prusa Core One** in der Offenen Werkstatt
+- Bei uns: **Prusa CORE One+** in der Offenen Werkstatt
 :::
 ::: {.column width="45%"}
 ![](images/werkstatt-3d-druck.webp){fig-align="center" height="500"}
@@ -64,22 +63,35 @@ Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker 
 :::
 
 ::: {.notes}
-Das Foto zeigt den Prusa Core One der Offenen Werkstatt. Frage ans Publikum: Wer hat schon einmal etwas 3D-gedruckt?
+Das Foto zeigt den Prusa CORE One+ der Offenen Werkstatt (Bauraum 250 × 220 × 270 mm). Frage ans Publikum: Wer hat schon einmal etwas 3D-gedruckt?
 :::
 
-## Vom Modell zum Druck
+## Offene Werkstatt: 3D-Druck 2/2
 
-1. **3D-Modell** erstellen (z.B. als STL-Datei)
-2. **Slicer** zerlegt das Modell in Schichten (z.B. PrusaSlicer)
-3. **Drucker** druckt Schicht für Schicht
+Wo bekommt man 3D-Modelle her?
 
-**Heute im Fokus:** Wie KI beim ersten Schritt hilft — dem 3D-Modell.
+- CAD Kentnisse 
+- Kostenlose Modelle: [https://www.thingiverse.com/](https://www.thingiverse.com/) oder [https://www.printables.com/](https://www.printables.com/)
+- KI durch Text oder Bilder
+
+## Offene Werkstatt: KI-Workstation
+
+- Eigener KI-Rechner in der Werkstatt — alles läuft **lokal**
+- Grafikkarte: RTX 5060 Ti mit **16 GB** Grafikspeicher
+- Chatten (Open WebUI), Programmieren (OpenCode), Bilder und 3D (ComfyUI)
+- Im Netzwerk der Werkstatt auch vom eigenen Laptop nutzbar
+- PrusaSlicer ist installiert und mit dem 3D-Drucker verbunden
+
+::: aside
+Anleitungen im Wiki: [docs.erfindergeist.org › Workstation](https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX)
+:::
 
 ::: {.notes}
-Die größte Hürde für Einsteiger ist meist nicht der Drucker, sondern das 3D-Modell: Klassische CAD-Programme brauchen viel Einarbeitung. Genau hier setzt der Hauptteil des Workshops an – 3D-Modelle mit Hilfe von KI erstellen.
+Die Workstation ist der rote Faden für alle Live-Demos heute: Chat, Coding und 3D-Generierung laufen auf diesem Rechner, ohne Cloud.
 
-STL = verbreitetes Dateiformat für 3D-Modelle (beschreibt die Oberfläche als Dreiecke).
+Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr in der Section Token).
 :::
+
 
 ## Spenden
 
@@ -105,13 +117,34 @@ Kurz auf Spendenmöglichkeiten hinweisen – nicht zu lange verweilen, am Ende k
 
 # Was ist KI?
 
-- **Künstliche Intelligenz (KI)** bezeichnet Computersysteme, die menschliche Fähigkeiten wie Lernen, Denken oder Entscheiden nachahmen. Indem es Mathematische Modelle und Algorithmen verwendet, kann KI Muster erkennen, Vorhersagen treffen und Probleme lösen.
+## Was ist KI? Einfach erklärt
 
+**KI ist ein Programm, das aus Beispielen lernt — statt feste Regeln zu befolgen.**
 
-- **Large Language Models (LLM)** sind eine spezielle Form der KI, trainiert auf riesigen Textmengen — sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
+::: columns
+::: {.column width="50%"}
+### Normales Programm
+
+Ein Mensch schreibt die Regel:
+*„Spitze Ohren + Schnurrhaare = Katze“*
+:::
+::: {.column width="50%"}
+### KI
+
+Sieht tausende Katzenfotos — und findet die Regel **selbst**.
+:::
+:::
+
+::: {.fragment}
+Wie ein Kind: Niemand erklärt ihm, was eine Katze ist. Es hat einfach viele gesehen.
+:::
 
 ::: {.notes}
-Einstieg: KI ist ein Oberbegriff. LLMs sind nur ein Teil davon – aber der Teil, um den es heute hauptsächlich geht.
+Einstieg ohne Fachbegriffe. Frage ans Publikum: Wie würden Sie einem Computer erklären, was eine Katze ist? Schnell merkt man: Regeln reichen nicht (es gibt Katzen ohne sichtbare Ohren, Hunde mit spitzen Ohren …).
+
+KI begegnet uns längst im Alltag: Gesichtserkennung am Handy, Spamfilter im E-Mail-Postfach, Stauprognose im Navi.
+
+KI ist ein Oberbegriff. Sprachmodelle (LLMs) wie ChatGPT sind nur ein Teil davon – aber der Teil, um den es heute hauptsächlich geht.
 :::
 
 ## Was sind LLM
@@ -304,6 +337,28 @@ Richtwerte, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellun
 
 ::: {.notes}
 Zum Vergleich: Menschen lesen etwa 5–10 Token pro Sekunde. Alles darüber wirkt flüssig.
+:::
+
+## Token: Was passt auf unsere Workstation?
+
+Grafikkarte mit **16 GB** Grafikspeicher (VRAM):
+
+| Modellgröße (Q4) | Bedarf ca. | Passt? |
+|---|---|---|
+| 7B–9B | 4–6 GB | ja, mit viel Platz für Kontext |
+| 12B–14B | 8–9 GB | ja |
+| 70B | ~40 GB | nein |
+
+: {tbl-colwidths="[35,30,35]"}
+
+Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
+
+::: {.notes}
+Die Werte aus der RAM-Tabelle werden hier konkret: Ein 14B-Modell in 4 Bit belegt etwa 8–9 GB und passt gut in die 16 GB der Grafikkarte. Der Rest wird für das Kontextfenster gebraucht.
+
+Passt ein Modell nicht vollständig in den Grafikspeicher, lagert Ollama Teile in den normalen Arbeitsspeicher aus – das funktioniert, ist aber deutlich langsamer.
+
+Im Wiki-Test hat Qwen2.5-Coder 14B in unter 3 Sekunden geantwortet und ein HTML-Snake-Spiel erstellt.
 :::
 
 ## Token: Was sagt uns das nun?
@@ -556,7 +611,7 @@ Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann da
 ## Lokal: Ollama und Open WebUI
 
 - **Ollama:** startet Sprachmodelle auf dem eigenen Rechner
-- Modelle per Befehl herunterladen, z.B. `ollama run gemma3`
+- Modelle per Befehl starten, z.B. `ollama run qwen2.5-coder:14b`
 - **Open WebUI:** Chat-Oberfläche im Browser, ähnlich wie ChatGPT
 - Verbindet sich mit Ollama — alle Daten bleiben lokal
 - Dokumente hochladen, mehrere Modelle vergleichen
@@ -565,6 +620,25 @@ Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann da
 Ollama ist der „Motor“: Es lädt und betreibt die Modelle. Open WebUI ist das „Armaturenbrett“: eine Weboberfläche, über die man mit den Modellen chattet.
 
 Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Section Token.
+
+Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), qwen3.5:9b (Allgemeinwissen), qwen2.5-coder:14b (Programmieren).
+:::
+
+## Lokal: Die Workstation im Netzwerk
+
+| Dienst | Adresse |
+|---|---|
+| Open WebUI (Chat) | `http://werkstatt-workstation:8080` |
+| Ollama API (z.B. für Continue) | `http://werkstatt-workstation:11434` |
+| ComfyUI (Bilder, 3D) | direkt am Rechner: `http://localhost:8188` |
+
+: {tbl-colwidths="[40,60]"}
+
+- Nur im Netzwerk der Werkstatt (AWO) erreichbar
+- Die Workstation muss eingeschaltet sein
+
+::: {.notes}
+Über die Ollama API können Programme auf dem eigenen Laptop die Modelle der Workstation nutzen – z.B. die VS-Code-Erweiterung Continue. Die Rechenarbeit erledigt dann die Workstation. Die Anleitung inklusive Konfiguration steht im Wiki.
 :::
 
 ## Im Terminal: Coding-Agenten
@@ -580,6 +654,8 @@ Im Chat bekommt man Code als Text und muss ihn selbst kopieren und speichern. Ei
 OpenCode und Claude Code funktionieren ähnlich. Der Unterschied liegt vor allem im Modell: OpenCode kann lokale Modelle nutzen, Claude Code nutzt die Claude-Modelle von Anthropic.
 
 Beide werden später im 3D-Teil für OpenSCAD genutzt.
+
+Auf der Workstation: In einer Konsole `ollama` starten und OpenCode auswählen. Empfohlenes Modell: qwen2.5-coder:14b.
 :::
 
 ## Im Editor (IDE)
@@ -593,6 +669,8 @@ Beide werden später im 3D-Teil für OpenSCAD genutzt.
 IDE = Integrated Development Environment (Entwicklungsumgebung). Die KI sieht den Code, der gerade offen ist, und kann Vorschläge passend zum Projekt machen.
 
 Auch Claude Code und OpenCode lassen sich in VS Code einbinden – die Grenzen zwischen CLI und IDE verschwimmen.
+
+Continue lässt sich mit der Ollama API der Workstation verbinden (Konfiguration im Wiki). Laut Wiki-Test: Qwen2.5-Coder 14B hat in unter 3 Sekunden ein HTML-Snake-Spiel erstellt.
 :::
 
 ## Live Coding Snake
@@ -635,7 +713,7 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 
 # 3D-Generierung mit KI
 
-Zwei Wege zum 3D-Modell:
+## Zwei Wege zum 3D-Modell
 
 ::: columns
 ::: {.column width="50%"}
@@ -652,7 +730,7 @@ Zwei Wege zum 3D-Modell:
 :::
 :::
 
-Beide Wege gibt es **lokal** und in der **Cloud**.
+Beide Wege laufen **lokal** auf der Workstation — Weg 1 zusätzlich mit Claude Code in der Cloud.
 
 ::: {.notes}
 Hauptteil des Workshops. Zwei grundverschiedene Ansätze: Bei Weg 1 schreibt die KI Code, bei Weg 2 erzeugt sie direkt eine 3D-Form.
@@ -815,7 +893,7 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 
 <!-- TODO: Gleichen Prompt wie beim Hexenturm mit OpenCode + lokalem Coding-Modell (z.B. Qwen3-Coder über Ollama) ausführen, Screenshot einfügen -->
 
-- Gleicher Ablauf, aber mit **OpenCode** und einem **lokalen Coding-Modell**
+- Gleicher Ablauf, aber mit **OpenCode** und einem **lokalen Coding-Modell** (z.B. Qwen2.5-Coder 14B auf der Workstation)
 - Keine Daten verlassen den Rechner, keine laufenden Kosten
 - Ergebnis neben dem Claude-Ergebnis vergleichen
 
@@ -837,85 +915,48 @@ Im Gegensatz zu Weg 1 entsteht hier kein Code, sondern direkt eine Oberfläche a
 
 ## Lokal: ComfyUI + Hunyuan3D
 
-<!-- TODO: Beispielbilder einfügen (Workflow-Screenshot + Ergebnis) -->
-
 - **ComfyUI:** Oberfläche, in der man KI-Schritte als **Knoten** verbindet
-- Ursprünglich für Bilder, inzwischen auch für 3D
-- **Hunyuan3D** (Tencent): offenes Modell für Bild → 3D
-- Läuft auf eigener Grafikkarte — braucht aber viel Grafikspeicher
+- Fertige Vorlagen über das Menü **Templates**
+- Bild erzeugen: Vorlage **Z-Image-Turbo** (Text → Bild)
+- 3D erzeugen: Vorlage **HY 3D 2.1** = Hunyuan3D (Bild → 3D)
+- Läuft auf der Workstation — braucht viel Grafikspeicher
 
 ::: {.notes}
-ComfyUI ist ein Knoten-Editor: Jeder Kasten ist ein Arbeitsschritt (Bild laden, Modell laden, 3D erzeugen, speichern). Die Kästen werden mit Linien verbunden. Fertige Workflows lassen sich als Datei teilen.
+ComfyUI ist ein Knoten-Editor: Jeder Kasten ist ein Arbeitsschritt (Bild laden, Modell laden, 3D erzeugen, speichern). Die Kästen werden mit Linien verbunden.
 
-Idee für eine Pipeline: Bild mit FLUX erzeugen → in Hunyuan3D zu 3D-Modell → als STL drucken.
+Auf der Workstation: ComfyUI im Browser unter http://localhost:8188 öffnen → Templates → „Image“ bzw. „3D Model“ wählen. Die Installation der Vorlagen ist bereits erledigt.
+
+Hinweis: ComfyUI gibt Modelle nicht automatisch aus dem Speicher frei – zwischen Bild- und 3D-Erzeugung ggf. Speicher freigeben.
 :::
 
-## Cloud: Meshy
+## Beispiel: Schritt 1 — Bild erzeugen
 
-<!-- TODO: Gezeichnetes Bild -> 3D-Modell Abbildung einfügen -->
-
-- Webseite für Text → 3D und Bild → 3D
-- Keine Installation, keine eigene Grafikkarte nötig
-- Export u.a. als STL für den 3D-Druck
-- Kostenloser Einstieg mit begrenztem Kontingent
-
-::: aside
-[meshy.ai](https://www.meshy.ai) — Stand: Oktober 2026, Preise und Kontingente ändern sich.
-:::
+![](images/comfyui-z-image-santa.webp){fig-align="center" height="480"}
 
 ::: {.notes}
-Live-Demo: Eine einfache Zeichnung hochladen und das Ergebnis im Browser drehen.
+Prompt aus dem Wiki-Beispiel: „a cute simple low-poly santa claus figure, standing, smiling, full body, clean geometric shapes, solid white background, 3d print style model, light and shadows“
+
+Wichtig: einfarbiger Hintergrund im Prompt – das erleichtert den nächsten Schritt.
 :::
 
-## Ohne Installation: Hunyuan3D auf HuggingFace
+## Beispiel: Schritt 2 — Bild → 3D-Modell
 
-<!-- TODO: Space testen, Screenshot des Ergebnisses einfügen -->
-
-- Hunyuan3D-2.1 als Demo direkt im Browser
-- Bild hochladen → 3D-Modell herunterladen
-- Gut zum Ausprobieren, bevor man lokal installiert
-
-::: aside
-[huggingface.co/spaces/tencent/Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1) — Stand: Oktober 2026
-:::
+![](images/comfyui-hunyuan3d-santa.webp){fig-align="center" height="480"}
 
 ::: {.notes}
-Die Demo läuft auf geteilter Hardware – bei vielen Nutzern kann es Wartezeiten geben.
+Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann. Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
 :::
 
-## Ohne Installation: Pixal3D
+## Gute Vorlagen für Bild → 3D
 
-**Pixal3D** von Tencent ARC wandelt ein einzelnes Foto in ein vollständiges 3D-Modell um — mit Textur, direkt im Browser rotierbar.
-
-Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
+- **Ein** Objekt pro Bild
+- Hintergrund entfernt oder **einfarbig**
+- Gleichmäßige Beleuchtung **mit Schatten** — so erkennt die KI die Form
+- Kein Text, keine Logos
+- Ganzes Objekt sichtbar, nichts abgeschnitten
 
 ::: {.notes}
-Live-Demo: Ein Foto hochladen und das Ergebnis im Browser drehen.
-:::
-
-## Pixal3D: Wie funktioniert es?
-
-::: columns
-::: {.column width="60%"}
-- Eingang: ein einzelnes Foto (Produkt, Gegenstand, Figur)
-- Ausgang: vollständiges 3D-Modell mit Textur als `.glb`-Datei
-- Basiert auf **Multi-View Diffusion** — das Modell ergänzt nicht sichtbare Seiten
-- Ergebnis direkt im Browser rotierbar und herunterladbar
-:::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
-|---|---|
-| Typ | Image-to-3D |
-| Eingang | 1 Foto |
-| Ausgang | .glb / .obj |
-| Laufzeit | ~30–90 s |
-
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-::: {.notes}
-Das Modell ergänzt nicht sichtbare Seiten – es „rät“, wie die Rückseite aussehen könnte. Bei ungewöhnlichen Objekten kann das schiefgehen.
+Die ersten vier Punkte stammen aus der Anleitung im Wiki. Schatten sind wichtig, weil die KI daraus die räumliche Form ableitet.
 :::
 
 ## Vergleich der Wege
@@ -927,7 +968,7 @@ Das Modell ergänzt nicht sichtbare Seiten – es „rät“, wie die Rückseite
 | Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
 | Stärke | technische Teile, Gebäude | Figuren, organische Formen |
 | Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
-| Cloud | Claude Code | Meshy |
+| Cloud | Claude Code | HuggingFace (siehe Bonus) |
 
 : {tbl-colwidths="[18,41,41]"}
 
@@ -946,17 +987,26 @@ Schließt den Kreis zur Vorstellung: Das Ziel ist ein echtes, gedrucktes Objekt.
 ## Vom Modell zum Druck: Export
 
 - **OpenSCAD:** Modell rendern und als **STL** exportieren
-- **Meshy / Hunyuan3D:** oft GLB oder OBJ → bei Bedarf in STL umwandeln
+- **Hunyuan3D / Pixal3D:** liefern GLB → in STL umwandeln (z.B. mit assimp)
 - **Slicer** (z.B. PrusaSlicer) zerlegt das Modell in Schichten
 - Ergebnis: Druckdatei für den 3D-Drucker
 
 ::: {.notes}
 In OpenSCAD: F6 (rendern), dann Datei → Exportieren → STL. Slicer können meist STL, OBJ und 3MF direkt öffnen.
+
+GLB → STL auf der Workstation (Anleitung im Wiki):
+
+```bash
+nix-shell -p assimp --extra-experimental-features flakes
+assimp export datei.glb datei.stl
+```
+
+PrusaSlicer ist auf der Workstation installiert und mit dem 3D-Drucker verbunden.
 :::
 
 ## Vom Modell zum Druck: Typische Probleme
 
-- **Größe:** Bild-zu-3D-Modelle haben keine echten Maße → im Slicer skalieren
+- **Größe:** Bild-zu-3D-Modelle haben keine echten Maße → im Slicer skalieren (Bauraum 250 × 220 × 270 mm)
 - **Löcher im Mesh:** Oberfläche nicht geschlossen → reparieren
 - **Zu dünne Wände:** brechen oder werden nicht gedruckt
 - **Überhänge:** brauchen Stützmaterial
@@ -972,8 +1022,9 @@ Viele Slicer reparieren kleine Mesh-Fehler automatisch. Für größere Probleme 
 
 ::: columns
 ::: {.column width="55%"}
-- 3D-Drucker in der **Offenen Werkstatt** des Erfindergeist Jülich e.V.
-- Eigene KI-Modelle mitbringen und drucken
+- **Prusa CORE One+** und **KI-Workstation** in der Offenen Werkstatt
+- Eigene Modelle erstellen und direkt drucken
+- Filament gegen Spende
 :::
 ::: {.column width="45%"}
 ![](images/werkstatt-3d-druck.webp){fig-align="center" height="350"}
@@ -1026,7 +1077,7 @@ Offene Runde. Danach je nach Zeit: Bonus-Teile.
 
 **HuggingFace** ist die größte Plattform für offene KI-Modelle — vergleichbar mit GitHub, aber für KI.
 
-Zum Abschluss vier Demos aus weiteren Bereichen: Bild, Video und Sprache.
+Zum Abschluss fünf Demos: Bild, Video, Sprache und 3D.
 
 ::: {.notes}
 Bonus je nach verfügbarer Zeit. Alle Demos laufen kostenlos im Browser.
@@ -1056,7 +1107,7 @@ Kurz die Startseite und einen Space zeigen.
 Demo: [huggingface.co/spaces/black-forest-labs/FLUX.1-schnell](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell)
 
 ::: {.notes}
-Live-Demo mit dem Beispielprompt. Bezug zu Weg 2: Ein so erzeugtes Bild kann Vorlage für ein 3D-Modell sein.
+Live-Demo mit dem Beispielprompt. Bezug zu Weg 2: Ein so erzeugtes Bild kann Vorlage für ein 3D-Modell sein. Lokal auf der Workstation übernimmt das Z-Image-Turbo in ComfyUI.
 :::
 
 ## HuggingFace: Was ist FLUX.1?
@@ -1237,6 +1288,65 @@ Mikrofon → [Whisper] → Text → [KI-Modell] → Text → [Kokoro] → Lautsp
 
 So entstehen Sprachassistenten — aus frei verfügbaren, offenen Bausteinen.
 
+# HuggingFace: Bild zu 3D-Modell
+
+Weg 2 aus dem Hauptteil — ohne eigene Hardware, direkt im Browser.
+
+::: {.notes}
+Bezug zum Hauptteil: Dasselbe Prinzip wie ComfyUI + Hunyuan3D auf der Workstation, nur in der Cloud.
+:::
+
+## HuggingFace: Hunyuan3D-2.1
+
+<!-- TODO: Space testen, Screenshot des Ergebnisses einfügen -->
+
+- Hunyuan3D-2.1 als Demo direkt im Browser
+- Bild hochladen → 3D-Modell herunterladen
+- Gut zum Ausprobieren, bevor man lokal installiert
+
+::: aside
+[huggingface.co/spaces/tencent/Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1) — Stand: Oktober 2026
+:::
+
+::: {.notes}
+Die Demo läuft auf geteilter Hardware – bei vielen Nutzern kann es Wartezeiten geben.
+:::
+
+## HuggingFace: Pixal3D
+
+**Pixal3D** von Tencent ARC wandelt ein einzelnes Foto in ein vollständiges 3D-Modell um — mit Textur, direkt im Browser rotierbar.
+
+Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
+
+::: {.notes}
+Live-Demo: Ein Foto hochladen und das Ergebnis im Browser drehen.
+:::
+
+## HuggingFace: Wie funktioniert Pixal3D?
+
+::: columns
+::: {.column width="60%"}
+- Eingang: ein einzelnes Foto (Produkt, Gegenstand, Figur)
+- Ausgang: vollständiges 3D-Modell mit Textur als `.glb`-Datei
+- Basiert auf **Multi-View Diffusion** — das Modell ergänzt nicht sichtbare Seiten
+- Ergebnis direkt im Browser rotierbar und herunterladbar
+:::
+::: {.column width="40%"}
+| Eigenschaft | Wert |
+|---|---|
+| Typ | Image-to-3D |
+| Eingang | 1 Foto |
+| Ausgang | .glb / .obj |
+| Laufzeit | ~30–90 s |
+
+: {tbl-colwidths="[50,50]"}
+:::
+:::
+
+::: {.notes}
+Das Modell ergänzt nicht sichtbare Seiten – es „rät“, wie die Rückseite aussehen könnte. Bei ungewöhnlichen Objekten kann das schiefgehen.
+:::
+
 # Bonus: Termine-Webseite
 
 Eine mit KI erstellte Webseite: Sie zeigt die Termine des Vereins und erklärt, wie diese öffentlich bereitgestellt werden.
@@ -1415,10 +1525,10 @@ Alle Links abgerufen am 09.10.2026.
 - [ollama.com](https://ollama.com)
 - [openwebui.com](https://openwebui.com)
 - [opencode.ai](https://opencode.ai)
+- [Continue](https://www.continue.dev)
 - [Claude Code](https://www.anthropic.com/claude-code)
 - [openscad.org](https://openscad.org)
 - [comfy.org](https://www.comfy.org)
-- [meshy.ai](https://www.meshy.ai)
 :::
 ::: {.column width="50%"}
 - [huggingface.co](https://huggingface.co)
@@ -1428,6 +1538,7 @@ Alle Links abgerufen am 09.10.2026.
 - [Whisper](https://huggingface.co/spaces/hf-audio/whisper-large-v3)
 - [Kokoro TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
 - [Azure KI](https://azure.microsoft.com/de-de/solutions/ai)
+- [Wiki: Workstation](https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX)
 :::
 :::
 

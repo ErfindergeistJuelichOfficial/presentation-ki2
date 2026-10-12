@@ -1,30 +1,15 @@
 # TODO — KI-Workshop 2
 
-Stand: 09.10.2026 · Gliederung siehe `roter_faden.md` (jetzt umgesetzt in `ki2.qmd`)
+Stand: 12.10.2026 · Gliederung siehe `roter_faden.md` (umgesetzt in `ki2.qmd`)
 
 **Linie:** verstehen → richtig fragen → Werkzeuge kennen → etwas Echtes bauen
 **Kernbotschaft:** Alles, was man coden kann, ist super für KI.
 
----
-
-## Erledigt
-
-- [x] Gliederung nach rotem Faden umgebaut: Vorstellung → Was ist KI → Token → Prompting → Eingabemöglichkeiten → 3D-Generierung → Vom Modell zum Druck → Zusammenfassung → Fragen → Bonus → Referenzen/Spenden/Ende
-- [x] Offene Werkstatt / 3D-Druck in der Vorstellung
-- [x] Was ist KI: Folien verschoben, „Was ist KI nicht“ gekürzt, Begriffe vereinheitlicht
-- [x] Token: vor Prompting, Kosten entfernt, Präzision + RAM zusammengelegt, TPS mit Datum, Vergleichstabelle überarbeitet
-- [x] Prompting: Folientitel „Wie groß ist ein Kontextfenster?“
-- [x] Eingabemöglichkeiten: Übersichtstabelle, Web-GUI, Ollama + Open WebUI, Coding-Agenten (OpenCode + Claude Code), IDE, Snake mit Demo-Folie, Überleitung „Code ist Text“
-- [x] 3D-Generierung: Übersicht „Zwei Wege“, Weg 1 (OpenSCAD, Merke-Zeile), Weg 2 (ComfyUI + Hunyuan3D, Meshy, Hunyuan3D auf HuggingFace, Pixal3D), Vergleich der Wege
-- [x] Vom Modell zum Druck: Export, typische Probleme, Offene Werkstatt
-- [x] Zusammenfassung, „Das sollten Sie mitnehmen“, Fragen & Diskussion
-- [x] Bonus HuggingFace: Einleitung angepasst, Pixal3D in den Hauptteil verschoben
-- [x] Bonus Termine-Webseite: Grammatik, „Reicht ein Plan?“, CLAUDE.md-Folie, Achievements
-- [x] Bonus Azure: Microsoft + Azure zusammengelegt, Link mit Abrufdatum
-- [x] Referenzen ergänzt, ComfyUI-Link korrigiert, Abrufdatum
-- [x] Speaker Notes auf allen Folien des Hauptteils (Bonus: nur Einstiegsfolien; Referenzen/Spenden ohne)
-- [x] `CLAUDE.md`: Projektübersicht und Demo-Tabelle aktualisiert
-- [x] Handout nach neuer Gliederung aufgebaut
+- [x] Den lokalen KI-Rechner in der Werkstatt mehr in den Mittelpunkt rücken (Doku: <https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX>)
+  - Neue Folien: „Offene Werkstatt: KI-Workstation“, „Token: Was passt auf unsere Workstation?“, „Lokal: Die Workstation im Netzwerk“
+  - ComfyUI-Workflow mit Wiki-Screenshots (Santa: Z-Image-Turbo → Hunyuan3D 2.1), „Gute Vorlagen für Bild → 3D“
+  - GLB → STL mit assimp, PrusaSlicer auf der Workstation, Drucker korrekt als Prusa CORE One+
+  - Handout: eigener Abschnitt zur Workstation mit Adressen, Modellen und Schritt-für-Schritt-Anleitung
 
 ---
 
@@ -32,19 +17,27 @@ Stand: 09.10.2026 · Gliederung siehe `roter_faden.md` (jetzt umgesetzt in `ki2.
 
 ### Inhalte / Bilder
 
-- [ ] **OpenSCAD lokal:** Hexenturm-Prompt mit OpenCode + lokalem Coding-Modell ausführen, Screenshot einfügen; ehrlich zeigen, wo es an Grenzen stößt (TODO in Folie „OpenSCAD: Lokal mit OpenCode“)
-- [ ] **ComfyUI + Hunyuan3D:** Workflow-Screenshot und Ergebnis einfügen (TODO in Folie)
-- [ ] **Meshy:** Abbildung „gezeichnetes Bild → 3D-Modell“ einfügen (TODO in Folie)
+- [ ] **OpenSCAD lokal:** Hexenturm-Prompt mit OpenCode + `qwen2.5-coder:14b` auf der Workstation ausführen, Screenshot einfügen; ehrlich zeigen, wo es an Grenzen stößt (TODO in Folie „OpenSCAD: Lokal mit OpenCode“)
+- [x] **ComfyUI + Hunyuan3D:** Workflow-Screenshot und Ergebnis eingefügt (aus dem Wiki)
 - [ ] **Hunyuan3D-2.1 auf HuggingFace:** Space testen, Screenshot einfügen (TODO in Folie)
 - [ ] **Gedruckter Hexenturm:** Foto einfügen, falls vorhanden (TODO in Folie „Selbst ausprobieren“)
-- [ ] **Azure Showcases:** Inhalte einfügen (TODO in Folie)
 - [ ] **Chihuahua-Folie:** Bildnachweis (`aside` mit Fotografen) fehlt auf der Folie — bewusst entfernt? Im Handout ist er noch drin
+
+### Workstation & Live-Demos
+
+- [ ] **Tokens pro Sekunde messen:** auf der Workstation `ollama run qwen2.5-coder:14b --verbose` (zeigt „eval rate“) und das RTX-4090-Beispiel auf der Folie „Tokens pro Sekunde“ durch eigene Werte ersetzen
+- [ ] **Generalprobe aller Demos auf der Workstation:** Open WebUI, OpenCode, Continue, Chihuahua mit `gemma4:12b`, ComfyUI Santa → GLB → STL → PrusaSlicer; Zeiten notieren (wie lange braucht Hunyuan3D?)
+- [ ] **Santa drucken:** Den Santa aus dem Wiki-Beispiel drucken und als Anschauungsobjekt mitbringen; Foto für die Folie „Selbst ausprobieren“
+- [ ] **ComfyUI-Speicher:** Vor der 3D-Demo Speicher freigeben (Z-Image und Hunyuan3D nacheinander) — Vorgehen klären, steht im Wiki noch als TODO
+- [ ] **VS Code auf der Workstation:** Extensions lassen sich nicht installieren (Wiki-TODO) — betrifft die IDE-Demo mit Continue
+- [ ] **Netzwerk im Workshop:** Können Teilnehmende ins Netzwerk der Werkstatt (AWO), um Open WebUI selbst auszuprobieren? Dann Lasttest mit mehreren gleichzeitigen Anfragen
+- [ ] **Datenschutz-Hinweis:** Falls Teilnehmende Open WebUI nutzen — Chats werden auf der Workstation gespeichert; kurz auf der Folie oder mündlich erwähnen
 
 ### Prüfen
 
-- [ ] Gesamte Präsentation rendern und auf Überlauf prüfen — besonders neue Folien: Eingabemöglichkeiten-Übersicht, Vergleich der Wege, Referenzen (zwei Spalten), Präzision und RAM-Bedarf
-- [ ] Modellnamen und Werkzeuge vor dem Workshop gegenprüfen (Coding-LLMs, Continue, Meshy-Kontingent)
-- [ ] Handout als PDF rendern und prüfen; Bonus HuggingFace dort noch als TODO
+- [ ] Gesamte Präsentation rendern und auf Überlauf prüfen — besonders: Eingabemöglichkeiten-Übersicht, „Die Workstation im Netzwerk“, „Was passt auf unsere Workstation?“, Vergleich der Wege, Referenzen (zwei Spalten, jetzt je 8 Einträge), Präzision und RAM-Bedarf
+- [ ] Modellnamen gegenprüfen: `gemma4:12b` und `qwen3.5:9b` exakt so wie in Ollama installiert (`ollama list`)
+- [ ] Handout als PDF rendern und prüfen (neu: Bilder, Code-Block in nummerierter Liste); Bonus HuggingFace dort noch als TODO
 
 ### Entscheidungen
 
@@ -54,3 +47,20 @@ Stand: 09.10.2026 · Gliederung siehe `roter_faden.md` (jetzt umgesetzt in `ki2.
 - [ ] Workshop-Dauer → welche Bonus-Teile bleiben?
 - [ ] Gibt es einen gedruckten Hexenturm zum Herumzeigen?
 - [ ] Was lässt sich mit ComfyUI + Hunyuan3D live zeigen, was nur als Bild/Video?
+
+---
+
+## Ideen
+
+- [ ] **Mitmach-Aktion:** Publikum schlägt eine Figur vor → live Bild erzeugen → 3D-Modell → in PrusaSlicer zeigen. Den Druck vorab mit dem Santa demonstrieren, da ein echter Druck zu lange dauert
+- [ ] **QR-Codes:** Auf der Workstation-Folie und der Ende-Folie QR-Codes zum Wiki und zur Online-Präsentation (lokal als SVG erzeugen, kein externer Dienst)
+- [ ] **Sprach-Pipeline lokal:** Open WebUI kann Spracheingabe und Vorlesen — als lokales Gegenstück zur Whisper-+-Kokoro-Folie im Bonus zeigen
+- [ ] **Lokal vs. Cloud live:** Denselben OpenSCAD-Prompt parallel auf der Workstation und mit Claude Code laufen lassen und Ergebnis und Zeit vergleichen
+
+## Wiki-Pflege (Vorschläge)
+
+- [ ] „ConfyUI“ → „ComfyUI“ (Seitentitel und Texte)
+- [ ] „GBL“ → „GLB“ (Seite „GBL to STL Konvertieren“ und Beispiel-Workflow)
+- [ ] „KI Sprachchat“ ist ein Text-Chat → umbenennen oder Spracheingabe ergänzen
+- [ ] Offene Wiki-TODOs füllen: „STL cleanen“ (passt zur Folie „Typische Probleme“), „RAM freigeben“ (ComfyUI), „KI Coden“ (Work in Progress)
+- [ ] Continue-Config: Link im Wiki ist fehlerhaft formatiert („Extensionhttps://…“)

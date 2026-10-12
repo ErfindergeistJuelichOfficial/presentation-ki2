@@ -12,7 +12,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 3. Token, Parameter, Präzision, RAM-Bedarf — Unterschiede lokal vs. Cloud
 4. Prompting (SAND-Methode, Kontextfenster, Grenzen der Antworten)
 5. Eingabemöglichkeiten: Web-UI, CLI-Agenten, IDE (lokal und Cloud)
-6. 3D-Generierung (Hauptteil): Weg 1 Text → Code → 3D (OpenSCAD), Weg 2 Bild → 3D (ComfyUI + Hunyuan3D, Meshy, HuggingFace)
+6. 3D-Generierung (Hauptteil): Weg 1 Text → Code → 3D (OpenSCAD), Weg 2 Bild → 3D (ComfyUI + Hunyuan3D lokal, HuggingFace)
 7. Vom Modell zum Druck
 8. Zusammenfassung, Fragen & Diskussion
 9. Bonus: HuggingFace, Termine-Webseite, Azure Showcases (Unternehmens-Showcase)
@@ -53,6 +53,8 @@ Farben aus `_brand.yml` — niemals davon abweichen:
 ```
 
 Navigation ist **vertikal** (`navigation-mode: vertical`) — `#` wechselt horizontal, `##` vertikal.
+
+**Achtung:** Auf `#`-Folien keine `###`-Überschriften verwenden (auch nicht in Spalten) — Pandoc beendet die Folie sonst vorzeitig und der restliche Inhalt hängt außerhalb jeder Folie. Inhalte mit Zwischenüberschriften immer auf eine `##`-Folie legen.
 
 ### Spalten-Layout
 

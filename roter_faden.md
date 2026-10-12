@@ -71,11 +71,8 @@ Aufbau in Paaren lokal / Cloud:
 
 **Weg 2: Bild → 3D**
 
-- Lokal: ComfyUI + Hunyuan3D
-- Cloud: Meshy (gezeichnetes Bild → 3D-Modell)
-- Ohne Installation testen (HuggingFace):
-  - Hunyuan3D-2.1: <https://huggingface.co/spaces/tencent/Hunyuan3D-2.1>
-  - Pixal3D: <https://huggingface.co/spaces/TencentARC/Pixal3D>
+- Lokal: ComfyUI + Hunyuan3D (Workstation)
+- Cloud: siehe Bonus HuggingFace
 
 **Vergleich der Wege:** präzise/technisch vs. organisch/kreativ, lokal vs. Cloud
 
@@ -93,7 +90,9 @@ Aufbau in Paaren lokal / Cloud:
 
 ### 8. Bonus (je nach verfügbarer Zeit)
 
-- **HuggingFace:** FLUX.1, Wan2.2, Whisper, Kokoro
+- **HuggingFace:** FLUX.1, Wan2.2, Whisper, Kokoro, Bild zu 3D:
+  - Hunyuan3D-2.1: <https://huggingface.co/spaces/tencent/Hunyuan3D-2.1>
+  - Pixal3D: <https://huggingface.co/spaces/TencentARC/Pixal3D>
 - **Termine-Webseite:** Coding einer Webseite (Plan, Herzanimation, CLAUDE.md, Achievements)
 - **Azure Showcases** (= Unternehmens-Showcase)
 

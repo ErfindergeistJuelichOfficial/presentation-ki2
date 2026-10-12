@@ -25,7 +25,7 @@ format:
 - Ziel: Förderung von Kreativität und Innovation durch praktisches Lernen und Zusammenarbeit
 - Angebote: Workshops und Kreativ-Tage, Repair Café, Offene Werkstatt (3D-Drucker, Lasergravur, Holzverarbeitung, Textilveredelung)
 
-Der 3D-Drucker der Offenen Werkstatt (Prusa Core One) ist der Bezugspunkt für den Hauptteil dieses Workshops: Wie entsteht mit KI ein 3D-Modell, das man drucken kann?
+Der 3D-Drucker der Offenen Werkstatt (Prusa CORE One+, Bauraum 250 × 220 × 270 mm) ist der Bezugspunkt für den Hauptteil dieses Workshops: Wie entsteht mit KI ein 3D-Modell, das man drucken kann?
 
 # Was ist KI?
 
@@ -145,6 +145,28 @@ Das **Kontextfenster** ist das Arbeitsgedächtnis des Modells. Prompt, Anhänge,
 
 **Code ist Text:** Alles, was man als Code beschreiben kann – Webseiten, Präsentationen, 3D-Modelle – kann KI gut erzeugen.
 
+# Die KI-Workstation der Offenen Werkstatt
+
+In der Offenen Werkstatt steht ein eigener KI-Rechner. Alle Modelle laufen lokal, ohne Cloud. Entscheidend ist die Grafikkarte: eine RTX 5060 Ti mit 16 GB Grafikspeicher. Darauf passen Modelle bis etwa 14B Parameter (in 4 Bit).
+
+| Dienst | Adresse | Wofür |
+|---|---|---|
+| Open WebUI | `http://werkstatt-workstation:8080` | Chatten, PDFs und Webseiten auswerten |
+| Ollama API | `http://werkstatt-workstation:11434` | Modelle vom eigenen Laptop nutzen, z.B. mit Continue in VS Code |
+| ComfyUI | am Rechner: `http://localhost:8188` | Bilder und 3D-Modelle erzeugen |
+
+: {tbl-colwidths="[18,42,40]"}
+
+Die Adressen funktionieren nur im Netzwerk der Werkstatt (AWO), und die Workstation muss eingeschaltet sein.
+
+Installierte Sprachmodelle (Auswahl, Stand: Oktober 2026):
+
+- `gemma4:12b` – sehr gutes Allgemeinwissen
+- `qwen3.5:9b` – Allgemeinwissen
+- `qwen2.5-coder:14b` – Programmieren (auch für OpenCode und Continue)
+
+Ausführliche Anleitungen: <https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX>
+
 # 3D-Generierung mit KI
 
 ## Weg 1: Text – Code – 3D (OpenSCAD)
@@ -159,9 +181,26 @@ Vorgehen: Objekt beschreiben, Code erzeugen lassen, Ergebnis prüfen, mit weiter
 
 Aus einem Foto oder einer Zeichnung erzeugt die KI ein 3D-Modell (Mesh). Sie ergänzt dabei auch die nicht sichtbaren Seiten.
 
-- **Lokal:** ComfyUI + Hunyuan3D – braucht eine leistungsstarke Grafikkarte
-- **Cloud:** Meshy (meshy.ai) – keine Installation nötig
-- **Ohne Installation testen:** Hunyuan3D-2.1 und Pixal3D auf HuggingFace
+- **Lokal:** ComfyUI + Hunyuan3D auf der Workstation
+- **Cloud / ohne Installation:** Hunyuan3D-2.1 und Pixal3D auf HuggingFace
+
+### Schritt für Schritt auf der Workstation
+
+1. ComfyUI im Browser öffnen: `http://localhost:8188`
+2. **Bild erzeugen:** Menü *Templates*, Bereich *Image*, Vorlage *Z-Image-Turbo: Text to Image*. Prompt eingeben und *Run* drücken. Im Prompt einen einfarbigen Hintergrund verlangen, z.B.: *„a cute simple low-poly santa claus figure, standing, smiling, full body, clean geometric shapes, solid white background, 3d print style model, light and shadows“*
+3. **3D-Modell erzeugen:** Menü *Templates*, Bereich *3D Model*, Vorlage *HY 3D 2.1*. Unter *Step 2 – Upload image* das Bild hochladen.
+4. Ergebnis ist eine GLB-Datei – für den Druck in STL umwandeln (siehe unten).
+
+![Schritt 1: Bild mit Z-Image-Turbo erzeugen](images/comfyui-z-image-santa.webp){width="80%"}
+
+![Schritt 2: Aus dem Bild ein 3D-Modell mit Hunyuan3D 2.1 erzeugen](images/comfyui-hunyuan3d-santa.webp){width="90%"}
+
+### Gute Vorlagen für Bild zu 3D
+
+- Ein Objekt pro Bild
+- Hintergrund entfernt oder einfarbig
+- Gleichmäßige Beleuchtung mit Schatten – so erkennt die KI die Form
+- Kein Text, keine Logos
 
 ## Vergleich
 
@@ -172,15 +211,22 @@ Aus einem Foto oder einer Zeichnung erzeugt die KI ein 3D-Modell (Mesh). Sie erg
 | Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
 | Stärke | technische Teile, Gebäude | Figuren, organische Formen |
 | Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
-| Cloud | Claude Code | Meshy |
+| Cloud | Claude Code | Hunyuan3D / Pixal3D auf HuggingFace |
 
 : {tbl-colwidths="[18,41,41]"}
 
 # Vom Modell zum Druck
 
-1. **Export:** OpenSCAD exportiert direkt als STL. Bild-zu-3D-Werkzeuge liefern oft GLB oder OBJ.
-2. **Slicer** (z.B. PrusaSlicer): zerlegt das Modell in Schichten und erzeugt die Druckdatei.
-3. **Drucken:** z.B. in der Offenen Werkstatt des Erfindergeist Jülich e.V.
+1. **Export:** OpenSCAD exportiert direkt als STL. Bild-zu-3D-Werkzeuge liefern GLB-Dateien.
+2. **GLB in STL umwandeln** – auf der Workstation mit assimp:
+
+    ```bash
+    nix-shell -p assimp --extra-experimental-features flakes
+    assimp export datei.glb datei.stl
+    ```
+
+3. **Slicer** (PrusaSlicer, auf der Workstation installiert und mit dem Drucker verbunden): zerlegt das Modell in Schichten und erzeugt die Druckdatei.
+4. **Drucken:** auf dem Prusa CORE One+ in der Offenen Werkstatt. Filament gegen Spende.
 
 Typische Probleme bei KI-Modellen: fehlende echte Maße (im Slicer skalieren), Löcher im Mesh, zu dünne Wände, Überhänge ohne Stützmaterial.
 
@@ -492,11 +538,12 @@ Alle Links abgerufen am 09.10.2026.
 - Claude Code: <https://www.anthropic.com/claude-code>
 - OpenSCAD: <https://openscad.org>
 - ComfyUI: <https://www.comfy.org>
-- Meshy: <https://www.meshy.ai>
 - HuggingFace: <https://huggingface.co>
 - Hunyuan3D-2.1: <https://huggingface.co/spaces/tencent/Hunyuan3D-2.1>
 - Pixal3D: <https://huggingface.co/spaces/TencentARC/Pixal3D>
 - FLUX.1: <https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell>
 - Whisper: <https://huggingface.co/spaces/hf-audio/whisper-large-v3>
 - Kokoro TTS: <https://huggingface.co/spaces/hexgrad/Kokoro-TTS>
+- Continue: <https://www.continue.dev>
+- Wiki – Workstation: <https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX>
 - Präsentation online: <https://presentations.erfindergeist.org/ki2/>
