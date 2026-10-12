@@ -29,9 +29,6 @@ quarto preview ki2.qmd --no-cache
 ```shell
 # Präsentation als PDF
 quarto render ki2.qmd --to pdf
-
-# Handout als PDF
-quarto render handout.qmd --to pdf
 ```
 
 ## Documentation Presentation

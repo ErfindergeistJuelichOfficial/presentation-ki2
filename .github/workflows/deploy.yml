@@ -25,10 +25,6 @@ jobs:
     - name: quarto render website & pdf
       uses: quarto-dev/quarto-actions/render@v2
 
-    - name: render & copy PDFs
-      run: |
-        quarto render handout.qmd --to pdf
-
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.4.0
       with:
@@ -40,5 +36,4 @@ jobs:
         state-name: .ftp-deploy-presentation-ki2.json
         server-dir: /presentations/ki2/
         exclude: |
-          handout.html
           index.html

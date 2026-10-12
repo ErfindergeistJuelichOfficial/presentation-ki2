@@ -9,7 +9,6 @@ Stand: 12.10.2026 · Gliederung siehe `roter_faden.md` (umgesetzt in `ki2.qmd`)
   - Neue Folien: „Offene Werkstatt: KI-Workstation“, „Token: Was passt auf unsere Workstation?“, „Lokal: Die Workstation im Netzwerk“
   - ComfyUI-Workflow mit Wiki-Screenshots (Santa: Z-Image-Turbo → Hunyuan3D 2.1), „Gute Vorlagen für Bild → 3D“
   - GLB → STL mit assimp, PrusaSlicer auf der Workstation, Drucker korrekt als Prusa CORE One+
-  - Handout: eigener Abschnitt zur Workstation mit Adressen, Modellen und Schritt-für-Schritt-Anleitung
 
 ---
 
@@ -21,7 +20,7 @@ Stand: 12.10.2026 · Gliederung siehe `roter_faden.md` (umgesetzt in `ki2.qmd`)
 - [x] **ComfyUI + Hunyuan3D:** Workflow-Screenshot und Ergebnis eingefügt (aus dem Wiki)
 - [ ] **Hunyuan3D-2.1 auf HuggingFace:** Space testen, Screenshot einfügen (TODO in Folie)
 - [ ] **Gedruckter Hexenturm:** Foto einfügen, falls vorhanden (TODO in Folie „Selbst ausprobieren“)
-- [ ] **Chihuahua-Folie:** Bildnachweis (`aside` mit Fotografen) fehlt auf der Folie — bewusst entfernt? Im Handout ist er noch drin
+- [ ] **Chihuahua-Folie:** Bildnachweis (`aside` mit Fotografen) fehlt auf der Folie — bewusst entfernt?
 
 ### Workstation & Live-Demos
 
@@ -37,7 +36,6 @@ Stand: 12.10.2026 · Gliederung siehe `roter_faden.md` (umgesetzt in `ki2.qmd`)
 
 - [ ] Gesamte Präsentation rendern und auf Überlauf prüfen — besonders: Eingabemöglichkeiten-Übersicht, „Die Workstation im Netzwerk“, „Was passt auf unsere Workstation?“, Vergleich der Wege, Referenzen (zwei Spalten, jetzt je 8 Einträge), Präzision und RAM-Bedarf
 - [ ] Modellnamen gegenprüfen: `gemma4:12b` und `qwen3.5:9b` exakt so wie in Ollama installiert (`ollama list`)
-- [ ] Handout als PDF rendern und prüfen (neu: Bilder, Code-Block in nummerierter Liste); Bonus HuggingFace dort noch als TODO
 
 ### Entscheidungen
 
