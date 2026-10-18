@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" width="720" height="270" font-family="sans-serif">
+  <!-- Skala: 12 px pro GB -->
+  <rect x="150" y="20" width="192" height="220" rx="6" fill="#159989" fill-opacity="0.12"/>
+  <line x1="342" y1="12" x2="342" y2="248" stroke="#159989" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="346" y="262" fill="#159989" font-size="16" font-weight="bold">16 GB Grafikspeicher</text>
+
+  <text x="140" y="68" fill="#aaaaaa" font-size="18" text-anchor="end">7B–9B</text>
+  <rect x="150" y="48" width="60" height="30" rx="5" fill="#159989"/>
+  <text x="220" y="69" fill="#aaaaaa" font-size="16">~5 GB  ✓</text>
+
+  <text x="140" y="128" fill="#aaaaaa" font-size="18" text-anchor="end">12B–14B</text>
+  <rect x="150" y="108" width="108" height="30" rx="5" fill="#159989"/>
+  <text x="268" y="129" fill="#aaaaaa" font-size="16">~9 GB  ✓</text>
+
+  <text x="140" y="188" fill="#aaaaaa" font-size="18" text-anchor="end">70B</text>
+  <rect x="150" y="168" width="480" height="30" rx="5" fill="#F9B338"/>
+  <text x="640" y="189" fill="#F9B338" font-size="16">~40 GB  ✗</text>
+</svg>

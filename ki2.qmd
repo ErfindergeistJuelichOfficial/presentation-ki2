@@ -291,31 +291,39 @@ Tipp: Mehrere Teilnehmer gleichzeitig fragen lassen und die Antworten vergleiche
 
 # Token
 
+Wie die KI Text liest — und was sie dafür an Hardware braucht.
+
 <!-- Ziel ist es aufzuzeigen wo die unterscheide zwischen Tokens in der Cloud und Lokal liegen. Am ende muss jeder Teilnehmer die Unterschiede verstehen. Die Tiefe sollte sich auf Parameter und Präzision beschränken-->
-
-- Token sind die kleinsten Texteinheiten, in die ein KI-Modell Text zerlegt.
-
-- Jedes Wort und Satzzeichen zählt meist als 1 Token. Leerzeichen werden typischerweise dem nächsten Token vorangestellt, nicht als eigenes Token gezählt.
-
-- Ein Token ist nicht immer ein ganzes Wort. Das Wort „Apfel” ist vielleicht ein Token, „Verständnisfragen” hingegen werden in mehrere Tokens zerlegt.
 
 ::: {.notes}
 Ziel der Section: verstehen, wie die KI Text „sieht“, und warum lokale Modelle kleiner sind als Cloud-Modelle.
 :::
 
+## Token: KI liest in Puzzleteilen
 
-## Token: Beispiele
+Die KI zerlegt jeden Text in kleine Stücke — **Token**.
 
-- Beispiel: „Hallo Welt!” → 3 Token („Hallo”, „ Welt”, „!”).
+| Text | Token | Anzahl |
+|---|---|---|
+| Hallo Welt! | [Hallo]{.token-chip} [␣Welt]{.token-chip} [!]{.token-chip} | 3 |
+| Apfel | [Apfel]{.token-chip} | 1 |
+| Verständnisfragen | [Verständ]{.token-chip} [nis]{.token-chip} [fragen]{.token-chip} | mehrere |
 
-- Faustregel: 100 Token entsprechen etwa 75 Wörtern.
+: {tbl-colwidths="[30,55,15]"}
 
-- Interaktiv ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+**Faustregel:** 100 Token ≈ 75 Wörter
 
-::: {.notes}
-Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergleichen – deutsche Texte brauchen oft mehr Token.
+::: aside
+Selbst ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
 :::
 
+::: {.notes}
+Häufige, kurze Wörter sind meist ein einzelnes Token. Lange oder seltene Wörter werden in mehrere Stücke zerlegt. Die Aufteilung bei „Verständnisfragen“ ist vereinfacht dargestellt.
+
+Das Leerzeichen (␣) gehört meist zum nächsten Wort und ist kein eigenes Token.
+
+Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergleichen – deutsche Texte brauchen oft mehr Token.
+:::
 
 ## Token: Was sind Parameter?
 
@@ -335,82 +343,86 @@ Bezug zur Katze von vorhin: Die KI hat aus vielen Katzenfotos gelernt. Wo steckt
 
 Ein einzelner Regler bedeutet nichts. Erst alle zusammen ergeben das „Wissen“ des Modells – ähnlich wie ein einzelner Pixel noch kein Bild ist.
 
-Technisch ist jeder Regler eine Zahl. Wie genau diese Zahl gespeichert wird, zeigt die nächste Folie (Präzision).
+Technisch ist jeder Regler eine Zahl.
 :::
 
-## Token: Präzision und RAM-Bedarf
+## Token: Wie schnell schreibt die KI?
 
-**Präzision** = wie genau jede Reglerstellung gespeichert wird. Weniger genau = weniger RAM.
+**Tokens pro Sekunde** = die Schreibgeschwindigkeit der KI
 
-| Modell | 16 Bit (FP16) | 4 Bit (Q4) |
-|---|---|---|
-| 3B | ~6 GB | ~2 GB |
-| 7B | ~14 GB | ~4–5 GB |
-| 13B | ~26 GB | ~8 GB |
-| 70B | ~140 GB | ~40 GB |
+<!-- TODO: Werte auf der Workstation messen: ollama run qwen3.5:9b --verbose bzw. qwen2.5-coder:14b --verbose ("eval rate") und Schätzwerte ersetzen -->
 
-: {tbl-colwidths="[30,35,35]"}
+::: columns
+::: {.column width="33%"}
+::: {.card}
+**Mensch liest**
 
-Ollama nutzt meist 4 Bit: **25 % des RAM**, kaum merklicher Qualitätsverlust.
+5–10 Token pro Sekunde
 
-::: {.notes}
-Im Bild des Mischpults: Bei 16 Bit hat jeder Regler 65.536 Stufen, bei 4 Bit nur 16 Stufen. Gröber eingestellt – aber das Ergebnis klingt fast genauso.
-
-FP16 = 16 Bit = 2 Byte pro Parameter. Ein 7B-Modell braucht also 7 Mrd. × 2 Byte ≈ 14 GB.
-
-Quantisierung (Q4) speichert jede Zahl mit nur 4 Bit. Der RAM-Bedarf sinkt auf etwa ein Viertel. Die Werte sind Richtwerte – dazu kommt noch Speicher für das Kontextfenster.
+Maßstab
 :::
+:::
+::: {.column width="34%"}
+::: {.card}
+**Workstation: 9B-Modell**
 
-## Token: Tokens pro Sekunde
+ca. 45–55 Token pro Sekunde
 
-- **Tokens pro Sekunde (TPS)** misst die Geschwindigkeit: wie viele Token das Modell pro Sekunde ausgibt.
+flüssig
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Workstation: 14B-Modell**
 
-- Beispiel: eine Nvidia RTX 4090 (24 GB VRAM) erreicht mit Ollama typischerweise:
-  - ~80–120 TPS für ein 7B-Modell (Q4) — flüssig lesbar
-  - ~40–60 TPS für ein 13B-Modell (Q4) — ebenfalls flüssig
-  - 70B-Modelle (Q4 ~40 GB) passen nicht mehr in den VRAM einer einzelnen Karte
+ca. 30–35 Token pro Sekunde
+
+flüssig
+:::
+:::
+:::
 
 ::: aside
-Richtwerte, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellungen.
+Geschätzt für unsere Workstation (RTX 5060 Ti, 16 GB) mit Ollama, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellungen.
 :::
 
 ::: {.notes}
-Zum Vergleich: Menschen lesen etwa 5–10 Token pro Sekunde. Alles darüber wirkt flüssig.
+Alles, was schneller ist als wir lesen, wirkt flüssig. Größere Modelle sind langsamer, weil mehr Regler berechnet werden müssen.
+
+Die Werte sind eine Schätzung: Die Geschwindigkeit hängt vor allem davon ab, wie schnell die Grafikkarte ihren Speicher lesen kann (bei der RTX 5060 Ti rund 448 GB/s). Pro Token muss das ganze Modell einmal gelesen werden – ein 9B-Modell (ca. 6 GB) also schneller als ein 14B-Modell (ca. 9 GB).
+
+70B-Modelle (ca. 40 GB) passen nicht in den Grafikspeicher – dann wird es sehr langsam.
 :::
 
 ## Token: Was passt auf unsere Workstation?
 
-Grafikkarte mit **16 GB** Grafikspeicher (VRAM):
-
-| Modellgröße (Q4) | Bedarf ca. | Passt? |
-|---|---|---|
-| 7B–9B | 4–6 GB | ja, mit viel Platz für Kontext |
-| 12B–14B | 8–9 GB | ja |
-| 70B | ~40 GB | nein |
-
-: {tbl-colwidths="[35,30,35]"}
+![](images/vram-passt.svg){fig-align="center" width="85%"}
 
 Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
 
 ::: {.notes}
-Die Werte aus der RAM-Tabelle werden hier konkret: Ein 14B-Modell in 4 Bit belegt etwa 8–9 GB und passt gut in die 16 GB der Grafikkarte. Der Rest wird für das Kontextfenster gebraucht.
+Der Grafikspeicher ist wie ein Schreibtisch: Das ganze Modell muss darauf Platz haben. Unsere Workstation hat 16 GB.
+
+Ollama speichert Modelle komprimiert. Ein 14B-Modell belegt so etwa 8–9 GB und passt gut hinein. Der Rest wird für das Kontextfenster gebraucht.
 
 Passt ein Modell nicht vollständig in den Grafikspeicher, lagert Ollama Teile in den normalen Arbeitsspeicher aus – das funktioniert, ist aber deutlich langsamer.
 
 Im Wiki-Test hat Qwen2.5-Coder 14B in unter 3 Sekunden geantwortet und ein HTML-Snake-Spiel erstellt.
 :::
 
-## Token: Was sagt uns das nun?
+## Token: Lokal oder Cloud?  {.smaller}
 
 | | **Cloud** | **Lokal** |
 |---|---|---|
-| Modellgröße | sehr groß (oft nicht veröffentlicht) | 7B–13B Parameter (quantisiert) |
-| Geschwindigkeit | hängt vom Anbieter ab | hängt von eigener Hardware ab (TPS) |
-| Kontextfenster | bis ca. 1 Mio. Token | 4K–128K Token |
-| Daten | verlassen den eigenen Rechner | bleiben auf dem eigenen Rechner |
-| Kosten | laufend (Abo oder pro Token) | einmalig (Hardware) + Strom |
+| Modellgröße | riesig (oft geheim) | klein bis mittel (7B–14B) |
+| Geschwindigkeit | hängt vom Anbieter ab | hängt vom eigenen Rechner ab |
+| Kontextfenster | bis ca. 1 Mio. Token | 4.000–128.000 Token |
+| Daten | verlassen den Rechner | **bleiben bei Ihnen** |
+| Kosten | laufend (Abo / pro Token) | einmalig (Hardware) + Strom |
 
-: {tbl-colwidths="[22,39,39]"}
+: {tbl-colwidths="[24,38,38]"}
+
+**Merke:** Cloud = größere Modelle · Lokal = Ihre Daten bleiben bei Ihnen
 
 ::: {.notes}
 Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
