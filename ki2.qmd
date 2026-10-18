@@ -37,18 +37,49 @@ format:
 <!-- Der Veranstalter: Erfindergeist Jülich e.V. stellt sich kurz vor -->
 # Vorstellung Erfindergeist Jülich e.V
 
-* Gemeinnütziger Verein mit Sitz in Jülich, gegründet 2021
-* **Ziel**: Förderung von Kreativität und Innovation durch praktisches Lernen und Zusammenarbeit
-* Angebote
-  * Offene Werkstatt (3D-Drucker, CNC, Holz-, Metall-, Elektroarbeiten, IT, etc.)
-  * Wissensvermittlung 
-  * Repair Café
-  
+Gemeinnütziger Verein aus Jülich — seit 2021
 
 ::: {.notes}
 Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker ist später der rote Faden des Workshops.
 :::
 
+## Erfindergeist: Wer wir sind
+
+**Ziel:** Kreativität und Innovation fördern — durch praktisches Lernen und Zusammenarbeit
+
+::: columns
+::: {.column width="34%"}
+::: {.card}
+**Offene Werkstatt**
+
+3D-Drucker, CNC, Holz-, Metall-, Elektroarbeiten, IT
+
+selbst machen
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Wissensvermittlung**
+
+Workshops wie dieser
+
+gemeinsam lernen
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Repair Café**
+
+Defektes gemeinsam reparieren
+
+statt wegwerfen
+:::
+:::
+:::
+
+::: {.notes}
+Die Offene Werkstatt mit dem 3D-Drucker spielt heute die Hauptrolle: Am Ende soll aus einer KI-Idee ein echtes, gedrucktes Objekt werden.
+:::
 
 ## Offene Werkstatt: 3D-Druck 1/2
 
@@ -430,10 +461,10 @@ Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eig
 
 # Prompting
 
-- Ziel: Prompting verstehen und optimieren
+Wie man richtig mit KI spricht
 
 ::: {.notes}
-Ziel der Section: Die Qualität der Antwort hängt stark von der Frage ab.
+Ziel der Section: Prompting verstehen und optimieren. Die Qualität der Antwort hängt stark von der Frage ab.
 :::
 
 ## Prompting: Was ist ein Prompt?
@@ -792,13 +823,20 @@ Alle Wege können 100% **lokal** laufen aber auch mit **cloud** Modelle kombinie
 
 # Weg 1: Text → Code → 3D
 
-**OpenSCAD** ist eine Programmiersprache für 3D-Modelle — statt mit der Maus zu modellieren, beschreibt man das Modell als Code.
-
-**Das Prinzip:** Prompt an KI → SCAD-Code wird erzeugt → fertiges 3D-Modell
-
+Die KI schreibt Code — der Code wird zum 3D-Modell
 
 ::: {.notes}
 Hier kommt alles zusammen: Coding-Agent (Eingabemöglichkeiten) + gute Prompts (SAND) + Code ist Text.
+:::
+
+## Weg 1: Das Prinzip
+
+![](images/weg1-prinzip.svg){fig-align="center" width="90%"}
+
+**OpenSCAD** ist eine Programmiersprache für 3D-Modelle — statt mit der Maus zu modellieren, beschreibt man das Modell als Code.
+
+::: {.notes}
+Der Mensch beschreibt, was er möchte – in Worten und gerne mit Skizze. Die KI schreibt daraus OpenSCAD-Code. OpenSCAD macht aus dem Code das fertige, maßgenaue 3D-Modell.
 :::
 
 ## OpenSCAD: Was ist OpenSCAD?
@@ -1056,14 +1094,22 @@ Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI kons
 
 # Weg 2: Bild → 3D
 
-Aus einem Foto oder einer Zeichnung wird ein 3D-Modell.
+Aus einem Foto oder einer Zeichnung wird ein 3D-Modell
+
+::: {.notes}
+Im Gegensatz zu Weg 1 entsteht hier kein Code, sondern direkt eine Oberfläche aus vielen kleinen Dreiecken.
+:::
+
+## Weg 2: Das Prinzip
+
+![](images/weg2-prinzip.svg){fig-align="center" width="90%"}
 
 - KI „errät“ auch die nicht sichtbaren Seiten
 - Ergebnis: Oberfläche aus Dreiecken (Mesh), oft mit Farbe
 - Gut für Figuren und organische Formen, weniger für exakte Maße
 
 ::: {.notes}
-Im Gegensatz zu Weg 1 entsteht hier kein Code, sondern direkt eine Oberfläche aus vielen kleinen Dreiecken. Das ist gut für Figuren, aber Maße lassen sich nachträglich kaum ändern.
+Das ist gut für Figuren, aber Maße lassen sich nachträglich kaum ändern – anders als bei den Parametern in Weg 1.
 :::
 
 ## Lokal: ComfyUI + Hunyuan3D
@@ -1215,6 +1261,10 @@ FOTO
 
 # Weg 3: MCP (Model Context Protocol)
 
+Die KI bedient 3D-Programme direkt
+
+## MCP: Ein USB-Anschluss für KI
+
 ![](images/mcp-ablauf.svg){fig-align="center" width="80%"}
 
 - **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
@@ -1323,12 +1373,11 @@ Live je nach Zeit eine Demo zeigen, z.B. Bild → 3D mit Hunyuan3D – das ist d
 
 # Bonus: Termine-Webseite
 
-Eine mit KI erstellte Webseite: Sie zeigt die Termine des Vereins und erklärt, wie diese öffentlich bereitgestellt werden.
+Eine Webseite — komplett mit KI programmiert
 
 ::: {.notes}
-Praxisbeispiel aus dem Verein: Die Termine-Webseite wurde mit KI programmiert.
+Praxisbeispiel aus dem Verein: Die Termine-Webseite zeigt die Termine des Vereins und erklärt, wie diese öffentlich bereitgestellt werden. Sie wurde mit KI programmiert.
 :::
-
 
 ## Plan erstellen
 
@@ -1478,7 +1527,13 @@ Achievements = Erfolge/Abzeichen, die man durch das Finden der versteckten Spiel
 
 # Bonus: Azure Showcases
 
-KI-Anwendungen aus der Praxis von Unternehmen.
+KI-Anwendungen aus der Praxis von Unternehmen
+
+::: {.notes}
+Unternehmens-Showcase.
+:::
+
+## Azure: Showcases
 
 <!-- TODO: Showcases einfügen -->
 
@@ -1486,13 +1541,11 @@ KI-Anwendungen aus der Praxis von Unternehmen.
 Weitere Szenarien: [Microsoft Scenario Library](https://adoption.microsoft.com/de-de/scenario-library/) — abgerufen am 09.10.2026
 :::
 
-::: {.notes}
-Unternehmens-Showcase.
-:::
-
 # Referenzen
 
-Alle Links abgerufen am 09.10.2026.
+Alle Links abgerufen am 09.10.2026
+
+## Referenzen: Werkzeuge und Demos
 
 ::: columns
 ::: {.column width="50%"}
@@ -1518,29 +1571,62 @@ Alle Links abgerufen am 09.10.2026.
 
 # Spenden
 
+Erfindergeist finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden
+
+## Spenden: So können Sie helfen
 
 ::: columns
-::: {.column width="70%"}
+::: {.column width="65%"}
+::: {.card}
+**Danke!**
 
-- Erfindergeist Jülich e.V. finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden. Wir Danken allen Unterstützern, die unsere Arbeit ermöglichen!
+Wir danken allen Unterstützern, die unsere Arbeit ermöglichen.
 
-- Spenden Konto und PayPal auf unserer Webseite [https://linktree.erfindergeist.org/](https://linktree.erfindergeist.org/)
-
+Spendenkonto und PayPal: [linktree.erfindergeist.org](https://linktree.erfindergeist.org/)
 :::
-::: {.column width="30%"}
-
+:::
+::: {.column width="35%"}
 ![](images/linktree.svg){width="100%"}
-
 :::
 :::
 
 # Ende
 
-- Vielen Dank für die Teilnahme!
-- [Präsentation Online anschauen](https://presentations.erfindergeist.org/ki2/)
-- [Download Präsentation als PDF](https://presentations.erfindergeist.org/ki2/index.pdf)
-- [erfindergeist.org](https://erfindergeist.org)
+Vielen Dank für die Teilnahme!
 
 ::: {.notes}
 Dank an alle Teilnehmer, Hinweis auf die Online-Version der Präsentation.
 :::
+
+## Zum Nachlesen
+
+::: columns
+::: {.column width="34%"}
+::: {.card}
+**Präsentation**
+
+Alle Folien online
+
+[ansehen](https://presentations.erfindergeist.org/ki2/)
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**PDF**
+
+Zum Herunterladen
+
+[download](https://presentations.erfindergeist.org/ki2/index.pdf)
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Erfindergeist**
+
+Termine und Angebote
+
+[erfindergeist.org](https://erfindergeist.org)
+:::
+:::
+:::
+

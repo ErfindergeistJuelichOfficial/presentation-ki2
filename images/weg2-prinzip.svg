@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" width="760" height="150" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#159989"/></marker></defs>
+<rect x="10" y="25" width="150" height="70" rx="12" fill="#2d2d2d" stroke="#F9B338" stroke-width="3"/>
+<text x="85" y="68" fill="#F9B338" font-size="21" font-weight="bold" text-anchor="middle">Bild</text>
+<text x="85" y="128" fill="#aaaaaa" font-size="15" text-anchor="middle">Foto / Zeichnung</text>
+<line x1="166" y1="60" x2="201" y2="60" stroke="#159989" stroke-width="3" marker-end="url(#a)"/>
+<rect x="207" y="25" width="150" height="70" rx="12" fill="#159989"/>
+<text x="282" y="68" fill="#222222" font-size="21" font-weight="bold" text-anchor="middle">KI</text>
+<text x="282" y="128" fill="#aaaaaa" font-size="15" text-anchor="middle">rät die Rückseite</text>
+<line x1="363" y1="60" x2="397" y2="60" stroke="#159989" stroke-width="3" marker-end="url(#a)"/>
+<rect x="403" y="25" width="150" height="70" rx="12" fill="#2d2d2d" stroke="#aaaaaa" stroke-width="3"/>
+<text x="478" y="68" fill="#aaaaaa" font-size="21" font-weight="bold" text-anchor="middle">Mesh</text>
+<text x="478" y="128" fill="#aaaaaa" font-size="15" text-anchor="middle">viele Dreiecke</text>
+<line x1="559" y1="60" x2="594" y2="60" stroke="#159989" stroke-width="3" marker-end="url(#a)"/>
+<rect x="600" y="25" width="150" height="70" rx="12" fill="#2d2d2d" stroke="#159989" stroke-width="3"/>
+<text x="675" y="68" fill="#159989" font-size="21" font-weight="bold" text-anchor="middle">3D-Modell</text>
+<text x="675" y="128" fill="#aaaaaa" font-size="15" text-anchor="middle">organisch</text>
+</svg>
