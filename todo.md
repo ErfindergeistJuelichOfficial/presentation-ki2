@@ -21,7 +21,7 @@ Stand: 18.10.2026 · Gliederung siehe `roter_faden.md`
 - [ ] **Toad drucken:** als Anschauungsobjekt mitbringen und für die Folie „TODO FOTO“ fotografieren — PrusaSlicer-Daten liegen vor (7,24 g, 1 h 21 min)
 - [ ] **ComfyUI-Speicher:** Vor der 3D-Demo Speicher freigeben (Z-Image und Hunyuan3D nacheinander) — Vorgehen klären, steht im Wiki noch als TODO
 - [ ] **VS Code auf der Workstation:** Extensions lassen sich nicht installieren (Wiki-TODO) — betrifft die IDE-Demo mit Continue
-- [ ] **Netzwerk im Workshop:** Können Teilnehmende ins Netzwerk der Werkstatt (AWO), um Open WebUI selbst auszuprobieren? Dann Lasttest mit mehreren gleichzeitigen Anfragen
+- [x] **Netzwerk im Workshop:** Können Teilnehmende ins Netzwerk der Werkstatt (AWO), um Open WebUI selbst auszuprobieren? Dann Lasttest mit mehreren gleichzeitigen Anfragen - NEIN aber an der Workstation Arbeiten.
 - [ ] **Datenschutz-Hinweis:** Falls Teilnehmende Open WebUI nutzen — Chats werden auf der Workstation gespeichert; kurz auf der Folie oder mündlich erwähnen
 
 ### Prüfen
@@ -41,7 +41,7 @@ Stand: 18.10.2026 · Gliederung siehe `roter_faden.md`
 ### Roter Faden
 
 - [x] **Werkstatt = nur 3D-Druck:** Der Anwendungsteil zeigt ausschließlich den 3D-Drucker. Die Vorstellung nennt aber CNC, Holz, Metall, Elektro, IT und das Repair Café. Entweder bewusst auf 3D-Druck fokussieren (dann Titel „KI to 3D“) oder 1–2 weitere Werkstatt-Beispiele ergänzen (Ideen siehe unten)
-- [ ] **Token-Teil sehr technisch für den Anfänger-Block:** Parameter, Grafikspeicher und Tokens pro Sekunde kommen vor dem Prompting. Überlegen, ob „Wie schnell schreibt die KI?“, „Was passt auf unsere Workstation?“ und „Lokal oder Cloud?“ besser zu „Eingabemöglichkeiten“ bzw. zur Workstation passen — dort sind sie konkret
+- [x] **Token-Teil sehr technisch für den Anfänger-Block:** Parameter, Grafikspeicher und Tokens pro Sekunde kommen vor dem Prompting. Überlegen, ob „Wie schnell schreibt die KI?“, „Was passt auf unsere Workstation?“ und „Lokal oder Cloud?“ besser zu „Eingabemöglichkeiten“ bzw. zur Workstation passen — dort sind sie konkret
 
 - [ ] **„Das sollten Sie mitnehmen“** enthält keinen Punkt zur Werkstatt bzw. zum 3D-Druck — z.B. „Mit KI und Werkstatt vom kaputten Teil zum Ersatzteil“
 - [x] **„OpenSCAD mit KI: Zusammenfassung“** steht vor dem Tischfuß-Praxisbeispiel — danach würde es den ganzen Weg 1 zusammenfassen

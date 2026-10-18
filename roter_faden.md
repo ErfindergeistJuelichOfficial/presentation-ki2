@@ -21,28 +21,25 @@ Stand: 18.10.2026
 
 - Einfach erklärt: Programm lernt aus Beispielen statt aus Regeln (Katzen-Beispiel)
 - Aufbau eines KI-Modells (neuronales Netz, Regler)
+- Parameter = Regler im Mischpult
 - LLMs: Modell ≠ Anwendung
 - Text- und multimodale Modelle (Chihuahua oder Muffin)
 - Coding-LLMs, andere Arten von KI
 - Was KI nicht ist (Zufallszahl-Experiment)
 
-### 3. Token
-
-- KI liest in Puzzleteilen
-- Parameter = Regler im Mischpult
-- Geschwindigkeit, was auf die Workstation passt, lokal oder Cloud
-
-### 4. Prompting
+### 3. Prompting
 
 - System- und User-Prompt
 - SAND-Methode mit Beispiel
-- Chat-Umgebung (mit/ohne Gedächtnis), Kontextfenster
+- Chat-Umgebung (mit/ohne Gedächtnis)
+- KI liest in Puzzleteilen (Token), Kontextfenster
 - Grenzen: Nichtdeterminismus, Halluzination, Bias, Overreliance
 
-### 5. Eingabemöglichkeiten
+### 4. Eingabemöglichkeiten
 
 - Web-UI, Terminal (Agent), Editor (IDE) — jeweils lokal und Cloud
-- Die Workstation im Netzwerk
+- Lokal oder Cloud?
+- Die Workstation im Netzwerk, was darauf passt, wie schnell sie schreibt
 - Live-Demo Snake
 - Brücke: **Code ist Text**
 
@@ -50,7 +47,7 @@ Stand: 18.10.2026
 
 ## Teil B — KI in unserer Werkstatt nutzen
 
-### 6. 3D-Generierung mit KI
+### 5. 3D-Generierung mit KI
 
 Übersicht: Viele Wege zum 3D-Modell
 
@@ -70,7 +67,7 @@ Stand: 18.10.2026
 
 - KI steuert 3D-Programme wie Blender direkt (nicht Teil des Workshops)
 
-### 7. Zusammenfassung & Fragen
+### 6. Zusammenfassung & Fragen
 
 - Vergleich der Wege
 - Das sollten Sie mitnehmen
@@ -93,4 +90,3 @@ Stand: 18.10.2026
 ## Offene Fragen zum roten Faden
 
 - Bleibt Teil B beim 3D-Druck, oder kommen weitere Werkstatt-Geräte dazu (Laser, Elektronik, Repair Café)? → siehe `todo.md`
-- Passt der Hardware-Teil von „Token“ besser in Teil B zur Workstation?

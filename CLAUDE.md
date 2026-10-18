@@ -8,15 +8,14 @@ Roter Faden: verstehen → richtig fragen → Werkzeuge kennen → etwas Echtes 
 
 Die Präsentation deckt folgende Themen ab (Reihenfolge):
 1. Vorstellung Erfindergeist Jülich e.V. (inkl. Offene Werkstatt / 3D-Druck)
-2. Was ist KI? / Was ist sie nicht?
-3. Token, Parameter, Präzision, RAM-Bedarf — Unterschiede lokal vs. Cloud
-4. Prompting (SAND-Methode, Kontextfenster, Grenzen der Antworten)
-5. Eingabemöglichkeiten: Web-UI, CLI-Agenten, IDE (lokal und Cloud)
-6. 3D-Generierung (Hauptteil): Weg 1 Text → Code → 3D (OpenSCAD), Weg 2 Bild → 3D (ComfyUI + Hunyuan3D lokal, HuggingFace)
-7. Vom Modell zum Druck
-8. Zusammenfassung, Fragen & Diskussion
-9. Bonus: HuggingFace, Termine-Webseite, Azure Showcases (Unternehmens-Showcase)
-10. Referenzen, Spenden, Ende
+2. Was ist KI? / Was ist sie nicht? (inkl. Aufbau eines Modells und Parameter)
+3. Prompting (SAND-Methode, Token, Kontextfenster, Grenzen der Antworten)
+4. Eingabemöglichkeiten: Web-UI, CLI-Agenten, IDE, lokal vs. Cloud, Workstation-Hardware
+5. 3D-Generierung (Hauptteil): Weg 1 Text → Code → 3D (OpenSCAD), Weg 2 Bild → 3D (ComfyUI + Hunyuan3D lokal, HuggingFace)
+6. Vom Modell zum Druck
+7. Zusammenfassung, Fragen & Diskussion
+8. Bonus: HuggingFace, Termine-Webseite, Azure Showcases (Unternehmens-Showcase)
+9. Referenzen, Spenden, Ende
 
 ## Dateien
 

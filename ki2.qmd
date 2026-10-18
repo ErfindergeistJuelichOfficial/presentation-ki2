@@ -121,7 +121,7 @@ Anleitungen im Wiki: [docs.erfindergeist.org › Workstation](https://docs.erfin
 ::: {.notes}
 Die Workstation ist der rote Faden für alle Live-Demos heute: Chat, Coding und 3D-Generierung laufen auf diesem Rechner, ohne Cloud.
 
-Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr in der Section Token).
+Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr bei den Eingabemöglichkeiten).
 :::
 
 
@@ -206,7 +206,28 @@ Die ersten Schichten erkennen einfache Dinge wie Kanten und Farben. Spätere Sch
 
 Training an Beispielen: Die KI rät, vergleicht mit der richtigen Antwort und dreht die Regler ein kleines Stück in die richtige Richtung. Das passiert millionenfach.
 
-Ein Sprachmodell wie ChatGPT funktioniert nach demselben Prinzip – nur ist die Eingabe Text und die Ausgabe das wahrscheinlichste nächste Wort. Die Regler tauchen später als „Parameter“ wieder auf.
+Ein Sprachmodell wie ChatGPT funktioniert nach demselben Prinzip – nur ist die Eingabe Text und die Ausgabe das wahrscheinlichste nächste Wort. Die Regler heißen „Parameter“ – dazu die nächste Folie.
+:::
+
+## Was sind Parameter?
+
+Stellen Sie sich ein **riesiges Mischpult** vor:
+
+- Jeder Drehregler ist ein **Parameter**
+- Beim Training werden alle Regler eingestellt — dort steckt das Gelernte
+- **7B** = 7 Milliarden Regler (B = englisch *billion*, Milliarde)
+- Mehr Regler = mehr Wissen und Können
+
+::: {.fragment}
+Jede Reglerstellung muss gespeichert werden — darum braucht KI so viel **Arbeitsspeicher**.
+:::
+
+::: {.notes}
+Bezug zur Katze von vorhin: Die KI hat aus vielen Katzenfotos gelernt. Wo steckt dieses Wissen? In der Stellung der Regler. Beim Training wird jeder Regler ein kleines Stück gedreht, bis die Antworten stimmen.
+
+Ein einzelner Regler bedeutet nichts. Erst alle zusammen ergeben das „Wissen“ des Modells – ähnlich wie ein einzelner Pixel noch kein Bild ist.
+
+Technisch ist jeder Regler eine Zahl.
 :::
 
 ## Was sind LLM
@@ -321,145 +342,6 @@ KI generiert Antworten, indem sie die wahrscheinlichsten nächsten Wörter vorhe
 Tipp: Mehrere Teilnehmer gleichzeitig fragen lassen und die Antworten vergleichen.
 :::
 
-# Token
-
-Wie die KI Text liest — und was sie dafür an Hardware braucht.
-
-<!-- Ziel ist es aufzuzeigen wo die unterscheide zwischen Tokens in der Cloud und Lokal liegen. Am ende muss jeder Teilnehmer die Unterschiede verstehen. Die Tiefe sollte sich auf Parameter und Präzision beschränken-->
-
-::: {.notes}
-Ziel der Section: verstehen, wie die KI Text „sieht“, und warum lokale Modelle kleiner sind als Cloud-Modelle.
-:::
-
-## Token: KI liest in Puzzleteilen
-
-Die KI zerlegt jeden Text in kleine Stücke — **Token**.
-
-| Text | Token | Anzahl |
-|---|---|---|
-| Hallo Welt! | [Hallo]{.token-chip} [␣Welt]{.token-chip} [!]{.token-chip} | 3 |
-| Apfel | [Apfel]{.token-chip} | 1 |
-| Verständnisfragen | [Verständ]{.token-chip} [nis]{.token-chip} [fragen]{.token-chip} | mehrere |
-
-: {tbl-colwidths="[30,55,15]"}
-
-**Faustregel:** 100 Token ≈ 75 Wörter
-
-::: aside
-Selbst ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
-:::
-
-::: {.notes}
-Häufige, kurze Wörter sind meist ein einzelnes Token. Lange oder seltene Wörter werden in mehrere Stücke zerlegt. Die Aufteilung bei „Verständnisfragen“ ist vereinfacht dargestellt.
-
-Das Leerzeichen (␣) gehört meist zum nächsten Wort und ist kein eigenes Token.
-
-Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergleichen – deutsche Texte brauchen oft mehr Token.
-:::
-
-## Token: Was sind Parameter?
-
-Stellen Sie sich ein **riesiges Mischpult** vor:
-
-- Jeder Drehregler ist ein **Parameter**
-- Beim Training werden alle Regler eingestellt — dort steckt das Gelernte
-- **7B** = 7 Milliarden Regler (B = englisch *billion*, Milliarde)
-- Mehr Regler = mehr Wissen und Können
-
-::: {.fragment}
-Jede Reglerstellung muss gespeichert werden — darum braucht KI so viel **Arbeitsspeicher**.
-:::
-
-::: {.notes}
-Bezug zur Katze von vorhin: Die KI hat aus vielen Katzenfotos gelernt. Wo steckt dieses Wissen? In der Stellung der Regler. Beim Training wird jeder Regler ein kleines Stück gedreht, bis die Antworten stimmen.
-
-Ein einzelner Regler bedeutet nichts. Erst alle zusammen ergeben das „Wissen“ des Modells – ähnlich wie ein einzelner Pixel noch kein Bild ist.
-
-Technisch ist jeder Regler eine Zahl.
-:::
-
-## Token: Wie schnell schreibt die KI?
-
-**Tokens pro Sekunde** = die Schreibgeschwindigkeit der KI
-
-<!-- TODO: Werte auf der Workstation messen: ollama run qwen3.5:9b --verbose bzw. qwen2.5-coder:14b --verbose ("eval rate") und Schätzwerte ersetzen -->
-
-::: columns
-::: {.column width="33%"}
-::: {.card}
-**Mensch liest**
-
-5–10 Token pro Sekunde
-
-Maßstab
-:::
-:::
-::: {.column width="34%"}
-::: {.card}
-**Workstation: 9B-Modell**
-
-ca. 45–55 Token pro Sekunde
-
-flüssig
-:::
-:::
-::: {.column width="33%"}
-::: {.card}
-**Workstation: 14B-Modell**
-
-ca. 30–35 Token pro Sekunde
-
-flüssig
-:::
-:::
-:::
-
-::: aside
-Geschätzt für unsere Workstation (RTX 5060 Ti, 16 GB) mit Ollama, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellungen.
-:::
-
-::: {.notes}
-Alles, was schneller ist als wir lesen, wirkt flüssig. Größere Modelle sind langsamer, weil mehr Regler berechnet werden müssen.
-
-Die Werte sind eine Schätzung: Die Geschwindigkeit hängt vor allem davon ab, wie schnell die Grafikkarte ihren Speicher lesen kann (bei der RTX 5060 Ti rund 448 GB/s). Pro Token muss das ganze Modell einmal gelesen werden – ein 9B-Modell (ca. 6 GB) also schneller als ein 14B-Modell (ca. 9 GB).
-
-70B-Modelle (ca. 40 GB) passen nicht in den Grafikspeicher – dann wird es sehr langsam.
-:::
-
-## Token: Was passt auf unsere Workstation?
-
-![](images/vram-passt.svg){fig-align="center" width="85%"}
-
-Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
-
-::: {.notes}
-Der Grafikspeicher ist wie ein Schreibtisch: Das ganze Modell muss darauf Platz haben. Unsere Workstation hat 16 GB.
-
-Ollama speichert Modelle komprimiert. Ein 14B-Modell belegt so etwa 8–9 GB und passt gut hinein. Der Rest wird für das Kontextfenster gebraucht.
-
-Passt ein Modell nicht vollständig in den Grafikspeicher, lagert Ollama Teile in den normalen Arbeitsspeicher aus – das funktioniert, ist aber deutlich langsamer.
-
-Im Wiki-Test hat Qwen2.5-Coder 14B in unter 3 Sekunden geantwortet und ein HTML-Snake-Spiel erstellt.
-:::
-
-## Token: Lokal oder Cloud?  {.smaller}
-
-| | **Cloud** | **Lokal** |
-|---|---|---|
-| Modellgröße | riesig (oft geheim) | klein bis mittel (7B–14B) |
-| Geschwindigkeit | hängt vom Anbieter ab | hängt vom eigenen Rechner ab |
-| Kontextfenster | bis ca. 1 Mio. Token | 4.000–128.000 Token |
-| Daten | verlassen den Rechner | **bleiben bei Ihnen** |
-| Kosten | laufend (Abo / pro Token) | einmalig (Hardware) + Strom |
-
-: {tbl-colwidths="[24,38,38]"}
-
-**Merke:** Cloud = größere Modelle · Lokal = Ihre Daten bleiben bei Ihnen
-
-::: {.notes}
-Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
-:::
-
 # Prompting
 
 Wie man richtig mit KI spricht
@@ -566,6 +448,32 @@ Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
 Fachbegriffe: zustandsbehaftet (stateful) vs. zustandslos (stateless). Das Sprachmodell selbst merkt sich nie etwas – das Gedächtnis kommt von der Anwendung, die im Hintergrund Informationen in den Prompt einfügt.
 :::
 
+## Prompting: KI liest in Puzzleteilen
+
+Die KI zerlegt jeden Text in kleine Stücke — **Token**.
+
+| Text | Token | Anzahl |
+|---|---|---|
+| Hallo Welt! | [Hallo]{.token-chip} [␣Welt]{.token-chip} [!]{.token-chip} | 3 |
+| Apfel | [Apfel]{.token-chip} | 1 |
+| Verständnisfragen | [Verständ]{.token-chip} [nis]{.token-chip} [fragen]{.token-chip} | mehrere |
+
+: {tbl-colwidths="[30,55,15]"}
+
+**Faustregel:** 100 Token ≈ 75 Wörter
+
+::: aside
+Selbst ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+:::
+
+::: {.notes}
+Häufige, kurze Wörter sind meist ein einzelnes Token. Lange oder seltene Wörter werden in mehrere Stücke zerlegt. Die Aufteilung bei „Verständnisfragen“ ist vereinfacht dargestellt.
+
+Das Leerzeichen (␣) gehört meist zum nächsten Wort und ist kein eigenes Token.
+
+Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergleichen – deutsche Texte brauchen oft mehr Token.
+:::
+
 ## Prompting: Kontextfenster
 
 - Das **Arbeitsgedächtnis** des Modells
@@ -646,7 +554,7 @@ Bias: Vorurteile aus den Trainingsdaten werden übernommen.
 Overreliance: Gerade bei Code und Fakten gilt – Ergebnis immer prüfen, bevor man es verwendet.
 :::
 
-# Eingabemöglichkeiten
+# Eingabemöglichkeiten 
 
 Wie und wo kann man mit KI arbeiten?
 
@@ -655,7 +563,7 @@ Wie und wo kann man mit KI arbeiten?
 :::
 
 
-## Eingabemöglichkeiten: Übersicht
+## Eingabemöglichkeiten: Übersicht {.smaller}
 
 | Art | Lokal | Cloud |
 |---|---|---|
@@ -665,12 +573,31 @@ Wie und wo kann man mit KI arbeiten?
 
 : {tbl-colwidths="[30,30,40]"}
 
+
 Das Sprachmodell ist austauschbar — die Oberfläche bestimmt, **was die KI tun darf**.
 
 ::: {.notes}
 Dasselbe Modell kann in verschiedenen Oberflächen laufen. Im Chat antwortet die KI nur mit Text. Als Agent im Terminal oder Editor darf sie zusätzlich Dateien anlegen, ändern und Befehle ausführen.
 
 Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: Modell läuft beim Anbieter.
+:::
+
+## Lokal oder Cloud?  {.smaller}
+
+| | **Cloud** | **Lokal** |
+|---|---|---|
+| Modellgröße | riesig (oft geheim) | klein bis mittel (7B–14B) |
+| Geschwindigkeit | hängt vom Anbieter ab | hängt vom eigenen Rechner ab |
+| Kontextfenster | bis ca. 1 Mio. Token | 4.000–128.000 Token |
+| Daten | verlassen den Rechner | **bleiben bei Ihnen** |
+| Kosten | laufend (Abo / pro Token) | einmalig (Hardware) + Strom |
+
+: {tbl-colwidths="[24,38,38]"}
+
+**Merke:** Cloud = größere Modelle · Lokal = Ihre Daten bleiben bei Ihnen
+
+::: {.notes}
+Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
 :::
 
 ## Web-GUI mit Tools
@@ -702,7 +629,7 @@ Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann da
 ::: {.notes}
 Ollama ist der „Motor“: Es lädt und betreibt die Modelle. Open WebUI ist das „Armaturenbrett“: eine Weboberfläche, über die man mit den Modellen chattet.
 
-Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Section Token.
+Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Folie „Wie schnell schreibt die KI?“.
 
 Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), qwen3.5:9b (Allgemeinwissen), qwen2.5-coder:14b (Programmieren).
 :::
@@ -722,6 +649,70 @@ Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), 
 
 ::: {.notes}
 Über die Ollama API können Programme auf dem eigenen Laptop die Modelle der Workstation nutzen – z.B. die VS-Code-Erweiterung Continue. Die Rechenarbeit erledigt dann die Workstation. Die Anleitung inklusive Konfiguration steht im Wiki.
+:::
+
+## Lokal: Was passt auf unsere Workstation?
+
+![](images/vram-passt.svg){fig-align="center" width="85%"}
+
+Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
+
+::: {.notes}
+Der Grafikspeicher ist wie ein Schreibtisch: Das ganze Modell muss darauf Platz haben. Unsere Workstation hat 16 GB.
+
+Ollama speichert Modelle komprimiert. Ein 14B-Modell belegt so etwa 8–9 GB und passt gut hinein. Der Rest wird für das Kontextfenster gebraucht.
+
+Passt ein Modell nicht vollständig in den Grafikspeicher, lagert Ollama Teile in den normalen Arbeitsspeicher aus – das funktioniert, ist aber deutlich langsamer.
+
+Im Wiki-Test hat Qwen2.5-Coder 14B in unter 3 Sekunden geantwortet und ein HTML-Snake-Spiel erstellt.
+:::
+
+## Lokal: Wie schnell schreibt die KI?
+
+**Tokens pro Sekunde** = die Schreibgeschwindigkeit der KI
+
+<!-- TODO: Werte auf der Workstation messen: ollama run qwen3.5:9b --verbose bzw. qwen2.5-coder:14b --verbose ("eval rate") und Schätzwerte ersetzen -->
+
+::: columns
+::: {.column width="33%"}
+::: {.card}
+**Mensch liest**
+
+5–10 Token pro Sekunde
+
+Maßstab
+:::
+:::
+::: {.column width="34%"}
+::: {.card}
+**Workstation: 9B-Modell**
+
+ca. 45–55 Token pro Sekunde
+
+flüssig
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Workstation: 14B-Modell**
+
+ca. 30–35 Token pro Sekunde
+
+flüssig
+:::
+:::
+:::
+
+::: aside
+Geschätzt für unsere Workstation (RTX 5060 Ti, 16 GB) mit Ollama, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellungen.
+:::
+
+::: {.notes}
+Alles, was schneller ist als wir lesen, wirkt flüssig. Größere Modelle sind langsamer, weil mehr Regler berechnet werden müssen.
+
+Die Werte sind eine Schätzung: Die Geschwindigkeit hängt vor allem davon ab, wie schnell die Grafikkarte ihren Speicher lesen kann (bei der RTX 5060 Ti rund 448 GB/s). Pro Token muss das ganze Modell einmal gelesen werden – ein 9B-Modell (ca. 6 GB) also schneller als ein 14B-Modell (ca. 9 GB).
+
+70B-Modelle (ca. 40 GB) passen nicht in den Grafikspeicher – dann wird es sehr langsam.
 :::
 
 ## Im Terminal: Coding-Agenten
