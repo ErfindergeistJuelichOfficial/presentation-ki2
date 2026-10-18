@@ -157,17 +157,18 @@ Kurz auf Spendenmöglichkeiten hinweisen – nicht zu lange verweilen, am Ende k
 ::: {.column width="50%"}
 ### Normales Programm
 
-Statisch immer gleiches Ergebnis
+Statisch: immer das gleiche Ergebnis.
+
 Ein Mensch schreibt die Regel:
 *„Spitze Ohren + Schnurrhaare = Katze“*
-
 
 :::
 ::: {.column width="50%"}
 ### KI
 
 Sieht tausende Katzenfotos — und findet die Regel wahrscheinlich **selbst**.
-kann aber auch fehlerhaft sein.
+
+Kann aber auch fehlerhaft sein.
 
 :::
 :::
@@ -311,7 +312,7 @@ Nenne mir eine zufällige Zahl.
 :::
 
 ::: {.fragment}
-KI ist **kein Zufallsgenerator**: Sie sagt das **wahrscheinlichste** nächste Wort voraus. Meistens 73, weil diese Zahl in den Trainingsdaten oft vorkommt.
+KI ist **kein Zufallsgenerator**: Sie sagt das **wahrscheinlichste** nächste Wort voraus. Oft 73, weil diese Zahl in den Trainingsdaten oft vorkommt.
 :::
 
 ::: {.notes}
@@ -486,7 +487,7 @@ Der System-Prompt ist bei ChatGPT & Co. unsichtbar vorgegeben. In Open WebUI kan
 ::: {.plain-table}
 |   |   |
 |---|---|
-| **Situation** | Rolle KI-, Zielgruppe und Hintergrund definieren (Context wie z.B. E-Mail, Webseite, PDF, Bild etc. hinzufügen) |
+| **Situation** | Rolle der KI, Zielgruppe und Hintergrund definieren (Context wie z.B. E-Mail, Webseite, PDF, Bild etc. hinzufügen) |
 | **Aufgabe** | Was soll die KI tun? (z.B. Text generieren, Code schreiben, Bild erstellen) |
 | **Nebenbedingungen** | Regeln, Einschränkungen, (z.B. Beispiele anfügen) |
 | **Darstellung** | Ausgabe Format (z.B. als Liste, Tabelle, Fließtext) |
@@ -818,7 +819,7 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 :::
 
 
-Alle Wege können 100% **lokal** laufen aber auch mit **cloud** Modelle kombiniert werden.
+Alle Wege können 100 % **lokal** laufen, aber auch mit **Cloud**-Modellen kombiniert werden.
 
 
 # Weg 1: Text → Code → 3D
@@ -829,15 +830,6 @@ Die KI schreibt Code — der Code wird zum 3D-Modell
 Hier kommt alles zusammen: Coding-Agent (Eingabemöglichkeiten) + gute Prompts (SAND) + Code ist Text.
 :::
 
-## Weg 1: Das Prinzip
-
-![](images/weg1-prinzip.svg){fig-align="center" width="90%"}
-
-**OpenSCAD** ist eine Programmiersprache für 3D-Modelle — statt mit der Maus zu modellieren, beschreibt man das Modell als Code.
-
-::: {.notes}
-Der Mensch beschreibt, was er möchte – in Worten und gerne mit Skizze. Die KI schreibt daraus OpenSCAD-Code. OpenSCAD macht aus dem Code das fertige, maßgenaue 3D-Modell.
-:::
 
 ## OpenSCAD: Was ist OpenSCAD?
 
@@ -854,7 +846,7 @@ OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite
 ::: {.prompt-box}
 [S]{.sand-letter} Du bist OpenSCAD-Experte. Ich bin Einsteiger und möchte das Modell später selbst anpassen durch Parameter.
 
-[A]{.sand-letter} Erstellen einen runden Turm mit kegelförmigem Dach.
+[A]{.sand-letter} Erstelle einen runden Turm mit kegelförmigem Dach.
 
 [N]{.sand-letter} Alle Maße als Parameter ganz oben, jeweils mit deutschem Kommentar. Im restlichen Code keine festen Zahlen. Turm grün (#159989), Dach gelb (#F9B338).
 
@@ -1000,7 +992,7 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 ## OpenSCAD mit KI: Zusammenfassung
 
 
-- Parameteriesierung: Um kleine details später selber anzupassen.
+- Parametrisierung: Details später selbst anpassen, ohne den Code zu verstehen.
 - Module: Große Aufgaben in kleine Teile zerlegen.
 - Selbstgezeichnete Skizzen: Multimodale Modelle können sie auswerten.
 - Iterativer Prozess: Feedback → Anpassung → Verbesserung
@@ -1270,7 +1262,6 @@ Die KI bedient 3D-Programme direkt
 - **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
 - Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
 - Beispiel: In **Blender** legt die KI Objekte an und verändert sie
-- Sehr gut für organische Formen. 
 
 [Spannend — aber nicht Teil dieses Workshops.]{style="color:#aaaaaa"}
 
