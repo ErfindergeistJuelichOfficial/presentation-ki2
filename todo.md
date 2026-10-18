@@ -31,7 +31,7 @@ Stand: 18.10.2026 · Gliederung siehe `roter_faden.md`
 
 ### Entscheidungen
 
-- [ ] Titel „KI to 3D“ — ja oder nein? (Passt nur, wenn der Werkstatt-Teil beim 3D-Druck bleibt — siehe Review unten)
+- [x] ~~Titel „KI to 3D“ — ja oder nein?~~ — ja, Titel geändert
 - [ ] Untertitel „WORK IN PROGRESS - XX.XX.2026“ → echtes Datum
 
 ---
@@ -40,11 +40,11 @@ Stand: 18.10.2026 · Gliederung siehe `roter_faden.md`
 
 ### Roter Faden
 
-- [ ] **Werkstatt = nur 3D-Druck:** Der Anwendungsteil zeigt ausschließlich den 3D-Drucker. Die Vorstellung nennt aber CNC, Holz, Metall, Elektro, IT und das Repair Café. Entweder bewusst auf 3D-Druck fokussieren (dann Titel „KI to 3D“) oder 1–2 weitere Werkstatt-Beispiele ergänzen (Ideen siehe unten)
+- [x] **Werkstatt = nur 3D-Druck:** Der Anwendungsteil zeigt ausschließlich den 3D-Drucker. Die Vorstellung nennt aber CNC, Holz, Metall, Elektro, IT und das Repair Café. Entweder bewusst auf 3D-Druck fokussieren (dann Titel „KI to 3D“) oder 1–2 weitere Werkstatt-Beispiele ergänzen (Ideen siehe unten)
 - [ ] **Token-Teil sehr technisch für den Anfänger-Block:** Parameter, Grafikspeicher und Tokens pro Sekunde kommen vor dem Prompting. Überlegen, ob „Wie schnell schreibt die KI?“, „Was passt auf unsere Workstation?“ und „Lokal oder Cloud?“ besser zu „Eingabemöglichkeiten“ bzw. zur Workstation passen — dort sind sie konkret
-- [ ] **Weg 3 (MCP):** eigene Section, aber „nicht Teil dieses Workshops“; auf „Viele Wege zum 3D-Modell“ steht noch `- xxx`. Entscheiden: als Ausblick kurz halten oder ganz streichen
+
 - [ ] **„Das sollten Sie mitnehmen“** enthält keinen Punkt zur Werkstatt bzw. zum 3D-Druck — z.B. „Mit KI und Werkstatt vom kaputten Teil zum Ersatzteil“
-- [ ] **„OpenSCAD mit KI: Zusammenfassung“** steht vor dem Tischfuß-Praxisbeispiel — danach würde es den ganzen Weg 1 zusammenfassen
+- [x] **„OpenSCAD mit KI: Zusammenfassung“** steht vor dem Tischfuß-Praxisbeispiel — danach würde es den ganzen Weg 1 zusammenfassen
 
 ## Wiki-Pflege (Vorschläge)
 

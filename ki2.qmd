@@ -1,5 +1,5 @@
 ---
-title: KI-Workshop 2
+title: KI to 3D
 subtitle: WORK IN PROGRESS - XX.XX.2026
 format:
   revealjs:
@@ -16,7 +16,7 @@ format:
     # scroll-view: true
     logo: images/logo.svg
     # fig-cap-location: bottom
-    footer: "KI-Workshop 2 · Erfindergeist Jülich e.V."
+    footer: "KI to 3D · Erfindergeist Jülich e.V."
     theme: dark
     highlight-style: github-dark
     css: styles.css
@@ -989,20 +989,6 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 
 ![](images/hexenturm_printed.jpg){fig-align="center" height="500"}
 
-## OpenSCAD mit KI: Zusammenfassung
-
-
-- Parametrisierung: Details später selbst anpassen, ohne den Code zu verstehen.
-- Module: Große Aufgaben in kleine Teile zerlegen.
-- Selbstgezeichnete Skizzen: Multimodale Modelle können sie auswerten.
-- Iterativer Prozess: Feedback → Anpassung → Verbesserung
-
-**Merke:** KI ersetzt keine CAD-Kenntnisse — sie macht den Einstieg deutlich einfacher.
-
-::: {.notes}
-Wichtig ist der iterative Ablauf: nicht alles in einem Prompt, sondern Schritt für Schritt.
-:::
-
 ## Praxisbeispiel: Tischfuß als Ersatzteil
 
 ::: columns
@@ -1082,6 +1068,20 @@ Die vollständige Datei liegt unter `scad/fuss.scad`.
 
 ::: {.notes}
 Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI konstruieren lassen, drucken. Genau der rote Faden dieses Workshops.
+:::
+
+## OpenSCAD mit KI: Zusammenfassung
+
+
+- Parametrisierung: Details später selbst anpassen, ohne den Code zu verstehen.
+- Module: Große Aufgaben in kleine Teile zerlegen.
+- Selbstgezeichnete Skizzen: Multimodale Modelle können sie auswerten.
+- Iterativer Prozess: Feedback → Anpassung → Verbesserung
+
+**Merke:** KI ersetzt keine CAD-Kenntnisse — sie macht den Einstieg deutlich einfacher.
+
+::: {.notes}
+Wichtig ist der iterative Ablauf: nicht alles in einem Prompt, sondern Schritt für Schritt.
 :::
 
 # Weg 2: Bild → 3D
