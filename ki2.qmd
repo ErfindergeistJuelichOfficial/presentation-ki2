@@ -1084,7 +1084,7 @@ Die ersten vier Punkte stammen aus der Anleitung im Wiki. Schatten sind wichtig,
 Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel auf der nächsten Folie.
 :::
 
-## Beispiel: Der Bild-Prompt
+## Beispiel: Muttkrat prompt
 
 ::: {.prompt-box}
 **Positiv:** Full-body character render of a huge, very plump toad … low poly 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
@@ -1094,7 +1094,7 @@ Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel a
 **Negativ:** slim, tall, gradient background, floor, cast shadow, cropped, multiple characters, photorealistic, text, watermark, extra limbs …
 :::
 
-[Prompt gekürzt · vollständig in `glb/prompts.txt`]{style="color:#aaaaaa;font-size:0.7em"}
+[Prompt gekürzt · vollständig in `toad_prompt.md`]{style="color:#aaaaaa;font-size:0.7em"}
 
 ::: {.notes}
 Bildmodelle kennen zwei Prompts:
@@ -1132,57 +1132,74 @@ Ergebnis ist eine GLB-Datei (`glb/toad.glb`), die für den Druck noch in STL umg
 :::
 
 
-## Beispiel: Toad im Slicer
+## Beispiel: Schritt 3 — Ab in den Drucker
 
 ::: columns
-::: {.column width="55%"}
-![](glb/toad_screenshot_in_prusa.png){fig-align="center" height="420"}
-:::
 ::: {.column width="45%"}
-![](glb/toad_screenshot_prusa_sliced_info.png){fig-align="center" width="100%"}
+1. **Umwandeln:** `.glb` → `.stl` (z.B. mit Blender oder assimp)
+2. **Slicen:** `.stl` in PrusaSlicer laden und skalieren
+3. **Prüfen:** Fehler im Mesh korrigieren
+4. **Drucken**
+:::
+::: {.column width="55%"}
+![](glb/toad_screenshot_in_prusa.png){fig-align="center" height="380"}
 
-- **7,24 g** Filament
-- **1 h 21 min** Druckzeit
 :::
 :::
 
 ::: {.notes}
-Die STL-Datei wurde in PrusaSlicer geladen und auf eine druckbare Größe skaliert. Der Slicer berechnet Materialverbrauch und Druckzeit – laut Slicer kostet der Druck rund 20 Cent Material.
+GLB ist das Austauschformat für 3D-Modelle mit Farbe und Textur. Drucker brauchen nur die Form – dafür ist STL das übliche Format.
 
-Die STL-Datei ist rund 87 MB groß: KI-Modelle bestehen oft aus sehr vielen kleinen Dreiecken. Das macht Dateien groß und den Slicer langsam – ein Grund mehr für den Punkt „Typische Probleme“.
+Bild-zu-3D-Modelle haben keine echten Maße. Im Slicer wird der Toad deshalb auf eine passende Größe skaliert (Bauraum des Druckers: 250 × 220 × 270 mm).
+
+Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 :::
 
 ## Vom Modell zum Druck: Typische Probleme
 
-- **Größe:** Bild-zu-3D-Modelle haben keine echten Maße → im Slicer skalieren (Bauraum 250 × 220 × 270 mm)
-- **Löcher im Mesh:** Oberfläche nicht geschlossen → reparieren
-- **Zu dünne Wände:** brechen oder werden nicht gedruckt
-- **Überhänge:** brauchen Stützmaterial
-- Bei OpenSCAD-Modellen deutlich seltener
-
-::: {.notes}
-Viele Slicer reparieren kleine Mesh-Fehler automatisch. Für größere Probleme hilft z.B. Blender.
-:::
-
-## Vom Modell zum Druck: Selbst ausprobieren
-
-<!-- TODO: Foto vom gedruckten Hexenturm einfügen (falls vorhanden) -->
-
 ::: columns
-::: {.column width="55%"}
-- **Prusa CORE One+** und **KI-Workstation** in der Offenen Werkstatt
-- Eigene Modelle erstellen und direkt drucken
-- Nutzung auf Spenden basis
-- Filament selber mit bringen oder von jemanden etwas abkaufen
+::: {.column width="33%"}
+::: {.card}
+**Löcher im Mesh**
+
+Oberfläche ist nicht geschlossen
+
+→ reparieren lassen
 :::
-::: {.column width="45%"}
-![](images/werkstatt-3d-druck.jpg){fig-align="center" height="350"}
+:::
+::: {.column width="34%"}
+::: {.card}
+**Zu dünne Wände**
+
+Brechen oder werden gar nicht gedruckt
+
+→ größer skalieren
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Überhänge**
+
+Teile hängen frei in der Luft
+
+→ Stützmaterial
+:::
 :::
 :::
 
-::: {.notes}
-Einladung aussprechen: Wer ein eigenes Modell erstellt hat, kann es in der Offenen Werkstatt drucken.
+::: aside
+Viele Slicer reparieren kleine Mesh-Fehler automatisch — für größere Probleme hilft z.B. Blender.
 :::
+
+::: {.notes}
+Beim Toad gut zu sehen: Die Werkzeuge in den Händen sind sehr dünn – genau so eine Stelle, die beim Druck abbrechen kann. Die ausgestreckten Arme sind Überhänge und brauchen Stützmaterial.
+
+Bei OpenSCAD-Modellen (Weg 1) treten diese Probleme deutlich seltener auf, weil die Form aus exakten Grundkörpern besteht.
+:::
+
+## TODO FOTO
+
+FOTO
 
 # Weg 3: MCP (Model Context Protocol)
 
@@ -1216,10 +1233,9 @@ Kurzer Rückblick, bevor die Fragerunde startet.
 |---|---|---|
 | Eingabe | Text (und Skizzen) | Foto oder Zeichnung |
 | Ergebnis | Code → exaktes Modell | Mesh (Dreiecksnetz) |
-| Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
 | Stärke | technische Teile, Gebäude | Figuren, organische Formen |
 | Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
-| Cloud | Claude Code | HuggingFace (siehe Bonus) |
+| Cloud | Claude Code, GitHub Copilot | Meshy.ai, tripo3d.ai|
 
 : {tbl-colwidths="[18,41,41]"}
 
@@ -1250,284 +1266,47 @@ Offene Runde. Danach je nach Zeit: Bonus-Teile.
 
 # Bonus: HuggingFace
 
-**HuggingFace** ist die größte Plattform für offene KI-Modelle — vergleichbar mit GitHub, aber für KI.
-
-Zum Abschluss fünf Demos: Bild, Video, Sprache und 3D.
+Der Spielplatz für offene KI-Modelle.
 
 ::: {.notes}
 Bonus je nach verfügbarer Zeit. Alle Demos laufen kostenlos im Browser.
 :::
 
-## HuggingFace: Die Plattform
+## HuggingFace: Der KI-Spielplatz
 
-- Über **1 Million Modelle** frei verfügbar: Sprache, Bild, Audio, Video
-- **Spaces**: Interaktive Demos, direkt im Browser — keine Installation nötig
-- Modelle von großen Laboren (Meta, Google, OpenAI) und Community-Entwicklern
-- Mit einem **Pro-Account** lassen sich leistungsfähigere GPU-Ressourcen nutzen
+- Plattform mit über **1 Million** frei verfügbarer KI-Modelle
+- **Spaces:** fertige Demos direkt im Browser
+- Keine Installation, keine eigene Grafikkarte nötig
+- Ideal, um ein Modell auszuprobieren, bevor man es lokal installiert
 
 ::: aside
-[huggingface.co](https://huggingface.co) — kostenlose Basisnutzung, Pro-Account für erweiterte Ressourcen
+[huggingface.co](https://huggingface.co) — kostenlose Basisnutzung, Stand: Oktober 2026
 :::
 
 ::: {.notes}
-Kurz die Startseite und einen Space zeigen.
+Vergleichbar mit GitHub, aber für KI-Modelle. Viele Modelle aus diesem Workshop (z.B. Qwen, Gemma, Hunyuan3D) gibt es dort zum Herunterladen – und oft auch als Demo zum Ausprobieren.
+
+Die kostenlosen Demos laufen auf geteilter Hardware: Bei vielen Nutzern kann es Wartezeiten geben.
 :::
 
-# HuggingFace: FLUX.1 — Text zu Bild
+## HuggingFace: Zum Ausprobieren
 
-**FLUX.1 [schnell]** von **Black Forest Labs** erzeugt hochwertige Bilder aus Textbeschreibungen — in wenigen Sekunden.
-
-::: {.chat-input}
-A red panda sitting on a rooftop at sunset, cinematic
-:::
-
-→ fertiges Bild
-
-Demo: [huggingface.co/spaces/black-forest-labs/FLUX.1-schnell](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell)
-
-::: {.notes}
-Live-Demo mit dem Beispielprompt. Bezug zu Weg 2: Ein so erzeugtes Bild kann Vorlage für ein 3D-Modell sein. Lokal auf der Workstation übernimmt das Z-Image-Turbo in ComfyUI.
-:::
-
-## HuggingFace: Was ist FLUX.1?
-
-::: columns
-::: {.column width="60%"}
-- Entwickelt von **Black Forest Labs** — gegründet von den Autoren von Stable Diffusion
-- **[schnell]** bedeutet: optimiert für Geschwindigkeit — 1–4 Schritte statt 20–50
-- Qualität vergleichbar mit Midjourney oder DALL·E 3
-- Architektur: **Diffusion** — Start aus Rauschen, schrittweise Verfeinerung
-:::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
+| Eingabe → Ausgabe | Demo |
 |---|---|
-| Typ | Text-to-Image |
-| Schritte | 1–4 |
-| Lizenz | Offen |
-| Laufzeit | ~3–8 s/Bild |
+| Text → Bild | [FLUX.1](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell) |
+| Text → Video | [Wan2.2](https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2) |
+| Sprache → Text | [Whisper](https://huggingface.co/spaces/hf-audio/whisper-large-v3) |
+| Text → Sprache | [Kokoro TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS) |
+| Bild → 3D | [Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1) · [Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D) |
 
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-## HuggingFace: Wie funktioniert Text-to-Image?
-
-**Diffusion — vereinfacht in drei Schritten:**
-
-1. **Start**: Das Modell beginnt mit einem Bild aus purem Rauschen
-2. **Entrauschen**: Schritt für Schritt wird das Rauschen reduziert — geleitet vom Text-Prompt
-3. **Ergebnis**: Nach wenigen Schritten entsteht ein kohärentes Bild
-
-FLUX.1 [schnell] erreicht gute Qualität schon in **4 Schritten** — klassische Modelle brauchen 20–50.
-
-## HuggingFace: Tipps für gute Prompts
-
-**Was funktioniert gut:**
-
-- Stil nennen: *„watercolor painting", „photorealistic", „oil on canvas"*
-- Licht beschreiben: *„golden hour", „soft studio lighting", „dramatic shadows"*
-- Komposition angeben: *„close-up portrait", „wide angle", „bird's eye view"*
-
-**Was FLUX.1 nicht zuverlässig kann:**
-
-- Lesbaren Text im Bild erzeugen
-- Exakte Personenähnlichkeit reproduzieren
-
-# HuggingFace: Wan2.2 — Text zu Video
-
-**Wan2.2** ist ein offenes Video-Generierungsmodell von **Wan-AI** — es erzeugt aus einer Textbeschreibung ein kurzes Video.
-
-::: {.chat-input}
-A cat walking through a sunlit garden
-:::
-
-→ fertiges Video
-
-Demo: [huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2](https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2)
-
-::: {.notes}
-Live-Demo – die Erzeugung dauert etwas, ggf. vorher starten.
-:::
-
-## HuggingFace: Was ist Wan2.2?
-
-::: columns
-::: {.column width="60%"}
-- Entwickelt von **Wan-AI** (wan.video), veröffentlicht als offenes Modell
-- Modellgröße: **14 Milliarden Parameter**
-- Aufgabe: **Text-to-Video** — aus einer Beschreibung wird ein kurzes Video synthetisiert
-- Architektur: **Diffusion** — dasselbe Prinzip wie FLUX.1, aber für Videosequenzen
-:::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
-|---|---|
-| Parameter | 14B |
-| Typ | Text-to-Video |
-| Lizenz | Offen |
-| Laufzeit | ~30–60 s/Video |
-
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-## HuggingFace: FP8 — Warum läuft das im Browser?
-
-Das Modell hat 14B Parameter — normalerweise **~28 GB RAM** nötig (FP16).
-
-Die Demo-Version nutzt **FP8-Quantisierung** (8 Bit statt 16 Bit pro Zahl):
-
-- RAM-Bedarf sinkt auf **~14 GB** — passt auf eine GPU-Instanz
-- Qualitätsverlust kaum wahrnehmbar
-- **AOTI** (Ahead-of-Time Compilation) beschleunigt die Inferenz zusätzlich
-
-HuggingFace stellt kostenlose GPU-Rechenzeit bereit (*Running on Zero*) — daher kann jeder die Demo gratis nutzen.
-
-# HuggingFace: Whisper — Sprache zu Text
-
-**Whisper** von **OpenAI** wandelt gesprochene Sprache automatisch in Text um — in über 90 Sprachen.
-
-Demo: Mikrofon aufnehmen oder Audio hochladen → Text erscheint automatisch.
-
-Demo: [huggingface.co/spaces/hf-audio/whisper-large-v3](https://huggingface.co/spaces/hf-audio/whisper-large-v3)
-
-::: {.notes}
-Live-Demo: Einen Satz ins Mikrofon sprechen.
-:::
-
-## HuggingFace: Was kann Whisper?
-
-::: columns
-::: {.column width="60%"}
-- **Spracherkennung** in über 90 Sprachen
-- **Übersetzung**: direkt ins Englische ohne Zwischenschritt
-- Funktioniert mit Mikrofon oder hochgeladenen Audio-Dateien
-- Sehr robust gegenüber Dialekten, Akzenten und Hintergrundgeräuschen
-:::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
-|---|---|
-| Typ | Speech-to-Text |
-| Sprachen | 90+ |
-| Lizenz | Offen (MIT) |
-| Laufzeit | Echtzeit |
-
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-## HuggingFace: Wo wird Whisper eingesetzt?
-
-- Automatische Untertitel für Videos
-- Transkription von Meetings und Interviews
-- Barrierefreiheit: Gesprochenes für Hörgeschädigte in Text umwandeln
-- Basis für Sprachassistenten und Sprachsteuerung
-
-Whisper ist das **„Ohr"** der KI — Kokoro TTS ist die **„Stimme"**.
-
-# HuggingFace: Kokoro TTS — Text zu Sprache
-
-**Kokoro** erzeugt aus geschriebenem Text natürlich klingende Sprache — die Umkehrung von Whisper.
-
-> Whisper: Sprache → Text · Kokoro: Text → Sprache
-
-Demo: [huggingface.co/spaces/hexgrad/Kokoro-TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
-
-::: {.notes}
-Live-Demo: Einen deutschen Satz vorlesen lassen.
-:::
-
-## HuggingFace: Was kann Kokoro TTS?
-
-::: columns
-::: {.column width="60%"}
-- Über **50 Stimmen** — verschiedene Altersgruppen, Akzente, Geschlechter
-- Mehrsprachig: Englisch, Deutsch, Französisch, Japanisch u.v.m.
-- Sehr natürlicher Klang — kaum von menschlicher Stimme zu unterscheiden
-- Läuft vollständig im Browser, keine Installation nötig
-:::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
-|---|---|
-| Typ | Text-to-Speech |
-| Stimmen | 50+ |
-| Lizenz | Offen |
-| Laufzeit | ~2–5 s |
-
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-## HuggingFace: Whisper + Kokoro = Sprach-Pipeline
-
-**Aus zwei Bausteinen wird ein vollständiger Sprachassistent:**
-
-```
-Mikrofon → [Whisper] → Text → [KI-Modell] → Text → [Kokoro] → Lautsprecher
-```
-
-- **Whisper**: Sprache → Text (Eingabe verstehen)
-- **KI-Modell**: Text → Text (antworten)
-- **Kokoro**: Text → Sprache (vorlesen)
-
-So entstehen Sprachassistenten — aus frei verfügbaren, offenen Bausteinen.
-
-# HuggingFace: Bild zu 3D-Modell
-
-Weg 2 aus dem Hauptteil — ohne eigene Hardware, direkt im Browser.
-
-::: {.notes}
-Bezug zum Hauptteil: Dasselbe Prinzip wie ComfyUI + Hunyuan3D auf der Workstation, nur in der Cloud.
-:::
-
-## HuggingFace: Hunyuan3D-2.1
-
-<!-- TODO: Space testen, Screenshot des Ergebnisses einfügen -->
-
-- Hunyuan3D-2.1 als Demo direkt im Browser
-- Bild hochladen → 3D-Modell herunterladen
-- Gut zum Ausprobieren, bevor man lokal installiert
+: {tbl-colwidths="[40,60]"}
 
 ::: aside
-[huggingface.co/spaces/tencent/Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1) — Stand: Oktober 2026
+Stand: Oktober 2026 — Demos kommen und gehen.
 :::
 
 ::: {.notes}
-Die Demo läuft auf geteilter Hardware – bei vielen Nutzern kann es Wartezeiten geben.
-:::
-
-## HuggingFace: Pixal3D
-
-**Pixal3D** von Tencent ARC wandelt ein einzelnes Foto in ein vollständiges 3D-Modell um — mit Textur, direkt im Browser rotierbar.
-
-Demo: [huggingface.co/spaces/TencentARC/Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
-
-::: {.notes}
-Live-Demo: Ein Foto hochladen und das Ergebnis im Browser drehen.
-:::
-
-## HuggingFace: Wie funktioniert Pixal3D?
-
-::: columns
-::: {.column width="60%"}
-- Eingang: ein einzelnes Foto (Produkt, Gegenstand, Figur)
-- Ausgang: vollständiges 3D-Modell mit Textur als `.glb`-Datei
-- Basiert auf **Multi-View Diffusion** — das Modell ergänzt nicht sichtbare Seiten
-- Ergebnis direkt im Browser rotierbar und herunterladbar
-:::
-::: {.column width="40%"}
-| Eigenschaft | Wert |
-|---|---|
-| Typ | Image-to-3D |
-| Eingang | 1 Foto |
-| Ausgang | .glb / .obj |
-| Laufzeit | ~30–90 s |
-
-: {tbl-colwidths="[50,50]"}
-:::
-:::
-
-::: {.notes}
-Das Modell ergänzt nicht sichtbare Seiten – es „rät“, wie die Rückseite aussehen könnte. Bei ungewöhnlichen Objekten kann das schiefgehen.
+Live je nach Zeit eine Demo zeigen, z.B. Bild → 3D mit Hunyuan3D – das ist die Cloud-Variante von Weg 2 aus dem Hauptteil.
 :::
 
 # Bonus: Termine-Webseite

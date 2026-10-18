@@ -133,6 +133,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.prompt-box}           ← Prompt-Darstellung: dunkle Box mit Mint-Rand (.prompt-weak = grauer Rand)
 [S]{.sand-letter}           ← Buchstabe im Mint-Kreis (z.B. für SAND-Beispiel)
 ::: {.chat-input}           ← Text als Chat-Eingabefeld (abgerundet, Mint-Senden-Button)
+::: {.card}                 ← Karte: dunkle Box mit Mint-Rand oben, letzte Zeile in Mint (z.B. Problem → Lösung)
 ```
 
 ## HTML-Demo-Folien

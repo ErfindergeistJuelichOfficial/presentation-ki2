@@ -96,6 +96,18 @@
   font-weight: bold;
 }
 
+/* === Karte (Nutzung: ::: {.card}) === */
+.reveal .card {
+  background: #2d2d2d;
+  border-top: 4px solid #159989;
+  border-radius: 8px;
+  padding: 0.6em 0.8em;
+  font-size: 0.8em;
+  height: 100%;
+}
+.reveal .card p { margin: 0.4em 0; }
+.reveal .card p:last-child { color: #159989; font-weight: bold; }
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;
