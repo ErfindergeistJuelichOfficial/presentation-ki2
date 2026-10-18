@@ -957,6 +957,10 @@ Entlang des Tunnels hätte ich gerne an nur einer Seite eine Verzierung: Steine,
 Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 :::
 
+## OpenSCAD: Fotos des 3D-Drucks
+
+![](images/hexenturm_printed.jpg){fig-align="center" height="500"}
+
 ## OpenSCAD mit KI: Zusammenfassung
 
 
@@ -1080,24 +1084,6 @@ Auf der Workstation: ComfyUI im Browser unter http://localhost:8188 öffnen → 
 Hinweis: ComfyUI gibt Modelle nicht automatisch aus dem Speicher frei – zwischen Bild- und 3D-Erzeugung ggf. Speicher freigeben.
 :::
 
-## Beispiel: Schritt 1 — Bild erzeugen
-
-![](images/comfyui-z-image-santa.png){fig-align="center" height="480"}
-
-::: {.notes}
-Prompt aus dem Wiki-Beispiel: „a cute simple low-poly santa claus figure, standing, smiling, full body, clean geometric shapes, solid white background, 3d print style model, light and shadows“
-
-Wichtig: einfarbiger Hintergrund im Prompt – das erleichtert den nächsten Schritt.
-:::
-
-## Beispiel: Schritt 2 — Bild → 3D-Modell
-
-![](images/comfyui-hunyuan3d-santa.png){fig-align="center" height="480"}
-
-::: {.notes}
-Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann. Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
-:::
-
 ## Gute Vorlagen für Bild → 3D
 
 - **Ein** Objekt pro Bild
@@ -1108,6 +1094,55 @@ Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hun
 
 ::: {.notes}
 Die ersten vier Punkte stammen aus der Anleitung im Wiki. Schatten sind wichtig, weil die KI daraus die räumliche Form ableitet.
+
+Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel auf der nächsten Folie.
+:::
+
+## Beispiel: Der Bild-Prompt
+
+::: {.prompt-box}
+**Positiv:** Full-body character render of a huge, very plump toad … low poly 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
+:::
+
+::: {.prompt-box .prompt-weak}
+**Negativ:** slim, tall, gradient background, floor, cast shadow, cropped, multiple characters, photorealistic, text, watermark, extra limbs …
+:::
+
+[Prompt gekürzt · vollständig in `glb/prompts.txt`]{style="color:#aaaaaa;font-size:0.7em"}
+
+::: {.notes}
+Bildmodelle kennen zwei Prompts:
+
+- **Positiv-Prompt:** Was soll auf dem Bild sein?
+- **Negativ-Prompt:** Was soll auf keinen Fall auf dem Bild sein?
+
+Die Regeln von der vorherigen Folie stecken direkt im Prompt: „isolated and centered“ (ein Objekt), „plain solid background“ (einfarbiger Hintergrund), „three-point lighting“ (gleichmäßiges Licht), „whole figure visible“ (nichts abgeschnitten). Im Negativ-Prompt: kein Boden, kein Schattenwurf, kein Text, nicht abgeschnitten.
+
+„low poly 3D style“ sorgt für klare, einfache Formen – die lassen sich besser in 3D umsetzen und drucken.
+
+Bildmodelle verstehen Englisch meist besser als Deutsch.
+:::
+
+## Beispiel: Schritt 1 — Bild erzeugen
+
+![](glb/toad.png){fig-align="center" height="480"}
+
+::: {.notes}
+Erzeugt mit Z-Image-Turbo in ComfyUI auf der Workstation.
+
+Gut zu sehen: Im Prompt stand „cyan background“ – herausgekommen ist ein hellgrauer Hintergrund. Die KI hält sich nicht immer an jedes Detail (vgl. Nichtdeterminismus im Prompting-Teil). Für den nächsten Schritt reicht der einfarbige Hintergrund trotzdem.
+:::
+
+## Beispiel: Schritt 2 — Bild → 3D-Modell
+
+![](glb/toad_screenshot_hunyuan.png){fig-align="center" height="450"}
+
+::: {.notes}
+Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann.
+
+Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu sehen.
+
+Ergebnis ist eine GLB-Datei (`glb/toad.glb`), die für den Druck noch in STL umgewandelt wird.
 :::
 
 ## Vergleich der Wege
@@ -1153,6 +1188,26 @@ assimp export datei.glb datei.stl
 ```
 
 PrusaSlicer ist auf der Workstation installiert und mit dem 3D-Drucker verbunden.
+:::
+
+## Beispiel: Toad im Slicer
+
+::: columns
+::: {.column width="55%"}
+![](glb/toad_screenshot_in_prusa.png){fig-align="center" height="420"}
+:::
+::: {.column width="45%"}
+![](glb/toad_screenshot_prusa_sliced_info.png){fig-align="center" width="100%"}
+
+- **7,24 g** Filament
+- **1 h 21 min** Druckzeit
+:::
+:::
+
+::: {.notes}
+Die STL-Datei wurde in PrusaSlicer geladen und auf eine druckbare Größe skaliert. Der Slicer berechnet Materialverbrauch und Druckzeit – laut Slicer kostet der Druck rund 20 Cent Material.
+
+Die STL-Datei ist rund 87 MB groß: KI-Modelle bestehen oft aus sehr vielen kleinen Dreiecken. Das macht Dateien groß und den Slicer langsam – ein Grund mehr für den Punkt „Typische Probleme“.
 :::
 
 ## Vom Modell zum Druck: Typische Probleme
