@@ -755,42 +755,28 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 ## Viele Wege zum 3D-Modell
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="33%"}
 ### Weg 1: Text → Code → 3D-Modell
 
 - KI schreibt OpenSCAD-Code
 - Präzise Maße, jederzeit änderbar
 :::
-::: {.column width="50%"}
+::: {.column width="33%"}
 ### Weg 2: 2D Bild → 3D-Modell
 
 - KI erzeugt aus einem Bild ein 3D-Modell
 - Organische Formen, Figuren
 :::
+::: {.column width="33%"}
+### Weg 3: MCP Blender von KI steuern lassen
+
+- xxx
+:::
 :::
 
-Beide Wege können 100% **lokal** laufen aber auch mit **cloud** Modelle kombiniert werden.
 
-::: {.notes}
-Hauptteil des Workshops. Zwei grundverschiedene Ansätze: Bei Weg 1 schreibt die KI Code, bei Weg 2 erzeugt sie direkt eine 3D-Form.
-:::
+Alle Wege können 100% **lokal** laufen aber auch mit **cloud** Modelle kombiniert werden.
 
-## Ausblick: KI steuert 3D-Programme
-
-![](images/mcp-ablauf.svg){fig-align="center" width="80%"}
-
-- **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
-- Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
-- Beispiel: In **Blender** legt die KI Objekte an und verändert sie
-- Sehr gut für organische Formen. 
-
-[Spannend — aber nicht Teil dieses Workshops.]{style="color:#aaaaaa"}
-
-::: {.notes}
-MCP wurde 2024 von Anthropic veröffentlicht und wird inzwischen von vielen KI-Anwendungen unterstützt. Ein Programm stellt über MCP „Werkzeuge“ bereit (z.B. „Würfel erzeugen“, „Objekt verschieben“), die KI ruft sie bei Bedarf auf – genau wie die Tools bei der Folie „Web-GUI mit Tools“.
-
-Warum nicht heute: Für Einsteiger ist der Weg über Code (OpenSCAD) bzw. Bild (Hunyuan3D) nachvollziehbarer. MCP-Steuerung von Blender setzt Blender-Kenntnisse voraus.
-:::
 
 # Weg 1: Text → Code → 3D
 
@@ -1145,50 +1131,6 @@ Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu
 Ergebnis ist eine GLB-Datei (`glb/toad.glb`), die für den Druck noch in STL umgewandelt wird.
 :::
 
-## Vergleich der Wege
-
-| | **Weg 1: OpenSCAD + KI** | **Weg 2: Bild → 3D** |
-|---|---|---|
-| Eingabe | Text (und Skizzen) | Foto oder Zeichnung |
-| Ergebnis | Code → exaktes Modell | Mesh (Dreiecksnetz) |
-| Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
-| Stärke | technische Teile, Gebäude | Figuren, organische Formen |
-| Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
-| Cloud | Claude Code | HuggingFace (siehe Bonus) |
-
-: {tbl-colwidths="[18,41,41]"}
-
-::: {.notes}
-Faustregel: Muss es passen (Ersatzteil, Halterung)? → Weg 1. Soll es gut aussehen (Figur, Deko)? → Weg 2.
-:::
-
-# Vom Modell zum Druck
-
-Das 3D-Modell ist fertig — wie wird daraus ein echtes Objekt?
-
-::: {.notes}
-Schließt den Kreis zur Vorstellung: Das Ziel ist ein echtes, gedrucktes Objekt.
-:::
-
-## Vom Modell zum Druck: Export
-
-- **OpenSCAD:** Modell rendern und als **STL** exportieren
-- **Hunyuan3D / Pixal3D:** liefern GLB → in STL umwandeln (z.B. mit assimp)
-- **Slicer** (z.B. PrusaSlicer) zerlegt das Modell in Schichten
-- Ergebnis: Druckdatei für den 3D-Drucker
-
-::: {.notes}
-In OpenSCAD: F6 (rendern), dann Datei → Exportieren → STL. Slicer können meist STL, OBJ und 3MF direkt öffnen.
-
-GLB → STL auf der Workstation (Anleitung im Wiki):
-
-```bash
-nix-shell -p assimp --extra-experimental-features flakes
-assimp export datei.glb datei.stl
-```
-
-PrusaSlicer ist auf der Workstation installiert und mit dem 3D-Drucker verbunden.
-:::
 
 ## Beispiel: Toad im Slicer
 
@@ -1231,7 +1173,7 @@ Viele Slicer reparieren kleine Mesh-Fehler automatisch. Für größere Probleme 
 - **Prusa CORE One+** und **KI-Workstation** in der Offenen Werkstatt
 - Eigene Modelle erstellen und direkt drucken
 - Nutzung auf Spenden basis
-- Filament sleber mit bringen oder von jemanden etwas abkaufen
+- Filament selber mit bringen oder von jemanden etwas abkaufen
 :::
 ::: {.column width="45%"}
 ![](images/werkstatt-3d-druck.jpg){fig-align="center" height="350"}
@@ -1242,23 +1184,49 @@ Viele Slicer reparieren kleine Mesh-Fehler automatisch. Für größere Probleme 
 Einladung aussprechen: Wer ein eigenes Modell erstellt hat, kann es in der Offenen Werkstatt drucken.
 :::
 
+# Weg 3: MCP (Model Context Protocol)
+
+![](images/mcp-ablauf.svg){fig-align="center" width="80%"}
+
+- **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
+- Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
+- Beispiel: In **Blender** legt die KI Objekte an und verändert sie
+- Sehr gut für organische Formen. 
+
+[Spannend — aber nicht Teil dieses Workshops.]{style="color:#aaaaaa"}
+
+::: {.notes}
+MCP wurde 2024 von Anthropic veröffentlicht und wird inzwischen von vielen KI-Anwendungen unterstützt. Ein Programm stellt über MCP „Werkzeuge“ bereit (z.B. „Würfel erzeugen“, „Objekt verschieben“), die KI ruft sie bei Bedarf auf – genau wie die Tools bei der Folie „Web-GUI mit Tools“.
+
+Warum nicht heute: Für Einsteiger ist der Weg über Code (OpenSCAD) bzw. Bild (Hunyuan3D) nachvollziehbarer. MCP-Steuerung von Blender setzt Blender-Kenntnisse voraus.
+:::
+
 # Zusammenfassung
 
 ::: {.notes}
 Kurzer Rückblick, bevor die Fragerunde startet.
 :::
 
-## Der rote Faden
 
-1. **Verstehen:** KI sagt das wahrscheinlichste nächste Token voraus
-2. **Richtig fragen:** SAND-Methode, Kontext mitgeben
-3. **Werkzeuge kennen:** Web-UI, Agent, Editor — lokal oder Cloud
-4. **Etwas bauen:** Code ist Text → 3D-Modelle mit KI
-5. **Drucken:** Vom Modell zum echten Objekt
+
+
+## Vergleich der Wege
+
+| | **Weg 1: OpenSCAD + KI** | **Weg 2: Bild → 3D** |
+|---|---|---|
+| Eingabe | Text (und Skizzen) | Foto oder Zeichnung |
+| Ergebnis | Code → exaktes Modell | Mesh (Dreiecksnetz) |
+| Maße | präzise, als Parameter änderbar | ungefähr, muss skaliert werden |
+| Stärke | technische Teile, Gebäude | Figuren, organische Formen |
+| Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
+| Cloud | Claude Code | HuggingFace (siehe Bonus) |
+
+: {tbl-colwidths="[18,41,41]"}
 
 ::: {.notes}
-Die fünf Schritte noch einmal in eigenen Worten zusammenfassen.
+Faustregel: Muss es passen (Ersatzteil, Halterung)? → Weg 1. Soll es gut aussehen (Figur, Deko)? → Weg 2.
 :::
+
 
 ## Das sollten Sie mitnehmen
 
