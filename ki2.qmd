@@ -1,6 +1,6 @@
 ---
 title: KI to 3D
-subtitle: WORK IN PROGRESS - XX.XX.2026
+subtitle: WORK IN PROGRESS - 21.11.2026
 format:
   revealjs:
     transition: fade
@@ -638,17 +638,13 @@ Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), 
 
 | Dienst | Adresse |
 |---|---|
-| Open WebUI (Chat) | `http://werkstatt-workstation:8080` |
-| Ollama API (z.B. für Continue) | `http://werkstatt-workstation:11434` |
-| ComfyUI (Bilder, 3D) | direkt am Rechner: `http://localhost:8188` |
+| Open WebUI (Chat) | [http://localhost:8080](http://localhost:8080) |
+| ComfyUI (Bilder, 3D) | [http://localhost:8188](http://localhost:8188) |
+| Ollama API (z.B. für Continue, OpenCode) | [http://localhost:11434](http://localhost:11434) |
 
-: {tbl-colwidths="[40,60]"}
-
-- Nur im Netzwerk der Werkstatt (AWO) erreichbar
-- Die Workstation muss eingeschaltet sein
 
 ::: {.notes}
-Über die Ollama API können Programme auf dem eigenen Laptop die Modelle der Workstation nutzen – z.B. die VS-Code-Erweiterung Continue. Die Rechenarbeit erledigt dann die Workstation. Die Anleitung inklusive Konfiguration steht im Wiki.
+Über die Ollama API können Programme auf dem eigenen Laptop die Modelle der Workstation nutzen – z.B. die VS-Code-Erweiterung Continue oder openCode. Die Rechenarbeit erledigt dann die Workstation. Die Anleitung inklusive Konfiguration steht im Wiki.
 :::
 
 ## Lokal: Was passt auf unsere Workstation?
@@ -687,25 +683,22 @@ Maßstab
 ::: {.card}
 **Workstation: 9B-Modell**
 
-ca. 45–55 Token pro Sekunde
+ca. 30 Token pro Sekunde
 
-flüssig
+mäßig
 :::
 :::
 ::: {.column width="33%"}
 ::: {.card}
-**Workstation: 14B-Modell**
+**Cloud**
 
-ca. 30–35 Token pro Sekunde
+über 70 Token pro Sekunde 
 
-flüssig
+schnell
 :::
 :::
 :::
 
-::: aside
-Geschätzt für unsere Workstation (RTX 5060 Ti, 16 GB) mit Ollama, Stand: Oktober 2026 — abhängig von Modell, Version und Einstellungen.
-:::
 
 ::: {.notes}
 Alles, was schneller ist als wir lesen, wirkt flüssig. Größere Modelle sind langsamer, weil mehr Regler berechnet werden müssen.
