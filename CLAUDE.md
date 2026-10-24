@@ -199,6 +199,14 @@ podman compose run --rm qrcode
 - Ausgabe: `images/qr/<name>.png` (PNG, 2000 px, Fehlerkorrektur H)
 - Einbinden z.B. mit `![](images/qr/wiki.png){height="250"}`
 
+## Plakat (A3)
+
+- `plakat/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
+- `plakat/pdf.sh` — exportiert per Headless-Chrome nach `plakat/plakat-a3.pdf`
+- Bilder relativ aus `../images/` einbinden; Farben als CSS-Variablen (CI-Farben)
+- Schrift: Inter, lokal aus `plakat/fonts/` per `@font-face` (OFL-Lizenz liegt daneben) — keine Google Fonts
+- Pipeline (`deploy.yml`): erzeugt das PDF nach dem Quarto-Render und kopiert es nach `_site/plakat/` → online unter `/ki2/plakat/plakat-a3.pdf`
+
 ## Build
 
 ```bash

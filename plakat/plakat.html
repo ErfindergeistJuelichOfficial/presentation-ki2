@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Plakat KI to 3D (A3)</title>
+<!--
+  Plakat im Format A3 (297 × 420 mm).
+  PDF erzeugen:  ./plakat/pdf.sh   → plakat/plakat-a3.pdf
+  Alle Maße in mm, damit das Layout 1:1 dem Druck entspricht.
+  Schrift: Inter (SIL OFL 1.1), lokal eingebunden aus plakat/fonts/ — kein externer Font-Dienst (DSGVO).
+  Die Pipeline erzeugt das PDF automatisch und veröffentlicht es unter /plakat/plakat-a3.pdf.
+-->
+<style>
+  @font-face {
+    font-family: "Inter";
+    src: url("fonts/inter-latin-wght-normal.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  :root {
+    --mint: #159989;       /* CI Primary */
+    --amber: #F9B338;      /* CI Secondary */
+    --dark: #17201F;
+    --paper: #EEEAE2;
+    --mint-dark: #0F6E63;
+    --font: "Inter", system-ui, sans-serif;
+  }
+
+  @page { size: A3; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #888; }
+  * { box-sizing: border-box; }
+
+  .poster {
+    width: 297mm;
+    height: 420mm;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    color: var(--dark);
+    font-family: var(--font);
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print { html, body { background: none; } }
+
+  /* ---------- Kopf ---------- */
+  .head {
+    height: 123mm;
+    padding: 18mm 21mm 15mm;
+    background: var(--mint);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .head-top { display: flex; justify-content: space-between; align-items: center; gap: 6mm; }
+  .invite { font-size: 7.1mm; font-weight: 700; letter-spacing: 0.02em; }
+  .badge {
+    background: var(--amber); color: var(--dark);
+    font-size: 6.4mm; font-weight: 700;
+    padding: 3.7mm 6.7mm; border-radius: 999px;
+  }
+  .title { margin: 0; font-size: 49mm; line-height: 0.95; font-weight: 800; letter-spacing: -0.03em; }
+  .claim { font-size: 12.7mm; font-weight: 500; line-height: 1.15; margin-top: 3.7mm; }
+
+  /* ---------- Bild ---------- */
+  .photo { height: 142mm; position: relative; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block; }
+  .caption {
+    position: absolute; left: 21mm; bottom: 7.5mm;
+    background: var(--dark); color: #fff;
+    font-size: 5.2mm; padding: 3mm 5.2mm; border-radius: 2.2mm;
+  }
+
+  /* ---------- Inhalt ---------- */
+  .body {
+    flex: 1;
+    padding: 13.5mm 21mm 10.5mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15mm;
+  }
+  .label { font-size: 6mm; font-weight: 700; color: var(--mint-dark); text-transform: uppercase; letter-spacing: 0.08em; }
+  .date { font-size: 20mm; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+  .time { font-size: 12.7mm; font-weight: 500; line-height: 1.2; }
+  .when { display: flex; flex-direction: column; gap: 0.8mm; margin-bottom: 6.7mm; }
+  .where { display: flex; gap: 4.5mm; align-items: flex-start; font-size: 7.1mm; line-height: 1.4; }
+  .where svg { flex: none; width: 9mm; height: 9mm; margin-top: 0.8mm; }
+
+  .list { display: flex; flex-direction: column; gap: 5.2mm; }
+  .item { display: flex; gap: 4.5mm; align-items: baseline; font-size: 6.7mm; line-height: 1.35; }
+  .item::before { content: ""; flex: none; width: 3.7mm; height: 3.7mm; background: var(--amber); }
+
+  /* ---------- Fuß ---------- */
+  .foot {
+    height: 39mm;
+    padding: 0 21mm;
+    background: var(--dark); color: #fff;
+    display: flex; align-items: center; justify-content: space-between; gap: 9mm;
+  }
+  .foot-text { display: flex; flex-direction: column; gap: 1.5mm; font-size: 6.7mm; }
+  .foot-text .url { color: var(--amber); font-weight: 700; }
+  .foot-right { display: flex; align-items: center; gap: 6mm; height: 31mm; }
+  .foot-right img { height: 100%; display: block; }
+  .qr { background: #fff; padding: 1.5mm; border-radius: 2mm; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <header class="head">
+    <div class="head-top">
+      <div class="invite">Erfindergeist Jülich e.V. lädt ein</div>
+      <div class="badge">Workshop · Eintritt frei</div>
+    </div>
+    <div>
+      <h1 class="title">KI to 3D</h1>
+      <div class="claim">Vom Prompt zum gedruckten Objekt</div>
+    </div>
+  </header>
+
+  <div class="photo">
+    <img src="../images/hexenturm_printed.jpg" alt="3D-gedrucktes Modell des Jülicher Hexenturms">
+    <div class="caption">Jülicher Hexenturm: mit KI entworfen, in der Offenen Werkstatt gedruckt</div>
+  </div>
+
+  <main class="body">
+    <div>
+      <div class="when">
+        <div class="label">Samstag</div>
+        <div class="date">21.11.2026</div>
+        <div class="time">14–18 Uhr</div>
+      </div>
+      <div class="where">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F6E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+        <div><strong>Marie-Juchacz-Weg 2</strong><br>52428 Jülich</div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="label">Was Sie erwartet</div>
+      <div class="item">Was ist KI? Einfach erklärt, ohne Fachchinesisch</div>
+      <div class="item">Richtig fragen: gute Prompts schreiben</div>
+      <div class="item">Mit KI eigene 3D-Modelle entwerfen, aus Text oder Bild</div>
+      <div class="item">Live auf unserem lokalen KI-Rechner und 3D-Drucker</div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-text">
+      <div>Keine Vorkenntnisse nötig · Laptop optional</div>
+      <div class="url">erfindergeist.org</div>
+    </div>
+    <div class="foot-right">
+      <img class="qr" src="../images/qr/erfindergeist.png" alt="QR-Code erfindergeist.org">
+      <img src="../images/logo.svg" alt="Logo Erfindergeist Jülich">
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
