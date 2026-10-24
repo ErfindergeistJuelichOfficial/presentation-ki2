@@ -1058,7 +1058,7 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 
 ![](images/hexenturm_printed.jpg){fig-align="center" height="500"}
 
-## Praxisbeispiel: Tischfuß als Ersatzteil
+## KI zum Reparieren eines Tischfußes
 
 ::: columns
 ::: {.column width="45%"}
