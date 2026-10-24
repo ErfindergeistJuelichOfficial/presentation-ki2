@@ -149,6 +149,11 @@
   font-weight: bold;
 }
 
+/* === Karten in Spalten: alle gleich hoch und breit === */
+.reveal .columns:has(> .column > .card) { display: flex; align-items: stretch; gap: 0.4em; }
+.reveal .columns:has(> .column > .card) > .column { display: flex; flex-direction: column; }
+.reveal .columns:has(> .column > .card) > .column > .card { flex: 1; box-sizing: border-box; }
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;

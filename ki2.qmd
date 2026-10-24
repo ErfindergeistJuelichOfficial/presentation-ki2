@@ -52,7 +52,7 @@ Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker 
 **Ziel:** Kreativität und Innovation fördern — durch praktisches Lernen und Zusammenarbeit
 
 ::: columns
-::: {.column width="34%"}
+::: {.column width="33.3%"}
 ::: {.card}
 **Offene Werkstatt**
 
@@ -61,7 +61,7 @@ Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker 
 selbst machen
 :::
 :::
-::: {.column width="33%"}
+::: {.column width="33.3%"}
 ::: {.card}
 **Wissensvermittlung**
 
@@ -70,7 +70,7 @@ Workshops wie dieser
 gemeinsam lernen
 :::
 :::
-::: {.column width="33%"}
+::: {.column width="33.3%"}
 ::: {.card}
 **Repair Café**
 
