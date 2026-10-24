@@ -114,9 +114,6 @@ Wo bekommt man 3D-Modelle her?
 - Im Netzwerk der Werkstatt auch vom eigenen Laptop nutzbar
 - PrusaSlicer ist installiert und mit dem 3D-Drucker verbunden
 
-::: aside
-Anleitungen im Wiki: [docs.erfindergeist.org › Workstation](https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX)
-:::
 
 ::: {.notes}
 Die Workstation ist der rote Faden für alle Live-Demos heute: Chat, Coding und 3D-Generierung laufen auf diesem Rechner, ohne Cloud.
@@ -124,27 +121,111 @@ Die Workstation ist der rote Faden für alle Live-Demos heute: Chat, Coding und 
 Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr bei den Eingabemöglichkeiten).
 :::
 
+## Wichtige Links
 
-## Spenden
-
+Handy raus — einfach abscannen:
 
 ::: columns
-::: {.column width="70%"}
+::: {.column width="25%"}
+::: {.card .qr}
+![](images/qr/erfindergeist.png){width="85%"}
 
-- Erfindergeist Jülich e.V. finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden. Wir Danken allen Unterstützern, die unsere Arbeit ermöglichen!
+**Verein**
 
-- Spenden Konto und PayPal auf unserer Webseite [https://linktree.erfindergeist.org/](https://linktree.erfindergeist.org/)
+Werkstatt, Workshops und Termine
 
+[erfindergeist.org](https://erfindergeist.org/)
 :::
-::: {.column width="30%"}
+:::
+::: {.column width="25%"}
+::: {.card .qr}
+![](images/qr/wiki.png){width="85%"}
 
-![](images/linktree.svg){width="100%"}
+**Wiki**
 
+Anleitungen zu Workstation und Geräten
+
+[wiki.erfindergeist.org](https://wiki.erfindergeist.org/)
+:::
+:::
+::: {.column width="25%"}
+::: {.card .qr}
+![](images/qr/praesentation.png){width="85%"}
+
+**Diese Folien**
+
+Alle Folien zum Nachlesen
+
+[…erfindergeist.org/ki2](https://presentations.erfindergeist.org/ki2/)
+:::
+:::
+::: {.column width="25%"}
+::: {.card .qr}
+![](images/qr/github.png){width="85%"}
+
+**Quellcode**
+
+Alle Dateien der Präsentation
+
+[GitHub](https://github.com/ErfindergeistJuelichOfficial/presentation-ki2)
+:::
 :::
 :::
 
 ::: {.notes}
+Gleich am Anfang zeigen, damit alle die Präsentation auf dem eigenen Gerät mitlesen können. Die QR-Codes werden mit `podman compose run --rm qrcode` erzeugt (Links in `qrcodes.sh`).
+:::
+
+## Spenden
+
+::: columns
+::: {.column width="64%"}
+::: {.spend-lead}
+**Jeder Beitrag zählt** — Erfindergeist finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden.
+:::
+
+::: {.spend-grid}
+::: {.card}
+**Miete**
+
+Räume für Werkstatt, Workshops und Treffen
+:::
+::: {.card}
+**Werkzeug**
+
+Vom Schraubendreher bis zum Messschieber
+:::
+::: {.card}
+**Maschinen**
+
+3D-Drucker, CNC und KI‑Workstation
+:::
+::: {.card}
+**Repair Café**
+
+Ersatzteile und Material zum Reparieren
+:::
+:::
+:::
+::: {.column width="36%"}
+::: {.card .qr}
+![](images/linktree.svg){width="75%"}
+
+**Jetzt spenden**
+
+Spendenkonto und PayPal
+
+[linktree.erfindergeist.org](https://linktree.erfindergeist.org/)
+:::
+:::
+:::
+
+[Danke an alle, die unsere Arbeit möglich machen!]{.spend-thanks}
+
+::: {.notes}
 Kurz auf Spendenmöglichkeiten hinweisen – nicht zu lange verweilen, am Ende kommt die Folie noch einmal.
+
+Konkret machen, wofür das Geld gebraucht wird: Miete für die Räume, Werkzeug, Maschinen wie der 3D-Drucker aus diesem Workshop und Material für das Repair Café.
 :::
 
 # Was ist KI?
@@ -1143,7 +1224,7 @@ Die Regeln von der vorherigen Folie stecken direkt im Prompt: „isolated and ce
 Bildmodelle verstehen Englisch meist besser als Deutsch.
 :::
 
-## Beispiel: Schritt 1 — Bild erzeugen
+## Beispiel 1: Schritt 1 — Bild erzeugen
 
 ![](glb/toad.png){fig-align="center" height="480"}
 
@@ -1153,7 +1234,7 @@ Erzeugt mit Z-Image-Turbo in ComfyUI auf der Workstation.
 Gut zu sehen: Im Prompt stand „cyan background“ – herausgekommen ist ein hellgrauer Hintergrund. Die KI hält sich nicht immer an jedes Detail (vgl. Nichtdeterminismus im Prompting-Teil). Für den nächsten Schritt reicht der einfarbige Hintergrund trotzdem.
 :::
 
-## Beispiel: Schritt 2 — Bild → 3D-Modell
+## Beispiel 1: Schritt 2 — Bild zu 3D-Modell
 
 ![](glb/toad_screenshot_hunyuan.png){fig-align="center" height="450"}
 
@@ -1165,31 +1246,7 @@ Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu
 Ergebnis ist eine GLB-Datei (`glb/toad.glb`), die für den Druck noch in STL umgewandelt wird.
 :::
 
-
-## Beispiel: Schritt 3 — Ab in den Drucker
-
-::: columns
-::: {.column width="45%"}
-1. **Umwandeln:** `.glb` → `.stl` (z.B. mit Blender oder assimp)
-2. **Slicen:** `.stl` in PrusaSlicer laden und skalieren
-3. **Prüfen:** Fehler im Mesh korrigieren
-4. **Drucken**
-:::
-::: {.column width="55%"}
-![](glb/toad_screenshot_in_prusa.png){fig-align="center" height="380"}
-
-:::
-:::
-
-::: {.notes}
-GLB ist das Austauschformat für 3D-Modelle mit Farbe und Textur. Drucker brauchen nur die Form – dafür ist STL das übliche Format.
-
-Bild-zu-3D-Modelle haben keine echten Maße. Im Slicer wird der Toad deshalb auf eine passende Größe skaliert (Bauraum des Druckers: 250 × 220 × 270 mm).
-
-Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
-:::
-
-## Vom Modell zum Druck: Typische Probleme
+## Beispiel 1: Schritt 3 - Typische Probleme
 
 ::: columns
 ::: {.column width="33%"}
@@ -1231,9 +1288,34 @@ Beim Toad gut zu sehen: Die Werkzeuge in den Händen sind sehr dünn – genau s
 Bei OpenSCAD-Modellen (Weg 1) treten diese Probleme deutlich seltener auf, weil die Form aus exakten Grundkörpern besteht.
 :::
 
-## TODO FOTO
+## Beispiel 1: Schritt 4 — Ab in den Drucker
 
-FOTO
+::: columns
+::: {.column width="45%"}
+1. **Umwandeln:** `.glb` → `.stl` (z.B. mit Blender oder assimp)
+2. **Slicen:** `.stl` in PrusaSlicer laden und skalieren
+3. **Prüfen:** Fehler im Mesh korrigieren
+4. **Drucken**
+:::
+::: {.column width="55%"}
+![](glb/toad_screenshot_in_prusa.png){fig-align="center" height="380"}
+
+:::
+:::
+
+::: {.notes}
+GLB ist das Austauschformat für 3D-Modelle mit Farbe und Textur. Drucker brauchen nur die Form – dafür ist STL das übliche Format.
+
+Bild-zu-3D-Modelle haben keine echten Maße. Im Slicer wird der Toad deshalb auf eine passende Größe skaliert (Bauraum des Druckers: 250 × 220 × 270 mm).
+
+Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
+:::
+
+
+
+## Beispiel 1: Muttkrat gedruckt
+
+![](images/muttkrat_printed.jpg){fig-align="center" height="480"}
 
 # Weg 3: MCP (Model Context Protocol)
 

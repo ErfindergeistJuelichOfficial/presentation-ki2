@@ -26,6 +26,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 | `_brand.yml` | Farb- und Typografie-Definitionen |
 | `_quarto.yml` | Projekt- und Format-Konfiguration |
 | `images/` | Alle Bilder; SVGs bevorzugen wo möglich |
+| `qrcodes.sh` / `compose.yaml` | QR-Code-Erzeugung per Podman (siehe Abschnitt QR-Codes) |
 
 ## CI / Design-Vorgaben
 
@@ -133,6 +134,8 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 [S]{.sand-letter}           ← Buchstabe im Mint-Kreis (z.B. für SAND-Beispiel)
 ::: {.chat-input}           ← Text als Chat-Eingabefeld (abgerundet, Mint-Senden-Button)
 ::: {.card}                 ← Karte: dunkle Box mit Mint-Rand oben, letzte Zeile in Mint (z.B. Problem → Lösung)
+::: {.card .qr}             ← QR-Karte: zentriert, QR-Code mit weißem Rahmen, Link in Mint (Folie „Wichtige Links“)
+::: {.spend-grid}           ← 2×2-Raster aus kleinen Karten (Folie „Spenden“); [Text]{.spend-thanks} = zentrierte Dankeszeile in Mint
 ```
 
 ## HTML-Demo-Folien
@@ -167,6 +170,19 @@ Bestehende Demos:
 | --- | --- |
 | `demo-heart.html` | GSAP-Pulsanimation: Kreis (alt) vs. Herzform (neu) |
 | `demo-snake.html` | KI-generiertes Snake-Spiel (eigener Hintergrund `#2c3e50`) |
+
+## QR-Codes
+
+QR-Codes werden **nicht** über externe Dienste erzeugt, sondern lokal per Podman:
+
+```bash
+podman compose run --rm qrcode
+```
+
+- `compose.yaml` startet einen Node-Container, installiert `qrcode` und führt `qrcodes.sh` aus
+- Neue Links in der Liste am Ende von `qrcodes.sh` ergänzen: `<name> <url ohne https://>`
+- Ausgabe: `images/qr/<name>.png` (PNG, 2000 px, Fehlerkorrektur H)
+- Einbinden z.B. mit `![](images/qr/wiki.png){height="250"}`
 
 ## Build
 

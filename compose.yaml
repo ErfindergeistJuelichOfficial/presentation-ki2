@@ -1,0 +1,8 @@
+# QR-Codes erzeugen:  podman compose run --rm qrcode
+services:
+  qrcode:
+    image: docker.io/library/node:22-alpine
+    working_dir: /work
+    volumes:
+      - ./:/work:Z
+    command: sh -c "npm install -g qrcode >/dev/null && sh ./qrcodes.sh"

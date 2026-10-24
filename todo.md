@@ -52,3 +52,16 @@ Stand: 18.10.2026 · Gliederung siehe `roter_faden.md`
 - [ ] „GBL“ → „GLB“ — Seitentitel ist korrigiert, im Text von „GLB to STL Konvertieren“ und „KI Beispiel Workflow“ steht noch „gbl“
 - [ ] „KI Sprachchat“ ist ein Text-Chat → umbenennen oder Spracheingabe ergänzen
 - [ ] Offene Wiki-TODOs füllen: „STL cleanen“ (passt zur Folie „Typische Probleme“), „RAM freigeben“ (ComfyUI), „KI Coden“ (Work in Progress)
+
+
+## Werbung
+
+- [ ] Zeitungen anschreiben
+- [ ] Poster
+- [ ] Firmen?
+
+## Workstation
+
+- [ ] Login ohne Admin
+- [ ] openCode
+- [ ] VSCode kann Plugins installieren

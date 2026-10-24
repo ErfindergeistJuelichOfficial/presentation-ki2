@@ -31,6 +31,18 @@ quarto preview ki2.qmd --no-cache
 quarto render ki2.qmd --to pdf
 ```
 
+## QR-Codes erzeugen
+
+QR-Codes für alle wichtigen Links werden mit [node-qrcode](https://www.npmjs.com/package/qrcode) in einem Podman-Container erzeugt — eine lokale Node-Installation ist nicht nötig.
+
+```shell
+podman compose run --rm qrcode
+```
+
+- Links stehen in `qrcodes.sh` (Liste am Ende: `<name> <url ohne https://>`)
+- Ausgabe: `images/qr/<name>.png` (2000 × 2000 px, Fehlerkorrektur H)
+- Container-Definition: `compose.yaml`
+
 ## Documentation Presentation
 
 - <https://quarto.org/docs/presentations/revealjs/>

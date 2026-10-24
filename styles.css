@@ -108,6 +108,47 @@
 .reveal .card p { margin: 0.4em 0; }
 .reveal .card p:last-child { color: #159989; font-weight: bold; }
 
+/* === QR-Karte (Nutzung: ::: {.card .qr}) === */
+.reveal .card.qr {
+  text-align: center;
+  padding: 0.5em 0.5em 0.4em;
+  font-size: 0.7em;
+}
+.reveal .card.qr img {
+  margin: 0 auto 0.2em;
+  border-radius: 6px;
+  border: 6px solid #ffffff;
+  transition: transform 0.2s ease;
+}
+.reveal .card.qr img:hover { transform: scale(1.08); }
+.reveal .card.qr p:last-child a { color: #159989; }
+.reveal .card.qr p:last-child { font-size: 0.75em; overflow-wrap: anywhere; }
+.reveal .card.qr img { box-shadow: none; }
+.reveal .columns:has(.card.qr) { display: flex; align-items: stretch; gap: 0.4em; }
+.reveal .columns:has(.card.qr) > .column { display: flex; flex-direction: column; }
+.reveal .columns:has(.card.qr) .card.qr { flex: 1; box-sizing: border-box; display: flex; flex-direction: column; }
+.reveal .card.qr p:last-child { margin-top: auto; }
+
+/* === Spenden-Raster (Nutzung: ::: {.spend-grid} mit 4x ::: {.card}) === */
+.reveal .spend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  margin-top: 0.6em;
+}
+.reveal .spend-grid .card { font-size: 0.6em; height: auto; padding: 0.4em 0.8em; }
+.reveal .spend-grid .card p { margin: 0.2em 0; }
+.reveal .spend-lead { font-size: 0.8em; }
+.reveal .spend-grid .card p:last-child { color: #ffffff; font-weight: normal; }
+.reveal .spend-grid .card strong { color: #F9B338; }
+.reveal .spend-thanks {
+  display: block;
+  text-align: center;
+  margin-top: 0.5em;
+  color: #159989;
+  font-weight: bold;
+}
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;
