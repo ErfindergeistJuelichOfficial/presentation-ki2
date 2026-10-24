@@ -1,6 +1,6 @@
 # Roter Faden — KI-Workshop 2
 
-Stand: 18.10.2026
+Stand: 18.10.2026 · Workshop-Termin: 21.11.2026
 
 **Zielgruppe:** Anfänger ohne Vorwissen
 **Aufbau:** Erst KI verstehen — dann KI in unserer Werkstatt nutzen.

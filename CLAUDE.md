@@ -45,6 +45,21 @@ Farben aus `_brand.yml` — niemals davon abweichen:
 
 ## Quarto Reveal.js — Wichtige Konventionen
 
+### Titelfolie
+
+Die erste Folie ist **keine normale Folie im Text**, sondern wird aus dem YAML-Kopf von `ki2.qmd` erzeugt:
+
+```yaml
+title: KI to 3D
+title-slide-attributes:                    # Hintergrund nur für die Titelfolie
+  data-background-image: images/logo.svg
+  data-background-size: 40%
+  data-background-opacity: "0.15"          # Logo als dezentes Wasserzeichen
+subtitle: WORK IN PROGRESS - 21.11.2026   # Workshop-Termin
+```
+
+Änderungen an Titel oder Datum also immer dort vornehmen. **Zwischen YAML-Kopf und der ersten `#`-Überschrift darf nichts stehen** — auch keine HTML-Kommentare, sonst entsteht eine leere Folie 2. Der Titel steht zusätzlich im `footer` und in `_quarto.yml` (Website-Titel).
+
 ### Folientypen
 
 ```markdown

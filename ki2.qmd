@@ -1,5 +1,9 @@
 ---
 title: KI to 3D
+title-slide-attributes:
+  data-background-image: images/logo.svg
+  data-background-size: 30%
+  data-background-opacity: "0.15"
 subtitle: WORK IN PROGRESS - 21.11.2026
 format:
   revealjs:
@@ -32,10 +36,10 @@ format:
     margin-right: 30mm
 
 ---
-<!-- Die Präsentation ist Online unter https://presentations.erfindergeist.org/ki2/ zu finden -->
-
-<!-- Der Veranstalter: Erfindergeist Jülich e.V. stellt sich kurz vor -->
 # Vorstellung Erfindergeist Jülich e.V
+
+<!-- Die Präsentation ist Online unter https://presentations.erfindergeist.org/ki2/ zu finden -->
+<!-- Der Veranstalter: Erfindergeist Jülich e.V. stellt sich kurz vor -->
 
 Gemeinnütziger Verein aus Jülich — seit 2021
 

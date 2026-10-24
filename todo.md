@@ -32,7 +32,8 @@ Stand: 18.10.2026 · Gliederung siehe `roter_faden.md`
 ### Entscheidungen
 
 - [x] ~~Titel „KI to 3D“ — ja oder nein?~~ — ja, Titel geändert
-- [ ] Untertitel „WORK IN PROGRESS - XX.XX.2026“ → echtes Datum
+- [x] ~~Untertitel → echtes Datum~~ — Workshop-Termin 21.11.2026 steht im Untertitel (YAML-Kopf von `ki2.qmd`)
+- [ ] Vor dem Workshop „WORK IN PROGRESS“ aus dem Untertitel entfernen, z.B. `subtitle: KI-Workshop 2 · 21.11.2026`
 
 ---
 
