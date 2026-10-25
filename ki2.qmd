@@ -748,14 +748,13 @@ Wie und wo kann man mit KI arbeiten?
 
 | Art | Lokal | Cloud |
 |---|---|---|
-| Chat im Browser (Web-UI) | Open WebUI | ChatGPT, Claude.ai, Gemini |
-| Terminal / Agent (CLI) | OpenCode | Claude Code |
-| Im Editor (IDE) | VS Code + Continue | GitHub Copilot |
+| Chat im Browser | Open WebUI | ChatGPT, Claude.ai, Gemini |
+| Terminal (CLI) | OpenCode | Claude Code |
+| Im Editor (IDE) | VS Code + Continue | VS Code + GitHub Copilot |
 
 : {tbl-colwidths="[30,30,40]"}
 
 
-Das Sprachmodell ist austauschbar — die Oberfläche bestimmt, **was die KI tun darf**.
 
 ::: {.notes}
 Dasselbe Modell kann in verschiedenen Oberflächen laufen. Im Chat antwortet die KI nur mit Text. Als Agent im Terminal oder Editor darf sie zusätzlich Dateien anlegen, ändern und Befehle ausführen.
@@ -781,14 +780,17 @@ Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: 
 Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
 :::
 
-## Web-GUI mit Tools
+## Tools
 
 - **Web-GUI:** die Chat-Oberfläche im Browser, z.B. ChatGPT oder Open WebUI
 - **Tools:** Werkzeuge, die die KI bei Bedarf selbst aufruft
 
-Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen
+Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen, HTML anzeigen
 
-**Ablauf:** Frage → KI wählt Tool → Anwendung führt es aus → KI antwortet mit dem Ergebnis
+
+:::aside
+Achtung: Ältere Modelle können nur Text lesen und schreiben. Oberflächen unterstützen nicht alle Tools, manchmal nur als Plugin.
+:::
 
 ::: {.notes}
 Das Sprachmodell allein kann nur Text lesen und schreiben. Es kann nicht ins Internet schauen, nicht zuverlässig rechnen und keine Dateien öffnen.
@@ -815,13 +817,13 @@ Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. G
 Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), qwen3.5:9b (Allgemeinwissen), qwen2.5-coder:14b (Programmieren).
 :::
 
-## Lokal: Die Workstation im Netzwerk
+## Oberflächen auf unserer Workstation
 
-| Dienst | Adresse |
+| Dienst | Wie |
 |---|---|
-| Open WebUI (Chat) | [http://localhost:8080](http://localhost:8080) |
-| ComfyUI (Bilder, 3D) | [http://localhost:8188](http://localhost:8188) |
-| Ollama API (z.B. für Continue, OpenCode) | [http://localhost:11434](http://localhost:11434) |
+| Open WebUI (Chat) | im Browser [http://localhost:8080](http://localhost:8080) |
+| ComfyUI (Bilder, 3D) | im Browser [http://localhost:8188](http://localhost:8188) |
+| Programmieren | im Terminal ` opencode `  |
 
 
 ::: {.notes}
@@ -889,37 +891,6 @@ Die Werte sind eine Schätzung: Die Geschwindigkeit hängt vor allem davon ab, w
 70B-Modelle (ca. 40 GB) passen nicht in den Grafikspeicher – dann wird es sehr langsam.
 :::
 
-## Im Terminal: Coding-Agenten
-
-- **Agent:** KI, die selbstständig mehrere Schritte erledigt
-- Liest und schreibt Dateien, führt Befehle aus, testet
-- **OpenCode:** Open Source, auch mit lokalen Modellen über Ollama
-- **Claude Code:** von Anthropic, nutzt Claude-Modelle in der Cloud
-
-::: {.notes}
-Im Chat bekommt man Code als Text und muss ihn selbst kopieren und speichern. Ein Coding-Agent arbeitet direkt im Projektordner: Er legt Dateien an, ändert sie, startet Programme und reagiert auf Fehlermeldungen.
-
-OpenCode und Claude Code funktionieren ähnlich. Der Unterschied liegt vor allem im Modell: OpenCode kann lokale Modelle nutzen, Claude Code nutzt die Claude-Modelle von Anthropic.
-
-Beide werden später im 3D-Teil für OpenSCAD genutzt.
-
-Auf der Workstation: In einer Konsole `ollama` starten und OpenCode auswählen. Empfohlenes Modell: qwen2.5-coder:14b.
-:::
-
-## Im Editor (IDE)
-
-- **IDE:** Programm zum Schreiben von Code, z.B. VS Code
-- KI schlägt beim Tippen Code vor
-- Chat-Fenster direkt neben dem Code
-- **Cloud:** GitHub Copilot · **Lokal:** z.B. Continue + Ollama
-
-::: {.notes}
-IDE = Integrated Development Environment (Entwicklungsumgebung). Die KI sieht den Code, der gerade offen ist, und kann Vorschläge passend zum Projekt machen.
-
-Auch Claude Code und OpenCode lassen sich in VS Code einbinden – die Grenzen zwischen CLI und IDE verschwimmen.
-
-Continue lässt sich mit der Ollama API der Workstation verbinden (Konfiguration im Wiki). Laut Wiki-Test: Qwen2.5-Coder 14B hat in unter 3 Sekunden ein HTML-Snake-Spiel erstellt.
-:::
 
 ## Live Coding Snake
 
@@ -1435,7 +1406,7 @@ Bereich „Text-to-Image“ mit Grundlagen und Beispielen
 
 Älter, aber immer noch eine gute Einführung
 
-[Prompt-Guide](https://stable-diffusion-art.com/prompt-guide/)
+[stable-diffusion-art.com/Prompt-Guide](https://stable-diffusion-art.com/prompt-guide/)
 :::
 ::: {.card}
 **Civitai**
