@@ -151,6 +151,8 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.card}                 ← Karte: dunkle Box mit Mint-Rand oben, letzte Zeile in Mint (z.B. Problem → Lösung)
 ::: {.card .qr}             ← QR-Karte: zentriert, QR-Code mit weißem Rahmen, Link in Mint (Folie „Wichtige Links“)
 ::: {.spend-grid}           ← 2×2-Raster aus kleinen Karten (Folie „Spenden“); [Text]{.spend-thanks} = zentrierte Dankeszeile in Mint
+::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompt-Beispiele im Web“); {.link-grid .two} = 2 Spalten
+[Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
 ```
 
 ## HTML-Demo-Folien

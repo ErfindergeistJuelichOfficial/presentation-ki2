@@ -508,6 +508,102 @@ Die vier Teile erscheinen nacheinander. Bei jedem Schritt kurz zurück auf die F
 Idealerweise live vorführen: erst den kurzen Prompt, dann den SAND-Prompt in dieselbe KI eingeben und die Ergebnisse vergleichen.
 :::
 
+## Prompt-Beispiele im Web
+
+[RTFM]{.rtfm} *Read The Fine Manual* — auch KI hat eine Anleitung.
+
+::: {.link-grid}
+::: {.card}
+**Allgemein**
+
+Grundlagen und Techniken für alle Modelle
+
+[promptingguide.ai](https://www.promptingguide.ai/de)
+:::
+::: {.card}
+**Anthropic (Claude)**
+
+Prompt-Bibliothek des Herstellers
+
+[Prompt Library](https://code.claude.com/docs/de/prompt-library)
+:::
+::: {.card}
+**Qwen**
+
+Beispiel-Prompts für die Qwen-Modelle
+
+[Qwen Prompts](https://qwen-3.com/de/prompt-library)
+:::
+::: {.card}
+**Microsoft Copilot**
+
+Sammlung der Copilot-Community
+
+[copilot-prompts](https://github.com/pnp/copilot-prompts)
+:::
+::: {.card}
+**Coden**
+
+Schritt für Schritt ein Feature mit KI bauen
+
+[VS Code Guide](https://github.com/microsoft/vscode-docs/blob/main/docs/agents/guides/add-a-feature.md)
+:::
+:::
+
+::: aside
+Jedes Modell versteht Prompts anders — die Beispiele sind auf das jeweilige Modell abgestimmt. 
+:::
+
+::: {.notes}
+RTFM ist ein alter Spruch aus der IT – wenn jemand eine Frage stellt, die in der Anleitung steht. Das „F“ steht offiziell für „Fine“ … inoffiziell für etwas Deftigeres.
+
+Augenzwinkernd: Viele Hersteller veröffentlichen eigene Prompt-Sammlungen, die genau auf ihr Modell abgestimmt sind. Es lohnt sich, dort zuerst nachzuschauen, bevor man lange herumprobiert.
+:::
+
+## Optimiere den Prompt
+
+**Der Trick:** Lassen Sie die KI Ihren Prompt verbessern.
+
+::: {.chat-input}
+Verbessere diesen Prompt nach der SAND-Methode und frage nach, was noch fehlt: „Schreib eine Einladung zum KI-Workshop.“
+:::
+
+::: {.fragment}
+::: {.link-grid}
+::: {.card}
+**Selbst fragen**
+
+Jede KI kann Prompts verbessern
+
+einfach ausprobieren
+:::
+::: {.card}
+**Eingebaut**
+
+Viele Frontier-Modelle haben eine eigene Prompt-Optimierung
+
+ein Klick
+:::
+::: {.card}
+**Dienste**
+
+Spezielle Webseiten optimieren Prompts
+
+für Profis
+:::
+:::
+:::
+
+::: aside
+Frontier-Modelle = die jeweils leistungsstärksten aktuellen Modelle der großen Anbieter.
+:::
+
+::: {.notes}
+Live-Demo: Den schwachen Prompt von der SAND-Folie („Schreib eine Einladung zum KI-Workshop.“) mit diesem Auftrag in eine KI geben. Die KI stellt Rückfragen oder liefert einen deutlich besseren Prompt – den man dann selbst weiterverwenden kann.
+
+Wichtig: „frage nach, was noch fehlt“ – so muss die KI nicht raten, sondern holt sich die fehlenden Infos (Zielgruppe, Länge, Format).
+:::
+
 ## Prompting: Chat-Umgebung
 
 Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
@@ -1320,6 +1416,44 @@ Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 ## Beispiel 1: Muttkrat gedruckt
 
 ![](images/muttkrat_printed.jpg){fig-align="center" height="480"}
+
+## Bild-Prompts finden
+
+[Abgucken erlaubt!]{.rtfm style="font-size:0.75em"} Prompts muss man nicht erfinden.
+
+::: {.link-grid .two}
+
+::: {.card}
+**Prompting Guide**
+
+Bereich „Text-to-Image“ mit Grundlagen und Beispielen
+
+[promptingguide.ai](https://www.promptingguide.ai)
+:::
+::: {.card}
+**Stable Diffusion Art**
+
+Älter, aber immer noch eine gute Einführung
+
+[Prompt-Guide](https://stable-diffusion-art.com/prompt-guide/)
+:::
+::: {.card}
+**Civitai**
+
+Bild anklicken — der Prompt steht meist dabei
+
+[civitai.com/images](https://civitai.com/images)
+:::
+:::
+
+
+::: {.notes}
+Bildmodelle (Fachbegriff: Diffusionsmodelle) wie FLUX, Z-Image oder Stable Diffusion verstehen Prompts anders als Chat-Modelle – Stichworte statt ganzer Sätze.
+
+Der schnellste Weg zu einem guten Bild-Prompt: ein Bild suchen, das dem Ziel nahekommt, und dessen Prompt als Vorlage nehmen. Danach Schritt für Schritt anpassen – genau so ist auch der Toad-Prompt entstanden.
+
+Achtung bei Civitai: Die Seite zeigt nutzergenerierte Bilder, darunter auch Inhalte, die nicht für jedes Publikum geeignet sind. Vor einer Live-Demo die Filtereinstellungen prüfen oder lieber Screenshots zeigen.
+:::
 
 # Weg 3: MCP (Model Context Protocol)
 

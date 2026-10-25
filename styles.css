@@ -154,6 +154,33 @@
 .reveal .columns:has(> .column > .card) > .column { display: flex; flex-direction: column; }
 .reveal .columns:has(> .column > .card) > .column > .card { flex: 1; box-sizing: border-box; }
 
+/* === RTFM-Stempel (Nutzung: [RTFM]{.rtfm}) === */
+.reveal .rtfm {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  color: #F9B338;
+  border: 3px solid #F9B338;
+  border-radius: 6px;
+  padding: 0 0.3em;
+  margin-right: 0.3em;
+  transform: rotate(-6deg);
+  letter-spacing: 0.08em;
+}
+
+/* === Link-Raster (Nutzung: ::: {.link-grid} mit ::: {.card}) === */
+.reveal .link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45em;
+  margin-top: 0.5em;
+}
+.reveal .link-grid .card { font-size: 0.55em; display: flex; flex-direction: column; height: auto; padding: 0.4em 0.8em; }
+.reveal .link-grid .card p { margin: 0.25em 0; }
+.reveal .link-grid .card strong { color: #F9B338; }
+.reveal .link-grid .card p:last-child { margin-top: auto; }
+.reveal .link-grid.two { grid-template-columns: repeat(2, 1fr); }
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;
