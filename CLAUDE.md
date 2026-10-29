@@ -25,7 +25,10 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 | `styles.css` | Custom CSS für Reveal.js (nicht in `_brand.yml` abbildbar) |
 | `_brand.yml` | Farb- und Typografie-Definitionen |
 | `_quarto.yml` | Projekt- und Format-Konfiguration |
-| `images/` | Alle Bilder; SVGs bevorzugen wo möglich |
+| `beispiele/<name>/` | **Alles zu einem Beispiel** in einem Ordner: Bilder, `.scad`, Prompt, Demo-HTML + `README.md` (z.B. `hexenturm/`, `tischfuss/`, `muttkrat/`) |
+| `grafiken/` | Erklär-Grafiken als SVG (neuronales Netz, MCP, VRAM, Weg-2-Prinzip) |
+| `verein/` | Logo, Linktree-QR, Werkstatt-Foto |
+| `qr-codes/` | Erzeugte QR-Codes (siehe Abschnitt QR-Codes) |
 | `qrcodes.sh` / `compose.yaml` | QR-Code-Erzeugung per Podman (siehe Abschnitt QR-Codes) |
 
 ## CI / Design-Vorgaben
@@ -52,7 +55,7 @@ Die erste Folie ist **keine normale Folie im Text**, sondern wird aus dem YAML-K
 ```yaml
 title: KI to 3D
 title-slide-attributes:                    # Hintergrund nur für die Titelfolie
-  data-background-image: images/logo.svg
+  data-background-image: verein/logo.svg
   data-background-size: 40%
   data-background-opacity: "0.15"          # Logo als dezentes Wasserzeichen
 subtitle: WORK IN PROGRESS - 21.11.2026   # Workshop-Termin
@@ -89,11 +92,13 @@ Spalten-Breiten immer explizit angeben und auf 100 % addieren.
 ### Bilder
 
 ```markdown
-![](images/datei.png){fig-align="center" height="500"}
+![](beispiele/hexenturm/hexenturm_fertig.png){fig-align="center" height="500"}
 ```
 
 **`height="500"` ist der Standard für Vollbild-Bilder** — so bleibt das Bild im Bildschirm.
 Breiten-Prozent (`width="100%"`) nur in Spalten-Layouts.
+
+**Dateinamen:** sprechend und mit dem Beispielnamen vorne (`hexenturm_gedruckt.jpg`, nicht `IMG_123.jpg`) — die Teilnehmer suchen die Dateien auf GitHub.
 
 **Kein `.webp`** — der PDF-Export (LaTeX) in der Pipeline kann WebP nicht einbinden. Fotos als `.jpg`, Screenshots als `.png`, Grafiken als `.svg`.
 
@@ -158,7 +163,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 
 ## HTML-Demo-Folien
 
-Interaktive Demos werden als **eigenstandige HTML-Dateien** im Root abgelegt (z.B. `demo-heart.html`).
+Interaktive Demos werden als **eigenstandige HTML-Dateien** im Root abgelegt (z.B. `beispiele/herzanimation/herzanimation.html`).
 Quarto kopiert sie automatisch nach `_site/` - keine Quarto-Konfiguration notig.
 
 JavaScript-Bibliotheken (GSAP etc.) mussen **lokal** unter `js/` liegen - nicht von externen CDNs laden,
@@ -170,7 +175,7 @@ Einbindung in eine Folie via iframe:
 ## Titel {background-color="#222222"}
 
 ```{=html}
-<iframe src="demo-name.html"
+<iframe src="beispiele/<name>/<name>.html"
   style="width:100%;height:85vh;border:none;background:#222222;">
 </iframe>
 ```
@@ -186,8 +191,8 @@ Bestehende Demos:
 
 | Datei | Inhalt |
 | --- | --- |
-| `demo-heart.html` | GSAP-Pulsanimation: Kreis (alt) vs. Herzform (neu) |
-| `demo-snake.html` | KI-generiertes Snake-Spiel (eigener Hintergrund `#2c3e50`) |
+| `beispiele/herzanimation/herzanimation.html` | GSAP-Pulsanimation: Kreis (alt) vs. Herzform (neu) |
+| `beispiele/snake/snake.html` | KI-generiertes Snake-Spiel (eigener Hintergrund `#2c3e50`) |
 
 ## QR-Codes
 
@@ -199,20 +204,20 @@ podman compose run --rm qrcode
 
 - `compose.yaml` startet einen Node-Container, installiert `qrcode` und führt `qrcodes.sh` aus
 - Neue Links in der Liste am Ende von `qrcodes.sh` ergänzen: `<name> <url ohne https://>`
-- Ausgabe: `images/qr/<name>.png` (PNG, 2000 px, Fehlerkorrektur H)
-- Einbinden z.B. mit `![](images/qr/wiki.png){height="250"}`
+- Ausgabe: `qr-codes/<name>.png` (PNG, 2000 px, Fehlerkorrektur H)
+- Einbinden z.B. mit `![](qr-codes/wiki.png){height="250"}`
 
 ## Diagramme
 
-- `diagramme.py` erzeugt die Ablaufdiagramme (Folie „Diagramme: Vorher und Nachher“) als SVG in CI-Farben — ohne externe Tools
-- Aufruf: `python3 diagramme.py` → `images/diagramme/*.svg`
+- `beispiele/bildverarbeitung-diagramm/diagramme.py` erzeugt die Ablaufdiagramme (Folie „Diagramme: Vorher und Nachher“) als SVG in CI-Farben — ohne externe Tools
+- Aufruf: `python3 beispiele/bildverarbeitung-diagramm/diagramme.py` → `beispiele/bildverarbeitung-diagramm/*.svg`
 - Knoten und Pfeile werden im Skript mit Raster-Koordinaten gesetzt (`node(...)`, `edge(...)`)
 
 ## Plakat (A3)
 
 - `plakat/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
 - `plakat/pdf.sh` — exportiert per Headless-Chrome nach `plakat/plakat-a3.pdf`
-- Bilder relativ aus `../images/` einbinden; Farben als CSS-Variablen (CI-Farben)
+- Bilder relativ einbinden (`../beispiele/…`, `../verein/…`); Farben als CSS-Variablen (CI-Farben)
 - Schrift: Inter, lokal aus `plakat/fonts/` per `@font-face` (OFL-Lizenz liegt daneben) — keine Google Fonts
 - Pipeline (`deploy.yml`): erzeugt das PDF nach dem Quarto-Render und kopiert es nach `_site/plakat/` → online unter `/ki2/plakat/plakat-a3.pdf`
 

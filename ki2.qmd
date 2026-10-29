@@ -1,7 +1,7 @@
 ---
 title: KI to 3D
 title-slide-attributes:
-  data-background-image: images/logo.svg
+  data-background-image: verein/logo.svg
   data-background-size: 30%
   data-background-opacity: "0.15"
 subtitle: WORK IN PROGRESS - 21.11.2026
@@ -18,7 +18,7 @@ format:
     show-slide-number: all
     chalkboard: true
     # scroll-view: true
-    logo: images/logo.svg
+    logo: verein/logo.svg
     # fig-cap-location: bottom
     footer: "KI to 3D · Erfindergeist Jülich e.V."
     theme: dark
@@ -94,7 +94,7 @@ Die Offene Werkstatt mit dem 3D-Drucker spielt heute die Hauptrolle: Am Ende sol
 - Bei uns: **Prusa CORE One+** in der Offenen Werkstatt
 :::
 ::: {.column width="45%"}
-![](images/werkstatt-3d-druck.jpg){fig-align="center" height="500"}
+![](verein/werkstatt-3d-druck.jpg){fig-align="center" height="500"}
 :::
 :::
 
@@ -132,7 +132,7 @@ Handy raus — einfach abscannen:
 ::: columns
 ::: {.column width="25%"}
 ::: {.card .qr}
-![](images/qr/erfindergeist.png){width="85%"}
+![](qr-codes/erfindergeist.png){width="85%"}
 
 **Verein**
 
@@ -143,7 +143,7 @@ Werkstatt, Workshops und Termine
 :::
 ::: {.column width="25%"}
 ::: {.card .qr}
-![](images/qr/wiki.png){width="85%"}
+![](qr-codes/wiki.png){width="85%"}
 
 **Wiki**
 
@@ -154,7 +154,7 @@ Anleitungen zu Workstation und Geräten
 :::
 ::: {.column width="25%"}
 ::: {.card .qr}
-![](images/qr/praesentation.png){width="85%"}
+![](qr-codes/praesentation.png){width="85%"}
 
 **Diese Folien**
 
@@ -165,7 +165,7 @@ Alle Folien zum Nachlesen
 :::
 ::: {.column width="25%"}
 ::: {.card .qr}
-![](images/qr/github.png){width="85%"}
+![](qr-codes/github.png){width="85%"}
 
 **Quellcode**
 
@@ -213,7 +213,7 @@ Ersatzteile und Material zum Reparieren
 :::
 ::: {.column width="36%"}
 ::: {.card .qr}
-![](images/linktree.svg){width="75%"}
+![](verein/linktree.svg){width="75%"}
 
 **Jetzt spenden**
 
@@ -274,7 +274,7 @@ KI ist ein Oberbegriff. Sprachmodelle (LLMs) wie ChatGPT sind nur ein Teil davon
 
 ::: columns
 ::: {.column width="50%"}
-![](images/neuronales-netz.svg){fig-align="center" width="100%"}
+![](grafiken/neuronales-netz.svg){fig-align="center" width="100%"}
 :::
 ::: {.column width="50%"}
 - **Eingabe:** Foto, Text oder Ton — als Zahlen
@@ -359,7 +359,7 @@ Text-Modelle können mit einem Bild nichts anfangen. Viele Modelle gibt es in be
 
 ## Beispiel: Multimodale Modelle
 
-![](images/chihuahua-muffin.jpg){fig-align="center" height="420"}
+![](beispiele/chihuahua-muffin/chihuahua-muffin.jpg){fig-align="center" height="420"}
 
 Chihuahua oder Muffin? Bild hochladen und die KI fragen.
 
@@ -371,7 +371,7 @@ Auflösung (Reihe für Reihe, von links): Hund, Muffin, Hund, Muffin – Muffin,
 
 ## Ergebnis: Chihuahua Muffin
 
-![](images/chihuahua-muffin-gemma.png){fig-align="center" height="520"}
+![](beispiele/chihuahua-muffin/chihuahua-muffin-gemma.png){fig-align="center" height="520"}
 
 ::: {.notes}
 Ergebnis des lokalen Modells besprechen: Was wurde richtig erkannt, wo lag es daneben?
@@ -832,7 +832,7 @@ Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), 
 
 ## Lokal: Was passt auf unsere Workstation?
 
-![](images/vram-passt.svg){fig-align="center" width="85%"}
+![](grafiken/vram-passt.svg){fig-align="center" width="85%"}
 
 Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
 
@@ -907,7 +907,7 @@ Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden.
 ## Ergebnis: Snake {background-color="#2c3e50"}
 
 ```{=html}
-<iframe src="demo-snake.html"
+<iframe src="beispiele/snake/snake.html"
   style="width:100%;height:85vh;border:none;background:#2c3e50;">
 </iframe>
 ```
@@ -1022,7 +1022,7 @@ color("#F9B338")
 ```
 :::
 ::: {.column width="30%"}
-![](images/scad/beispiel-turm.png){fig-align="center" height="400"}
+![](beispiele/openscad-turm/openscad-turm.png){fig-align="center" height="400"}
 :::
 :::
 
@@ -1037,7 +1037,7 @@ Zeile für Zeile:
 - Das Dach ist ebenfalls ein Zylinder, der oben auf Radius 0 zuläuft – also ein Kegel.
 - `color` färbt jedes Teil ein – so sieht man sofort, welche Codezeilen welches Teil erzeugen.
 
-Die Datei liegt unter `scad/beispiel-turm.scad` und kann in OpenSCAD geöffnet werden (F5 = Vorschau).
+Die Datei liegt unter `beispiele/openscad-turm/openscad-turm.scad` und kann in OpenSCAD geöffnet werden (F5 = Vorschau).
 :::
 
 
@@ -1047,7 +1047,7 @@ Die Datei liegt unter `scad/beispiel-turm.scad` und kann in OpenSCAD geöffnet w
 ::: columns
 ::: {.column width="60%"}
 
-![](images/scad/hexenturm_done.png){fig-align="center" height="500"}
+![](beispiele/hexenturm/hexenturm_fertig.png){fig-align="center" height="500"}
 
 :::
 ::: {.column width="40%"}
@@ -1062,7 +1062,7 @@ Der Hexenturm ist ein Wahrzeichen von Jülich. Das Modell entstand in mehreren S
 
 ## OpenSCAD: Modularer Aufbau
 
-![](images/scad/hexenturm_parts.png){fig-align="center" height="500"}
+![](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="500"}
 
 ::: aside
 Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
@@ -1076,7 +1076,7 @@ Wie beim Prompting gilt: große Aufgaben in kleine Teile zerlegen. Jedes Modul w
 
 ::: columns
 ::: {.column width="40%"}
-![](images/scad/prompt_help.png){fig-align="center" height="450"}
+![](beispiele/hexenturm/hexenturm_skizze_tunnel.png){fig-align="center" height="450"}
 :::
 ::: {.column width="60%"}
 ::: {.chat-input}
@@ -1093,7 +1093,7 @@ Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten 
 
 ## OpenSCAD: Details im Code
 
-![](images/scad/hexenturm details.png){fig-align="center" height="500"}
+![](beispiele/hexenturm/hexenturm_details.png){fig-align="center" height="500"}
 
 ::: aside
 Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.
@@ -1107,7 +1107,7 @@ Details wurden erst ergänzt, als die Grundform stand.
 
 ::: columns
 ::: {.column width="40%"}
-![](images/scad/prompt2_help.png){fig-align="center" height="450"}
+![](beispiele/hexenturm/hexenturm_skizze_verzierung.png){fig-align="center" height="450"}
 :::
 ::: {.column width="60%"}
 ::: {.chat-input}
@@ -1124,13 +1124,13 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 
 ## OpenSCAD: Fotos des 3D-Drucks
 
-![](images/hexenturm_printed.jpg){fig-align="center" height="500"}
+![](beispiele/hexenturm/hexenturm_gedruckt.jpg){fig-align="center" height="500"}
 
 ## KI zum Reparieren eines Tischfußes
 
 ::: columns
 ::: {.column width="45%"}
-![](images/fuss_alt.jpg){fig-align="center" height="420"}
+![](beispiele/tischfuss/tischfuss_alt.jpg){fig-align="center" height="420"}
 :::
 ::: {.column width="55%"}
 - Alter Kunststoff-Fuß eines Tischbeins: **gebrochen**
@@ -1171,7 +1171,7 @@ Im Original-Prompt stand „57m“ statt „57 mm“ – die KI hat das richtig 
 
 ::: columns
 ::: {.column width="45%"}
-![](images/fuss_openscad_dark.png){fig-align="center" height="420"}
+![](beispiele/tischfuss/tischfuss_openscad.png){fig-align="center" height="420"}
 :::
 ::: {.column width="55%"}
 ```openscad
@@ -1194,12 +1194,12 @@ Die KI hat alle Maße als Parameter angelegt – passt der Fuß nicht genau, än
 
 Fasen = abgeschrägte Kanten. Die Einführschräge erleichtert das Aufstecken auf das Rohr.
 
-Die vollständige Datei liegt unter `scad/fuss.scad`.
+Die vollständige Datei liegt unter `beispiele/tischfuss/tischfuss.scad`.
 :::
 
 ## Tischfuß: Alt und neu
 
-![](images/fuss_vergleich.jpg){fig-align="center" height="480"}
+![](beispiele/tischfuss/tischfuss_vergleich.jpg){fig-align="center" height="480"}
 
 [Links: neu gedruckt (ABS) · Rechts: das alte, gebrochene Original]{style="color:#aaaaaa;font-size:0.7em"}
 
@@ -1231,7 +1231,7 @@ Im Gegensatz zu Weg 1 entsteht hier kein Code, sondern direkt eine Oberfläche a
 
 ## Weg 2: Das Prinzip
 
-![](images/weg2-prinzip.svg){fig-align="center" width="90%"}
+![](grafiken/weg2-prinzip.svg){fig-align="center" width="90%"}
 
 - KI „errät“ auch die nicht sichtbaren Seiten
 - Ergebnis: Oberfläche aus Dreiecken (Mesh), oft mit Farbe
@@ -1281,7 +1281,7 @@ Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel a
 **Negativ:** slim, tall, gradient background, floor, cast shadow, cropped, multiple characters, photorealistic, text, watermark, extra limbs …
 :::
 
-[Prompt gekürzt · vollständig in `toad_prompt.md`]{style="color:#aaaaaa;font-size:0.7em"}
+[Prompt gekürzt · vollständig in `beispiele/muttkrat/muttkrat_prompt.md`]{style="color:#aaaaaa;font-size:0.7em"}
 
 ::: {.notes}
 Bildmodelle kennen zwei Prompts:
@@ -1298,7 +1298,7 @@ Bildmodelle verstehen Englisch meist besser als Deutsch.
 
 ## Beispiel 1: Schritt 1 — Bild erzeugen
 
-![](glb/toad.png){fig-align="center" height="480"}
+![](beispiele/muttkrat/muttkrat_bild.png){fig-align="center" height="480"}
 
 ::: {.notes}
 Erzeugt mit Z-Image-Turbo in ComfyUI auf der Workstation.
@@ -1308,14 +1308,14 @@ Gut zu sehen: Im Prompt stand „cyan background“ – herausgekommen ist ein h
 
 ## Beispiel 1: Schritt 2 — Bild zu 3D-Modell
 
-![](glb/toad_screenshot_hunyuan.png){fig-align="center" height="450"}
+![](beispiele/muttkrat/muttkrat_hunyuan3d.png){fig-align="center" height="450"}
 
 ::: {.notes}
 Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann.
 
 Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu sehen.
 
-Ergebnis ist eine GLB-Datei (`glb/toad.glb`), die für den Druck noch in STL umgewandelt wird.
+Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
 :::
 
 ## Beispiel 1: Schritt 3 - Typische Probleme
@@ -1370,7 +1370,7 @@ Bei OpenSCAD-Modellen (Weg 1) treten diese Probleme deutlich seltener auf, weil 
 4. **Drucken**
 :::
 ::: {.column width="55%"}
-![](glb/toad_screenshot_in_prusa.png){fig-align="center" height="380"}
+![](beispiele/muttkrat/muttkrat_prusaslicer.png){fig-align="center" height="380"}
 
 :::
 :::
@@ -1387,7 +1387,28 @@ Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 
 ## Beispiel 1: Muttkrat gedruckt
 
-![](images/muttkrat_printed.jpg){fig-align="center" height="480"}
+![](beispiele/muttkrat/muttkrat_gedruckt.jpg){fig-align="center" height="480"}
+
+## Beispiel 2: Hexenturm aus einer Skizze
+
+<!-- TODO: Skizze in ComfyUI mit Hunyuan3D 2.1 testen und Ergebnis (Screenshot + ggf. Druck) einfügen -->
+
+::: columns
+::: {.column width="45%"}
+![](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="450"}
+:::
+::: {.column width="55%"}
+- Handzeichnung des Hexenturms
+- Gleiches Objekt wie in **Weg 1** — diesmal aus einem Bild
+- Test mit ComfyUI + Hunyuan3D: **folgt**
+
+[Vergleich Weg 1 und Weg 2 am selben Objekt]{style="font-size:0.6em;color:#aaaaaa"}
+:::
+:::
+
+::: {.notes}
+Spannender Vergleich: Der Hexenturm wurde in Weg 1 maßgenau mit OpenSCAD gebaut. Hier geht dieselbe Idee als Skizze in ein Bild-zu-3D-Modell. Erwartung: organischer, weniger maßgenau, Details wie Fenster eventuell verwaschen.
+:::
 
 ## Bild-Prompts finden
 
@@ -1433,7 +1454,7 @@ Die KI bedient 3D-Programme direkt
 
 ## MCP: Ein USB-Anschluss für KI
 
-![](images/mcp-ablauf.svg){fig-align="center" width="80%"}
+![](grafiken/mcp-ablauf.svg){fig-align="center" width="80%"}
 
 - **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
 - Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
@@ -1723,12 +1744,12 @@ Beispiel auf der nächsten Folie: ein Python-Skript, das Fotos für eine Galerie
 ::: {.column width="50%"}
 [Vorher]{.rtfm style="font-size:0.55em"} [Alle KI-Modelle **gleichzeitig** im Speicher]{style="font-size:0.5em;color:#aaaaaa"}
 
-![](images/diagramme/bildverarbeitung-vorher.svg){fig-align="center" height="470"}
+![](beispiele/bildverarbeitung-diagramm/vorher.svg){fig-align="center" height="470"}
 :::
 ::: {.column width="50%"}
 [Nachher]{.rtfm style="font-size:0.55em;color:#159989;border-color:#159989"} [Immer nur **ein** Modell im Speicher]{style="font-size:0.5em;color:#aaaaaa"}
 
-![](images/diagramme/bildverarbeitung-nachher.svg){fig-align="center" height="470"}
+![](beispiele/bildverarbeitung-diagramm/nachher.svg){fig-align="center" height="470"}
 :::
 :::
 
@@ -1801,7 +1822,7 @@ Spendenkonto und PayPal: [linktree.erfindergeist.org](https://linktree.erfinderg
 :::
 :::
 ::: {.column width="35%"}
-![](images/linktree.svg){width="100%"}
+![](verein/linktree.svg){width="100%"}
 :::
 :::
 

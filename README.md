@@ -1,5 +1,9 @@
 # KI-Workshop 2
 
+## Beispiele
+
+Alle Beispiele aus dem Workshop — Bilder, OpenSCAD-Dateien, Prompts und Demos — liegen sortiert unter [`beispiele/`](beispiele/), z.B. [Hexenturm](beispiele/hexenturm/), [Tischfuß](beispiele/tischfuss/), [Muttkrat](beispiele/muttkrat/).
+
 ## Tools
 
 - <https://quarto.org/>
@@ -40,7 +44,7 @@ podman compose run --rm qrcode
 ```
 
 - Links stehen in `qrcodes.sh` (Liste am Ende: `<name> <url ohne https://>`)
-- Ausgabe: `images/qr/<name>.png` (2000 × 2000 px, Fehlerkorrektur H)
+- Ausgabe: `qr-codes/<name>.png` (2000 × 2000 px, Fehlerkorrektur H)
 - Container-Definition: `compose.yaml`
 
 ## Plakat (A3)

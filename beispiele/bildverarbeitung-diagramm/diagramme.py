@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # Erzeugt die Vorher/Nachher-Ablaufdiagramme als SVG in CI-Farben (ohne externe Tools).
-# Aufruf:  python3 diagramme.py   → images/diagramme/bildverarbeitung-{vorher,nachher}.svg
+# Aufruf:  python3 beispiele/bildverarbeitung-diagramm/diagramme.py   → vorher.svg / nachher.svg im selben Ordner
 import sys
-OUT = sys.argv[1] if len(sys.argv) > 1 else "images/diagramme"
+import os
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.abspath(__file__))
 from xml.sax.saxutils import escape
 
 MINT, AMBER, DARK, MED, GREY, WHITE = "#159989", "#F9B338", "#222222", "#2d2d2d", "#aaaaaa", "#ffffff"
@@ -139,5 +140,5 @@ n.edge("c2", "b", "p3", "t", label="ja")
 n.edge("c2", "r", "s3", "t", via=[(469, 463)], label="nein", lpos=(330, 457))
 n.edge("s3", "b", "p4", "r", via=[(469, 681)])
 
-open(OUT + "/bildverarbeitung-vorher.svg", "w").write(v.svg())
-open(OUT + "/bildverarbeitung-nachher.svg", "w").write(n.svg())
+open(OUT + "/vorher.svg", "w").write(v.svg())
+open(OUT + "/nachher.svg", "w").write(n.svg())

@@ -1,12 +1,12 @@
 #!/bin/sh
 # Erzeugt QR-Codes (PNG, 2000 px, Fehlerkorrektur H) für alle wichtigen Links.
 # Ausführen über Podman:  podman compose run --rm qrcode
-# Ausgabe:                images/qr/<name>.png
+# Ausgabe:                qr-codes/<name>.png
 #
 # Neue Links unten in der Liste ergänzen: "<name> <url ohne https://>"
 
 set -e
-OUT="images/qr"
+OUT="qr-codes"
 mkdir -p "$OUT"
 
 while read -r name url; do
