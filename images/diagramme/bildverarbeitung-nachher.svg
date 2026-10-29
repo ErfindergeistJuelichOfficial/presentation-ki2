@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 820" width="560" height="820" font-family="sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#159989"/></marker></defs>
+<polyline points="170,75 170,100" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="170,170 170,209" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="170,388 170,428" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="170,607 170,646" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="170,716 170,741" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="170,279 170,318" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="176" y="295" fill="#F9B338" font-size="13" font-weight="bold">ja</text>
+<polyline points="300,244 469,244 469,318" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="330" y="238" fill="#aaaaaa" font-size="13" font-weight="bold">nein</text>
+<polyline points="469,388 469,463 300,463" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="170,498 170,537" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="176" y="513" fill="#F9B338" font-size="13" font-weight="bold">ja</text>
+<polyline points="300,463 469,463 469,537" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="330" y="457" fill="#aaaaaa" font-size="13" font-weight="bold">nein</text>
+<polyline points="469,607 469,681 310,681" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="70" y="5" width="200" height="70" rx="35" fill="#159989"/>
+<text x="170" y="45" fill="#222222" font-size="15" text-anchor="middle" font-weight="bold">process_album()</text>
+<rect x="30" y="100" width="280" height="70" rx="8" fill="#2d2d2d" stroke="#159989" stroke-width="3"/>
+<text x="170" y="122" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="bold">Phase 1: Basics</text>
+<text x="170" y="140" fill="#ffffff" font-size="13" text-anchor="middle">sha256, orient, normalize</text>
+<text x="170" y="158" fill="#ffffff" font-size="13" text-anchor="middle">save _n.webp</text>
+<polygon points="170,209 300,244 170,279 40,244" fill="#2d2d2d" stroke="#F9B338" stroke-width="2"/>
+<text x="170" y="250" fill="#ffffff" font-size="15" text-anchor="middle">any caption missing?</text>
+<rect x="30" y="318" width="280" height="70" rx="8" fill="#2d2d2d" stroke="#159989" stroke-width="3"/>
+<text x="170" y="341" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="bold">Phase 2: Captions</text>
+<text x="170" y="359" fill="#ffffff" font-size="13" text-anchor="middle">load model → caption all</text>
+<text x="170" y="377" fill="#ffffff" font-size="13" text-anchor="middle">→ unload</text>
+<rect x="414" y="318" width="110" height="70" rx="8" fill="#222222" stroke="#aaaaaa" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="469" y="359" fill="#aaaaaa" font-size="15" text-anchor="middle">skip</text>
+<polygon points="170,428 300,463 170,498 40,463" fill="#2d2d2d" stroke="#F9B338" stroke-width="2"/>
+<text x="170" y="468" fill="#ffffff" font-size="15" text-anchor="middle">any image needs blur?</text>
+<rect x="30" y="537" width="280" height="70" rx="8" fill="#2d2d2d" stroke="#159989" stroke-width="3"/>
+<text x="170" y="559" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="bold">Phase 3: Blur</text>
+<text x="170" y="577" fill="#ffffff" font-size="13" text-anchor="middle">per model: load → blur all</text>
+<text x="170" y="595" fill="#ffffff" font-size="13" text-anchor="middle">→ unload</text>
+<rect x="414" y="537" width="110" height="70" rx="8" fill="#222222" stroke="#aaaaaa" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="469" y="577" fill="#aaaaaa" font-size="15" text-anchor="middle">skip</text>
+<rect x="30" y="646" width="280" height="70" rx="8" fill="#2d2d2d" stroke="#159989" stroke-width="3"/>
+<text x="170" y="668" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="bold">Phase 4: Thumbnails</text>
+<text x="170" y="686" fill="#ffffff" font-size="13" text-anchor="middle">make_thumbnail</text>
+<text x="170" y="704" fill="#ffffff" font-size="13" text-anchor="middle">save _t.webp</text>
+<rect x="70" y="741" width="200" height="70" rx="35" fill="#159989"/>
+<text x="170" y="782" fill="#222222" font-size="15" text-anchor="middle" font-weight="bold">return parts[]</text>
+</svg>

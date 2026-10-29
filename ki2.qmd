@@ -977,6 +977,7 @@ Hier kommt alles zusammen: Coding-Agent (Eingabemöglichkeiten) + gute Prompts (
 OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite, Höhe) kann man später ändern, ohne den restlichen Code zu verstehen.
 :::
 
+
 ## OpenSCAD: Der Prompt
 
 ::: {.prompt-box}
@@ -1438,7 +1439,7 @@ Die KI bedient 3D-Programme direkt
 - Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
 - Beispiel: In **Blender** legt die KI Objekte an und verändert sie
 
-[Spannend — aber nicht Teil dieses Workshops.]{style="color:#aaaaaa"}
+[Spannend — aber leider nicht Teil dieses Workshops. Eventuell verfolständigst Du uns.]{style="color:#aaaaaa"}
 
 ::: {.notes}
 MCP wurde 2024 von Anthropic veröffentlicht und wird inzwischen von vielen KI-Anwendungen unterstützt. Ein Programm stellt über MCP „Werkzeuge“ bereit (z.B. „Würfel erzeugen“, „Objekt verschieben“), die KI ruft sie bei Bedarf auf – genau wie die Tools bei der Folie „Web-GUI mit Tools“.
@@ -1474,11 +1475,30 @@ Faustregel: Muss es passen (Ersatzteil, Halterung)? → Weg 1. Soll es gut ausse
 
 ## Das sollten Sie mitnehmen
 
-- Antworten der KI immer hinterfragen und überprüfen
-- Je weniger die KI weiß, desto mehr Kontext muss der Prompt liefern
-- Lokal: Daten bleiben bei Ihnen · Cloud: größere Modelle
-- Alles, was man als Code beschreiben kann, kann KI gut
-- KI ersetzt keine Fachkenntnisse — sie macht den Einstieg einfacher
+::: {.takeaways}
+::: {.card}
+Antworten der KI immer hinterfragen und überprüfen
+:::
+::: {.card}
+Je weniger die KI weiß, desto mehr Kontext muss der Prompt liefern
+:::
+::: {.card}
+Lokal: Daten bleiben bei Ihnen · Cloud: größere Modelle, mehr Context
+:::
+::: {.card}
+Alles, was man als Code beschreiben kann, kann KI gut
+:::
+::: {.card}
+KI ersetzt keine Fachkenntnisse — sie macht den Einstieg einfacher
+:::
+::: {.card}
+Es gibt viele Wege zum Ziel. Zwischenwege helfen beim Verständnis und bei der Wiederverwendbarkeit.
+:::
+:::
+
+::: {.tip-line}
+[Tipp]{.rtfm style="font-size:0.7em"} [LLM-WIKI aufbauen](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+:::
 
 ::: {.notes}
 Die Merke-Sätze aus den einzelnen Sections.
@@ -1679,16 +1699,45 @@ Zwei kurze Prompts reichen – der erste mit Link als Vorlage, der zweite als Ve
 Die CLAUDE.md ist das Gedächtnis des Projekts (vgl. Folie Chat-Umgebung: mit/ohne Gedächtnis). Sie kostet bei jeder Anfrage etwas Kontext, spart aber viele Wiederholungen und Korrekturen.
 :::
 
-## Prompt-Beispiel: Achievements
+## Tipp: Diagramme
 
-Die Minispiele auf der Seite werden durch gelben Text oder Animationen angeteasert. Für den Achievement-Bereich reichte ein einziger Prompt:
+Ein Bild sagt mehr als 1.000 Zeilen Code.
+
+- Menschen erfassen Grafiken in **Sekunden** — Text dauert deutlich länger
+- KI kann aus Code oder Beschreibungen Ablaufdiagramme erzeugen
+- Probleme im Ablauf werden so oft erst **sichtbar**
 
 ::: {.chat-input}
-Finde alle klickbaren Spiele mit gelbem Text. Erstelle einen Achievement-Bereich. Achievements sind zuerst grau.
+Erstelle ein Ablaufdiagramm (Mermaid) für die Funktion process_album() in process.py.
 :::
 
 ::: {.notes}
-Achievements = Erfolge/Abzeichen, die man durch das Finden der versteckten Spiele freischaltet.
+Mermaid ist eine einfache Text-Sprache für Diagramme – „Code ist Text“ gilt also auch hier: Die KI schreibt das Diagramm als Text, ein Programm zeichnet es.
+
+Beispiel auf der nächsten Folie: ein Python-Skript, das Fotos für eine Galerie aufbereitet – Beschriftung per KI, Gesichter verpixeln, Vorschaubilder erzeugen.
+:::
+
+## Tipp: Diagramme: Vorher und Nachher
+
+::: columns
+::: {.column width="50%"}
+[Vorher]{.rtfm style="font-size:0.55em"} [Alle KI-Modelle **gleichzeitig** im Speicher]{style="font-size:0.5em;color:#aaaaaa"}
+
+![](images/diagramme/bildverarbeitung-vorher.svg){fig-align="center" height="470"}
+:::
+::: {.column width="50%"}
+[Nachher]{.rtfm style="font-size:0.55em;color:#159989;border-color:#159989"} [Immer nur **ein** Modell im Speicher]{style="font-size:0.5em;color:#aaaaaa"}
+
+![](images/diagramme/bildverarbeitung-nachher.svg){fig-align="center" height="470"}
+:::
+:::
+
+::: {.notes}
+Links der ursprüngliche Ablauf: Alle KI-Modelle (Beschriftung und Gesichtserkennung) werden am Anfang geladen und bleiben die ganze Zeit im Arbeitsspeicher. Jedes Bild durchläuft eine lange Kette mit vielen Abzweigungen und Rücksprüngen.
+
+Erst im Diagramm wurde sichtbar, wie verschachtelt das ist. Daraus entstand der neue Aufbau rechts: vier Phasen nacheinander. Jedes Modell wird nur für seine Phase geladen und danach wieder entladen.
+
+Ergebnis: Der Speicherbedarf sinkt von „alle Modelle zusammen“ auf „das größte einzelne Modell“ – wichtig für Rechner wie unsere Workstation mit begrenztem Grafikspeicher.
 :::
 
 # Bonus: Azure Showcases

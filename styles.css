@@ -181,6 +181,32 @@
 .reveal .link-grid .card p:last-child { margin-top: auto; }
 .reveal .link-grid.two { grid-template-columns: repeat(2, 1fr); }
 
+/* === Merke-Raster mit Nummern (Nutzung: ::: {.takeaways} mit 6x ::: {.card}) === */
+.reveal .takeaways {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45em;
+  counter-reset: takeaway;
+  margin-top: 0.3em;
+}
+.reveal .takeaways .card {
+  counter-increment: takeaway;
+  height: auto;
+  font-size: 0.6em;
+  padding: 0.5em 0.8em 0.7em;
+}
+.reveal .takeaways .card::before {
+  content: counter(takeaway);
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1;
+  color: #F9B338;
+  margin-bottom: 0.2em;
+}
+.reveal .takeaways .card p:last-child { color: #ffffff; font-weight: normal; margin: 0; }
+.reveal .tip-line { text-align: center; margin-top: 0.7em; }
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;

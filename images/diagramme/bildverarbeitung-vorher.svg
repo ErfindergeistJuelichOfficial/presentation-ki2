@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 1130" width="840" height="1130" font-family="sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#159989"/></marker></defs>
+<polyline points="190,64 190,90" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,138 190,164" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,212 190,238" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,286 190,312" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="295,262 355,262" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="300" y="255" fill="#aaaaaa" font-size="10" font-weight="bold">alle fertig</text>
+<polyline points="295,336 330,336" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="318" y="332" fill="#F9B338" font-size="10" font-weight="bold">ja</text>
+<polyline points="190,360 190,460" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="196" y="420" fill="#aaaaaa" font-size="10" font-weight="bold">nein</text>
+<polyline points="550,336 590,336" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="576" y="332" fill="#F9B338" font-size="10" font-weight="bold">ja</text>
+<polyline points="440,360 440,484 295,484" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="446" y="420" fill="#aaaaaa" font-size="10" font-weight="bold">nein</text>
+<polyline points="690,360 690,416" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="696" y="384" fill="#F9B338" font-size="10" font-weight="bold">ja</text>
+<polyline points="790,336 820,336 820,543 785,543" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="796" y="326" fill="#aaaaaa" font-size="10" font-weight="bold">nein</text>
+<polyline points="190,508 190,534" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,582 190,608" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,656 190,682" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="295,706 440,706 440,756" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="320" y="700" fill="#F9B338" font-size="10" font-weight="bold">ja</text>
+<polyline points="190,730 190,830" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<text x="196" y="800" fill="#aaaaaa" font-size="10" font-weight="bold">nein</text>
+<polyline points="440,804 440,854 295,854" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,878 190,904" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,952 190,978" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="190,1026 190,1052" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="85,1076 30,1076 30,248 85,248" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="595,440 560,439 560,589 50,589 50,256 85,256" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="690,567 690,600 70,600 70,264 85,264" fill="none" stroke="#159989" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="85" y="16" width="210" height="48" rx="24" fill="#159989"/>
+<text x="190" y="44" fill="#222222" font-size="12" text-anchor="middle" font-weight="bold">process_album()</text>
+<rect x="85" y="90" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="111" fill="#ffffff" font-size="12" text-anchor="middle">load_vision_model()</text>
+<text x="190" y="125" fill="#ffffff" font-size="10" text-anchor="middle">Florence-2</text>
+<rect x="85" y="164" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="185" fill="#ffffff" font-size="12" text-anchor="middle">load_blur_models()</text>
+<text x="190" y="199" fill="#ffffff" font-size="10" text-anchor="middle">owlvit + mtcnn</text>
+<rect x="85" y="238" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="266" fill="#ffffff" font-size="12" text-anchor="middle">For each image file</text>
+<rect x="355" y="238" width="170" height="48" rx="24" fill="#159989"/>
+<text x="440" y="266" fill="#222222" font-size="12" text-anchor="middle" font-weight="bold">return parts[]</text>
+<polygon points="190,312 295,336 190,360 85,336" fill="#2d2d2d" stroke="#F9B338" stroke-width="2"/>
+<text x="190" y="333" fill="#ffffff" font-size="12" text-anchor="middle">sourceHash in</text>
+<text x="190" y="347" fill="#ffffff" font-size="10" text-anchor="middle">existing_by_hash?</text>
+<polygon points="440,312 550,336 440,360 330,336" fill="#2d2d2d" stroke="#F9B338" stroke-width="2"/>
+<text x="440" y="333" fill="#ffffff" font-size="12" text-anchor="middle">output files present</text>
+<text x="440" y="347" fill="#ffffff" font-size="10" text-anchor="middle">&amp; blur state matches?</text>
+<polygon points="690,312 790,336 690,360 590,336" fill="#2d2d2d" stroke="#F9B338" stroke-width="2"/>
+<text x="690" y="333" fill="#ffffff" font-size="12" text-anchor="middle">caption missing &amp;</text>
+<text x="690" y="347" fill="#ffffff" font-size="10" text-anchor="middle">VISION_MODEL active?</text>
+<rect x="595" y="416" width="190" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="690" y="437" fill="#ffffff" font-size="12" text-anchor="middle">generate_caption()</text>
+<text x="690" y="451" fill="#ffffff" font-size="10" text-anchor="middle">write_album_meta()</text>
+<rect x="595" y="519" width="190" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="690" y="540" fill="#ffffff" font-size="12" text-anchor="middle">Skip image</text>
+<text x="690" y="555" fill="#ffffff" font-size="10" text-anchor="middle">parts.append(...)</text>
+<rect x="85" y="460" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="481" fill="#ffffff" font-size="12" text-anchor="middle">open_and_orient()</text>
+<text x="190" y="495" fill="#ffffff" font-size="10" text-anchor="middle">EXIF rotation</text>
+<rect x="85" y="534" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="562" fill="#ffffff" font-size="12" text-anchor="middle">file_datetime()</text>
+<rect x="85" y="608" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="636" fill="#ffffff" font-size="12" text-anchor="middle">make_normalized()</text>
+<polygon points="190,682 295,706 190,730 85,706" fill="#2d2d2d" stroke="#F9B338" stroke-width="2"/>
+<text x="190" y="710" fill="#ffffff" font-size="12" text-anchor="middle">img_needs_blur?</text>
+<rect x="335" y="756" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="440" y="777" fill="#ffffff" font-size="12" text-anchor="middle">blur_faces()</text>
+<text x="440" y="791" fill="#ffffff" font-size="10" text-anchor="middle">owlvit -&gt; mtcnn</text>
+<rect x="85" y="830" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="858" fill="#ffffff" font-size="12" text-anchor="middle">make_thumbnail()</text>
+<rect x="85" y="904" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="925" fill="#ffffff" font-size="12" text-anchor="middle">generate_caption()</text>
+<text x="190" y="939" fill="#ffffff" font-size="10" text-anchor="middle">Florence-2</text>
+<rect x="85" y="978" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="1006" fill="#ffffff" font-size="12" text-anchor="middle">save _t.webp + _n.webp</text>
+<rect x="85" y="1052" width="210" height="48" rx="6" fill="#2d2d2d" stroke="#159989" stroke-width="1.5"/>
+<text x="190" y="1073" fill="#ffffff" font-size="12" text-anchor="middle">write_album_meta()</text>
+<text x="190" y="1087" fill="#ffffff" font-size="10" text-anchor="middle">write_index()</text>
+</svg>

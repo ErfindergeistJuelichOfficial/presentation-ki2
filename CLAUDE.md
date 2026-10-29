@@ -153,6 +153,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.spend-grid}           ← 2×2-Raster aus kleinen Karten (Folie „Spenden“); [Text]{.spend-thanks} = zentrierte Dankeszeile in Mint
 ::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompt-Beispiele im Web“); {.link-grid .two} = 2 Spalten
 [Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
+::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Das sollten Sie mitnehmen“)
 ```
 
 ## HTML-Demo-Folien
@@ -200,6 +201,12 @@ podman compose run --rm qrcode
 - Neue Links in der Liste am Ende von `qrcodes.sh` ergänzen: `<name> <url ohne https://>`
 - Ausgabe: `images/qr/<name>.png` (PNG, 2000 px, Fehlerkorrektur H)
 - Einbinden z.B. mit `![](images/qr/wiki.png){height="250"}`
+
+## Diagramme
+
+- `diagramme.py` erzeugt die Ablaufdiagramme (Folie „Diagramme: Vorher und Nachher“) als SVG in CI-Farben — ohne externe Tools
+- Aufruf: `python3 diagramme.py` → `images/diagramme/*.svg`
+- Knoten und Pfeile werden im Skript mit Raster-Koordinaten gesetzt (`node(...)`, `edge(...)`)
 
 ## Plakat (A3)
 
