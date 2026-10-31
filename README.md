@@ -47,12 +47,12 @@ podman compose run --rm qrcode
 - Ausgabe: `qr-codes/<name>.png` (2000 × 2000 px, Fehlerkorrektur H)
 - Container-Definition: `compose.yaml`
 
-## Plakat (A3)
+## Plakat (A3 / A4)
 
 Werbeplakat als HTML mit PDF-Export: Anleitung in [`plakat/README.md`](plakat/README.md).
 
 ```shell
-./plakat/pdf.sh        # → plakat/plakat-a3.pdf
+./plakat/pdf.sh        # → plakat/plakat-a3.pdf + plakat/plakat-a4.pdf
 ```
 
 ## Documentation Presentation
