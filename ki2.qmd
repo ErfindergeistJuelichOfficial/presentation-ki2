@@ -132,7 +132,7 @@ Handy raus — einfach abscannen:
 ::: columns
 ::: {.column width="25%"}
 ::: {.card .qr}
-![](qr-codes/erfindergeist.png){width="85%"}
+![](qr-codes/qr_link_to_linktree_H30.svg){width="85%"}
 
 **Verein**
 

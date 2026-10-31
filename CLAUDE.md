@@ -218,7 +218,7 @@ podman compose run --rm qrcode
 - `plakat/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
 - `plakat/pdf.sh` — exportiert per Headless-Chrome nach `plakat/plakat-a3.pdf`
 - Bilder relativ einbinden (`../beispiele/…`, `../verein/…`); Farben als CSS-Variablen (CI-Farben)
-- Schrift: Inter, lokal aus `plakat/fonts/` per `@font-face` (OFL-Lizenz liegt daneben) — keine Google Fonts
+- Schriften: Rubik (Überschriften) + Inter (Text) per Google-Fonts-Link — **Ausnahme von der DSGVO-Regel**, weil das Plakat nur als PDF verteilt wird (Schriften eingebettet), nicht als Webseite. In der Präsentation bleiben Google Fonts verboten.
 - Pipeline (`deploy.yml`): erzeugt das PDF nach dem Quarto-Render und kopiert es nach `_site/plakat/` → online unter `/ki2/plakat/plakat-a3.pdf`
 
 ## Build

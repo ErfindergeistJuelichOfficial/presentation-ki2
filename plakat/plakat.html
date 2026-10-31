@@ -7,17 +7,14 @@
   Plakat im Format A3 (297 × 420 mm).
   PDF erzeugen:  ./plakat/pdf.sh   → plakat/plakat-a3.pdf
   Alle Maße in mm, damit das Layout 1:1 dem Druck entspricht.
-  Schrift: Inter (SIL OFL 1.1), lokal eingebunden aus plakat/fonts/ — kein externer Font-Dienst (DSGVO).
+  Schriften: Rubik (Überschriften) und Inter (Text) von Google Fonts — werden beim PDF-Export
+  geladen und ins PDF eingebettet (Plakat wird nur gedruckt, nicht als Webseite veröffentlicht).
   Die Pipeline erzeugt das PDF automatisch und veröffentlicht es unter /plakat/plakat-a3.pdf.
 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=block">
 <style>
-  @font-face {
-    font-family: "Inter";
-    src: url("fonts/inter-latin-wght-normal.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-  }
-
   :root {
     --mint: #159989;       /* CI Primary */
     --amber: #F9B338;      /* CI Secondary */
@@ -25,6 +22,7 @@
     --paper: #EEEAE2;
     --mint-dark: #0F6E63;
     --font: "Inter", system-ui, sans-serif;
+    --font-display: "Rubik", "Inter", sans-serif;
   }
 
   @page { size: A3; margin: 0; }
@@ -37,7 +35,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background: var(--paper);
+    background: #fff;
     color: var(--dark);
     font-family: var(--font);
     overflow: hidden;
@@ -63,14 +61,15 @@
     font-size: 6.4mm; font-weight: 700;
     padding: 3.7mm 6.7mm; border-radius: 999px;
   }
-  .title { margin: 0; font-size: 49mm; line-height: 0.95; font-weight: 800; letter-spacing: -0.03em; }
-  .claim { font-size: 12.7mm; font-weight: 500; line-height: 1.15; margin-top: 3.7mm; }
+  .title { margin: 0; font-family: var(--font-display); font-size: 49mm; line-height: 0.95; font-weight: 800; letter-spacing: -0.03em; }
+  .claim { font-family: var(--font-display); font-size: 12.7mm; font-weight: 500; line-height: 1.15; margin-top: 3.7mm; }
 
   /* ---------- Bild ---------- */
-  .photo { height: 142mm; position: relative; overflow: hidden; }
-  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block; }
+  .photos { height: 142mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .photo { position: relative; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block; transform: scale(1.22); transform-origin: 50% 20%; }
   .caption {
-    position: absolute; left: 21mm; bottom: 7.5mm;
+    position: absolute; left: 7mm; bottom: 7mm;
     background: var(--dark); color: #fff;
     font-size: 5.2mm; padding: 3mm 5.2mm; border-radius: 2.2mm;
   }
@@ -82,10 +81,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15mm;
+    background: var(--paper);
   }
   .label { font-size: 6mm; font-weight: 700; color: var(--mint-dark); text-transform: uppercase; letter-spacing: 0.08em; }
-  .date { font-size: 20mm; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
-  .time { font-size: 12.7mm; font-weight: 500; line-height: 1.2; }
+  .date { font-family: var(--font-display); font-size: 20mm; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+  .time { font-family: var(--font-display); font-size: 12.7mm; font-weight: 500; line-height: 1.2; }
   .when { display: flex; flex-direction: column; gap: 0.8mm; margin-bottom: 6.7mm; }
   .where { display: flex; gap: 4.5mm; align-items: flex-start; font-size: 7.1mm; line-height: 1.4; }
   .where svg { flex: none; width: 9mm; height: 9mm; margin-top: 0.8mm; }
@@ -94,18 +94,22 @@
   .item { display: flex; gap: 4.5mm; align-items: baseline; font-size: 6.7mm; line-height: 1.35; }
   .item::before { content: ""; flex: none; width: 3.7mm; height: 3.7mm; background: var(--amber); }
 
-  /* ---------- Fuß ---------- */
+  /* ---------- Fuß (aus plakat_004_A3.svg) ---------- */
   .foot {
-    height: 39mm;
-    padding: 0 21mm;
-    background: var(--dark); color: #fff;
-    display: flex; align-items: center; justify-content: space-between; gap: 9mm;
+    height: 52mm;
+    margin-bottom: 3rem;
+    padding: 1.8rem 21mm;
+    background: #fff; color: var(--dark);
+    border-top: 1.2mm solid var(--mint);
+    display: flex; align-items: center; gap: 10mm;
   }
-  .foot-text { display: flex; flex-direction: column; gap: 1.5mm; font-size: 6.7mm; }
-  .foot-text .url { color: var(--amber); font-weight: 700; }
-  .foot-right { display: flex; align-items: center; gap: 6mm; height: 31mm; }
-  .foot-right img { height: 100%; display: block; }
-  .qr { background: #fff; padding: 1.5mm; border-radius: 2mm; }
+  .foot-logo { height: 40mm; display: block; flex: none; }
+  .foot-address { flex: 1; font-size: 5mm; line-height: 1.45; }
+  .foot-address .name { font-weight: 700; font-size: 5.6mm; }
+  .contact { display: flex; align-items: center; gap: 2.2mm; }
+  .contact svg { width: 4.6mm; height: 4.6mm; flex: none; }
+  .foot-qr { height: 40mm; display: block; flex: none; }
+  .hint { margin-top: 6mm; font-size: 6mm; font-weight: 600; color: var(--mint-dark); }
 </style>
 </head>
 <body>
@@ -122,9 +126,15 @@
     </div>
   </header>
 
-  <div class="photo">
-    <img src="../beispiele/hexenturm/hexenturm_gedruckt.jpg" alt="3D-gedrucktes Modell des Jülicher Hexenturms">
-    <div class="caption">Jülicher Hexenturm: mit KI entworfen, in der Offenen Werkstatt gedruckt</div>
+  <div class="photos">
+    <div class="photo">
+      <img src="../beispiele/hexenturm/hexenturm_gedruckt.jpg" alt="3D-gedrucktes Modell des Jülicher Hexenturms">
+      <div class="caption">Hexenturm: aus Text und Code</div>
+    </div>
+    <div class="photo">
+      <img src="../beispiele/muttkrat/muttkrat_gedruckt.jpg" alt="3D-gedruckte Figur Muttkrat" style="object-position: 50% 40%">
+      <div class="caption">Muttkrat: aus einem KI-Bild</div>
+    </div>
   </div>
 
   <main class="body">
@@ -142,7 +152,6 @@
     <div class="list">
       <div class="label">Was Sie erwartet</div>
       <div class="item">Was ist KI – und was nicht? Grundlagen für Einsteiger</div>
-      <div class="item">Richtig fragen: gute Prompts schreiben</div>
       <div class="item">Mit KI eigene 3D-Modelle entwerfen, aus Text oder Bild</div>
       <div class="item">Reparieren mit KI: Ersatzteile selbst konstruieren und drucken</div>
       <div class="item">Live auf unserem lokalen KI-Rechner und 3D-Drucker</div>
@@ -150,14 +159,16 @@
   </main>
 
   <footer class="foot">
-    <div class="foot-text">
-      <div>Keine Vorkenntnisse nötig · Laptop optional</div>
-      <div class="url">erfindergeist.org</div>
+    <img class="foot-logo" src="../verein/logo.svg" alt="Logo Erfindergeist Jülich">
+    <div class="foot-address">
+      <div class="name">Erfindergeist Jülich e.V.</div>
+      <div>im AWO Stadt Jülich e.V. Gebäude</div>
+      <div>Marie-Juchacz-Weg 2</div>
+      <div class="contact"><svg viewBox="0 0 24 24" fill="none" stroke="#159989" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"></path></svg>https://erfindergeist.org</div>
+      <div class="contact"><svg viewBox="0 0 24 24" fill="none" stroke="#159989" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 6l-10 7L2 6"></path></svg>kontakt@erfindergeist.org</div>
+      <div class="contact"><svg viewBox="0 0 24 24" fill="none" stroke="#159989" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>02461/6869182</div>
     </div>
-    <div class="foot-right">
-      <img class="qr" src="../qr-codes/erfindergeist.png" alt="QR-Code erfindergeist.org">
-      <img src="../verein/logo.svg" alt="Logo Erfindergeist Jülich">
-    </div>
+    <img class="foot-qr" src="../qr-codes/qr_link_to_linktree_H30.svg" alt="QR-Code erfindergeist.org">
   </footer>
 
 </div>

@@ -6,6 +6,6 @@ cd "$(dirname "$0")"
 BROWSER=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
 [ -z "$BROWSER" ] && { echo "Chrome/Chromium nicht gefunden"; exit 1; }
 "$BROWSER" --headless=new --disable-gpu --no-sandbox \
-  --no-pdf-header-footer --virtual-time-budget=3000 \
+  --no-pdf-header-footer --virtual-time-budget=8000 \
   --print-to-pdf="$PWD/plakat-a3.pdf" "file://$PWD/plakat.html"
 echo "PDF erstellt: plakat/plakat-a3.pdf"
