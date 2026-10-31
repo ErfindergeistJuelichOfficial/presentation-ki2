@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <title>Plakat KI to 3D (A3/A4)</title>
 <!--
-  Plakat im Format A3 (297 × 420 mm), mit ?a4 im Link als A4 (gleiches Layout, verkleinert).
-  PDF erzeugen:  ./plakat/pdf.sh   → plakat/plakat-a3.pdf und plakat/plakat-a4.pdf
+  Plakat im Format A3 (297 × 420 mm), mit ?a4 im Link als A4 (gleiches Layout, verkleinert),
+  mit ?a5x2 als zwei A5-Plakate nebeneinander auf einem A4-Blatt (quer).
+  PDF erzeugen:  ./plakat/pdf.sh   → plakat/plakat-a3.pdf, plakat-a4.pdf, plakat-a5x2.pdf
   Alle Maße in mm (für A3), damit das Layout 1:1 dem Druck entspricht.
   Schriften: Rubik (Überschriften) und Inter (Text) von Google Fonts — werden beim PDF-Export
   geladen und ins PDF eingebettet (Plakat wird nur gedruckt, nicht als Webseite veröffentlicht).
@@ -46,6 +47,9 @@
 
   /* A4 (?a4): A4 hat dasselbe Seitenverhältnis wie A3, nur um den Faktor 1/√2 kleiner */
   .a4 .poster { zoom: calc(210 / 297); }
+  /* A5 ×2 (?a5x2): zwei A5-Plakate nebeneinander auf A4 quer, zum Durchschneiden in der Mitte */
+  .a5x2 body { display: flex; width: 297mm; margin: 0 auto; }
+  .a5x2 .poster { zoom: 0.5; margin: 0; }
 
   /* ---------- Kopf ---------- */
   .head {
@@ -90,12 +94,19 @@
   .date { font-family: var(--font-display); font-size: 20mm; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
   .time { font-family: var(--font-display); font-size: 12.7mm; font-weight: 500; line-height: 1.2; }
   .when { display: flex; flex-direction: column; gap: 0.8mm; margin-bottom: 6.7mm; }
+  .time-note { font-size: 6mm; font-weight: 600; color: var(--mint-dark); margin-top: 1mm; }
   .where { display: flex; gap: 4.5mm; align-items: flex-start; font-size: 7.1mm; line-height: 1.4; }
   .where svg { flex: none; width: 9mm; height: 9mm; margin-top: 0.8mm; }
 
   .list { display: flex; flex-direction: column; gap: 5.2mm; }
   .item { display: flex; gap: 4.5mm; align-items: baseline; font-size: 6.7mm; line-height: 1.35; }
   .item::before { content: ""; flex: none; width: 3.7mm; height: 3.7mm; background: var(--amber); }
+  .signup {
+    margin-top: auto;
+    padding: 3mm 0 3mm 5mm;
+    border-left: 1.5mm solid var(--amber);
+    font-size: 6mm; line-height: 1.4;
+  }
 
   /* ---------- Fuß (aus plakat_004_A3.svg) ---------- */
   /* eine Zeile: Logo | Adresse | Kontakt | QR — Logo und QR so hoch wie die drei Textzeilen */
@@ -123,12 +134,22 @@
     outline: 0.4mm solid var(--mint-dark); outline-offset: 0.9mm;
     transform: rotate(-5deg);
   }
+  .hint span { display: block; }   /* jede Zeile ein eigener Block — kein <br> nötig */
 </style>
 <script>
   if (new URLSearchParams(location.search).has("a4")) {
     document.documentElement.classList.add("a4");
     document.title = document.title.replace("(A3/A4)", "(A4)");
     document.head.insertAdjacentHTML("beforeend", "<style>@page { size: A4; margin: 0; }</style>");
+  }
+  if (new URLSearchParams(location.search).has("a5x2")) {
+    document.documentElement.classList.add("a5x2");
+    document.title = document.title.replace("(A3/A4)", "(2× A5 auf A4)");
+    document.head.insertAdjacentHTML("beforeend", "<style>@page { size: A4 landscape; margin: 0; }</style>");
+    addEventListener("DOMContentLoaded", () => {
+      const poster = document.querySelector(".poster");
+      poster.after(poster.cloneNode(true));
+    });
   }
 </script>
 </head>
@@ -163,12 +184,13 @@
         <div class="label">Samstag</div>
         <div class="date">21.11.2026</div>
         <div class="time">14–18 Uhr</div>
+        <div class="time-note">Sie können jederzeit dazukommen</div>
       </div>
       <div class="where">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0F6E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
         <div><strong>Marie-Juchacz-Weg 2</strong><br>52428 Jülich</div>
       </div>
-      <div class="hint">Für alle Neugierigen -<br>ob privat oder beruflich.</div>
+      <div class="hint"><span>Für alle Neugierigen</span><span>ob privat oder beruflich</span></div>
     </div>
     <div class="list">
       <div class="label">Was Sie erwartet</div>
@@ -176,6 +198,7 @@
       <div class="item">Mit KI eigene 3D-Modelle entwerfen, aus Text oder Bild</div>
       <div class="item">Reparieren mit KI: Ersatzteile selbst konstruieren und drucken</div>
       <div class="item">Live auf unserem lokalen KI-Rechner und 3D-Drucker</div>
+      <div class="signup"><strong>Bitte kurz anmelden:</strong><br>kontakt@erfindergeist.org</div>
     </div>
   </main>
 

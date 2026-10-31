@@ -25,11 +25,11 @@ jobs:
     - name: quarto render website & pdf
       uses: quarto-dev/quarto-actions/render@v2
 
-    - name: 🖨️ Plakat A3 + A4 als PDF erzeugen
+    - name: 🖨️ Plakat A3, A4 und 2× A5 als PDF erzeugen
       run: |
         ./plakat/pdf.sh
         mkdir -p _site/plakat
-        cp plakat/plakat-a3.pdf plakat/plakat-a4.pdf _site/plakat/
+        cp plakat/plakat-a3.pdf plakat/plakat-a4.pdf plakat/plakat-a5x2.pdf _site/plakat/
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.4.0

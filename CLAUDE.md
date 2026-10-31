@@ -213,14 +213,14 @@ podman compose run --rm qrcode
 - Aufruf: `python3 beispiele/bildverarbeitung-diagramm/diagramme.py` → `beispiele/bildverarbeitung-diagramm/*.svg`
 - Knoten und Pfeile werden im Skript mit Raster-Koordinaten gesetzt (`node(...)`, `edge(...)`)
 
-## Plakat (A3 / A4)
+## Plakat (A3 / A4 / A5)
 
 - `plakat/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
-- A4 ist **kein eigenes Layout**: `plakat.html?a4` verkleinert per CSS `zoom` (1/√2) und setzt `@page` auf A4 — nur `plakat.html` bearbeiten
-- `plakat/pdf.sh` — exportiert per Headless-Chrome nach `plakat/plakat-a3.pdf` und `plakat/plakat-a4.pdf`
+- A4 ist **kein eigenes Layout**: `plakat.html?a4` verkleinert per CSS `zoom` (1/√2) und setzt `@page` auf A4; `plakat.html?a5x2` verkleinert auf 50 % und dupliziert das Plakat per JS (2× A5 auf A4 quer) — nur `plakat.html` bearbeiten
+- `plakat/pdf.sh` — exportiert per Headless-Chrome nach `plakat/plakat-a3.pdf`, `plakat-a4.pdf` und `plakat-a5x2.pdf`
 - Bilder relativ einbinden (`../beispiele/…`, `../verein/…`); Farben als CSS-Variablen (CI-Farben)
 - Schriften: Rubik (Überschriften) + Inter (Text) per Google-Fonts-Link — **Ausnahme von der DSGVO-Regel**, weil das Plakat nur als PDF verteilt wird (Schriften eingebettet), nicht als Webseite. In der Präsentation bleiben Google Fonts verboten.
-- Pipeline (`deploy.yml`): erzeugt das PDF nach dem Quarto-Render und kopiert es nach `_site/plakat/` → online unter `/ki2/plakat/plakat-a3.pdf` und `/ki2/plakat/plakat-a4.pdf`
+- Pipeline (`deploy.yml`): erzeugt das PDF nach dem Quarto-Render und kopiert es nach `_site/plakat/` → online unter `/ki2/plakat/plakat-a3.pdf`, `…/plakat-a4.pdf` und `…/plakat-a5x2.pdf`
 
 ## Build
 

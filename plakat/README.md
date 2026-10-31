@@ -1,24 +1,26 @@
-# Plakat „KI to 3D“ (A3 / A4)
+# Plakat „KI to 3D“ (A3 / A4 / A5)
 
-Werbeplakat für den Workshop als HTML-Datei — wird per Chrome/Chromium randlos als A3- und A4-PDF exportiert.
+Werbeplakat für den Workshop als HTML-Datei — wird per Chrome/Chromium randlos als A3- und A4-PDF exportiert, außerdem als A4-Blatt (quer) mit zwei A5-Plakaten zum Durchschneiden.
 
 | Datei | Inhalt |
 |---|---|
-| `plakat.html` | Das Plakat — alle Maße in mm, Seitenformat A3 (`@page { size: A3 }`); mit `plakat.html?a4` als A4 |
+| `plakat.html` | Das Plakat — alle Maße in mm, Seitenformat A3 (`@page { size: A3 }`); mit `plakat.html?a4` als A4, mit `plakat.html?a5x2` als 2× A5 auf A4 quer |
 | `pdf.sh` | Exportiert das Plakat als PDF |
-| `plakat-a3.pdf`, `plakat-a4.pdf` | Erzeugte PDFs (nicht im Repository, siehe `.gitignore`) |
+| `plakat-a3.pdf`, `plakat-a4.pdf`, `plakat-a5x2.pdf` | Erzeugte PDFs (nicht im Repository, siehe `.gitignore`) |
 
 ## PDF erzeugen
 
 Voraussetzung: Google Chrome oder Chromium ist installiert, Internetverbindung (für die Schriften).
 
 ```shell
-./plakat/pdf.sh        # → plakat/plakat-a3.pdf + plakat/plakat-a4.pdf
+./plakat/pdf.sh        # → plakat/plakat-a3.pdf, plakat-a4.pdf, plakat-a5x2.pdf
 ```
 
 Das Skript kann aus jedem Ordner aufgerufen werden.
 
 **A4:** A4 hat dasselbe Seitenverhältnis wie A3, nur um den Faktor 1/√2 kleiner. Es gibt deshalb nur ein Layout: Mit `?a4` im Link wird das Plakat per CSS `zoom` verkleinert und das Seitenformat auf A4 gesetzt. Änderungen an `plakat.html` gelten automatisch für beide Formate. Vorschau im Browser: `plakat.html?a4`.
+
+**A5:** `?a5x2` verkleinert auf 50 % und setzt das Plakat zweimal nebeneinander auf ein A4-Blatt im Querformat (Seite `A4 landscape`). Nach dem Druck in der Mitte durchschneiden.
 
 ## Plakat anpassen
 
@@ -33,8 +35,9 @@ Das Skript kann aus jedem Ordner aufgerufen werden.
 ## Automatisch online
 
 Die GitHub-Pipeline (`.github/workflows/deploy.yml`) erzeugt die PDFs bei jedem Push auf `main` und veröffentlicht sie unter
-<https://presentations.erfindergeist.org/ki2/plakat/plakat-a3.pdf> und
-<https://presentations.erfindergeist.org/ki2/plakat/plakat-a4.pdf>.
+<https://presentations.erfindergeist.org/ki2/plakat/plakat-a3.pdf>,
+<https://presentations.erfindergeist.org/ki2/plakat/plakat-a4.pdf> und
+<https://presentations.erfindergeist.org/ki2/plakat/plakat-a5x2.pdf>.
 
 ## Hinweise
 
