@@ -46,7 +46,7 @@ format:
         \setlength{\parskip}{0.3em}
 ---
 
-So kommen Sie zu Ihrem ersten Ergebnis: Prompt in den Chat eintippen, abschicken, staunen. Die Antworten sind jedes Mal etwas anders — ein zweiter Versuch lohnt sich.
+So kommen Sie zu Ihrem ersten Ergebnis: Im Browser die Weboberfläche **Open WebUI** öffnen, oben links das Modell **qwen3.5:9b** auswählen, Prompt in den Chat eintippen, abschicken, staunen. Die Antworten sind jedes Mal etwas anders — ein zweiter Versuch lohnt sich.
 
 ## Kreativ und lustig
 
@@ -88,7 +88,7 @@ So kommen Sie zu Ihrem ersten Ergebnis: Prompt in den Chat eintippen, abschicken
 
 ## Spiele im Browser
 
-Die KI schreibt ein komplettes Spiel in etwa einer Minute. Den Code aus der Antwort als `spiel.html` speichern und im Browser öffnen.
+Mit **qwen3.5:9b** schreibt die KI ein komplettes Spiel in etwa einer Minute. Den Code aus der Antwort als `spiel.html` speichern und im Browser öffnen.
 
 > **Breakout**
 >
@@ -108,7 +108,7 @@ Die KI schreibt ein komplettes Spiel in etwa einer Minute. Den Code aus der Antw
 
 ## 3D-Modell: Ein Turm mit OpenSCAD
 
-Für OpenSCAD-Code das Modell **gemma4:12b** wählen. Den Code als `turm.scad` speichern, in OpenSCAD öffnen und mit **F5** die Vorschau anzeigen.
+Für OpenSCAD-Code in Open WebUI das Modell **gemma4:12b** wählen (qwen3.5:9b schafft das nicht zuverlässig). Den Code als `turm.scad` speichern, in OpenSCAD öffnen und mit **F5** die Vorschau anzeigen.
 
 > Schreibe kurzen OpenSCAD-Code: ein runder Turm (grün, #159989) mit spitzem Kegeldach (gelb, #F9B338). Alle Maße als Variablen oben mit deutschem Kommentar. Nur der Code.
 
