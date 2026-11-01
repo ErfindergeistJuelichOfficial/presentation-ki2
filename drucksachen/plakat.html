@@ -2,15 +2,15 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<title>Plakat KI to 3D (A3/A4)</title>
+<title>Plakat KI to 3D (A3/A4/A5)</title>
 <!--
-  Plakat im Format A3 (297 × 420 mm), mit ?a4 im Link als A4 (gleiches Layout, verkleinert),
-  mit ?a5x2 als zwei A5-Plakate nebeneinander auf einem A4-Blatt (quer).
-  PDF erzeugen:  ./plakat/pdf.sh   → plakat/plakat-a3.pdf, plakat-a4.pdf, plakat-a5x2.pdf
+  Plakat im Format A3 (297 × 420 mm), mit ?a4 bzw. ?a5 im Link als A4 bzw. A5 (gleiches Layout, verkleinert).
+  Die A5-Fassung ist zugleich die Vorderseite des Flyers (Rückseite: rueckseite.html).
+  PDF erzeugen:  ./drucksachen/pdf.sh
   Alle Maße in mm (für A3), damit das Layout 1:1 dem Druck entspricht.
   Schriften: Rubik (Überschriften) und Inter (Text) von Google Fonts — werden beim PDF-Export
   geladen und ins PDF eingebettet (Plakat wird nur gedruckt, nicht als Webseite veröffentlicht).
-  Die Pipeline erzeugt die PDFs automatisch und veröffentlicht sie unter /plakat/.
+  Die Pipeline erzeugt die PDFs automatisch und veröffentlicht sie unter /drucksachen/.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,9 +47,8 @@
 
   /* A4 (?a4): A4 hat dasselbe Seitenverhältnis wie A3, nur um den Faktor 1/√2 kleiner */
   .a4 .poster { zoom: calc(210 / 297); }
-  /* A5 ×2 (?a5x2): zwei A5-Plakate nebeneinander auf A4 quer, zum Durchschneiden in der Mitte */
-  .a5x2 body { display: flex; width: 297mm; margin: 0 auto; }
-  .a5x2 .poster { zoom: 0.5; margin: 0; }
+  /* A5 (?a5): halbe Kantenlänge von A3 — zugleich Vorderseite des Flyers */
+  .a5 .poster { zoom: 0.5; }
 
   /* ---------- Kopf ---------- */
   .head {
@@ -138,19 +137,12 @@
   .hint span { display: block; }   /* jede Zeile ein eigener Block — kein <br> nötig */
 </style>
 <script>
-  if (new URLSearchParams(location.search).has("a4")) {
-    document.documentElement.classList.add("a4");
-    document.title = document.title.replace("(A3/A4)", "(A4)");
-    document.head.insertAdjacentHTML("beforeend", "<style>@page { size: A4; margin: 0; }</style>");
-  }
-  if (new URLSearchParams(location.search).has("a5x2")) {
-    document.documentElement.classList.add("a5x2");
-    document.title = document.title.replace("(A3/A4)", "(2× A5 auf A4)");
-    document.head.insertAdjacentHTML("beforeend", "<style>@page { size: A4 landscape; margin: 0; }</style>");
-    addEventListener("DOMContentLoaded", () => {
-      const poster = document.querySelector(".poster");
-      poster.after(poster.cloneNode(true));
-    });
+  for (const format of ["a4", "a5"]) {
+    if (new URLSearchParams(location.search).has(format)) {
+      document.documentElement.classList.add(format);
+      document.title = document.title.replace("(A3/A4/A5)", `(${format.toUpperCase()})`);
+      document.head.insertAdjacentHTML("beforeend", `<style>@page { size: ${format.toUpperCase()}; margin: 0; }</style>`);
+    }
   }
 </script>
 </head>
