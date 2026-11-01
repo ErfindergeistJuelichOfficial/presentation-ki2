@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <title>Flyer KI to 3D – Rückseite (A5)</title>
 <!--
-  Rückseite des A5-Flyers (148 × 210 mm). Vorderseite ist plakat.html?a5.
+  Rückseite des A5-Flyers (148 × 210 mm): Vorstellung des Vereins. Vorderseite ist plakat.html?a5.
   PDF erzeugen:  ./drucksachen/pdf.sh   → drucksachen/flyer-a5.pdf (Seite 1 Vorderseite, Seite 2 Rückseite)
   Alle Maße in mm für A5. Farben und Schriften wie plakat.html.
+  Angaben zu Terminen und Geräten: Stand erfindergeist.org, November 2026.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,127 +45,102 @@
   }
 
   /* ---------- Kopf ---------- */
-  .head { background: var(--mint); color: #fff; padding: 7mm 10mm 6mm; }
+  .head { background: var(--mint); color: #fff; padding: 7mm 10mm 8mm; }
   .kicker { font-size: 3.2mm; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
-  .headline { margin: 1mm 0 0; font-family: var(--font-display); font-size: 9mm; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+  .headline { margin: 1mm 0 0; font-family: var(--font-display); font-size: 8.5mm; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+  .motto { font-family: var(--font-display); font-weight: 500; font-size: 3.8mm; margin-top: 1.5mm; }
+  .intro { margin: 3mm 0 0; font-size: 3.3mm; }
 
-  /* ---------- Muttkrat in vier Schritten ---------- */
-  .story { padding: 6mm 10mm 0; }
-  .step-label { display: flex; align-items: center; gap: 2mm; font-weight: 700; font-size: 3.4mm; margin-bottom: 1.5mm; }
-  .num {
-    flex: none; width: 5.5mm; height: 5.5mm; border-radius: 50%;
-    background: var(--mint); color: #fff;
-    display: grid; place-items: center;
-    font-family: var(--font-display); font-size: 3.2mm; font-weight: 700;
+  /* ---------- Kostenlos-Banner: ragt in den Kopf hinein ---------- */
+  .free {
+    margin: -4mm 10mm 0; position: relative;
+    background: var(--amber); color: var(--dark);
+    border-radius: 2mm; padding: 2.5mm 4mm;
+    font-family: var(--font-display); font-weight: 700; font-size: 4.4mm; line-height: 1.2;
+    text-align: center;
+    transform: rotate(-1.5deg);
   }
 
-  /* Schritt 1: Prompt als Chat-Eingabe */
-  .chat {
-    display: flex; align-items: center; gap: 3mm;
-    background: #fff; border: 0.5mm solid var(--mint); border-radius: 6mm;
-    padding: 2.5mm 2.5mm 2.5mm 5mm;
-    font-size: 3.4mm; line-height: 1.35;
+  /* ---------- Angebote ---------- */
+  .offers { flex: 1; padding: 7mm 10mm 9mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .offer h2 {
+    margin: 0 0 1mm; font-family: var(--font-display); font-size: 5mm; font-weight: 700; line-height: 1.1;
+    display: flex; align-items: center; gap: 2mm;
   }
-  .chat .send {
-    flex: none; width: 7mm; height: 7mm; border-radius: 50%; background: var(--mint);
-    display: grid; place-items: center;
+  .offer h2 svg { width: 5.5mm; height: 5.5mm; flex: none; }
+  .offer p { margin: 0; }
+  .when { margin-top: 1.5mm; font-weight: 700; color: var(--mint-dark); }
+
+  .workshop { display: grid; grid-template-columns: 1fr 34mm; gap: 4mm; align-items: start; }
+  .workshop img { width: 100%; height: 46mm; object-fit: cover; object-position: 50% 60%; border-radius: 2mm; display: block; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.2mm; margin-top: 2mm; }
+  .chip { font-size: 2.8mm; font-weight: 600; padding: 0.7mm 2.2mm; border-radius: 999px; background: #fff; color: var(--mint-dark); }
+
+  /* Spenden: weiße Karte mit Amber-Rand, QR-Code rechts */
+  .donate {
+    background: #fff; border-left: 1.5mm solid var(--amber); border-radius: 2mm;
+    padding: 3.5mm 4mm; display: grid; grid-template-columns: 1fr 24mm; gap: 4mm; align-items: center;
   }
-  .chat .send svg { width: 3.8mm; height: 3.8mm; }
-
-  /* Schritte 2–4: drei Bilder mit Pfeilen */
-  .steps { display: grid; grid-template-columns: 1fr 6mm 1fr 6mm 1fr; align-items: center; margin-top: 5mm; }
-  .arrow { color: var(--amber); font-family: var(--font-display); font-weight: 800; font-size: 7mm; line-height: 1; text-align: center; }
-  .tile { position: relative; aspect-ratio: 1; border-radius: 2mm; overflow: hidden; background: #fff; }
-  .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  /* 3D-Ansicht aus dem ComfyUI-Screenshot ausschneiden (Ausschnitt 900 × 900 px ab x 2270, y 540) */
-  .tile .crop { position: absolute; width: 389.2%; height: auto; left: -252.2%; top: -60%; }
-  .tile-text { font-size: 3mm; font-weight: 600; line-height: 1.25; margin-top: 1.5mm; display: flex; gap: 1.5mm; align-items: flex-start; }
-  .tile-text .num { width: 4.5mm; height: 4.5mm; font-size: 2.7mm; }
-  .facts { margin-top: 4mm; font-size: 3mm; color: var(--mint-dark); font-weight: 600; text-align: center; }
-
-  /* ---------- Reparieren ---------- */
-  .repair { margin: 6mm 10mm 5mm; display: grid; grid-template-columns: 50mm 1fr; gap: 4mm; align-items: center; }
-  .repair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2mm; display: block; }
-  .repair h2 { margin: 0 0 1mm; font-family: var(--font-display); font-size: 5.2mm; font-weight: 700; line-height: 1.1; }
-  .repair p { margin: 0; }
-  .repair .note { margin-top: 1.5mm; font-size: 2.8mm; color: #555; }
-
-  /* ---------- Verein ---------- */
-  .club {
-    margin-top: auto;
-    background: #fff;
-    border-top: 0.8mm solid var(--mint);
-    padding: 4mm 10mm 5mm;
-    display: grid; grid-template-columns: 1fr 24mm; gap: 5mm; align-items: center;
-  }
-  .club-name { font-family: var(--font-display); font-weight: 700; font-size: 4.4mm; }
-  .chips { display: flex; flex-wrap: wrap; gap: 1.5mm; margin: 1.5mm 0 2mm; }
-  .chip { font-size: 2.8mm; font-weight: 600; padding: 0.8mm 2.4mm; border-radius: 999px; background: var(--paper); color: var(--mint-dark); }
-  .date-line { display: inline-block; background: var(--amber); font-weight: 700; font-size: 3.2mm; padding: 1.2mm 3mm; border-radius: 999px; }
-  .club-qr { width: 24mm; display: block; }
-  .club-qr-text { font-size: 2.5mm; text-align: center; margin-top: 0.8mm; color: #555; }
+  .donate .chip { background: var(--paper); }
+  .donate-qr { width: 24mm; display: block; }
+  .donate-qr-text { font-size: 2.5mm; text-align: center; margin-top: 0.8mm; color: #555; line-height: 1.25; }
 </style>
 </head>
 <body>
 <div class="page">
 
   <header class="head">
-    <div class="kicker">Von der Idee zum Objekt</div>
-    <h1 class="headline">So ist der Muttkrat entstanden</h1>
+    <div class="kicker">Wer wir sind</div>
+    <h1 class="headline">Erfindergeist Jülich e.V.</h1>
+    <div class="motto">Miteinander · Austauschen · Erforschen · Kreieren</div>
+    <p class="intro">Ein gemeinnütziger Verein aus Jülich für alle kreativen Menschen – vom Hobbyforscher bis zum Freizeitbastler. Wir bieten Räume, Maschinen und Menschen, die ihr Wissen gerne teilen.</p>
   </header>
 
-  <section class="story">
-    <div class="step-label"><span class="num">1</span>Die Idee in Worten beschreiben</div>
-    <div class="chat">
-      <div>Eine dicke Kröte im weißen Laborkittel, mit Messingbrille und Werkzeuggürtel …</div>
-      <div class="send"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg></div>
-    </div>
+  <div class="free">Werkstatt und Geräte kostenlos nutzen</div>
 
-    <div class="steps">
+  <main class="offers">
+    <section class="offer workshop">
       <div>
-        <div class="tile"><img src="../beispiele/muttkrat/muttkrat_bild.png" alt="KI-generiertes Bild des Muttkrat"></div>
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke="#0F6E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"></path></svg>Offene Werkstatt</h2>
+        <p>Einfach vorbeikommen, nach einer kurzen Einweisung selbst loslegen – oder gemeinsam mit anderen an Ideen tüfteln.</p>
+        <div class="when">Termine auf unserer Webseite oder auf Anfrage</div>
+        <div class="chips">
+          <span class="chip">3D-Drucker</span>
+          <span class="chip">Laser-Gravierer</span>
+          <span class="chip">CNC-Fräse</span>
+          <span class="chip">KI-Workstation</span>
+          <span class="chip">Tischbohrmaschine</span>
+          <span class="chip">Holzwerkzeug</span>
+          <span class="chip">Co-Working-Platz</span>
+          <span class="chip">Elektrowerkzeuge</span>
+        </div>
       </div>
-      <div class="arrow">→</div>
-      <div>
-        <div class="tile" style="background:#222"><img class="crop" src="../beispiele/muttkrat/muttkrat_hunyuan3d.png" alt="3D-Modell des Muttkrat"></div>
-      </div>
-      <div class="arrow">→</div>
-      <div>
-        <div class="tile"><img src="../beispiele/muttkrat/muttkrat_gedruckt.jpg" alt="Gedruckte Figur Muttkrat" style="object-position: 50% 40%"></div>
-      </div>
-      <div class="tile-text"><span class="num">2</span>KI malt ein Bild</div>
-      <div></div>
-      <div class="tile-text"><span class="num">3</span>KI macht daraus ein 3D-Modell</div>
-      <div></div>
-      <div class="tile-text"><span class="num">4</span>Der 3D-Drucker druckt</div>
-    </div>
-    <div class="facts">7 g Kunststoff · 1 h 21 min Druckzeit · komplett auf dem Rechner in unserer Werkstatt</div>
-  </section>
+      <img src="../verein/werkstatt-3d-druck.jpg" alt="3D-Drucker in der Offenen Werkstatt">
+    </section>
 
-  <section class="repair">
-    <img src="../beispiele/tischfuss/tischfuss_vergleich.jpg" alt="Neuer, gedruckter Tischfuß neben dem gebrochenen Original">
-    <div>
-      <h2>Kaputt? Selbst drucken!</h2>
-      <p>Ein Tischfuß ist gebrochen. Ausmessen, die KI schreibt den Bauplan, der Drucker fertigt das Ersatzteil.</p>
-      <div class="note">Links das neue Teil, rechts das alte.</div>
-    </div>
-  </section>
+    <section class="offer">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="#0F6E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 4v5h-5"></path></svg>Repair Café</h2>
+      <p>Reparieren statt wegwerfen: Ehrenamtliche helfen dabei, Defektes wieder flottzumachen – vom kaputten Teddy bis zum defekten Toaster.</p>
+      <div class="when">Nächster Termin: Sa, 28.11.2026, 10–12:30 Uhr, Stadtbücherei Jülich</div>
+    </section>
 
-  <footer class="club">
-    <div>
-      <div class="club-name">Erfindergeist Jülich e.V.</div>
-      <div class="chips">
-        <span class="chip">Offene Werkstatt</span>
-        <span class="chip">Repair Café</span>
-        <span class="chip">Gemeinsam lernen</span>
+    <section class="offer donate">
+      <div>
+        <h2>Gemeinnützig – und auf Spenden angewiesen</h2>
+        <p>Wir finanzieren uns über Mitgliedsbeiträge und Spenden. Jeder Beitrag hilft – ebenso wie jede helfende Hand.</p>
+        <div class="chips">
+          <span class="chip">Miete für die Räume</span>
+          <span class="chip">Werkzeug und Maschinen</span>
+          <span class="chip">Veranstaltungen</span>
+        </div>
       </div>
-      <div class="date-line">KI to 3D · Sa, 21.11.2026 · 14–18 Uhr · Eintritt frei</div>
-    </div>
-    <div>
-      <img class="club-qr" src="../qr-codes/qr_link_to_linktree_H30.svg" alt="QR-Code erfindergeist.org">
-      <div class="club-qr-text">Termine und mehr</div>
-    </div>
-  </footer>
+      <div>
+        <img class="donate-qr" src="../qr-codes/qr_link_to_linktree_H30.svg" alt="QR-Code linktree.erfindergeist.org">
+        <div class="donate-qr-text">Spenden und mehr</div>
+      </div>
+    </section>
+  </main>
+
 
 </div>
 </body>

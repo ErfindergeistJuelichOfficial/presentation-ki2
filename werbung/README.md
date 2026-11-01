@@ -1,6 +1,6 @@
 # Werbung — KI-Workshop „KI to 3D“
 
-Entwürfe für die Werbe-Todos aus `todo.md`. Alle Texte nutzen dieselben Eckdaten wie das Plakat (`plakat/plakat.html`) — bei Änderungen bitte beide anpassen.
+Entwürfe für die Werbe-Todos aus `todo.md`. Alle Texte nutzen dieselben Eckdaten wie das Plakat (`drucksachen/plakat.html`) — bei Änderungen bitte beide anpassen.
 
 | Datei | Todo | Kanal |
 |---|---|---|
@@ -20,7 +20,7 @@ Entwürfe für die Werbe-Todos aus `todo.md`. Alle Texte nutzen dieselben Eckdat
 | Anmeldung | optional, an kontakt@erfindergeist.org |
 | Zielgruppe | alle Neugierigen, privat oder beruflich, keine Vorkenntnisse nötig |
 | Kontakt | kontakt@erfindergeist.org · 02461/6869182 · https://erfindergeist.org |
-| Plakat (PDF) | https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf (auch `plakat-a3.pdf`, `plakat-a5x2.pdf`) |
+| Plakat (PDF) | https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a4.pdf (auch `plakat-a3.pdf`, `plakat-a5.pdf`, Flyer: `flyer-a5.pdf`) |
 
 ## Themen
 
@@ -31,6 +31,6 @@ Entwürfe für die Werbe-Todos aus `todo.md`. Alle Texte nutzen dieselben Eckdat
 
 ## Bilder
 
-- `plakat/hexenturm.jpg` — gedruckter Hexenturm (Weg 2: aus Text und Code)
-- `plakat/muttkrat.jpg` — gedruckte Figur Muttkrat (Weg 1: aus einem KI-Bild)
+- `drucksachen/hexenturm.jpg` — gedruckter Hexenturm (Weg 2: aus Text und Code)
+- `drucksachen/muttkrat.jpg` — gedruckte Figur Muttkrat (Weg 1: aus einem KI-Bild)
 - `verein/logo.svg` — Vereinslogo

@@ -20,12 +20,12 @@ Das Angebot richtet sich an alle Interessierten, privat wie beruflich. Ein Einst
 **Wo:** Erfindergeist Jülich e.V., im Gebäude der AWO Stadt Jülich e.V., Marie-Juchacz-Weg 2, 52428 Jülich  
 **Anmeldung:** nicht erforderlich, hilft uns aber bei der Planung: kontakt@erfindergeist.org
 
-Plakat zum Ausdrucken und Weitergeben: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf
+Plakat zum Ausdrucken und Weitergeben: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a4.pdf
 
 Plakat zum Ausdrucken und Weitergeben:
-A4: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf
-A3: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a3.pdf
-A5: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a5x2.pdf
+A4: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a4.pdf
+A3: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a3.pdf
+A5: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a5.pdf
 
 Wir freuen uns auf Sie!
 

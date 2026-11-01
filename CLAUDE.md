@@ -213,14 +213,15 @@ podman compose run --rm qrcode
 - Aufruf: `python3 beispiele/bildverarbeitung-diagramm/diagramme.py` → `beispiele/bildverarbeitung-diagramm/*.svg`
 - Knoten und Pfeile werden im Skript mit Raster-Koordinaten gesetzt (`node(...)`, `edge(...)`)
 
-## Plakat (A3 / A4 / A5)
+## Plakat (A3 / A4 / A5) und Flyer (A5)
 
-- `plakat/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
-- A4 ist **kein eigenes Layout**: `plakat.html?a4` verkleinert per CSS `zoom` (1/√2) und setzt `@page` auf A4; `plakat.html?a5x2` verkleinert auf 50 % und dupliziert das Plakat per JS (2× A5 auf A4 quer) — nur `plakat.html` bearbeiten
-- `plakat/pdf.sh` — exportiert per Headless-Chrome nach `plakat/plakat-a3.pdf`, `plakat-a4.pdf` und `plakat-a5x2.pdf`
+- `drucksachen/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
+- A4 und A5 sind **kein eigenes Layout**: `plakat.html?a4` bzw. `?a5` verkleinert per CSS `zoom` (1/√2 bzw. 50 %) und setzt `@page` passend — nur `plakat.html` bearbeiten
+- Flyer (A5, doppelseitig): Vorderseite = `plakat.html?a5`, Rückseite = `drucksachen/rueckseite.html` (eigenes Layout, Maße in mm für A5)
+- `drucksachen/pdf.sh` — exportiert per Headless-Chrome nach `drucksachen/plakat-a3.pdf`, `plakat-a4.pdf`, `plakat-a5.pdf` und fügt per `pdfunite` den zweiseitigen `flyer-a5.pdf` zusammen
 - Bilder relativ einbinden (`../beispiele/…`, `../verein/…`); Farben als CSS-Variablen (CI-Farben)
 - Schriften: Rubik (Überschriften) + Inter (Text) per Google-Fonts-Link — **Ausnahme von der DSGVO-Regel**, weil das Plakat nur als PDF verteilt wird (Schriften eingebettet), nicht als Webseite. In der Präsentation bleiben Google Fonts verboten.
-- Pipeline (`deploy.yml`): erzeugt das PDF nach dem Quarto-Render und kopiert es nach `_site/plakat/` → online unter `/ki2/plakat/plakat-a3.pdf`, `…/plakat-a4.pdf` und `…/plakat-a5x2.pdf`
+- Pipeline (`deploy.yml`): erzeugt die PDFs nach dem Quarto-Render und kopiert sie nach `_site/drucksachen/` → online unter `/ki2/drucksachen/plakat-a3.pdf`, `…/plakat-a4.pdf`, `…/plakat-a5.pdf` und `…/flyer-a5.pdf`
 
 ## Build
 

@@ -26,3 +26,5 @@
 - [x] openCode
 - [x] VSCode kann Plugins installieren
 - [ ] openScad
+- [ ] prompt hilfe drucken
+- [ ] einweisung helfer

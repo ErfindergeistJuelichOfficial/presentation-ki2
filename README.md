@@ -49,10 +49,10 @@ podman compose run --rm qrcode
 
 ## Plakat (A3 / A4 / A5)
 
-Werbeplakat als HTML mit PDF-Export: Anleitung in [`plakat/README.md`](plakat/README.md).
+Plakat und Flyer als HTML mit PDF-Export: Anleitung in [`drucksachen/README.md`](drucksachen/README.md).
 
 ```shell
-./plakat/pdf.sh        # → plakat/plakat-a3.pdf, plakat-a4.pdf, plakat-a5x2.pdf
+./drucksachen/pdf.sh   # → drucksachen/plakat-a3.pdf, plakat-a4.pdf, plakat-a5.pdf, flyer-a5.pdf
 ```
 
 ## Documentation Presentation
