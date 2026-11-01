@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktives Feuerwerk</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden; /* Verhindert Scrollbalken */
+        }
+
+        canvas {
+            display: block;
+            cursor: crosshair; /* Zeigt an, dass man klicken kann */
+        }
+
+        /* Optionaler Text, der wieder verschwindet */
+        .hint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.3);
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            pointer-events: none; /* Klicks gehen durch den Text hindurch */
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hint">Klicke irgendwo auf die Seite</div>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const hint = document.querySelector('.hint');
+
+        // Canvas auf den ganzen Bildschirm setzen
+        let width, height;
+        
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Array zum Speichern der Partikel
+        let particles = [];
+
+        // Klasse für ein einzelnes Teilchen
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                
+                // Zufälliger Winkel und Geschwindigkeit für die Explosion
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 3 + 1; // Geschwindigkeit zwischen 1 und 4
+                
+                // Vektor berechnen (Sine/Cosine)
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                
+                // Zufällige Farbe (HSL für lebendige Farben)
+                const hue = Math.floor(Math.random() * 360);
+                this.color = `hsl(${hue}, 100%, 50%)`;
+                
+                this.alpha = 1; // Transparenz für den Fade-Out Effekt
+                this.decay = Math.random() * 0.015 + 0.015; // Wie schnell es verblassen soll
+            }
+
+            update() {
+                // Position aktualisieren
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Größe verkleinern (simuliert Distanz zum Betrachter oder nur optisch)
+                this.alpha -= this.decay; 
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                // Wir zeichnen ein kleines Rechteck (oder Kreis), hier ein Teilchen-Punkt
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2, 0, Math.PI * 2); 
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // Funktion zum Erstellen des Feuerwerks
+        function createFirework(x, y) {
+            const particleCount = 60; // Anzahl der Partikel pro Explosion
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle(x, y));
+            }
+        }
+
+        // Animationsschleife
+        function animate() {
+            // Hintergrund leicht abwaschen (Erzeugt einen "Schweif"-Effekt)
+            // Umperfektes Schwarz: ctx.clearRect(...), Für Schweif-Effekt: 0.1 oder niedriger
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'; 
+            ctx.fillRect(0, 0, width, height);
+
+            // Partikel updaten und zeichnen
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Wenn das Teilchen unsichtbar ist, aus dem Array entfernen
+                if (particles[i].alpha <= 0) {
+                    particles.splice(i, 1);
+                    i--; // Index anpassen nach Entfernen
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Event Listener für Mausklick
+        window.addEventListener('mousedown', (e) => {
+            // Hinweis-Text ausblenden wenn geklickt wird
+            hint.style.display = 'none';
+            
+            // Explosion an der Mausposition starten
+            createFirework(e.clientX, e.clientY);
+        });
+
+        // Animation starten
+        animate();
+
+    </script>
+</body>
+</html>

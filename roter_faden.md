@@ -51,17 +51,18 @@ Stand: 18.10.2026 · Workshop-Termin: 21.11.2026
 
 Übersicht: Viele Wege zum 3D-Modell
 
-**Weg 1: Text → Code → 3D (OpenSCAD)**
+**Weg 1: Bild → 3D (ComfyUI + Hunyuan3D auf der Workstation)**
+
+- Prinzip, gute Bildvorlagen
+- Beispiel Muttkrat: Bild-Prompt → Bild → 3D-Modell → Slicer → Druck
+- Typische Probleme beim Druck
+- Hexenturm aus einer Skizze (Vergleich mit Weg 2)
+
+**Weg 2: Text → Code → 3D (OpenSCAD)**
 
 - Prinzip, OpenSCAD, guter Prompt mit Parametern, einfaches Turm-Beispiel
 - Hexenturm Jülich: Module, Skizzen im Prompt, Details, Druck
 - Praxisbeispiel: Tischfuß als Ersatzteil (messen → Prompt → OpenSCAD → Druck)
-
-**Weg 2: Bild → 3D (ComfyUI + Hunyuan3D auf der Workstation)**
-
-- Prinzip, gute Bildvorlagen
-- Beispiel Toad: Bild-Prompt → Bild → 3D-Modell → Slicer → Druck
-- Typische Probleme beim Druck
 
 **Weg 3: MCP — Ausblick**
 

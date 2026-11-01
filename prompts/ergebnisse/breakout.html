@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Breakout Canvas Spiel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222; /* Dunkler Hintergrund */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Verhindert Scrollbalken */
+        }
+        canvas {
+            background-color: #eee; /* Heller Hintergrund für das Spielfeld */
+            display: block;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            cursor: none; /* Mauszeiger verstecken im Spielmodus */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Das Spielfeld -->
+<canvas id="myCanvas" width="800" height="600"></canvas>
+
+<script>
+    // --- 1. Initialisierung ---
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Spielvariablen: Ball
+    let x = canvas.width / 2;
+    let y = canvas.height - 30;
+    let dx = 4; // Geschwindigkeit horizontal
+    let dy = -4; // Geschwindigkeit vertikal
+    
+    // Größe und Farbe des Balls
+    const ballRadius = 8;
+
+    // Spielvariablen: Schläger (Paddel)
+    const paddleHeight = 10;
+    const paddleWidth = 100;
+    let paddleX = (canvas.width - paddleWidth) / 2;
+    
+    // Steuerung: Mausposition muss im Canvas-System sein
+    let rightPressed = false;
+    let leftPressed = false;
+
+    // Spielvariablen: Ziegelmauer (Steine)
+    const brickRowCount = 6;
+    const brickColumnCount = 9;
+    const brickWidth = 75;
+    const brickHeight = 20;
+    const brickPadding = 10;
+    const brickOffsetTop = 30;
+    const brickOffsetLeft = (canvas.width - (brickColumnCount * brickWidth + (brickColumnCount - 1) * brickPadding)) / 2;
+
+    let score = 0;
+    let lives = 3;
+
+    // --- 2. Erstellung der Steine ---
+    const bricks = [];
+    for(let c=0; c<brickColumnCount; c++) {
+        bricks[c] = [];
+        for(let r=0; r<brickRowCount; r++) {
+            // status: 1 = Stein vorhanden, 0 = zerstört
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
+        }
+    }
+
+    // --- 3. Eingabe-Events (Maus und Tastatur für Backup) ---
+    
+    // Funktion zum Aktualisieren der Paddelposition basierend auf Maus
+    document.addEventListener("mousemove", mouseMoveHandler, false);
+    
+    function mouseMoveHandler(e) {
+        const relativeX = e.clientX - canvas.offsetLeft;
+        if(relativeX > 0 && relativeX < canvas.width) {
+            paddleX = relativeX - paddleWidth / 2;
+        }
+    }
+
+    // Tastatur-Events (optional, falls Maus zu langsam ist)
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    function keyDownHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = true;
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = true;
+        }
+    }
+
+    function keyUpHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = false;
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = false;
+        }
+    }
+
+    // --- 4. Kollisionsabfrage für Steine ---
+    function collisionDetection() {
+        for(let c=0; c<brickColumnCount; c++) {
+            for(let r=0; r<brickRowCount; r++) {
+                const b = bricks[c][r];
+                if(b.status == 1) {
+                    // Ball stößt gegen Stein
+                    if(x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                        dy = -dy; // Umkehren
+                        b.status = 0; // Stein zerstören
+                        score++;
+                        
+                        // Check Win Condition
+                        if(score == brickRowCount * brickColumnCount) {
+                            alert("GEWONNEN!");
+                            document.location.reload();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // --- 5. Zeichen-Funktionen ---
+
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "#fff";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawPaddle() {
+        ctx.beginPath();
+        ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+        ctx.fillStyle = "#0095DD"; // Blauer Schläger
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawBricks() {
+        for(let c=0; c<brickColumnCount; c++) {
+            for(let r=0; r<brickRowCount; r++) {
+                if(bricks[c][r].status == 1) {
+                    // Berechne exakte Position des Steins
+                    const brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                    const brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+                    
+                    bricks[c][r].x = brickX;
+                    bricks[c][r].y = brickY;
+
+                    ctx.beginPath();
+                    ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                    
+                    // Farben für bunte Steine basierend auf der Reihe (Index)
+                    ctx.fillStyle = `hsl(${r * 60}, 70%, 50%)`; // Rot bis Gelb/Orange
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+        }
+    }
+
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Punkte: " + score, 8, 20);
+    }
+
+    function drawLives() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Leben: " + lives, canvas.width - 65, 20);
+    }
+
+    // --- 6. Hauptspiel-Loop ---
+    function draw() {
+        // Hintergrund löschen
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        drawBricks();
+        drawBall();
+        drawPaddle();
+        drawScore();
+        drawLives();
+        collisionDetection();
+
+        // Ball an Wände abprallen lassen
+        if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+            dx = -dx;
+        }
+        
+        // Oben und unten des Fensters
+        if(y + dy < ballRadius) {
+            dy = -dy;
+        } else if(y + dy > canvas.height - ballRadius - paddleHeight) {
+            // Hier prüfen, ob der Ball auf dem Schläger landet
+            // Wenn der Ball schon tief genug unten ist UND wir im Bereich des Paddels sind
+            if(x > paddleX && x < paddleX + paddleWidth) {
+                dy = -dy;
+                
+                // Kleine Logik um den Winkel etwas zu variieren, je nachdem 
+                // wo der Ball das Paddel trifft (optionaler "Spin"-Effekt)
+                let hitPoint = x - (paddleX + paddleWidth/2);
+                dx = hitPoint * 0.15; 
+            } else {
+                // Game Over (Ball am Boden verloren)
+                lives--;
+                if(!lives) {
+                    alert("GAME OVER");
+                    document.location.reload();
+                } else {
+                    // Reset Positionen für neues Leben
+                    x = canvas.width/2;
+                    y = canvas.height-30;
+                    dx = 4; 
+                    dy = -4;
+                    paddleX = (canvas.width-paddleWidth)/2;
+                    // Reinigen der Steine wäre hier möglich, aber wir lassen sie so stehen für Fortsetzung
+                }
+            }
+        }
+
+        // Paddelbewegung mit Tastatur (Falls genutzt)
+        if(rightPressed && paddleX < canvas.width - paddleWidth) {
+            paddleX += 7;
+        }
+        else if(leftPressed && paddleX > 0) {
+            paddleX -= 7;
+        }
+
+        x += dx;
+        y += dy;
+
+        requestAnimationFrame(draw);
+    }
+
+    // Spiel starten
+    draw();
+
+</script>
+</body>
+</html>

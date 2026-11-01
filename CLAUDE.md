@@ -11,7 +11,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 2. Was ist KI? / Was ist sie nicht? (inkl. Aufbau eines Modells und Parameter)
 3. Prompting (SAND-Methode, Token, Kontextfenster, Grenzen der Antworten)
 4. Eingabemöglichkeiten: Web-UI, CLI-Agenten, IDE, lokal vs. Cloud, Workstation-Hardware
-5. 3D-Generierung (Hauptteil): Weg 1 Text → Code → 3D (OpenSCAD), Weg 2 Bild → 3D (ComfyUI + Hunyuan3D lokal, HuggingFace)
+5. 3D-Generierung (Hauptteil): Weg 1 Bild → 3D (ComfyUI + Hunyuan3D lokal, HuggingFace), Weg 2 Text → Code → 3D (OpenSCAD)
 6. Vom Modell zum Druck
 7. Zusammenfassung, Fragen & Diskussion
 8. Bonus: HuggingFace, Termine-Webseite, Azure Showcases (Unternehmens-Showcase)
@@ -26,7 +26,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 | `_brand.yml` | Farb- und Typografie-Definitionen |
 | `_quarto.yml` | Projekt- und Format-Konfiguration |
 | `beispiele/<name>/` | **Alles zu einem Beispiel** in einem Ordner: Bilder, `.scad`, Prompt, Demo-HTML + `README.md` (z.B. `hexenturm/`, `tischfuss/`, `muttkrat/`) |
-| `grafiken/` | Erklär-Grafiken als SVG (neuronales Netz, MCP, VRAM, Weg-2-Prinzip) |
+| `grafiken/` | Erklär-Grafiken als SVG (neuronales Netz, MCP, VRAM, Weg-1-Prinzip) |
 | `verein/` | Logo, Linktree-QR, Werkstatt-Foto |
 | `qr-codes/` | Erzeugte QR-Codes (siehe Abschnitt QR-Codes) |
 | `qrcodes.sh` / `compose.yaml` | QR-Code-Erzeugung per Podman (siehe Abschnitt QR-Codes) |
@@ -58,7 +58,7 @@ title-slide-attributes:                    # Hintergrund nur für die Titelfolie
   data-background-image: verein/logo.svg
   data-background-size: 40%
   data-background-opacity: "0.15"          # Logo als dezentes Wasserzeichen
-subtitle: WORK IN PROGRESS - 21.11.2026   # Workshop-Termin
+subtitle: Mit KI zum eigenen 3D-Druck · 21.11.2026   # Untertitel wie auf dem Plakat + Workshop-Termin
 ```
 
 Änderungen an Titel oder Datum also immer dort vornehmen. **Zwischen YAML-Kopf und der ersten `#`-Überschrift darf nichts stehen** — auch keine HTML-Kommentare, sonst entsteht eine leere Folie 2. Der Titel steht zusätzlich im `footer` und in `_quarto.yml` (Website-Titel).
@@ -167,7 +167,7 @@ Interaktive Demos werden als **eigenstandige HTML-Dateien** im Root abgelegt (z.
 Quarto kopiert sie automatisch nach `_site/` - keine Quarto-Konfiguration notig.
 
 JavaScript-Bibliotheken (GSAP etc.) mussen **lokal** unter `js/` liegen - nicht von externen CDNs laden,
-da die Prasentation stand-alone funktionieren muss (share.erfindergeist.org wird abgeschaltet).
+da die Prasentation stand-alone funktionieren muss.
 
 Einbindung in eine Folie via iframe:
 

@@ -4,7 +4,7 @@ title-slide-attributes:
   data-background-image: verein/logo.svg
   data-background-size: 30%
   data-background-opacity: "0.15"
-subtitle: WORK IN PROGRESS - 21.11.2026
+subtitle: Mit KI zum eigenen 3D-Druck · 21.11.2026
 format:
   revealjs:
     transition: fade
@@ -746,7 +746,7 @@ Wie und wo kann man mit KI arbeiten?
 
 ## Eingabemöglichkeiten: Übersicht {.smaller}
 
-| Art | Lokal | Cloud |
+| **Art** | **Lokal** | **Cloud** |
 |---|---|---|
 | Chat im Browser | Open WebUI | ChatGPT, Claude.ai, Gemini |
 | Terminal (CLI) | OpenCode | Claude Code |
@@ -764,17 +764,17 @@ Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: 
 
 ## Lokal oder Cloud?  {.smaller}
 
-| | **Cloud** | **Lokal** |
+| | **Lokal** | **Cloud** |
 |---|---|---|
-| Modellgröße | riesig (oft geheim) | klein bis mittel (7B–14B) |
-| Geschwindigkeit | hängt vom Anbieter ab | hängt vom eigenen Rechner ab |
-| Kontextfenster | bis ca. 1 Mio. Token | 4.000–128.000 Token |
-| Daten | verlassen den Rechner | **bleiben bei Ihnen** |
-| Kosten | laufend (Abo / pro Token) | einmalig (Hardware) + Strom |
+| Modellgröße | klein bis mittel (7B–14B) | riesig (oft geheim) |
+| Geschwindigkeit | hängt vom eigenen Rechner ab | hängt vom Anbieter ab |
+| Kontextfenster | 4.000–128.000 Token | bis ca. 1 Mio. Token |
+| Daten | **bleiben bei Ihnen** | verlassen den Rechner |
+| Kosten | einmalig (Hardware) + Strom | laufend (Abo / pro Token) |
 
 : {tbl-colwidths="[24,38,38]"}
 
-**Merke:** Cloud = größere Modelle · Lokal = Ihre Daten bleiben bei Ihnen
+**Merke:** Lokal = Ihre Daten bleiben bei Ihnen · Cloud = größere Modelle
 
 ::: {.notes}
 Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
@@ -927,7 +927,7 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 **Merke:** Alles, was man als Code beschreiben kann, kann KI gut.
 
 ::: {.notes}
-Überleitung zum Hauptteil: Wenn KI ein Spiel programmieren kann, kann sie auch ein 3D-Modell programmieren. Genau das macht OpenSCAD möglich.
+Überleitung zum Hauptteil: Wenn KI ein Spiel programmieren kann, kann sie auch ein 3D-Modell programmieren – das zeigt Weg 2 mit OpenSCAD. Zuerst kommt aber Weg 1: 3D ganz ohne Code, direkt aus einem Bild.
 :::
 
 # 3D-Generierung mit KI
@@ -936,16 +936,16 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 
 ::: columns
 ::: {.column width="33%"}
-### Weg 1: Text → Code → 3D-Modell
-
-- KI schreibt OpenSCAD-Code
-- Präzise Maße, jederzeit änderbar
-:::
-::: {.column width="33%"}
-### Weg 2: 2D Bild → 3D-Modell
+### Weg 1: 2D Bild → 3D-Modell
 
 - KI erzeugt aus einem Bild ein 3D-Modell
 - Organische Formen, Figuren
+:::
+::: {.column width="33%"}
+### Weg 2: Text → Code → 3D-Modell
+
+- KI schreibt OpenSCAD-Code
+- Präzise Maße, jederzeit änderbar
 :::
 ::: {.column width="33%"}
 ### Weg 3: MCP Blender von KI steuern lassen
@@ -958,12 +958,243 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 Alle Wege können 100 % **lokal** laufen, aber auch mit **Cloud**-Modellen kombiniert werden.
 
 
-# Weg 1: Text → Code → 3D
+# Weg 1: Bild → 3D
+
+Aus einem Foto oder einer Zeichnung wird ein 3D-Modell
+
+::: {.notes}
+Hier entsteht kein Code, sondern direkt eine Oberfläche aus vielen kleinen Dreiecken – anders als später in Weg 2.
+:::
+
+## Weg 1: Das Prinzip
+
+![](grafiken/weg1-prinzip.svg){fig-align="center" width="90%"}
+
+- KI „errät“ auch die nicht sichtbaren Seiten
+- Ergebnis: Oberfläche aus Dreiecken (Mesh), oft mit Farbe
+- Gut für Figuren und organische Formen, weniger für exakte Maße
+
+::: {.notes}
+Das ist gut für Figuren, aber Maße lassen sich nachträglich kaum ändern – anders als bei den Parametern in Weg 2 (OpenSCAD).
+:::
+
+## Lokal: ComfyUI + Hunyuan3D
+
+- **ComfyUI:** Oberfläche, in der man KI-Schritte als **Knoten** verbindet
+- Fertige Vorlagen über das Menü **Templates**
+- Bild erzeugen: Vorlage **Z-Image-Turbo** (Text → Bild)
+- 3D erzeugen: Vorlage **HY 3D 2.1** = Hunyuan3D (Bild → 3D)
+- Läuft auf der Workstation — braucht viel Grafikspeicher
+
+::: {.notes}
+ComfyUI ist ein Knoten-Editor: Jeder Kasten ist ein Arbeitsschritt (Bild laden, Modell laden, 3D erzeugen, speichern). Die Kästen werden mit Linien verbunden.
+
+Auf der Workstation: ComfyUI im Browser unter http://localhost:8188 öffnen → Templates → „Image“ bzw. „3D Model“ wählen. Die Installation der Vorlagen ist bereits erledigt.
+
+Hinweis: ComfyUI gibt Modelle nicht automatisch aus dem Speicher frei – zwischen Bild- und 3D-Erzeugung ggf. Speicher freigeben.
+:::
+
+## Gute Vorlagen für Bild → 3D
+
+- **Ein** Objekt pro Bild
+- Hintergrund entfernt oder **einfarbig**
+- Gleichmäßige Beleuchtung **mit Schatten** — so erkennt die KI die Form
+- Kein Text, keine Logos
+- Ganzes Objekt sichtbar, nichts abgeschnitten
+
+::: {.notes}
+Die ersten vier Punkte stammen aus der Anleitung im Wiki. Schatten sind wichtig, weil die KI daraus die räumliche Form ableitet.
+
+Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel auf der nächsten Folie.
+:::
+
+## Beispiel: Muttkrat prompt
+
+::: {.prompt-box}
+**Positiv:** Full-body character render of a huge, very plump toad … low poly 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
+:::
+
+::: {.prompt-box .prompt-weak}
+**Negativ:** slim, tall, gradient background, floor, cast shadow, cropped, multiple characters, photorealistic, text, watermark, extra limbs …
+:::
+
+[Prompt gekürzt · vollständig in `beispiele/muttkrat/muttkrat_prompt.md`]{style="color:#aaaaaa;font-size:0.7em"}
+
+::: {.notes}
+Bildmodelle kennen zwei Prompts:
+
+- **Positiv-Prompt:** Was soll auf dem Bild sein?
+- **Negativ-Prompt:** Was soll auf keinen Fall auf dem Bild sein?
+
+Die Regeln von der vorherigen Folie stecken direkt im Prompt: „isolated and centered“ (ein Objekt), „plain solid background“ (einfarbiger Hintergrund), „three-point lighting“ (gleichmäßiges Licht), „whole figure visible“ (nichts abgeschnitten). Im Negativ-Prompt: kein Boden, kein Schattenwurf, kein Text, nicht abgeschnitten.
+
+„low poly 3D style“ sorgt für klare, einfache Formen – die lassen sich besser in 3D umsetzen und drucken.
+
+Bildmodelle verstehen Englisch meist besser als Deutsch.
+:::
+
+## Beispiel 1: Schritt 1 — Bild erzeugen
+
+![](beispiele/muttkrat/muttkrat_bild.png){fig-align="center" height="480"}
+
+::: {.notes}
+Erzeugt mit Z-Image-Turbo in ComfyUI auf der Workstation.
+
+Gut zu sehen: Im Prompt stand „cyan background“ – herausgekommen ist ein hellgrauer Hintergrund. Die KI hält sich nicht immer an jedes Detail (vgl. Nichtdeterminismus im Prompting-Teil). Für den nächsten Schritt reicht der einfarbige Hintergrund trotzdem.
+:::
+
+## Beispiel 1: Schritt 2 — Bild zu 3D-Modell
+
+![](beispiele/muttkrat/muttkrat_hunyuan3d.png){fig-align="center" height="450"}
+
+::: {.notes}
+Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann.
+
+Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu sehen.
+
+Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
+:::
+
+## Beispiel 1: Schritt 3 - Typische Probleme
+
+::: columns
+::: {.column width="33%"}
+::: {.card}
+**Löcher im Mesh**
+
+Oberfläche ist nicht geschlossen
+
+→ reparieren lassen
+:::
+:::
+::: {.column width="34%"}
+::: {.card}
+**Zu dünne Wände**
+
+Brechen oder werden gar nicht gedruckt
+
+→ größer skalieren
+:::
+:::
+::: {.column width="33%"}
+::: {.card}
+**Überhänge**
+
+Teile hängen frei in der Luft
+
+→ Stützmaterial
+:::
+:::
+:::
+
+::: aside
+Viele Slicer reparieren kleine Mesh-Fehler automatisch — für größere Probleme hilft z.B. Blender.
+:::
+
+::: {.notes}
+Beim Toad gut zu sehen: Die Werkzeuge in den Händen sind sehr dünn – genau so eine Stelle, die beim Druck abbrechen kann. Die ausgestreckten Arme sind Überhänge und brauchen Stützmaterial.
+
+Bei OpenSCAD-Modellen (Weg 2) treten diese Probleme deutlich seltener auf, weil die Form aus exakten Grundkörpern besteht.
+:::
+
+## Beispiel 1: Schritt 4 — Ab in den Drucker
+
+::: columns
+::: {.column width="45%"}
+1. **Umwandeln:** `.glb` → `.stl` (z.B. mit Blender oder assimp)
+2. **Slicen:** `.stl` in PrusaSlicer laden und skalieren
+3. **Prüfen:** Fehler im Mesh korrigieren
+4. **Drucken**
+:::
+::: {.column width="55%"}
+![](beispiele/muttkrat/muttkrat_prusaslicer.png){fig-align="center" height="380"}
+
+:::
+:::
+
+::: {.notes}
+GLB ist das Austauschformat für 3D-Modelle mit Farbe und Textur. Drucker brauchen nur die Form – dafür ist STL das übliche Format.
+
+Bild-zu-3D-Modelle haben keine echten Maße. Im Slicer wird der Toad deshalb auf eine passende Größe skaliert (Bauraum des Druckers: 250 × 220 × 270 mm).
+
+Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
+:::
+
+
+
+## Beispiel 1: Muttkrat gedruckt
+
+![](beispiele/muttkrat/muttkrat_gedruckt.jpg){fig-align="center" height="480"}
+
+## Beispiel 2: Hexenturm aus einer Skizze
+
+<!-- TODO: Skizze in ComfyUI mit Hunyuan3D 2.1 testen und Ergebnis (Screenshot + ggf. Druck) einfügen -->
+
+::: columns
+::: {.column width="45%"}
+![](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="450"}
+:::
+::: {.column width="55%"}
+- Handzeichnung des Hexenturms
+- Gleiches Objekt wie in **Weg 2** — dort aus Code
+- Test mit ComfyUI + Hunyuan3D: **folgt**
+
+[Vergleich Weg 1 und Weg 2 am selben Objekt]{style="font-size:0.6em;color:#aaaaaa"}
+:::
+:::
+
+::: {.notes}
+Spannender Vergleich: Der Hexenturm wird gleich in Weg 2 maßgenau mit OpenSCAD gebaut. Hier geht dieselbe Idee als Skizze in ein Bild-zu-3D-Modell. Erwartung: organischer, weniger maßgenau, Details wie Fenster eventuell verwaschen.
+:::
+
+## Bild-Prompts finden
+
+[Abgucken erlaubt!]{.rtfm style="font-size:0.75em"} Prompts muss man nicht erfinden.
+
+::: {.link-grid .two}
+
+::: {.card}
+**Prompting Guide**
+
+Bereich „Text-to-Image“ mit Grundlagen und Beispielen
+
+[promptingguide.ai](https://www.promptingguide.ai)
+:::
+::: {.card}
+**Stable Diffusion Art**
+
+Älter, aber immer noch eine gute Einführung
+
+[stable-diffusion-art.com/Prompt-Guide](https://stable-diffusion-art.com/prompt-guide/)
+:::
+::: {.card}
+**Civitai**
+
+Bild anklicken — der Prompt steht meist dabei
+
+[civitai.com/images](https://civitai.com/images)
+:::
+:::
+
+
+::: {.notes}
+Bildmodelle (Fachbegriff: Diffusionsmodelle) wie FLUX, Z-Image oder Stable Diffusion verstehen Prompts anders als Chat-Modelle – Stichworte statt ganzer Sätze.
+
+Der schnellste Weg zu einem guten Bild-Prompt: ein Bild suchen, das dem Ziel nahekommt, und dessen Prompt als Vorlage nehmen. Danach Schritt für Schritt anpassen – genau so ist auch der Toad-Prompt entstanden.
+
+Achtung bei Civitai: Die Seite zeigt nutzergenerierte Bilder, darunter auch Inhalte, die nicht für jedes Publikum geeignet sind. Vor einer Live-Demo die Filtereinstellungen prüfen oder lieber Screenshots zeigen.
+:::
+
+# Weg 2: Text → Code → 3D
 
 Die KI schreibt Code — der Code wird zum 3D-Modell
 
+[Die Beispiele in diesem Teil wurden mit **Claude Code** erstellt.]{style="color:#aaaaaa;font-size:0.7em"}
+
 ::: {.notes}
 Hier kommt alles zusammen: Coding-Agent (Eingabemöglichkeiten) + gute Prompts (SAND) + Code ist Text.
+
+Claude Code ist ein Coding-Agent von Anthropic und läuft in der Cloud. Lokale Modelle auf der Workstation schaffen einfache Formen wie den Turm, bei komplexen Modellen wie dem Hexenturm stoßen sie schnell an Grenzen.
 :::
 
 
@@ -1142,7 +1373,7 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 ::: {.notes}
 Ein echtes Beispiel aus der Werkstatt – genau der Fall „Ersatzteil“, der auf der 3D-Druck-Folie am Anfang genannt wurde.
 
-Die Form ist technisch und geometrisch: Rohr, gerade Flächen, feste Maße. Damit ist sie ideal für Weg 1 (OpenSCAD).
+Die Form ist technisch und geometrisch: Rohr, gerade Flächen, feste Maße. Damit ist sie ideal für Weg 2 (OpenSCAD).
 :::
 
 ## Tischfuß: Der Prompt
@@ -1221,233 +1452,6 @@ Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI kons
 Wichtig ist der iterative Ablauf: nicht alles in einem Prompt, sondern Schritt für Schritt.
 :::
 
-# Weg 2: Bild → 3D
-
-Aus einem Foto oder einer Zeichnung wird ein 3D-Modell
-
-::: {.notes}
-Im Gegensatz zu Weg 1 entsteht hier kein Code, sondern direkt eine Oberfläche aus vielen kleinen Dreiecken.
-:::
-
-## Weg 2: Das Prinzip
-
-![](grafiken/weg2-prinzip.svg){fig-align="center" width="90%"}
-
-- KI „errät“ auch die nicht sichtbaren Seiten
-- Ergebnis: Oberfläche aus Dreiecken (Mesh), oft mit Farbe
-- Gut für Figuren und organische Formen, weniger für exakte Maße
-
-::: {.notes}
-Das ist gut für Figuren, aber Maße lassen sich nachträglich kaum ändern – anders als bei den Parametern in Weg 1.
-:::
-
-## Lokal: ComfyUI + Hunyuan3D
-
-- **ComfyUI:** Oberfläche, in der man KI-Schritte als **Knoten** verbindet
-- Fertige Vorlagen über das Menü **Templates**
-- Bild erzeugen: Vorlage **Z-Image-Turbo** (Text → Bild)
-- 3D erzeugen: Vorlage **HY 3D 2.1** = Hunyuan3D (Bild → 3D)
-- Läuft auf der Workstation — braucht viel Grafikspeicher
-
-::: {.notes}
-ComfyUI ist ein Knoten-Editor: Jeder Kasten ist ein Arbeitsschritt (Bild laden, Modell laden, 3D erzeugen, speichern). Die Kästen werden mit Linien verbunden.
-
-Auf der Workstation: ComfyUI im Browser unter http://localhost:8188 öffnen → Templates → „Image“ bzw. „3D Model“ wählen. Die Installation der Vorlagen ist bereits erledigt.
-
-Hinweis: ComfyUI gibt Modelle nicht automatisch aus dem Speicher frei – zwischen Bild- und 3D-Erzeugung ggf. Speicher freigeben.
-:::
-
-## Gute Vorlagen für Bild → 3D
-
-- **Ein** Objekt pro Bild
-- Hintergrund entfernt oder **einfarbig**
-- Gleichmäßige Beleuchtung **mit Schatten** — so erkennt die KI die Form
-- Kein Text, keine Logos
-- Ganzes Objekt sichtbar, nichts abgeschnitten
-
-::: {.notes}
-Die ersten vier Punkte stammen aus der Anleitung im Wiki. Schatten sind wichtig, weil die KI daraus die räumliche Form ableitet.
-
-Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel auf der nächsten Folie.
-:::
-
-## Beispiel: Muttkrat prompt
-
-::: {.prompt-box}
-**Positiv:** Full-body character render of a huge, very plump toad … low poly 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
-:::
-
-::: {.prompt-box .prompt-weak}
-**Negativ:** slim, tall, gradient background, floor, cast shadow, cropped, multiple characters, photorealistic, text, watermark, extra limbs …
-:::
-
-[Prompt gekürzt · vollständig in `beispiele/muttkrat/muttkrat_prompt.md`]{style="color:#aaaaaa;font-size:0.7em"}
-
-::: {.notes}
-Bildmodelle kennen zwei Prompts:
-
-- **Positiv-Prompt:** Was soll auf dem Bild sein?
-- **Negativ-Prompt:** Was soll auf keinen Fall auf dem Bild sein?
-
-Die Regeln von der vorherigen Folie stecken direkt im Prompt: „isolated and centered“ (ein Objekt), „plain solid background“ (einfarbiger Hintergrund), „three-point lighting“ (gleichmäßiges Licht), „whole figure visible“ (nichts abgeschnitten). Im Negativ-Prompt: kein Boden, kein Schattenwurf, kein Text, nicht abgeschnitten.
-
-„low poly 3D style“ sorgt für klare, einfache Formen – die lassen sich besser in 3D umsetzen und drucken.
-
-Bildmodelle verstehen Englisch meist besser als Deutsch.
-:::
-
-## Beispiel 1: Schritt 1 — Bild erzeugen
-
-![](beispiele/muttkrat/muttkrat_bild.png){fig-align="center" height="480"}
-
-::: {.notes}
-Erzeugt mit Z-Image-Turbo in ComfyUI auf der Workstation.
-
-Gut zu sehen: Im Prompt stand „cyan background“ – herausgekommen ist ein hellgrauer Hintergrund. Die KI hält sich nicht immer an jedes Detail (vgl. Nichtdeterminismus im Prompting-Teil). Für den nächsten Schritt reicht der einfarbige Hintergrund trotzdem.
-:::
-
-## Beispiel 1: Schritt 2 — Bild zu 3D-Modell
-
-![](beispiele/muttkrat/muttkrat_hunyuan3d.png){fig-align="center" height="450"}
-
-::: {.notes}
-Das Bild aus Schritt 1 wird unter „Step 2 – Upload image“ hochgeladen. Hunyuan3D 2.1 erzeugt daraus ein 3D-Modell, das direkt in ComfyUI gedreht werden kann.
-
-Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu sehen.
-
-Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
-:::
-
-## Beispiel 1: Schritt 3 - Typische Probleme
-
-::: columns
-::: {.column width="33%"}
-::: {.card}
-**Löcher im Mesh**
-
-Oberfläche ist nicht geschlossen
-
-→ reparieren lassen
-:::
-:::
-::: {.column width="34%"}
-::: {.card}
-**Zu dünne Wände**
-
-Brechen oder werden gar nicht gedruckt
-
-→ größer skalieren
-:::
-:::
-::: {.column width="33%"}
-::: {.card}
-**Überhänge**
-
-Teile hängen frei in der Luft
-
-→ Stützmaterial
-:::
-:::
-:::
-
-::: aside
-Viele Slicer reparieren kleine Mesh-Fehler automatisch — für größere Probleme hilft z.B. Blender.
-:::
-
-::: {.notes}
-Beim Toad gut zu sehen: Die Werkzeuge in den Händen sind sehr dünn – genau so eine Stelle, die beim Druck abbrechen kann. Die ausgestreckten Arme sind Überhänge und brauchen Stützmaterial.
-
-Bei OpenSCAD-Modellen (Weg 1) treten diese Probleme deutlich seltener auf, weil die Form aus exakten Grundkörpern besteht.
-:::
-
-## Beispiel 1: Schritt 4 — Ab in den Drucker
-
-::: columns
-::: {.column width="45%"}
-1. **Umwandeln:** `.glb` → `.stl` (z.B. mit Blender oder assimp)
-2. **Slicen:** `.stl` in PrusaSlicer laden und skalieren
-3. **Prüfen:** Fehler im Mesh korrigieren
-4. **Drucken**
-:::
-::: {.column width="55%"}
-![](beispiele/muttkrat/muttkrat_prusaslicer.png){fig-align="center" height="380"}
-
-:::
-:::
-
-::: {.notes}
-GLB ist das Austauschformat für 3D-Modelle mit Farbe und Textur. Drucker brauchen nur die Form – dafür ist STL das übliche Format.
-
-Bild-zu-3D-Modelle haben keine echten Maße. Im Slicer wird der Toad deshalb auf eine passende Größe skaliert (Bauraum des Druckers: 250 × 220 × 270 mm).
-
-Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
-:::
-
-
-
-## Beispiel 1: Muttkrat gedruckt
-
-![](beispiele/muttkrat/muttkrat_gedruckt.jpg){fig-align="center" height="480"}
-
-## Beispiel 2: Hexenturm aus einer Skizze
-
-<!-- TODO: Skizze in ComfyUI mit Hunyuan3D 2.1 testen und Ergebnis (Screenshot + ggf. Druck) einfügen -->
-
-::: columns
-::: {.column width="45%"}
-![](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="450"}
-:::
-::: {.column width="55%"}
-- Handzeichnung des Hexenturms
-- Gleiches Objekt wie in **Weg 1** — diesmal aus einem Bild
-- Test mit ComfyUI + Hunyuan3D: **folgt**
-
-[Vergleich Weg 1 und Weg 2 am selben Objekt]{style="font-size:0.6em;color:#aaaaaa"}
-:::
-:::
-
-::: {.notes}
-Spannender Vergleich: Der Hexenturm wurde in Weg 1 maßgenau mit OpenSCAD gebaut. Hier geht dieselbe Idee als Skizze in ein Bild-zu-3D-Modell. Erwartung: organischer, weniger maßgenau, Details wie Fenster eventuell verwaschen.
-:::
-
-## Bild-Prompts finden
-
-[Abgucken erlaubt!]{.rtfm style="font-size:0.75em"} Prompts muss man nicht erfinden.
-
-::: {.link-grid .two}
-
-::: {.card}
-**Prompting Guide**
-
-Bereich „Text-to-Image“ mit Grundlagen und Beispielen
-
-[promptingguide.ai](https://www.promptingguide.ai)
-:::
-::: {.card}
-**Stable Diffusion Art**
-
-Älter, aber immer noch eine gute Einführung
-
-[stable-diffusion-art.com/Prompt-Guide](https://stable-diffusion-art.com/prompt-guide/)
-:::
-::: {.card}
-**Civitai**
-
-Bild anklicken — der Prompt steht meist dabei
-
-[civitai.com/images](https://civitai.com/images)
-:::
-:::
-
-
-::: {.notes}
-Bildmodelle (Fachbegriff: Diffusionsmodelle) wie FLUX, Z-Image oder Stable Diffusion verstehen Prompts anders als Chat-Modelle – Stichworte statt ganzer Sätze.
-
-Der schnellste Weg zu einem guten Bild-Prompt: ein Bild suchen, das dem Ziel nahekommt, und dessen Prompt als Vorlage nehmen. Danach Schritt für Schritt anpassen – genau so ist auch der Toad-Prompt entstanden.
-
-Achtung bei Civitai: Die Seite zeigt nutzergenerierte Bilder, darunter auch Inhalte, die nicht für jedes Publikum geeignet sind. Vor einer Live-Demo die Filtereinstellungen prüfen oder lieber Screenshots zeigen.
-:::
-
 # Weg 3: MCP (Model Context Protocol)
 
 Die KI bedient 3D-Programme direkt
@@ -1479,18 +1483,18 @@ Kurzer Rückblick, bevor die Fragerunde startet.
 
 ## Vergleich der Wege
 
-| | **Weg 1: OpenSCAD + KI** | **Weg 2: Bild → 3D** |
+| | **Weg 1: Bild → 3D** | **Weg 2: OpenSCAD + KI** |
 |---|---|---|
-| Eingabe | Text (und Skizzen) | Foto oder Zeichnung |
-| Ergebnis | Code → exaktes Modell | Mesh (Dreiecksnetz) |
-| Stärke | technische Teile, Gebäude | Figuren, organische Formen |
-| Lokal | OpenCode + Ollama | ComfyUI + Hunyuan3D |
-| Cloud | Claude Code, GitHub Copilot | Meshy.ai, tripo3d.ai|
+| Eingabe | Foto oder Zeichnung | Text (und Skizzen) |
+| Ergebnis | Mesh (Dreiecksnetz) | Code → exaktes Modell |
+| Stärke | Figuren, organische Formen | technische Teile, Gebäude |
+| Lokal | ComfyUI + Hunyuan3D | OpenCode + Ollama |
+| Cloud | Meshy.ai, tripo3d.ai | Claude Code, GitHub Copilot |
 
 : {tbl-colwidths="[18,41,41]"}
 
 ::: {.notes}
-Faustregel: Muss es passen (Ersatzteil, Halterung)? → Weg 1. Soll es gut aussehen (Figur, Deko)? → Weg 2.
+Faustregel: Soll es gut aussehen (Figur, Deko)? → Weg 1. Muss es passen (Ersatzteil, Halterung)? → Weg 2.
 :::
 
 
@@ -1575,7 +1579,7 @@ Stand: Oktober 2026 — Demos kommen und gehen.
 :::
 
 ::: {.notes}
-Live je nach Zeit eine Demo zeigen, z.B. Bild → 3D mit Hunyuan3D – das ist die Cloud-Variante von Weg 2 aus dem Hauptteil.
+Live je nach Zeit eine Demo zeigen, z.B. Bild → 3D mit Hunyuan3D – das ist die Cloud-Variante von Weg 1 aus dem Hauptteil.
 :::
 
 # Bonus: Termine-Webseite

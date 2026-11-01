@@ -35,9 +35,9 @@ Das Skript kann aus jedem Ordner aufgerufen werden.
 ## Automatisch online
 
 Die GitHub-Pipeline (`.github/workflows/deploy.yml`) erzeugt die PDFs bei jedem Push auf `main` und veröffentlicht sie unter
-<https://presentations.erfindergeist.org/ki2/plakat/plakat-a3.pdf>,
-<https://presentations.erfindergeist.org/ki2/plakat/plakat-a4.pdf> und
-<https://presentations.erfindergeist.org/ki2/plakat/plakat-a5x2.pdf>.
+<https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a3.pdf>,
+<https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf> und
+<https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a5x2.pdf>.
 
 ## Hinweise
 

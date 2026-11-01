@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier-Erzy Memory</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Das Spielfeld */
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 90vw;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+        }
+
+        /* Die Karten */
+        .memory-card {
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+
+        /* Vorder- und Rückseite der Karte */
+        .front-face, .back-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 8px;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem; /* Größe der Emojis */
+            user-select: none;
+        }
+
+        .front-face {
+            background-color: white;
+            transform: rotateY(180deg); /* Inhalt ist auf der Rückseite (logisch) */
+        }
+
+        .back-face {
+            background-color: #4a90e2;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Nachricht beim Gewinnen */
+        #win-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            z-index: 100;
+        }
+
+        #win-message h2 {
+            color: #28a745;
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Tier-Memory</h1>
+    
+    <div class="stats">
+        <span>Züge: <span id="moves">0</span></span>
+    </div>
+
+    <div class="memory-game" id="game-board">
+        <!-- Karten werden hier per JavaScript generiert -->
+    </div>
+
+    <!-- Overlay für das Ende des Spiels -->
+    <div id="win-message">
+        <h2>🎉 Gewonnen! 🎉</h2>
+        <p>Du hast das Spiel in <span id="final-moves"></span> Zügen gelöst.</p>
+        <button onclick="startGame()">Neustart</button>
+    </div>
+
+    <script>
+        // Konfiguration
+        const cardsArray = [
+            '🐶', '🐱', '🐭', '🐹', 
+            '🐰', '🦊', '🐻', '🐼'
+        ];
+
+        let hasFlippedCard = false;
+        let lockBoard = false; // Verhindert Klicks, während Flip-Animation läuft
+        let firstCard, secondCard;
+        let moves = 0;
+        let matchedPairs = 0;
+
+        const gameBoard = document.getElementById('game-board');
+        const movesDisplay = document.getElementById('moves');
+        const winMessage = document.getElementById('win-message');
+        const finalMovesSpan = document.getElementById('final-moves');
+
+        // Spiel starten
+        function startGame() {
+            // UI zurücksetzen
+            gameBoard.innerHTML = '';
+            winMessage.style.display = 'none';
+            movesDisplay.innerText = 0;
+            matchedPairs = 0;
+            moves = 0;
+            
+            // Karten mischen (Fisher-Yates Shuffle)
+            const shuffledCards = [...cardsArray, ...cardsArray]
+                .sort(() => 0.5 - Math.random());
+
+            // HTML für die Karten generieren
+            shuffledCards.forEach(emoji => {
+                const card = document.createElement('div');
+                card.classList.add('memory-card');
+                
+                // Rückseite (das blaue Feld)
+                const frontFace = document.createElement('div');
+                frontFace.classList.add('front-face');
+                frontFace.innerText = emoji;
+
+                // Vorderseite (verstecktes Hintergrundbild oder Logo)
+                const backFace = document.createElement('div');
+                backFace.classList.add('back-face');
+                backFace.innerText = '?'; // Oder ein Logo
+
+                card.appendChild(frontFace);
+                card.appendChild(backFace);
+                
+                // Event Listener für Klick
+                card.addEventListener('click', flipCard);
+                
+                gameBoard.appendChild(card);
+            });
+        }
+
+        // Karten-Logik
+        function flipCard() {
+            // Wenn das Spiel schon beendet ist oder wir versuchen, die selbe Karte doppelt zu klicken
+            if (lockBoard) return;
+            if (this === firstCard) return;
+
+            this.classList.add('flip');
+
+            if (!hasFlippedCard) {
+                // Erster Klick
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+
+            // Zweiter Klick
+            secondCard = this;
+            incrementMoves();
+            checkForMatch();
+        }
+
+        function incrementMoves() {
+            moves++;
+            movesDisplay.innerText = moves;
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.innerHTML === secondCard.innerHTML;
+
+            if (isMatch) {
+                disableCards();
+            } else {
+                unflipCards();
+            }
+        }
+
+        function disableCards() {
+            // Karten sind ein Match, wir entfernen die Event Listener und Logik
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            
+            matchedPairs++;
+            resetBoard();
+
+            // Prüfen ob Spiel gewonnen
+            if (matchedPairs === cardsArray.length) {
+                setTimeout(() => {
+                    finalMovesSpan.innerText = moves;
+                    winMessage.style.display = 'block';
+                }, 500);
+            }
+        }
+
+        function unflipCards() {
+            lockBoard = true; // Wartezeit starten
+
+            setTimeout(() => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+                resetBoard();
+            }, 1000); // 1 Sekunde Pause, wie gewünscht
+        }
+
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+
+        // Spiel beim Laden starten
+        startGame();
+
+    </script>
+</body>
+</html>

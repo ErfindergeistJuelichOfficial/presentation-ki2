@@ -10,13 +10,15 @@
 ## Werbung
 
 - [ ] Newsletter
-- [ ] Beitrag webseite
+- [ ] Beitrag webseite (Wordpress)
 - [ ] Zeitungen anschreiben
-- [ ] Poster
+- [ ] Firmen anschreiben (Post weg)
+
+## Plakat 
+- [ ] Poster aufhängen
   - [ ] Pancieara
   - [ ] Bürgerhaus
 - [ ] Flyer
-- [ ] Firmen?
 
 ## Workstation
 
