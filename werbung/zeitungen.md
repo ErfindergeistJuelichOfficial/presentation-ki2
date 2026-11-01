@@ -22,6 +22,9 @@ Das Angebot richtet sich an alle Interessierten, privat wie beruflich. Ein Einst
 
 **Ort:** Erfindergeist Jülich e.V., im Gebäude der AWO Stadt Jülich e.V., Marie-Juchacz-Weg 2, 52428 Jülich
 
-**Kontakt für Rückfragen:** kontakt@erfindergeist.org · 02461/6869182
+**Kontakt für Rückfragen:** kontakt@erfindergeist.org  02461/6869182
 
-**Plakat:** https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf
+Plakat zum Ausdrucken und Weitergeben:
+A4: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf
+A3: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a3.pdf
+A5: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a5x2.pdf

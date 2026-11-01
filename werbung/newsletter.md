@@ -22,9 +22,17 @@ Das Angebot richtet sich an alle Interessierten, privat wie beruflich. Ein Einst
 
 Plakat zum Ausdrucken und Weitergeben: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf
 
+Plakat zum Ausdrucken und Weitergeben:
+A4: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a4.pdf
+A3: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a3.pdf
+A5: https://share.erfindergeist.org/presentations/ki2/plakat/plakat-a5x2.pdf
+
 Wir freuen uns auf Sie!
 
 Erfindergeist Jülich e.V.
+
+
+
 
 ## Erinnerung (ca. 3 Tage vorher)
 
