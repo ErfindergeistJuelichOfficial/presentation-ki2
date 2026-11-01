@@ -53,8 +53,8 @@
 
   /* ---------- Kopf ---------- */
   .head {
-    height: 123mm;
-    padding: 18mm 21mm 15mm;
+    height: 116mm;
+    padding: 14mm 21mm 12mm;
     background: var(--mint);
     color: #fff;
     display: flex;
@@ -84,7 +84,7 @@
   /* ---------- Inhalt ---------- */
   .body {
     flex: 1;
-    padding: 13.5mm 21mm 10.5mm;
+    padding: 11mm 21mm 9mm;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15mm;
@@ -102,30 +102,31 @@
   .item { display: flex; gap: 4.5mm; align-items: baseline; font-size: 6.7mm; line-height: 1.35; }
   .item::before { content: ""; flex: none; width: 3.7mm; height: 3.7mm; background: var(--amber); }
   .signup {
-    margin-top: auto;
+    margin-top: 8mm;
     padding: 3mm 0 3mm 5mm;
     border-left: 1.5mm solid var(--amber);
     font-size: 6mm; line-height: 1.4;
   }
 
   /* ---------- Fuß (aus plakat_004_A3.svg) ---------- */
-  /* eine Zeile: Logo | Adresse | Kontakt | QR — Logo und QR so hoch wie die drei Textzeilen */
+  /* eine Zeile: Logo | Adresse | Kontakt | QR — QR bewusst größer, damit er auch auf A5 (50 %) scanbar bleibt */
   .foot {
-    padding: 8mm 21mm 12mm;
+    padding: 6mm 21mm 9mm;
     background: #fff; color: var(--dark);
     border-top: 1.2mm solid var(--mint);
     display: flex; align-items: center; justify-content: space-between; gap: 8mm;
   }
-  .foot-logo { height: 26mm; display: block; flex: none; }
+  .foot-logo { height: 30mm; display: block; flex: none; }
   .foot-address { font-size: 5.6mm; line-height: 1.55; }
   .foot-address .name { font-weight: 700; font-size: 5.6mm; }
   .contact { display: flex; align-items: center; gap: 2.2mm; }
   .contact svg { width: 4.6mm; height: 4.6mm; flex: none; }
-  .foot-qr { height: 26mm; display: block; flex: none; }
+  .foot-qr { height: 40mm; display: block; flex: none; }
   /* Stempel: schräg gestellt mit doppeltem Rahmen */
   .hint {
     display: inline-block;
-    margin-top: 9mm; margin-left: 4mm;
+    align-self: flex-start;   /* in der Liste: nicht auf volle Breite ziehen */
+    margin-top: auto; margin-left: 4mm;   /* unten in der rechten Spalte */
     padding: 2.5mm 5mm;
     font-family: var(--font-display); font-size: 6mm; font-weight: 700; line-height: 1.25;
     text-transform: uppercase; letter-spacing: 0.04em; text-align: center;
@@ -184,21 +185,20 @@
         <div class="label">Samstag</div>
         <div class="date">21.11.2026</div>
         <div class="time">14–18 Uhr</div>
-        <div class="time-note">Sie können jederzeit dazukommen</div>
+        <div class="time-note">Einstieg jederzeit möglich</div>
       </div>
       <div class="where">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0F6E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
         <div><strong>Marie-Juchacz-Weg 2</strong><br>52428 Jülich</div>
       </div>
-      <div class="hint"><span>Für alle Neugierigen</span><span>ob privat oder beruflich</span></div>
+      <div class="signup"><strong>Wir freuen uns über eine Anmeldung:</strong><br>kontakt@erfindergeist.org</div>
     </div>
     <div class="list">
-      <div class="label">Was Sie erwartet</div>
+      <div class="label">Themen</div>
       <div class="item">Was ist KI – und was nicht? Grundlagen für Einsteiger</div>
       <div class="item">Mit KI eigene 3D-Modelle entwerfen, aus Text oder Bild</div>
       <div class="item">Reparieren mit KI: Ersatzteile selbst konstruieren und drucken</div>
-      <div class="item">Live auf unserem lokalen KI-Rechner und 3D-Drucker</div>
-      <div class="signup"><strong>Bitte kurz anmelden:</strong><br>kontakt@erfindergeist.org</div>
+      <div class="hint"><span>Für alle Neugierigen</span><span>ob privat oder beruflich</span></div>
     </div>
   </main>
 
