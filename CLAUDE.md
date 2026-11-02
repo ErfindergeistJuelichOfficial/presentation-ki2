@@ -218,10 +218,10 @@ podman compose run --rm qrcode
 - `drucksachen/plakat.html` — Werbeplakat, eigenständige HTML-Datei, **alle Maße in mm** (`@page { size: A3 }`)
 - A4 und A5 sind **kein eigenes Layout**: `plakat.html?a4` bzw. `?a5` verkleinert per CSS `zoom` (1/√2 bzw. 50 %) und setzt `@page` passend — nur `plakat.html` bearbeiten
 - Flyer (A5, doppelseitig): Vorderseite = `plakat.html?a5`, Rückseite = `drucksachen/rueckseite.html` (eigenes Layout, Maße in mm für A5)
-- `drucksachen/pdf.sh` — exportiert per Headless-Chrome nach `drucksachen/plakat-a3.pdf`, `plakat-a4.pdf`, `plakat-a5.pdf` und fügt per `pdfunite` den zweiseitigen `flyer-a5.pdf` zusammen
+- `drucksachen/pdf.sh` — exportiert per Headless-Chrome nach `drucksachen/plakat-a3.pdf`, `plakat-a4.pdf`, `plakat-a5.pdf` und erzeugt den Flyer als Einzelseiten (`flyer-a5-vorderseite.pdf`, `flyer-a5-rueckseite.pdf`, für die Druckerei) sowie per `pdfunite` zweiseitig (`flyer-a5.pdf`)
 - Bilder relativ einbinden (`../beispiele/…`, `../verein/…`); Farben als CSS-Variablen (CI-Farben)
 - Schriften: Rubik (Überschriften) + Inter (Text) per Google-Fonts-Link — **Ausnahme von der DSGVO-Regel**, weil das Plakat nur als PDF verteilt wird (Schriften eingebettet), nicht als Webseite. In der Präsentation bleiben Google Fonts verboten.
-- Pipeline (`deploy.yml`): erzeugt die PDFs nach dem Quarto-Render und kopiert sie nach `_site/drucksachen/` → online unter `/ki2/drucksachen/plakat-a3.pdf`, `…/plakat-a4.pdf`, `…/plakat-a5.pdf` und `…/flyer-a5.pdf`
+- Pipeline (`deploy.yml`): erzeugt die PDFs nach dem Quarto-Render und kopiert sie nach `_site/drucksachen/` → online unter `/ki2/drucksachen/plakat-a3.pdf`, `…/plakat-a4.pdf`, `…/plakat-a5.pdf`, `…/flyer-a5.pdf`, `…/flyer-a5-vorderseite.pdf` und `…/flyer-a5-rueckseite.pdf`
 
 ## Build
 

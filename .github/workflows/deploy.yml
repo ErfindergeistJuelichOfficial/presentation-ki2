@@ -29,7 +29,7 @@ jobs:
       run: |
         ./drucksachen/pdf.sh
         mkdir -p _site/drucksachen
-        cp drucksachen/plakat-a3.pdf drucksachen/plakat-a4.pdf drucksachen/plakat-a5.pdf drucksachen/flyer-a5.pdf _site/drucksachen/
+        cp drucksachen/plakat-a3.pdf drucksachen/plakat-a4.pdf drucksachen/plakat-a5.pdf drucksachen/flyer-a5.pdf drucksachen/flyer-a5-vorderseite.pdf drucksachen/flyer-a5-rueckseite.pdf _site/drucksachen/
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.4.0

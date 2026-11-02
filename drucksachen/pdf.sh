@@ -2,6 +2,7 @@
 # Erzeugt aus drucksachen/plakat.html und rueckseite.html (randlos):
 #   plakat-a3.pdf, plakat-a4.pdf, plakat-a5.pdf  — Plakat in drei Größen
 #   flyer-a5.pdf                                 — Flyer: Seite 1 Plakat A5, Seite 2 Rückseite
+#   flyer-a5-vorderseite.pdf, flyer-a5-rueckseite.pdf — Flyer als Einzelseiten (für die Druckerei)
 # Benötigt Google Chrome oder Chromium und pdfunite (Paket poppler-utils).
 set -e
 cd "$(dirname "$0")"
@@ -21,7 +22,8 @@ for FORMAT in a3 a4 a5; do
   print_pdf "plakat-$FORMAT.pdf" "plakat.html$QUERY"
 done
 
-print_pdf rueckseite-a5.pdf rueckseite.html
-pdfunite plakat-a5.pdf rueckseite-a5.pdf flyer-a5.pdf
-rm rueckseite-a5.pdf
+cp plakat-a5.pdf flyer-a5-vorderseite.pdf
+echo "PDF erstellt: drucksachen/flyer-a5-vorderseite.pdf"
+print_pdf flyer-a5-rueckseite.pdf rueckseite.html
+pdfunite flyer-a5-vorderseite.pdf flyer-a5-rueckseite.pdf flyer-a5.pdf
 echo "PDF erstellt: drucksachen/flyer-a5.pdf"
