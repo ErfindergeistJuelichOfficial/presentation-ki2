@@ -9,16 +9,19 @@
 
 ## Werbung
 
-- [ ] Newsletter
-- [ ] Beitrag webseite (Wordpress)
-- [ ] Zeitungen anschreiben
+- [x] Newsletter
+- [x] Beitrag webseite (Wordpress)
+- [x] Zeitungen anschreiben
 - [ ] Firmen anschreiben (Post weg)
 
 ## Plakat 
-- [ ] Poster aufhängen
+- [x] Plakat und Flyer bestellen
+- [ ] Plakat aufhängen:
+  - [ ] AWO
   - [ ] Pancieara
   - [ ] Bürgerhaus
-- [ ] Flyer
+- [ ] Flyer auslegen:
+  - [ ] Panciera
 
 ## Workstation
 
