@@ -110,7 +110,7 @@
   /* ---------- Fuß (aus plakat_004_A3.svg) ---------- */
   /* eine Zeile: Logo | Adresse | Kontakt | QR — QR bewusst größer, damit er auch auf A5 (50 %) scanbar bleibt */
   .foot {
-    padding: 6mm 21mm 6mm;
+    padding: 6mm 21mm 9mm;
     background: #fff; color: var(--dark);
     border-top: 1.2mm solid var(--mint);
     display: flex; align-items: center; justify-content: space-between; gap: 8mm;
@@ -121,12 +121,6 @@
   .contact { display: flex; align-items: center; gap: 2.2mm; }
   .contact svg { width: 4.6mm; height: 4.6mm; flex: none; }
   .foot-qr { height: 40mm; display: block; flex: none; }
-  /* Förderhinweis (Pflicht laut Förderbescheid): schmale Zeile unter dem Fuß */
-  .funding {
-    background: var(--paper); color: var(--dark);
-    padding: 3mm 21mm; text-align: center;
-    font-size: 5mm; font-weight: 500;
-  }
   /* Stempel: schräg gestellt mit doppeltem Rahmen */
   .hint {
     display: inline-block;
@@ -214,7 +208,6 @@
     </div>
     <img class="foot-qr" src="../qr-codes/qr_link_to_linktree_H30.svg" alt="QR-Code erfindergeist.org">
   </footer>
-  <div class="funding">Gefördert durch das Land Nordrhein-Westfalen, bewilligt durch den Kreis Düren</div>
 
 </div>
 </body>

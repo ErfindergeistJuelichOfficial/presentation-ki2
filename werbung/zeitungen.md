@@ -10,9 +10,9 @@ Pressemitteilung: „KI to 3D – Mit KI zum eigenen 3D-Druck“ am 21.11.2026 b
 
 ## Pressemitteilung
 
-Hallo zusammen,
+Sehr geehrte Damen und Herren,
 
-wir möchten Sie auf folgenden Termin hinweisen und würden uns über eine Veröffentlichung freuen.
+gerne möchten wir Sie auf eine Veranstaltung des Erfindergeist Jülich e.V. aufmerksam machen. Über eine Ankündigung in Ihrem Medium würden wir uns sehr freuen.
 
 Mit KI zum eigenen 3D-Druck: Erfindergeist Jülich lädt zu „KI to 3D“ ein
 
@@ -28,8 +28,14 @@ Ort: Erfindergeist Jülich e.V., im Gebäude der AWO Stadt Jülich e.V., Marie-J
 
 Kontakt für Rückfragen: kontakt@erfindergeist.org · 02461/6869182
 
-Plakat und Flyer zum Ausdrucken und Weitergeben:
+Plakat und Flyer zur Veröffentlichung oder zum Ausdrucken:
 Plakat A4: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a4.pdf
 Plakat A3: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a3.pdf
 Plakat A5: https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a5.pdf
 Flyer A5 (doppelseitig): https://share.erfindergeist.org/presentations/ki2/drucksachen/flyer-a5.pdf
+
+Für weitere Informationen oder Bildmaterial stehen wir Ihnen jederzeit gerne zur Verfügung. Vielen Dank für Ihre Unterstützung.
+
+Mit freundlichen Grüßen
+
+Erfindergeist Jülich e.V.
