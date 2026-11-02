@@ -20,7 +20,8 @@ Entwürfe für die Werbe-Todos aus `todo.md`. Alle Texte nutzen dieselben Eckdat
 | Anmeldung | optional, an kontakt@erfindergeist.org |
 | Zielgruppe | alle Neugierigen, privat oder beruflich, keine Vorkenntnisse nötig |
 | Kontakt | kontakt@erfindergeist.org · 02461/6869182 · https://erfindergeist.org |
-| Plakat (PDF) | https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a4.pdf (auch `plakat-a3.pdf`, `plakat-a5.pdf`, Flyer: `flyer-a5.pdf`) |
+| Plakat (PDF) | https://share.erfindergeist.org/presentations/ki2/drucksachen/plakat-a4.pdf (auch `plakat-a3.pdf`, `plakat-a5.pdf`) |
+| Flyer (PDF, A5 doppelseitig) | https://share.erfindergeist.org/presentations/ki2/drucksachen/flyer-a5.pdf |
 
 ## Themen
 

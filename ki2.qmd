@@ -43,7 +43,11 @@ format:
 
 Gemeinnütziger Verein aus Jülich — seit 2021
 
+[Gefördert durch das Land Nordrhein-Westfalen, bewilligt durch den Kreis Düren.]{style="color:#aaaaaa;font-size:0.7em"}
+
 ::: {.notes}
+Förderhinweis laut Förderbescheid: Auf die Förderung durch das Land NRW und die Bewilligung durch den Kreis Düren muss hingewiesen werden – kurz erwähnen und sich bedanken.
+
 Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker ist später der rote Faden des Workshops.
 :::
 
@@ -1834,8 +1838,10 @@ Spendenkonto und PayPal: [linktree.erfindergeist.org](https://linktree.erfinderg
 
 Vielen Dank für die Teilnahme!
 
+[Gefördert durch das Land Nordrhein-Westfalen, bewilligt durch den Kreis Düren.]{style="color:#aaaaaa;font-size:0.7em"}
+
 ::: {.notes}
-Dank an alle Teilnehmer, Hinweis auf die Online-Version der Präsentation.
+Dank an alle Teilnehmer, Hinweis auf die Online-Version der Präsentation. Dank an das Land NRW und den Kreis Düren für die Förderung (Förderhinweis laut Förderbescheid).
 :::
 
 ## Zum Nachlesen
