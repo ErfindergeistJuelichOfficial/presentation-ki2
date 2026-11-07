@@ -159,6 +159,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompt-Beispiele im Web“); {.link-grid .two} = 2 Spalten
 [Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
 ::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Das sollten Sie mitnehmen“)
+::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „Drei Wege zum 3D-Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand
 ```
 
 ## HTML-Demo-Folien

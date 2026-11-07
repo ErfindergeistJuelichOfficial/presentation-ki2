@@ -936,30 +936,50 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 
 # 3D-Generierung mit KI
 
-## Viele Wege zum 3D-Modell
+## Drei Wege zum 3D-Modell
 
-::: columns
-::: {.column width="33%"}
-### Weg 1: 2D Bild → 3D-Modell
+::: {.weg-grid}
+::: {.card}
+[Weg 1]{.weg-nr}
 
-- KI erzeugt aus einem Bild ein 3D-Modell
-- Organische Formen, Figuren
+**Bild → 3D**
+
+![](beispiele/muttkrat/muttkrat_bild.png)
+
+KI formt aus einem Foto ein 3D-Netz
+
+Figuren & organische Formen
 :::
-::: {.column width="33%"}
-### Weg 2: Text → Code → 3D-Modell
+::: {.card}
+[Weg 2]{.weg-nr}
 
-- KI schreibt OpenSCAD-Code
-- Präzise Maße, jederzeit änderbar
+**Text → Code → 3D**
+
+![](beispiele/hexenturm/hexenturm_fertig.png)
+
+KI schreibt OpenSCAD-Code
+
+Exakte Maße, jederzeit änderbar
 :::
-::: {.column width="33%"}
-### Weg 3: MCP Blender von KI steuern lassen
+::: {.card .ausblick}
+[Weg 3]{.weg-nr} [Ausblick]{.rtfm}
 
-- xxx
+**KI steuert Blender**
+
+![](grafiken/mcp-ablauf-hoch.svg)
+
+KI bedient das 3D-Programm per MCP
+
+Modelle bearbeiten & Szenen bauen
 :::
 :::
 
 
-Alle Wege können 100 % **lokal** laufen, aber auch mit **Cloud**-Modellen kombiniert werden.
+::: {.notes}
+Überblick vor dem Hauptteil. Heute im Detail: Weg 1 (Muttkrat-Figur aus einem Bild) und Weg 2 (Hexenturm als OpenSCAD-Code). Weg 3 (MCP + Blender) nur als kurzer Ausblick am Ende des Hauptteils.
+
+Faustregel: Soll es gut aussehen → Weg 1. Soll es passen → Weg 2.
+:::
 
 
 # Weg 1: Bild → 3D
@@ -1015,12 +1035,9 @@ Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel a
 ## Beispiel: Muttkrat prompt
 
 ::: {.prompt-box}
-**Positiv:** Full-body character render of a huge, very plump toad … low poly 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
+Full-body character render of a huge, very plump toad … 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
 :::
 
-::: {.prompt-box .prompt-weak}
-**Negativ:** slim, tall, gradient background, floor, cast shadow, cropped, multiple characters, photorealistic, text, watermark, extra limbs …
-:::
 
 [Prompt gekürzt · vollständig in `beispiele/muttkrat/muttkrat_prompt.md`]{style="color:#aaaaaa;font-size:0.7em"}
 
@@ -1276,91 +1293,6 @@ Die Datei liegt unter `beispiele/openscad-turm/openscad-turm.scad` und kann in O
 :::
 
 
-## OpenSCAD: Hexenturm Jülich
-
-
-::: columns
-::: {.column width="60%"}
-
-![](beispiele/hexenturm/hexenturm_fertig.png){fig-align="center" height="500"}
-
-:::
-::: {.column width="40%"}
-
-Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe von KI.
-:::
-:::
-
-::: {.notes}
-Der Hexenturm ist ein Wahrzeichen von Jülich. Das Modell entstand in mehreren Schritten mit Claude Code.
-:::
-
-## OpenSCAD: Modularer Aufbau
-
-![](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="500"}
-
-::: aside
-Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
-:::
-
-::: {.notes}
-Wie beim Prompting gilt: große Aufgaben in kleine Teile zerlegen. Jedes Modul wurde einzeln erstellt und dann zusammengesetzt.
-:::
-
-## OpenSCAD: Prompt mit Skizze
-
-::: columns
-::: {.column width="40%"}
-![](beispiele/hexenturm/hexenturm_skizze_tunnel.png){fig-align="center" height="450"}
-:::
-::: {.column width="60%"}
-::: {.chat-input}
-Erstelle ein Rechteck, durch das ein Tunnel geht. Anbei ein Bild, wie ich es mir vorstelle.
-:::
-
-[Skizze als Anhang im Chat · Prompt für die Folie vereinfacht]{style="color:#aaaaaa;font-size:0.7em"}
-:::
-:::
-
-::: {.notes}
-Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten (Bezug zur Folie Chihuahua oder Muffin).
-:::
-
-## OpenSCAD: Details im Code
-
-![](beispiele/hexenturm/hexenturm_details.png){fig-align="center" height="500"}
-
-::: aside
-Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.
-:::
-
-::: {.notes}
-Details wurden erst ergänzt, als die Grundform stand.
-:::
-
-## OpenSCAD: Detail-Prompt mit Skizze
-
-::: columns
-::: {.column width="40%"}
-![](beispiele/hexenturm/hexenturm_skizze_verzierung.png){fig-align="center" height="450"}
-:::
-::: {.column width="60%"}
-::: {.chat-input}
-Entlang des Tunnels hätte ich gerne an nur einer Seite eine Verzierung: Steine, die abwechselnd größer und kleiner werden. Oben mittig ist ein Spezialstein. Anbei ein Bild, wie ich es mir etwa vorstelle.
-:::
-
-[Skizze als Anhang im Chat · Prompt für die Folie vereinfacht]{style="color:#aaaaaa;font-size:0.7em"}
-:::
-:::
-
-::: {.notes}
-Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
-:::
-
-## OpenSCAD: Fotos des 3D-Drucks
-
-![](beispiele/hexenturm/hexenturm_gedruckt.jpg){fig-align="center" height="500"}
-
 ## KI zum Reparieren eines Tischfußes
 
 ::: columns
@@ -1442,6 +1374,93 @@ Die vollständige Datei liegt unter `beispiele/tischfuss/tischfuss.scad`.
 Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI konstruieren lassen, drucken. Genau der rote Faden dieses Workshops.
 :::
 
+## OpenSCAD: Hexenturm Jülich
+
+
+::: columns
+::: {.column width="60%"}
+
+![](beispiele/hexenturm/hexenturm_fertig.png){fig-align="center" height="500"}
+
+:::
+::: {.column width="40%"}
+
+Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe von KI.
+:::
+:::
+
+::: {.notes}
+Überleitung: Der Tischfuß war ein einzelnes Teil mit einem Prompt. Der Hexenturm ist deutlich komplexer – hier zeigt sich, wie man ein großes Modell Schritt für Schritt aufbaut.
+
+Der Hexenturm ist ein Wahrzeichen von Jülich. Das Modell entstand in mehreren Schritten mit Claude Code.
+:::
+
+## OpenSCAD: Modularer Aufbau
+
+![](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="500"}
+
+::: aside
+Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
+:::
+
+::: {.notes}
+Wie beim Prompting gilt: große Aufgaben in kleine Teile zerlegen. Jedes Modul wurde einzeln erstellt und dann zusammengesetzt.
+:::
+
+## OpenSCAD: Prompt mit Skizze
+
+::: columns
+::: {.column width="40%"}
+![](beispiele/hexenturm/hexenturm_skizze_tunnel.png){fig-align="center" height="450"}
+:::
+::: {.column width="60%"}
+::: {.chat-input}
+Erstelle ein Rechteck, durch das ein Tunnel geht. Anbei ein Bild, wie ich es mir vorstelle.
+:::
+
+[Skizze als Anhang im Chat · Prompt für die Folie vereinfacht]{style="color:#aaaaaa;font-size:0.7em"}
+:::
+:::
+
+::: {.notes}
+Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten (Bezug zur Folie Chihuahua oder Muffin).
+:::
+
+## OpenSCAD: Details im Code
+
+![](beispiele/hexenturm/hexenturm_details.png){fig-align="center" height="500"}
+
+::: aside
+Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.
+:::
+
+::: {.notes}
+Details wurden erst ergänzt, als die Grundform stand.
+:::
+
+## OpenSCAD: Detail-Prompt mit Skizze
+
+::: columns
+::: {.column width="40%"}
+![](beispiele/hexenturm/hexenturm_skizze_verzierung.png){fig-align="center" height="450"}
+:::
+::: {.column width="60%"}
+::: {.chat-input}
+Entlang des Tunnels hätte ich gerne an nur einer Seite eine Verzierung: Steine, die abwechselnd größer und kleiner werden. Oben mittig ist ein Spezialstein. Anbei ein Bild, wie ich es mir etwa vorstelle.
+:::
+
+[Skizze als Anhang im Chat · Prompt für die Folie vereinfacht]{style="color:#aaaaaa;font-size:0.7em"}
+:::
+:::
+
+::: {.notes}
+Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
+:::
+
+## OpenSCAD: Fotos des 3D-Drucks
+
+![](beispiele/hexenturm/hexenturm_gedruckt.jpg){fig-align="center" height="500"}
+
 ## OpenSCAD mit KI: Zusammenfassung
 
 
@@ -1481,9 +1500,6 @@ Warum nicht heute: Für Einsteiger ist der Weg über Code (OpenSCAD) bzw. Bild (
 ::: {.notes}
 Kurzer Rückblick, bevor die Fragerunde startet.
 :::
-
-
-
 
 ## Vergleich der Wege
 
@@ -1769,21 +1785,6 @@ Erst im Diagramm wurde sichtbar, wie verschachtelt das ist. Daraus entstand der 
 Ergebnis: Der Speicherbedarf sinkt von „alle Modelle zusammen“ auf „das größte einzelne Modell“ – wichtig für Rechner wie unsere Workstation mit begrenztem Grafikspeicher.
 :::
 
-# Bonus: Azure Showcases
-
-KI-Anwendungen aus der Praxis von Unternehmen
-
-::: {.notes}
-Unternehmens-Showcase.
-:::
-
-## Azure: Showcases
-
-<!-- TODO: Showcases einfügen -->
-
-::: aside
-Weitere Szenarien: [Microsoft Scenario Library](https://adoption.microsoft.com/de-de/scenario-library/) — abgerufen am 09.10.2026
-:::
 
 # Referenzen
 

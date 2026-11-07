@@ -181,6 +181,45 @@
 .reveal .link-grid .card p:last-child { margin-top: auto; }
 .reveal .link-grid.two { grid-template-columns: repeat(2, 1fr); }
 
+/* === Wege-Raster (Nutzung: ::: {.weg-grid} mit 3x ::: {.card}, [Weg 1]{.weg-nr}) === */
+.reveal .weg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  margin-top: 0.4em;
+}
+.reveal .weg-grid .card {
+  height: auto;
+  font-size: 0.6em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.8em 0.6em;
+}
+.reveal .weg-grid .card p { margin: 0.25em 0; }
+.reveal .weg-grid .card strong { font-size: 1.35em; }
+.reveal .weg-grid .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #222222;
+  border-radius: 6px;
+  padding: 0.3em;
+  box-sizing: border-box;
+  margin: 0.2em 0;
+}
+.reveal .weg-grid .card p:last-child { margin-top: auto; padding-top: 0.3em; }
+.reveal .weg-nr {
+  font-family: monospace;
+  font-size: 0.85em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+}
+.reveal .weg-grid .card.ausblick { border-top: 4px dashed #aaaaaa; }
+.reveal .weg-grid .card.ausblick img { opacity: 0.85; }
+.reveal .weg-grid .rtfm { font-size: 0.8em; margin-left: 0.3em; }
+
 /* === Merke-Raster mit Nummern (Nutzung: ::: {.takeaways} mit 6x ::: {.card}) === */
 .reveal .takeaways {
   display: grid;
