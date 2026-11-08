@@ -27,6 +27,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 | `_quarto.yml` | Projekt- und Format-Konfiguration |
 | `beispiele/<name>/` | **Alles zu einem Beispiel** in einem Ordner: Bilder, `.scad`, Prompt, Demo-HTML + `README.md` (z.B. `hexenturm/`, `tischfuss/`, `muttkrat/`) |
 | `grafiken/` | Erklär-Grafiken als SVG (neuronales Netz, MCP, VRAM, Weg-1-Prinzip) |
+| `handouts/` | Druckvorlagen für den Workshop-Tag als `.md` → PDF (A4): Prompt-Beispiele (neben den KI-Rechner legen), QR-Aushang zur Präsentation (`qr-praesentation.md`) |
 | `verein/` | Logo, Linktree-QR, Werkstatt-Foto |
 | `qr-codes/` | Erzeugte QR-Codes (siehe Abschnitt QR-Codes) |
 | `qrcodes.sh` / `compose.yaml` | QR-Code-Erzeugung per Podman (siehe Abschnitt QR-Codes) |
