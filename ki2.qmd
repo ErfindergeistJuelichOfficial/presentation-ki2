@@ -1147,25 +1147,40 @@ Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 
 ![](beispiele/muttkrat/muttkrat_gedruckt.jpg){fig-align="center" height="480"}
 
-## Beispiel 2: Hexenturm aus einer Skizze
+## Herausforderung: Hexenturm
 
-<!-- TODO: Skizze in ComfyUI mit Hunyuan3D 2.1 testen und Ergebnis (Screenshot + ggf. Druck) einfügen -->
+![](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="440"}
 
-::: columns
-::: {.column width="45%"}
-![](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="450"}
+[Die Skizze als Vorlage für Bild → 3D]{style="display:block;text-align:center;color:#aaaaaa;font-size:0.7em"}
+
+::: {.notes}
+Dieselbe Skizze wird später in Weg 2 auch für den Hexenturm in OpenSCAD genutzt – hier geht sie direkt in Bild → 3D.
 :::
-::: {.column width="55%"}
-- Handzeichnung des Hexenturms
-- Gleiches Objekt wie in **Weg 2** — dort aus Code
-- Test mit ComfyUI + Hunyuan3D: **folgt**
 
-[Vergleich Weg 1 und Weg 2 am selben Objekt]{style="font-size:0.6em;color:#aaaaaa"}
+## Hexenturm: Die Ergebnisse
+
+::: {.flow-pair}
+::: {.card}
+![](beispiele/hexenturm/hexenturm_skizzo_to_hun.png)
+
+Lokal (ComfyUI + Hunyuan3D)
 :::
+
+::: {.card}
+![](beispiele/hexenturm/hexenturm_skizze_meshy.png)
+
+Meshy.ai (Cloud)
+:::
+:::
+
+::: {.tip-line style="font-size:0.65em"}
+Cloud-Tools wie **Meshy** sind schon besser — aber nicht perfekt. Lokal fehlt noch Feintuning am Workflow, dann ist Ähnliches möglich.
 :::
 
 ::: {.notes}
-Spannender Vergleich: Der Hexenturm wird gleich in Weg 2 maßgenau mit OpenSCAD gebaut. Hier geht dieselbe Idee als Skizze in ein Bild-zu-3D-Modell. Erwartung: organischer, weniger maßgenau, Details wie Fenster eventuell verwaschen.
+Lokal funktioniert es mit dem Standard-Workflow noch nicht so gut. Herausforderung für die Zukunft: den ComfyUI-Workflow anpassen und optimieren (z.B. Einstellungen, Vorverarbeitung der Skizze). Mit etwas Feintuning sollte lokal ein ähnlich gutes Ergebnis möglich sein.
+
+Meshy ist ein kommerzieller Cloud-Dienst – das Bild wird dafür hochgeladen.
 :::
 
 ## Bild-Prompts finden
