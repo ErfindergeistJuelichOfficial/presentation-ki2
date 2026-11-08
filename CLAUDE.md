@@ -96,6 +96,8 @@ Spalten-Breiten immer explizit angeben und auf 100 % addieren.
 ![](beispiele/hexenturm/hexenturm_fertig.png){fig-align="center" height="500"}
 ```
 
+**Bildunterschrift** als Alt-Text in die eckigen Klammern schreiben (`![Links: neu · Rechts: alt](…)`) — wird per `styles.css` zentriert, grau und klein unter dem Bild gesetzt. Keine separate `[…]{style=…}`-Zeile dafür.
+
 **`height="500"` ist der Standard für Vollbild-Bilder** — so bleibt das Bild im Bildschirm.
 Breiten-Prozent (`width="100%"`) nur in Spalten-Layouts.
 
@@ -160,6 +162,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompt-Beispiele im Web“); {.link-grid .two} = 2 Spalten
 [Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
 ::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Das sollten Sie mitnehmen“)
+::: {.ctx-grid}             ← 3 Karten als Treppe, wachsen von links nach rechts (Folie „Wie groß ist ein Kontextfenster?“); [Text]{.ctx-seiten} = größere Mittelzeile, letzte Zeile grau
 ::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „Drei Wege zum 3D-Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand
 ```
 

@@ -246,6 +246,31 @@
 .reveal .takeaways .card p:last-child { color: #ffffff; font-weight: normal; margin: 0; }
 .reveal .tip-line { text-align: center; margin-top: 0.7em; }
 
+/* === Kontextfenster-Treppe (Nutzung: ::: {.ctx-grid} mit 3x ::: {.card}) — Karten wachsen von links nach rechts === */
+.reveal .ctx-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  align-items: end;
+  height: 330px;
+  margin-top: 0.4em;
+}
+.reveal .ctx-grid .card {
+  font-size: 0.6em;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.8em 0.7em;
+}
+.reveal .ctx-grid .card:nth-child(1) { height: 62%; }
+.reveal .ctx-grid .card:nth-child(2) { height: 80%; }
+.reveal .ctx-grid .card:nth-child(3) { height: 100%; }
+.reveal .ctx-grid .card p { margin: 0.2em 0; }
+.reveal .ctx-grid .card p:first-child strong { font-size: 1.9em; margin-right: 0.15em; }
+.reveal .ctx-grid .ctx-seiten { font-size: 1.3em; }
+.reveal .ctx-grid .card p:last-child { margin-top: auto; color: #aaaaaa; font-weight: normal; }
+
 /* === Logo === */
 .reveal .slide-logo {
   height: 100px !important;
@@ -340,7 +365,7 @@
 }
 .reveal .flow-pair .card img {
   width: 100%;
-  height: 380px;
+  height: 330px;
   object-fit: contain;
   background: #222222;
   border-radius: 6px;
@@ -348,3 +373,14 @@
 }
 .reveal .flow-pair .card p:last-child { margin: 0.3em 0 0; }
 .reveal .flow-arrow { font-size: 2.5em; font-weight: bold; color: #F9B338; margin: 0; }
+
+/* === Bildunterschrift (Nutzung: ![Text](bild.jpg){fig-align="center"}) === */
+.reveal figure figcaption,
+.reveal .figure figcaption,
+.reveal .quarto-figure figcaption {
+  text-align: center;
+  color: #aaaaaa;
+  font-size: 0.7em;
+  font-style: normal;
+  margin-top: 0.3em;
+}

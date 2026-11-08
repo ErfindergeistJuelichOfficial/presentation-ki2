@@ -101,7 +101,7 @@ Ein einziges Stil-Wort verändert das ganze Bild. Einfach austauschen und vergle
 
 > **Kröte** — Jülicher werden auch „Muttkraten“ genannt
 >
-> Common toad sitting, warty brown skin, golden eyes, single object, centered, plain light grey background, soft studio light, soft shadows, full view
+> comic style, flat colors, Common toad sitting, warty brown skin, golden eyes, single object, centered, plain light grey background, soft studio light, soft shadows, full view
 
 Variante: `Common toad` durch `Low poly toad` ersetzen.
 

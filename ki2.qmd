@@ -676,13 +676,29 @@ Bild: Das Kontextfenster ist wie ein Schreibtisch. Was nicht mehr draufpasst, f�
 
 ## Prompting: Wie groß ist ein Kontextfenster?
 
-| Kontextfenster | entspricht ca. | typisch für |
-|---|---|---|
-| 4.000 Token | 6 Seiten | lokale Modelle (Voreinstellung Ollama) |
-| 128.000 Token | 180 Seiten | viele offene Modelle (z.B. Llama, Qwen) |
-| 1.000.000 Token | 1.400 Seiten | große Cloud-Modelle (z.B. Gemini, Claude) |
+::: {.ctx-grid}
+::: {.card}
+**4.000** Token
 
-: {tbl-colwidths="[30,25,45]"}
+[≈ 6 Seiten]{.ctx-seiten}
+
+lokale Modelle (Voreinstellung Ollama)
+:::
+::: {.card}
+**128.000** Token
+
+[≈ 180 Seiten]{.ctx-seiten}
+
+viele offene Modelle (z.B. Llama, Qwen)
+:::
+::: {.card}
+**1.000.000** Token
+
+[≈ 1.400 Seiten]{.ctx-seiten}
+
+große Cloud-Modelle (z.B. Gemini, Claude)
+:::
+:::
 
 ::: aside
 **Faustregel:** 1 Seite deutscher Text ≈ 700 Token. Stand: Oktober 2026, Werte ändern sich schnell.
@@ -1381,9 +1397,7 @@ Die vollständige Datei liegt unter `beispiele/tischfuss/tischfuss.scad`.
 
 ## Tischfuß: Alt und neu
 
-![](beispiele/tischfuss/tischfuss_vergleich.jpg){fig-align="center" height="480"}
-
-[Links: neu gedruckt (ABS) · Rechts: das alte, gebrochene Original]{style="color:#aaaaaa;font-size:0.7em"}
+![Links: neu gedruckt (ABS) · Rechts: das alte, gebrochene Original](beispiele/tischfuss/tischfuss_vergleich.jpg){fig-align="center" height="480"}
 
 ::: {.notes}
 Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI konstruieren lassen, drucken. Genau der rote Faden dieses Workshops.
@@ -1412,11 +1426,7 @@ Der Hexenturm ist ein Wahrzeichen von Jülich. Das Modell entstand in mehreren S
 
 ## OpenSCAD: Modularer Aufbau
 
-![](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="500"}
-
-::: aside
-Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.
-:::
+![Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="480"}
 
 ::: {.notes}
 Wie beim Prompting gilt: große Aufgaben in kleine Teile zerlegen. Jedes Modul wurde einzeln erstellt und dann zusammengesetzt.
@@ -1443,11 +1453,8 @@ Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten 
 
 ## OpenSCAD: Details im Code
 
-![](beispiele/hexenturm/hexenturm_details.png){fig-align="center" height="500"}
+![Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.](beispiele/hexenturm/hexenturm_details.png){fig-align="center" height="480"}
 
-::: aside
-Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.
-:::
 
 ::: {.notes}
 Details wurden erst ergänzt, als die Grundform stand.
@@ -1474,7 +1481,7 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 
 ## OpenSCAD: Fotos des 3D-Drucks
 
-![](beispiele/hexenturm/hexenturm_gedruckt.jpg){fig-align="center" height="500"}
+![Fertig gedruckt](beispiele/hexenturm/hexenturm_gedruckt.jpg){fig-align="center" height="480"}
 
 ## OpenSCAD mit KI: Zusammenfassung
 
@@ -1608,10 +1615,6 @@ Die kostenlosen Demos laufen auf geteilter Hardware: Bei vielen Nutzern kann es 
 | Bild → 3D | [Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1) · [Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D) |
 
 : {tbl-colwidths="[40,60]"}
-
-::: aside
-Stand: Oktober 2026 — Demos kommen und gehen.
-:::
 
 ::: {.notes}
 Live je nach Zeit eine Demo zeigen, z.B. Bild → 3D mit Hunyuan3D – das ist die Cloud-Variante von Weg 1 aus dem Hauptteil.
