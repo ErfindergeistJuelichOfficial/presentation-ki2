@@ -782,32 +782,6 @@ Dasselbe Modell kann in verschiedenen Oberflächen laufen. Im Chat antwortet die
 Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: Modell läuft beim Anbieter.
 :::
 
-## Lokal oder Cloud? (1/2)
-
-| | **Lokal** | **Cloud** |
-|---|---|---|
-| Modellgröße | klein bis mittel (7B–14B) | riesig (oft geheim) |
-| Geschwindigkeit | hängt vom eigenen Rechner ab | hängt vom Anbieter ab |
-| Kontextfenster | 4.000–128.000 Token | bis ca. 1 Mio. Token |
-
-: {tbl-colwidths="[24,38,38]"}
-
-## Lokal oder Cloud? (2/2)
-
-| | **Lokal** | **Cloud** |
-|---|---|---|
-| Daten | **bleiben bei Ihnen** | verlassen den Rechner |
-| Kosten | einmalig (Hardware) + Strom | laufend (Abo / pro Token) |
-
-: {tbl-colwidths="[24,38,38]"}
-
-::: aside
-**Merke:** Lokal = Ihre Daten bleiben bei Ihnen · Cloud = größere Modelle
-:::
-
-::: {.notes}
-Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
-:::
 
 ## Tools
 
