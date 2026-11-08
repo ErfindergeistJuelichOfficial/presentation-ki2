@@ -133,6 +133,8 @@ Sprechernotizen hier — nicht auf der Folie sichtbar.
 
 `tbl-colwidths` immer angeben, damit Tabellen nicht überlaufen.
 
+Einheitliches Tabellen-Design kommt aus `styles.css`: volle Breite, Kopfzeile Mint mit dunklem Text (auch bei `**fett**` im Kopf), Zebrastreifen. Kein `{.smaller}` auf Tabellenfolien — passt eine Tabelle nicht, auf zwei Folien `(1/2)` / `(2/2)` mit gleicher Kopfzeile aufteilen.
+
 ## Kritische Regel: Kein Text außerhalb des Bildschirms
 
 **Das ist das häufigste Problem — immer zuerst prüfen.**
@@ -239,7 +241,7 @@ Output landet in `_site/`.
 
 ## Inhaltliche Leitlinien beim Erweitern
 
-- **Sprache**: Deutsch, Du-Form vermeiden (Workshop-Publikum ist gemischt) — Sie-Form oder direkte Anrede
+- **Sprache**: Deutsch, in Folien und Handouts **Du-Form** (Workshop-Atmosphäre im Verein). Die Sie-Form nur in Anschreiben an Unternehmen (z.B. Mails an große Firmen)
 - **Ton**: sachlich-informativ, kein Marketing-Sprech, keine Übertreibungen
 - **Tiefe**: Einsteiger-freundlich — technische Begriffe immer kurz erklären
 - **Struktur**: Jede neue Demo oder jedes Tool bekommt eine Section (`#`) und mindestens eine Unterfolie (`##`)

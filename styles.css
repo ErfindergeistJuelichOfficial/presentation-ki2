@@ -23,10 +23,15 @@
 }
 
 /* === Tabellen === */
+.reveal table {
+  width: 100%;
+}
 .reveal table th {
   background: #159989;
   color: #222222;
 }
+/* Fett im Tabellenkopf nicht in Amber, sondern wie der übrige Kopf (dunkel auf Mint) */
+.reveal table th strong { color: inherit; }
 .reveal table tr:nth-child(even) td {
   background: #2d2d2d;
 }

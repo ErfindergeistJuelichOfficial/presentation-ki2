@@ -455,7 +455,7 @@ Der System-Prompt ist bei ChatGPT & Co. unsichtbar vorgegeben. In Open WebUI kan
 
 ## Prompting: SAND Methode
 
-::: {.plain-table}
+::: {.plain-table style="font-size:0.8em"}
 |   |   |
 |---|---|
 | **Situation** | Rolle der KI, Zielgruppe und Hintergrund definieren (Context wie z.B. E-Mail, Webseite, PDF, Bild etc. hinzufügen) |
@@ -555,7 +555,7 @@ Schritt für Schritt ein Feature mit KI bauen
 :::
 
 ::: aside
-Jedes Modell versteht Prompts anders — die Beispiele sind auf das jeweilige Modell abgestimmt. 
+**Merke** Jedes Modell versteht Prompts anders — die Beispiele sind auf das jeweilige Modell abgestimmt. 
 :::
 
 ::: {.notes}
@@ -599,7 +599,7 @@ für Profis
 :::
 
 ::: aside
-Frontier-Modelle = die jeweils leistungsstärksten aktuellen Modelle der großen Anbieter.
+**Merke** Frontier-Modelle = die jeweils leistungsstärksten aktuellen Modelle der großen Anbieter.
 :::
 
 ::: {.notes}
@@ -764,7 +764,7 @@ Wie und wo kann man mit KI arbeiten?
 :::
 
 
-## Eingabemöglichkeiten: Übersicht {.smaller}
+## Eingabemöglichkeiten: Übersicht
 
 | **Art** | **Lokal** | **Cloud** |
 |---|---|---|
@@ -782,19 +782,28 @@ Dasselbe Modell kann in verschiedenen Oberflächen laufen. Im Chat antwortet die
 Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: Modell läuft beim Anbieter.
 :::
 
-## Lokal oder Cloud?  {.smaller}
+## Lokal oder Cloud? (1/2)
 
 | | **Lokal** | **Cloud** |
 |---|---|---|
 | Modellgröße | klein bis mittel (7B–14B) | riesig (oft geheim) |
 | Geschwindigkeit | hängt vom eigenen Rechner ab | hängt vom Anbieter ab |
 | Kontextfenster | 4.000–128.000 Token | bis ca. 1 Mio. Token |
+
+: {tbl-colwidths="[24,38,38]"}
+
+## Lokal oder Cloud? (2/2)
+
+| | **Lokal** | **Cloud** |
+|---|---|---|
 | Daten | **bleiben bei Ihnen** | verlassen den Rechner |
 | Kosten | einmalig (Hardware) + Strom | laufend (Abo / pro Token) |
 
 : {tbl-colwidths="[24,38,38]"}
 
+::: aside
 **Merke:** Lokal = Ihre Daten bleiben bei Ihnen · Cloud = größere Modelle
+:::
 
 ::: {.notes}
 Kernaussage: Lokal heißt kleinere Modelle, dafür bleiben die Daten auf dem eigenen Rechner. Cloud heißt größere Modelle, dafür verlassen die Daten den Rechner. Diese Abwägung zieht sich durch den ganzen Workshop.
@@ -809,7 +818,7 @@ Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen, HTML anzeigen
 
 
 :::aside
-Achtung: Ältere Modelle können nur Text lesen und schreiben. Oberflächen unterstützen nicht alle Tools, manchmal nur als Plugin.
+**Achtung** Ältere Modelle können nur Text lesen und schreiben. Oberflächen unterstützen nicht alle Tools, manchmal nur als Plugin.
 :::
 
 ::: {.notes}
@@ -854,7 +863,9 @@ Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), 
 
 ![](grafiken/vram-passt.svg){fig-align="center" width="85%"}
 
+::: aside
 Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
+:::
 
 ::: {.notes}
 Der Grafikspeicher ist wie ein Schreibtisch: Das ganze Modell muss darauf Platz haben. Unsere Workstation hat 16 GB.
@@ -944,7 +955,9 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 - Präsentationen (diese hier ist mit Quarto geschrieben)
 - **3D-Modelle** (OpenSCAD)
 
+::: aside
 **Merke:** Alles, was man als Code beschreiben kann, kann KI gut.
+:::
 
 ::: {.notes}
 Überleitung zum Hauptteil: Wenn KI ein Spiel programmieren kann, kann sie auch ein 3D-Modell programmieren – das zeigt Weg 2 mit OpenSCAD. Zuerst kommt aber Weg 1: 3D ganz ohne Code, direkt aus einem Bild.
@@ -1125,7 +1138,7 @@ Teile hängen frei in der Luft
 :::
 
 ::: aside
-Viele Slicer reparieren kleine Mesh-Fehler automatisch — für größere Probleme hilft z.B. Blender.
+**Merke** Viele Slicer reparieren kleine Mesh-Fehler automatisch — für größere Probleme hilft z.B. Blender.
 :::
 
 ::: {.notes}
@@ -1140,7 +1153,6 @@ Bei OpenSCAD-Modellen (Weg 2) treten diese Probleme deutlich seltener auf, weil 
 ::: {.column width="45%"}
 1. **Umwandeln:** `.glb` → `.stl` (z.B. mit Blender oder assimp)
 2. **Slicen:** `.stl` in PrusaSlicer laden und skalieren
-3. **Prüfen:** Fehler im Mesh korrigieren
 4. **Drucken**
 :::
 ::: {.column width="55%"}
@@ -1165,9 +1177,8 @@ Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 
 ## Herausforderung: Hexenturm
 
-![](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="440"}
+![Die Skizze als Vorlage für Bild → 3D](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="440"}
 
-[Die Skizze als Vorlage für Bild → 3D]{style="display:block;text-align:center;color:#aaaaaa;font-size:0.7em"}
 
 ::: {.notes}
 Dieselbe Skizze wird später in Weg 2 auch für den Hexenturm in OpenSCAD genutzt – hier geht sie direkt in Bild → 3D.
@@ -1189,8 +1200,8 @@ Meshy.ai (Cloud)
 :::
 :::
 
-::: {.tip-line style="font-size:0.65em"}
-Cloud-Tools wie **Meshy** sind schon besser — aber nicht perfekt. Lokal fehlt noch Feintuning am Workflow, dann ist Ähnliches möglich.
+::: aside
+**Merke** Cloud-Tools wie **Meshy** sind schon besser — aber nicht perfekt. Lokal fehlt noch Feintuning am Workflow, dann ist Ähnliches möglich.
 :::
 
 ::: {.notes}
@@ -1273,7 +1284,9 @@ OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite
 [D]{.sand-letter} Eine einzige .scad-Datei, kurz und übersichtlich kommentiert.
 :::
 
+::: aside
 **Merke:** Der Mensch ändert die **Parameter** — den Code schreibt die KI.
+:::
 
 ::: {.notes}
 Die SAND-Methode aus dem Prompting-Teil, angewendet auf 3D.
@@ -1309,7 +1322,9 @@ color("#F9B338")
 :::
 :::
 
+::: aside
 **Parameter ändern** (z.B. `hoehe = 80`) → der Turm wird sofort höher.
+:::
 
 ::: {.notes}
 Zeile für Zeile:
@@ -1491,7 +1506,9 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 - Selbstgezeichnete Skizzen: Multimodale Modelle können sie auswerten.
 - Iterativer Prozess: Feedback → Anpassung → Verbesserung
 
+::: aside
 **Merke:** KI ersetzt keine CAD-Kenntnisse — sie macht den Einstieg deutlich einfacher.
+:::
 
 ::: {.notes}
 Wichtig ist der iterative Ablauf: nicht alles in einem Prompt, sondern Schritt für Schritt.
@@ -1503,13 +1520,17 @@ Die KI bedient 3D-Programme direkt
 
 ## MCP: Ein USB-Anschluss für KI
 
-![](grafiken/mcp-ablauf.svg){fig-align="center" width="80%"}
+![](grafiken/mcp-ablauf.svg){fig-align="center" width="70%"}
 
+::: {style="font-size:0.8em"}
 - **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
 - Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
 - Beispiel: In **Blender** legt die KI Objekte an und verändert sie
+:::
 
-[Spannend — aber leider nicht Teil dieses Workshops. Eventuell verfolständigst Du uns.]{style="color:#aaaaaa"}
+::: aside
+**Spannend** - aber leider nicht Teil dieses Workshops. Eventuell vervollständigst Du uns.
+:::
 
 ::: {.notes}
 MCP wurde 2024 von Anthropic veröffentlicht und wird inzwischen von vielen KI-Anwendungen unterstützt. Ein Programm stellt über MCP „Werkzeuge“ bereit (z.B. „Würfel erzeugen“, „Objekt verschieben“), die KI ruft sie bei Bedarf auf – genau wie die Tools bei der Folie „Web-GUI mit Tools“.
