@@ -36,12 +36,12 @@ format:
     margin-right: 30mm
 
 ---
-# Vorstellung Erfindergeist Jülich e.V
+# Vorstellung Erfindergeist Jülich e.V.
 
 <!-- Die Präsentation ist Online unter https://presentations.erfindergeist.org/ki2/ zu finden -->
 <!-- Der Veranstalter: Erfindergeist Jülich e.V. stellt sich kurz vor -->
 
-Gemeinnütziger Verein aus Jülich — seit 2021
+Gemeinnütziger Verein aus Jülich - seit 2021
 
 [Gefördert durch das Land Nordrhein-Westfalen, bewilligt durch den Kreis Düren.]{style="color:#aaaaaa;font-size:0.7em"}
 
@@ -53,7 +53,7 @@ Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker 
 
 ## Erfindergeist: Wer wir sind
 
-**Ziel:** Kreativität und Innovation fördern — durch praktisches Lernen und Zusammenarbeit
+**Ziel:** Kreativität und Innovation fördern - durch praktisches Lernen und Zusammenarbeit
 
 ::: columns
 ::: {.column width="33.3%"}
@@ -89,7 +89,7 @@ statt wegwerfen
 Die Offene Werkstatt mit dem 3D-Drucker spielt heute die Hauptrolle: Am Ende soll aus einer KI-Idee ein echtes, gedrucktes Objekt werden.
 :::
 
-## Offene Werkstatt: 3D-Druck 1/2
+## Erfindergeist: 3D-Druck (1/2)
 
 ::: columns
 ::: {.column width="55%"}
@@ -106,17 +106,17 @@ Die Offene Werkstatt mit dem 3D-Drucker spielt heute die Hauptrolle: Am Ende sol
 Das Foto zeigt den Prusa CORE One+ der Offenen Werkstatt (Bauraum 250 × 220 × 270 mm). Frage ans Publikum: Wer hat schon einmal etwas 3D-gedruckt?
 :::
 
-## Offene Werkstatt: 3D-Druck 2/2
+## Erfindergeist: 3D-Druck (2/2)
 
 Wo bekommt man 3D-Modelle her?
 
-- CAD - Selber Herstellen oder Kaufen
+- CAD: selbst konstruieren oder kaufen
 - Kostenlose Modelle: [https://www.thingiverse.com/](https://www.thingiverse.com/) oder [https://www.printables.com/](https://www.printables.com/)
 - KI durch Text oder Bilder
 
-## Offene Werkstatt: KI-Workstation
+## Erfindergeist: KI-Workstation
 
-- Eigener KI-Rechner in der Werkstatt — alles läuft **lokal**
+- Eigener KI-Rechner in der Werkstatt - alles läuft **lokal**
 - Grafikkarte: RTX 5060 Ti mit **16 GB** Grafikspeicher
 - Chatten (Open WebUI), Programmieren (OpenCode), Bilder und 3D (ComfyUI)
 - Im Netzwerk der Werkstatt auch vom eigenen Laptop nutzbar
@@ -129,9 +129,9 @@ Die Workstation ist der rote Faden für alle Live-Demos heute: Chat, Coding und 
 Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr bei den Eingabemöglichkeiten).
 :::
 
-## Wichtige Links
+## Erfindergeist: Wichtige Links
 
-Handy raus — einfach abscannen:
+Handy raus - einfach abscannen:
 
 ::: columns
 ::: {.column width="25%"}
@@ -184,12 +184,12 @@ Alle Dateien der Präsentation
 Gleich am Anfang zeigen, damit alle die Präsentation auf dem eigenen Gerät mitlesen können. Die QR-Codes werden mit `podman compose run --rm qrcode` erzeugt (Links in `qrcodes.sh`).
 :::
 
-## Spenden
+## Erfindergeist: Spenden
 
 ::: columns
 ::: {.column width="64%"}
 ::: {.spend-lead}
-**Jeder Beitrag zählt** — Erfindergeist finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden.
+**Jeder Beitrag zählt** - Erfindergeist finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden.
 :::
 
 ::: {.spend-grid}
@@ -238,9 +238,9 @@ Konkret machen, wofür das Geld gebraucht wird: Miete für die Räume, Werkzeug,
 
 # Was ist KI?
 
-## Was ist KI? Einfach erklärt
+## KI: Einfach erklärt
 
-**KI ist ein Programm, das aus Beispielen lernt — statt feste Regeln zu befolgen.**
+**KI ist ein Programm, das aus Beispielen lernt - statt feste Regeln zu befolgen.**
 
 ::: columns
 ::: {.column width="50%"}
@@ -255,7 +255,7 @@ Ein Mensch schreibt die Regel:
 ::: {.column width="50%"}
 ### KI
 
-Sieht tausende Katzenfotos — und findet die Regel wahrscheinlich **selbst**.
+Sieht tausende Katzenfotos - und findet die Regel wahrscheinlich **selbst**.
 
 Kann aber auch fehlerhaft sein.
 
@@ -274,14 +274,14 @@ KI begegnet uns längst im Alltag: Gesichtserkennung am Handy, Spamfilter im E-M
 KI ist ein Oberbegriff. Sprachmodelle (LLMs) wie ChatGPT sind nur ein Teil davon – aber der Teil, um den es heute hauptsächlich geht.
 :::
 
-## Wie ist ein KI-Modell aufgebaut?
+## KI: Wie ist ein Modell aufgebaut?
 
 ::: columns
 ::: {.column width="50%"}
 ![](grafiken/neuronales-netz.svg){fig-align="center" width="100%"}
 :::
 ::: {.column width="50%"}
-- **Eingabe:** Foto, Text oder Ton — als Zahlen
+- **Eingabe:** Foto, Text oder Ton - als Zahlen
 - **Schichten** aus künstlichen „Nervenzellen“
 - Jede Verbindung hat einen **Regler**: Wie wichtig ist dieses Signal?
 - **Ausgabe:** Wahrscheinlichkeit, z.B. *Katze 97 %*
@@ -298,17 +298,17 @@ Training an Beispielen: Die KI rät, vergleicht mit der richtigen Antwort und dr
 Ein Sprachmodell wie ChatGPT funktioniert nach demselben Prinzip – nur ist die Eingabe Text und die Ausgabe das wahrscheinlichste nächste Wort. Die Regler heißen „Parameter“ – dazu die nächste Folie.
 :::
 
-## Was sind Parameter?
+## KI: Was sind Parameter?
 
 Stellen Sie sich ein **riesiges Mischpult** vor:
 
 - Jeder Drehregler ist ein **Parameter**
-- Beim Training werden alle Regler eingestellt — dort steckt das Gelernte
+- Beim Training werden alle Regler eingestellt - dort steckt das Gelernte
 - **7B** = 7 Milliarden Regler (B = englisch *billion*, Milliarde)
 - Mehr Regler = mehr Wissen und Können
 
 ::: {.fragment}
-Jede Reglerstellung muss gespeichert werden — darum braucht KI so viel **Arbeitsspeicher**.
+Jede Reglerstellung muss gespeichert werden - darum braucht KI so viel **Arbeitsspeicher**.
 :::
 
 ::: {.notes}
@@ -319,19 +319,19 @@ Ein einzelner Regler bedeutet nichts. Erst alle zusammen ergeben das „Wissen�
 Technisch ist jeder Regler eine Zahl.
 :::
 
-## Was sind LLM
+## KI: Was sind LLMs?
 
 **Large Language Models (LLM)** sind KI-Modelle, die auf riesigen Textmengen trainiert wurden. Sie verstehen und erzeugen Sprache, beantworten Fragen und helfen bei der Analyse von Informationen.
 
 Beispiel: ChatGPT, Claude, Copilot, Qwen, Gemini, Deepseek
 
-Zu beachten ist das Dienste wie ChatGPT, Copilot oder Gemini auf LLMs basieren, aber nicht die LLMs selbst sind. Sie sind Anwendungen, die auf den Modellen aufbauen.
+Zu beachten ist dass Dienste wie ChatGPT, Copilot oder Gemini auf LLMs basieren, aber nicht die LLMs selbst sind. Sie sind Anwendungen, die auf den Modellen aufbauen.
 
 ::: {.notes}
 Wichtig ist die Unterscheidung Modell vs. Anwendung: ChatGPT ist die Anwendung, GPT das Modell dahinter. Das wird später bei den Eingabemöglichkeiten wieder wichtig.
 :::
 
-## Arten von LLMs
+## KI: Arten von LLMs
 
 ::: columns
 ::: {.column width="50%"}
@@ -351,7 +351,7 @@ Wichtig ist die Unterscheidung Modell vs. Anwendung: ChatGPT ist die Anwendung, 
 :::
 
 ::: aside
-Multimodal = mehrere Modalitäten, also Arten von Eingaben wie Text, Bild oder Ton.
+**Merke:** Multimodal = mehrere Modalitäten, also Arten von Eingaben wie Text, Bild oder Ton.
 :::
 
 ::: {.notes}
@@ -361,7 +361,7 @@ Text-Modelle können mit einem Bild nichts anfangen. Viele Modelle gibt es in be
 :::
 
 
-## Beispiel: Multimodale Modelle
+## KI: Chihuahua oder Muffin?
 
 ![](beispiele/chihuahua-muffin/chihuahua-muffin.jpg){fig-align="center" height="420"}
 
@@ -373,7 +373,7 @@ Live-Demo: Bild in ein multimodales Modell hochladen (z.B. Gemma 3 in Open WebUI
 Auflösung (Reihe für Reihe, von links): Hund, Muffin, Hund, Muffin – Muffin, Hund, Muffin, Hund.
 :::
 
-## Ergebnis: Chihuahua Muffin
+## KI: Chihuahua oder Muffin – Ergebnis
 
 ![](beispiele/chihuahua-muffin/chihuahua-muffin-gemma.png){fig-align="center" height="520"}
 
@@ -381,7 +381,7 @@ Auflösung (Reihe für Reihe, von links): Hund, Muffin, Hund, Muffin – Muffin,
 Ergebnis des lokalen Modells besprechen: Was wurde richtig erkannt, wo lag es daneben?
 :::
 
-## Spezielle Coding-LLMs
+## KI: Spezielle Coding-LLMs
 
 Sprachmodelle, die besonders viel **Programmcode** gelernt haben.
 
@@ -402,7 +402,7 @@ Werkzeuge: Moderne Coding-Modelle sind darauf trainiert, selbstständig Dateien 
 Große Allround-Modelle wie Claude oder GPT sind ebenfalls sehr gut im Programmieren. Spezielle Coding-Modelle lohnen sich vor allem lokal, weil ein kleineres Spezialmodell auf eigener Hardware läuft und beim Code trotzdem gute Ergebnisse liefert.
 :::
 
-## Andere Arten von KI
+## KI: Andere Arten von KI
 
 - **Bildgenerierung** (Bild Generation): KI erzeugt Bilder aus Textbeschreibungen, z.B. für Kunst, Werbung oder Design. 
 - **Spracherkennung (Speech Recognition):** KI wandelt gesprochene Sprache in Text um, z.B. für virtuelle Assistenten oder Transkriptionen.
@@ -413,7 +413,7 @@ Große Allround-Modelle wie Claude oder GPT sind ebenfalls sehr gut im Programmi
 Nicht jede KI ist ein Sprachmodell. Viele Anwendungen im Alltag (Gesichtserkennung im Handy, Diktierfunktion) nutzen spezialisierte Modelle.
 :::
 
-## Was ist KI?: Was ist KI nicht
+## KI: Was KI nicht ist
 
 **Experiment** auf [chatgpt.com](https://chatgpt.com/):
 
@@ -441,27 +441,27 @@ Ziel der Section: Prompting verstehen und optimieren. Die Qualität der Antwort 
 
 ## Prompting: Was ist ein Prompt?
 
-- **System prompt:** definiert die Rolle des Modells und den Kontext der Aufgabe. Beispiel: *„Du bist ein hilfsbereiter Assistent, der komplexe Themen einfach erklärt."*
+- **System-Prompt:** definiert die Rolle des Modells und den Kontext der Aufgabe. Beispiel: *„Du bist ein hilfsbereiter Assistent, der komplexe Themen einfach erklärt."*
 
-- **User prompt:** enthält die eigentliche Frage oder Aufgabe, die das Modell beantworten soll. Beispiel: *„Erkläre mir den Unterschied zwischen KI und Machine Learning."*
+- **User-Prompt:** enthält die eigentliche Frage oder Aufgabe, die das Modell beantworten soll. Beispiel: *„Erkläre mir den Unterschied zwischen KI und Machine Learning."*
 
 :::aside
-**Merke:** System prompts sind oft unsichtbar für den Benutzer, während user prompts direkt eingegeben werden. Beide zusammen bilden die Grundlage für die Interaktion mit dem Modell.
+**Merke:** System-Prompts sind oft unsichtbar für den Benutzer, während User-Prompts direkt eingegeben werden. Beide zusammen bilden die Grundlage für die Interaktion mit dem Modell.
 :::
 
 ::: {.notes}
 Der System-Prompt ist bei ChatGPT & Co. unsichtbar vorgegeben. In Open WebUI kann man ihn selbst festlegen – das kann man kurz zeigen.
 :::
 
-## Prompting: SAND Methode
+## Prompting: SAND-Methode
 
 ::: {.plain-table style="font-size:0.8em"}
 |   |   |
 |---|---|
-| **Situation** | Rolle der KI, Zielgruppe und Hintergrund definieren (Context wie z.B. E-Mail, Webseite, PDF, Bild etc. hinzufügen) |
+| **Situation** | Rolle der KI, Zielgruppe und Hintergrund definieren (Kontext wie z.B. E-Mail, Webseite, PDF, Bild etc. hinzufügen) |
 | **Aufgabe** | Was soll die KI tun? (z.B. Text generieren, Code schreiben, Bild erstellen) |
-| **Nebenbedingungen** | Regeln, Einschränkungen, (z.B. Beispiele anfügen) |
-| **Darstellung** | Ausgabe Format (z.B. als Liste, Tabelle, Fließtext) |
+| **Nebenbedingungen** | Regeln, Einschränkungen (z.B. Beispiele anfügen) |
+| **Darstellung** | Ausgabeformat (z.B. als Liste, Tabelle, Fließtext) |
 
 : {tbl-colwidths="[30,70]"}
 :::
@@ -470,7 +470,7 @@ Der System-Prompt ist bei ChatGPT & Co. unsichtbar vorgegeben. In Open WebUI kan
 SAND ist eine Eselsbrücke. Nicht jeder Prompt braucht alle vier Teile – aber je wichtiger das Ergebnis, desto mehr lohnt es sich.
 :::
 
-## Prompting: Beispiel ohne SAND
+## Prompting: Ohne SAND
 
 ::: {.prompt-box .prompt-weak}
 Schreib eine Einladung zum KI-Workshop.
@@ -489,11 +489,11 @@ Die KI muss raten:
 Erst das Publikum fragen, was an diesem Prompt fehlt, dann die Fragen per Klick einblenden.
 :::
 
-## Prompting: Beispiel mit SAND
+## Prompting: Mit SAND
 
 ::: {.prompt-box}
 ::: {.fragment}
-[S]{.sand-letter} Schreibe für einen MINT-Verein. Die Leser sind interessierte Laien ohne Vorwissen. (anhang: PDF des Workshops mit allen fakten)
+[S]{.sand-letter} Schreibe für einen MINT-Verein. Die Leser sind interessierte Laien ohne Vorwissen. (Anhang: PDF des Workshops mit allen Fakten)
 :::
 ::: {.fragment}
 [A]{.sand-letter} Schreibe eine Einladung zu unserem nächsten KI-Workshop.
@@ -512,9 +512,9 @@ Die vier Teile erscheinen nacheinander. Bei jedem Schritt kurz zurück auf die F
 Idealerweise live vorführen: erst den kurzen Prompt, dann den SAND-Prompt in dieselbe KI eingeben und die Ergebnisse vergleichen.
 :::
 
-## Prompt-Beispiele im Web
+## Prompting: Beispiele im Web
 
-[RTFM]{.rtfm} *Read The Fine Manual* — auch KI hat eine Anleitung.
+[RTFM]{.rtfm} *Read The Fine Manual* - auch KI hat eine Anleitung.
 
 ::: {.link-grid}
 ::: {.card}
@@ -555,7 +555,7 @@ Schritt für Schritt ein Feature mit KI bauen
 :::
 
 ::: aside
-**Merke** Jedes Modell versteht Prompts anders — die Beispiele sind auf das jeweilige Modell abgestimmt. 
+**Merke:** Jedes Modell versteht Prompts anders - die Beispiele sind auf das jeweilige Modell abgestimmt. 
 :::
 
 ::: {.notes}
@@ -564,7 +564,7 @@ RTFM ist ein alter Spruch aus der IT – wenn jemand eine Frage stellt, die in d
 Augenzwinkernd: Viele Hersteller veröffentlichen eigene Prompt-Sammlungen, die genau auf ihr Modell abgestimmt sind. Es lohnt sich, dort zuerst nachzuschauen, bevor man lange herumprobiert.
 :::
 
-## Optimiere den Prompt
+## Prompting: Prompt optimieren
 
 **Der Trick:** Lassen Sie die KI Ihren Prompt verbessern.
 
@@ -599,7 +599,7 @@ für Profis
 :::
 
 ::: aside
-**Merke** Frontier-Modelle = die jeweils leistungsstärksten aktuellen Modelle der großen Anbieter.
+**Merke:** Frontier-Modelle = die jeweils leistungsstärksten aktuellen Modelle der großen Anbieter.
 :::
 
 ::: {.notes}
@@ -633,9 +633,9 @@ Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
 Fachbegriffe: zustandsbehaftet (stateful) vs. zustandslos (stateless). Das Sprachmodell selbst merkt sich nie etwas – das Gedächtnis kommt von der Anwendung, die im Hintergrund Informationen in den Prompt einfügt.
 :::
 
-## Prompting: KI liest in Puzzleteilen
+## Prompting: Token als Puzzleteile
 
-Die KI zerlegt jeden Text in kleine Stücke — **Token**.
+Die KI zerlegt jeden Text in kleine Stücke - **Token**.
 
 | Text | Token | Anzahl |
 |---|---|---|
@@ -674,7 +674,7 @@ Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergle
 Bild: Das Kontextfenster ist wie ein Schreibtisch. Was nicht mehr draufpasst, fällt herunter – meist das Älteste zuerst.
 :::
 
-## Prompting: Wie groß ist ein Kontextfenster?
+## Prompting: Kontextfenster-Größe
 
 ::: {.ctx-grid}
 ::: {.card}
@@ -764,7 +764,7 @@ Wie und wo kann man mit KI arbeiten?
 :::
 
 
-## Eingabemöglichkeiten: Übersicht
+## Eingabe: Übersicht
 
 | **Art** | **Lokal** | **Cloud** |
 |---|---|---|
@@ -783,7 +783,7 @@ Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: 
 :::
 
 
-## Tools
+## Eingabe: Tools
 
 - **Web-GUI:** die Chat-Oberfläche im Browser, z.B. ChatGPT oder Open WebUI
 - **Tools:** Werkzeuge, die die KI bei Bedarf selbst aufruft
@@ -792,7 +792,7 @@ Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen, HTML anzeigen
 
 
 :::aside
-**Achtung** Ältere Modelle können nur Text lesen und schreiben. Oberflächen unterstützen nicht alle Tools, manchmal nur als Plugin.
+**Achtung:** Ältere Modelle können nur Text lesen und schreiben. Oberflächen unterstützen nicht alle Tools, manchmal nur als Plugin.
 :::
 
 ::: {.notes}
@@ -804,23 +804,23 @@ Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann da
 :::
 
 
-## Lokal: Ollama und Open WebUI
+## Eingabe: Ollama und Open WebUI
 
 - **Ollama:** startet Sprachmodelle auf dem eigenen Rechner
 - Modelle per Befehl starten, z.B. `ollama run qwen2.5-coder:14b`
 - **Open WebUI:** Chat-Oberfläche im Browser, ähnlich wie ChatGPT
-- Verbindet sich mit Ollama — alle Daten bleiben lokal
+- Verbindet sich mit Ollama - alle Daten bleiben lokal
 - Dokumente hochladen, mehrere Modelle vergleichen
 
 ::: {.notes}
 Ollama ist der „Motor“: Es lädt und betreibt die Modelle. Open WebUI ist das „Armaturenbrett“: eine Weboberfläche, über die man mit den Modellen chattet.
 
-Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Folie „Wie schnell schreibt die KI?“.
+Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Folie „Eingabe: Wie schnell schreibt KI?“.
 
 Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), qwen3.5:9b (Allgemeinwissen), qwen2.5-coder:14b (Programmieren).
 :::
 
-## Oberflächen auf unserer Workstation
+## Eingabe: Dienste der Workstation
 
 | Dienst | Wie |
 |---|---|
@@ -833,7 +833,7 @@ Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), 
 Über die Ollama API können Programme auf dem eigenen Laptop die Modelle der Workstation nutzen – z.B. die VS-Code-Erweiterung Continue oder openCode. Die Rechenarbeit erledigt dann die Workstation. Die Anleitung inklusive Konfiguration steht im Wiki.
 :::
 
-## Lokal: Was passt auf unsere Workstation?
+## Eingabe: Was passt in 16 GB?
 
 ![](grafiken/vram-passt.svg){fig-align="center" width="85%"}
 
@@ -851,9 +851,9 @@ Passt ein Modell nicht vollständig in den Grafikspeicher, lagert Ollama Teile i
 Im Wiki-Test hat Qwen2.5-Coder 14B in unter 3 Sekunden geantwortet und ein HTML-Snake-Spiel erstellt.
 :::
 
-## Lokal: Wie schnell schreibt die KI?
+## Eingabe: Wie schnell schreibt KI?
 
-**Tokens pro Sekunde** = die Schreibgeschwindigkeit der KI
+**Token pro Sekunde** = die Schreibgeschwindigkeit der KI
 
 <!-- TODO: Werte auf der Workstation messen: ollama run qwen3.5:9b --verbose bzw. qwen2.5-coder:14b --verbose ("eval rate") und Schätzwerte ersetzen -->
 
@@ -897,7 +897,7 @@ Die Werte sind eine Schätzung: Die Geschwindigkeit hängt vor allem davon ab, w
 :::
 
 
-## Live Coding Snake
+## Eingabe: Live-Coding Snake
 
 ::: {.chat-input}
 Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
@@ -909,7 +909,7 @@ Live-Demo: Denselben Prompt einmal im Web-UI (Open WebUI oder ChatGPT) und einma
 Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden. Agent: Die Datei wird direkt angelegt und kann sofort geöffnet werden.
 :::
 
-## Ergebnis: Snake {background-color="#2c3e50"}
+## Eingabe: Ergebnis Snake {background-color="#2c3e50"}
 
 ```{=html}
 <iframe src="beispiele/snake/snake.html"
@@ -921,9 +921,9 @@ Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden.
 Das Spiel live ausprobieren. Hinweis: Dieser Code wurde vollständig von der KI geschrieben.
 :::
 
-## Code ist Text
+## Eingabe: Code ist Text
 
-LLMs schreiben Text — und **Code ist auch nur Text**.
+LLMs schreiben Text - und **Code ist auch nur Text**.
 
 - Webseiten und Spiele (HTML, JavaScript)
 - Präsentationen (diese hier ist mit Quarto geschrieben)
@@ -939,7 +939,7 @@ LLMs schreiben Text — und **Code ist auch nur Text**.
 
 # 3D-Generierung mit KI
 
-## Drei Wege zum 3D-Modell
+## 3D: Drei Wege zum Modell
 
 ::: {.weg-grid}
 ::: {.card}
@@ -1005,13 +1005,13 @@ Hier entsteht kein Code, sondern direkt eine Oberfläche aus vielen kleinen Drei
 Das ist gut für Figuren, aber Maße lassen sich nachträglich kaum ändern – anders als bei den Parametern in Weg 2 (OpenSCAD).
 :::
 
-## Lokal: ComfyUI + Hunyuan3D
+## Weg 1: ComfyUI + Hunyuan3D
 
 - **ComfyUI:** Oberfläche, in der man KI-Schritte als **Knoten** verbindet
 - Fertige Vorlagen über das Menü **Templates**
 - Bild erzeugen: Vorlage **Z-Image-Turbo** (Text → Bild)
 - 3D erzeugen: Vorlage **HY 3D 2.1** = Hunyuan3D (Bild → 3D)
-- Läuft auf der Workstation — braucht viel Grafikspeicher
+- Läuft auf der Workstation - braucht viel Grafikspeicher
 
 ::: {.notes}
 ComfyUI ist ein Knoten-Editor: Jeder Kasten ist ein Arbeitsschritt (Bild laden, Modell laden, 3D erzeugen, speichern). Die Kästen werden mit Linien verbunden.
@@ -1021,11 +1021,11 @@ Auf der Workstation: ComfyUI im Browser unter http://localhost:8188 öffnen → 
 Hinweis: ComfyUI gibt Modelle nicht automatisch aus dem Speicher frei – zwischen Bild- und 3D-Erzeugung ggf. Speicher freigeben.
 :::
 
-## Gute Vorlagen für Bild → 3D
+## Weg 1: Gute Bildvorlagen
 
 - **Ein** Objekt pro Bild
 - Hintergrund entfernt oder **einfarbig**
-- Gleichmäßige Beleuchtung **mit Schatten** — so erkennt die KI die Form
+- Gleichmäßige Beleuchtung **mit Schatten** - so erkennt die KI die Form
 - Kein Text, keine Logos
 - Ganzes Objekt sichtbar, nichts abgeschnitten
 
@@ -1035,7 +1035,7 @@ Die ersten vier Punkte stammen aus der Anleitung im Wiki. Schatten sind wichtig,
 Diese Regeln schreibt man direkt in den Bild-Prompt – das zeigt das Beispiel auf der nächsten Folie.
 :::
 
-## Beispiel: Muttkrat prompt
+## Weg 1: Der Muttkrat-Prompt
 
 ::: {.prompt-box}
 Full-body character render of a huge, very plump toad … 3D style … isolated and centered … white laboratory coat, round brass goggles, leather tool belt … studio three-point lighting … plain solid cyan background … whole figure visible from head to feet
@@ -1057,7 +1057,7 @@ Die Regeln von der vorherigen Folie stecken direkt im Prompt: „isolated and ce
 Bildmodelle verstehen Englisch meist besser als Deutsch.
 :::
 
-## Beispiel 1: Schritt 1 — Bild erzeugen
+## Weg 1: Schritt 1 - Bild erzeugen
 
 ![](beispiele/muttkrat/muttkrat_bild.png){fig-align="center" height="480"}
 
@@ -1067,7 +1067,7 @@ Erzeugt mit Z-Image-Turbo in ComfyUI auf der Workstation.
 Gut zu sehen: Im Prompt stand „cyan background“ – herausgekommen ist ein hellgrauer Hintergrund. Die KI hält sich nicht immer an jedes Detail (vgl. Nichtdeterminismus im Prompting-Teil). Für den nächsten Schritt reicht der einfarbige Hintergrund trotzdem.
 :::
 
-## Beispiel 1: Schritt 2 — Bild zu 3D-Modell
+## Weg 1: Schritt 2 - Bild zu 3D
 
 ![](beispiele/muttkrat/muttkrat_hunyuan3d.png){fig-align="center" height="450"}
 
@@ -1079,7 +1079,7 @@ Die Rückseite hat die KI selbst „erraten“ – sie war auf dem Bild nicht zu
 Ergebnis ist eine GLB-Datei, die für den Druck noch in STL umgewandelt wird.
 :::
 
-## Beispiel 1: Schritt 3 - Typische Probleme
+## Weg 1: Schritt 3 - Druckprobleme
 
 ::: columns
 ::: {.column width="33%"}
@@ -1112,7 +1112,7 @@ Teile hängen frei in der Luft
 :::
 
 ::: aside
-**Merke** Viele Slicer reparieren kleine Mesh-Fehler automatisch — für größere Probleme hilft z.B. Blender.
+**Merke:** Viele Slicer reparieren kleine Mesh-Fehler automatisch - für größere Probleme hilft z.B. Blender.
 :::
 
 ::: {.notes}
@@ -1121,7 +1121,7 @@ Beim Toad gut zu sehen: Die Werkzeuge in den Händen sind sehr dünn – genau s
 Bei OpenSCAD-Modellen (Weg 2) treten diese Probleme deutlich seltener auf, weil die Form aus exakten Grundkörpern besteht.
 :::
 
-## Beispiel 1: Schritt 4 — Ab in den Drucker
+## Weg 1: Schritt 4 - Drucken
 
 ::: columns
 ::: {.column width="45%"}
@@ -1145,11 +1145,11 @@ Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 
 
 
-## Beispiel 1: Muttkrat gedruckt
+## Weg 1: Muttkrat gedruckt
 
 ![](beispiele/muttkrat/muttkrat_gedruckt.jpg){fig-align="center" height="480"}
 
-## Herausforderung: Hexenturm
+## Weg 1: Herausforderung Hexenturm
 
 ![Die Skizze als Vorlage für Bild → 3D](beispiele/hexenturm/hexenturm_skizze_gesamt.png){fig-align="center" height="440"}
 
@@ -1158,7 +1158,7 @@ Laut PrusaSlicer: 7,24 g Filament, 1 h 21 min Druckzeit, rund 20 Cent Material.
 Dieselbe Skizze wird später in Weg 2 auch für den Hexenturm in OpenSCAD genutzt – hier geht sie direkt in Bild → 3D.
 :::
 
-## Hexenturm: Die Ergebnisse
+## Weg 1: Hexenturm-Ergebnisse
 
 ::: {.flow-pair}
 ::: {.card}
@@ -1175,7 +1175,7 @@ Meshy.ai (Cloud)
 :::
 
 ::: aside
-**Merke** Cloud-Tools wie **Meshy** sind schon besser — aber nicht perfekt. Lokal fehlt noch Feintuning am Workflow, dann ist Ähnliches möglich.
+**Merke:** Cloud-Tools wie **Meshy** sind schon besser - aber nicht perfekt. Lokal fehlt noch Feintuning am Workflow, dann ist Ähnliches möglich.
 :::
 
 ::: {.notes}
@@ -1184,7 +1184,7 @@ Lokal funktioniert es mit dem Standard-Workflow noch nicht so gut. Herausforderu
 Meshy ist ein kommerzieller Cloud-Dienst – das Bild wird dafür hochgeladen.
 :::
 
-## Bild-Prompts finden
+## Weg 1: Bild-Prompts finden
 
 [Abgucken erlaubt!]{.rtfm style="font-size:0.75em"} Prompts muss man nicht erfinden.
 
@@ -1207,7 +1207,7 @@ Bereich „Text-to-Image“ mit Grundlagen und Beispielen
 ::: {.card}
 **Civitai**
 
-Bild anklicken — der Prompt steht meist dabei
+Bild anklicken - der Prompt steht meist dabei
 
 [civitai.com/images](https://civitai.com/images)
 :::
@@ -1224,7 +1224,7 @@ Achtung bei Civitai: Die Seite zeigt nutzergenerierte Bilder, darunter auch Inha
 
 # Weg 2: Text → Code → 3D
 
-Die KI schreibt Code — der Code wird zum 3D-Modell
+Die KI schreibt Code - der Code wird zum 3D-Modell
 
 [Die Beispiele in diesem Teil wurden mit **Claude Code** erstellt.]{style="color:#aaaaaa;font-size:0.7em"}
 
@@ -1235,18 +1235,18 @@ Claude Code ist ein Coding-Agent von Anthropic und läuft in der Cloud. Lokale M
 :::
 
 
-## OpenSCAD: Was ist OpenSCAD?
+## Weg 2: Was ist OpenSCAD?
 
 - Textbasierte Modellierung: Das 3D-Objekt entsteht rein durch Code. Es gibt keine Möglichkeit, Formen direkt mit der Maus in der 3D-Ansicht zu ziehen oder zu verschieben.
 - Grundformen wie Zylinder, Quader und Kugeln werden kombiniert, subtrahiert und transformiert
-- Ergebnis ist **geometrisch exakt**: gerade Kanten, klare Formen — ideal für Technik und Architektur, ungeeignet für freie, organische Formen
+- Ergebnis ist **geometrisch exakt**: gerade Kanten, klare Formen - ideal für Technik und Architektur, ungeeignet für freie, organische Formen
 
 ::: {.notes}
 OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite, Höhe) kann man später ändern, ohne den restlichen Code zu verstehen.
 :::
 
 
-## OpenSCAD: Der Prompt
+## Weg 2: Der Prompt
 
 ::: {.prompt-box}
 [S]{.sand-letter} Du bist OpenSCAD-Experte. Ich bin Einsteiger und möchte das Modell später selbst anpassen durch Parameter.
@@ -1259,7 +1259,7 @@ OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite
 :::
 
 ::: aside
-**Merke:** Der Mensch ändert die **Parameter** — den Code schreibt die KI.
+**Merke:** Der Mensch ändert die **Parameter** - den Code schreibt die KI.
 :::
 
 ::: {.notes}
@@ -1270,7 +1270,7 @@ Der wichtigste Teil steht unter N: Parameter. Ohne diese Vorgabe schreibt die KI
 „Keine festen Zahlen im restlichen Code“ sorgt dafür, dass wirklich alles über die Parameter steuerbar ist. Die Farben helfen später zu erkennen, welcher Code welches Teil erzeugt.
 :::
 
-## OpenSCAD: Ein einfaches Beispiel
+## Weg 2: Ein einfaches Beispiel
 
 ::: columns
 ::: {.column width="70%"}
@@ -1313,7 +1313,7 @@ Die Datei liegt unter `beispiele/openscad-turm/openscad-turm.scad` und kann in O
 :::
 
 
-## KI zum Reparieren eines Tischfußes
+## Weg 2: Tischfuß reparieren
 
 ::: columns
 ::: {.column width="45%"}
@@ -1332,7 +1332,7 @@ Ein echtes Beispiel aus der Werkstatt – genau der Fall „Ersatzteil“, der a
 Die Form ist technisch und geometrisch: Rohr, gerade Flächen, feste Maße. Damit ist sie ideal für Weg 2 (OpenSCAD).
 :::
 
-## Tischfuß: Der Prompt
+## Weg 2: Tischfuß-Prompt
 
 ::: {.prompt-box}
 Die Endform ist ein Rohr, das auf einer Seite quadratisch verlängert ist.
@@ -1354,7 +1354,7 @@ Material und Drucker stehen mit im Prompt: So kann die KI die Druckrichtung ber�
 Im Original-Prompt stand „57m“ statt „57 mm“ – die KI hat das richtig interpretiert. Trotzdem: Maße immer genau prüfen.
 :::
 
-## Tischfuß: Ergebnis in OpenSCAD
+## Weg 2: Tischfuß in OpenSCAD
 
 ::: columns
 ::: {.column width="45%"}
@@ -1384,7 +1384,7 @@ Fasen = abgeschrägte Kanten. Die Einführschräge erleichtert das Aufstecken au
 Die vollständige Datei liegt unter `beispiele/tischfuss/tischfuss.scad`.
 :::
 
-## Tischfuß: Alt und neu
+## Weg 2: Tischfuß alt und neu
 
 ![Links: neu gedruckt (ABS) · Rechts: das alte, gebrochene Original](beispiele/tischfuss/tischfuss_vergleich.jpg){fig-align="center" height="480"}
 
@@ -1392,7 +1392,7 @@ Die vollständige Datei liegt unter `beispiele/tischfuss/tischfuss.scad`.
 Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI konstruieren lassen, drucken. Genau der rote Faden dieses Workshops.
 :::
 
-## OpenSCAD: Hexenturm Jülich
+## Weg 2: Hexenturm Jülich
 
 
 ::: columns
@@ -1403,7 +1403,7 @@ Vom gebrochenen Teil zum gedruckten Ersatz: messen, beschreiben, von der KI kons
 :::
 ::: {.column width="40%"}
 
-Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe von KI.
+Der fertige Hexenturm - vollständig aus OpenSCAD-Code generiert, mit Hilfe von KI.
 :::
 :::
 
@@ -1413,15 +1413,15 @@ Der fertige Hexenturm — vollständig aus OpenSCAD-Code generiert, mit Hilfe vo
 Der Hexenturm ist ein Wahrzeichen von Jülich. Das Modell entstand in mehreren Schritten mit Claude Code.
 :::
 
-## OpenSCAD: Modularer Aufbau
+## Weg 2: Modularer Aufbau
 
-![Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt — jedes separat im Code definiert und kombiniert.](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="480"}
+![Das Modell besteht aus einzelnen Modulen: Turmspitze, Kegelhelm, Turmschaft, Mittelgebäude und Toreinfahrt - jedes separat im Code definiert und kombiniert.](beispiele/hexenturm/hexenturm_module.png){fig-align="center" height="480"}
 
 ::: {.notes}
 Wie beim Prompting gilt: große Aufgaben in kleine Teile zerlegen. Jedes Modul wurde einzeln erstellt und dann zusammengesetzt.
 :::
 
-## OpenSCAD: Prompt mit Skizze
+## Weg 2: Prompt mit Skizze
 
 ::: columns
 ::: {.column width="40%"}
@@ -1437,10 +1437,10 @@ Erstelle ein Rechteck, durch das ein Tunnel geht. Anbei ein Bild, wie ich es mir
 :::
 
 ::: {.notes}
-Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten (Bezug zur Folie Chihuahua oder Muffin).
+Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten (Bezug zur Folie „KI: Chihuahua oder Muffin?“).
 :::
 
-## OpenSCAD: Details im Code
+## Weg 2: Details im Code
 
 ![Details wie Fensteröffnungen, Torbogen und Wandstruktur wurden später hinzugefügt.](beispiele/hexenturm/hexenturm_details.png){fig-align="center" height="480"}
 
@@ -1449,7 +1449,7 @@ Eine Skizze im Prompt hilft enorm – multimodale Modelle können sie auswerten 
 Details wurden erst ergänzt, als die Grundform stand.
 :::
 
-## OpenSCAD: Detail-Prompt mit Skizze
+## Weg 2: Detail-Prompt mit Skizze
 
 ::: columns
 ::: {.column width="40%"}
@@ -1468,11 +1468,11 @@ Entlang des Tunnels hätte ich gerne an nur einer Seite eine Verzierung: Steine,
 Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 :::
 
-## OpenSCAD: Fotos des 3D-Drucks
+## Weg 2: Hexenturm gedruckt
 
 ![Fertig gedruckt](beispiele/hexenturm/hexenturm_gedruckt.jpg){fig-align="center" height="480"}
 
-## OpenSCAD mit KI: Zusammenfassung
+## Weg 2: Zusammenfassung
 
 
 - Parametrisierung: Details später selbst anpassen, ohne den Code zu verstehen.
@@ -1481,7 +1481,7 @@ Auch hier: Text plus Bild. Die KI übersetzt die Skizze in Code.
 - Iterativer Prozess: Feedback → Anpassung → Verbesserung
 
 ::: aside
-**Merke:** KI ersetzt keine CAD-Kenntnisse — sie macht den Einstieg deutlich einfacher.
+**Merke:** KI ersetzt keine CAD-Kenntnisse - sie macht den Einstieg deutlich einfacher.
 :::
 
 ::: {.notes}
@@ -1492,22 +1492,22 @@ Wichtig ist der iterative Ablauf: nicht alles in einem Prompt, sondern Schritt f
 
 Die KI bedient 3D-Programme direkt
 
-## MCP: Ein USB-Anschluss für KI
+## Weg 3: USB-Anschluss für KI
 
 ![](grafiken/mcp-ablauf.svg){fig-align="center" width="70%"}
 
 ::: {style="font-size:0.8em"}
 - **MCP** (Model Context Protocol): offener Standard, über den eine KI andere Programme bedient
-- Wie ein **USB-Anschluss für KI** — einmal eingesteckt, kann sie loslegen
+- Wie ein **USB-Anschluss für KI** - einmal eingesteckt, kann sie loslegen
 - Beispiel: In **Blender** legt die KI Objekte an und verändert sie
 :::
 
 ::: aside
-**Spannend** - aber leider nicht Teil dieses Workshops. Eventuell vervollständigst Du uns.
+**Spannend** - aber leider nicht Teil dieses Workshops. Vielleicht ergänzt du das ja für uns.
 :::
 
 ::: {.notes}
-MCP wurde 2024 von Anthropic veröffentlicht und wird inzwischen von vielen KI-Anwendungen unterstützt. Ein Programm stellt über MCP „Werkzeuge“ bereit (z.B. „Würfel erzeugen“, „Objekt verschieben“), die KI ruft sie bei Bedarf auf – genau wie die Tools bei der Folie „Web-GUI mit Tools“.
+MCP wurde 2024 von Anthropic veröffentlicht und wird inzwischen von vielen KI-Anwendungen unterstützt. Ein Programm stellt über MCP „Werkzeuge“ bereit (z.B. „Würfel erzeugen“, „Objekt verschieben“), die KI ruft sie bei Bedarf auf – genau wie die Tools bei der Folie „Eingabe: Tools“.
 
 Warum nicht heute: Für Einsteiger ist der Weg über Code (OpenSCAD) bzw. Bild (Hunyuan3D) nachvollziehbarer. MCP-Steuerung von Blender setzt Blender-Kenntnisse voraus.
 :::
@@ -1518,7 +1518,7 @@ Warum nicht heute: Für Einsteiger ist der Weg über Code (OpenSCAD) bzw. Bild (
 Kurzer Rückblick, bevor die Fragerunde startet.
 :::
 
-## Vergleich der Wege
+## Zusammenfassung: Die Wege
 
 | | **Weg 1: Bild → 3D** | **Weg 2: OpenSCAD + KI** |
 |---|---|---|
@@ -1535,7 +1535,7 @@ Faustregel: Soll es gut aussehen (Figur, Deko)? → Weg 1. Muss es passen (Ersat
 :::
 
 
-## Das sollten Sie mitnehmen
+## Zusammenfassung: Zum Mitnehmen
 
 ::: {.takeaways}
 ::: {.card}
@@ -1545,13 +1545,13 @@ Antworten der KI immer hinterfragen und überprüfen
 Je weniger die KI weiß, desto mehr Kontext muss der Prompt liefern
 :::
 ::: {.card}
-Lokal: Daten bleiben bei Ihnen · Cloud: größere Modelle, mehr Context
+Lokal: Daten bleiben bei Ihnen · Cloud: größere Modelle, mehr Kontext
 :::
 ::: {.card}
 Alles, was man als Code beschreiben kann, kann KI gut
 :::
 ::: {.card}
-KI ersetzt keine Fachkenntnisse — sie macht den Einstieg einfacher
+KI ersetzt keine Fachkenntnisse - sie macht den Einstieg einfacher
 :::
 ::: {.card}
 Es gibt viele Wege zum Ziel. Zwischenwege helfen beim Verständnis und bei der Wiederverwendbarkeit.
@@ -1559,7 +1559,7 @@ Es gibt viele Wege zum Ziel. Zwischenwege helfen beim Verständnis und bei der W
 :::
 
 ::: {.tip-line}
-[Tipp]{.rtfm style="font-size:0.7em"} [LLM-WIKI aufbauen](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+[Tipp]{.rtfm style="font-size:0.7em"} [LLM-Wiki aufbauen](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 :::
 
 ::: {.notes}
@@ -1590,7 +1590,7 @@ Bonus je nach verfügbarer Zeit. Alle Demos laufen kostenlos im Browser.
 - Ideal, um ein Modell auszuprobieren, bevor man es lokal installiert
 
 ::: aside
-[huggingface.co](https://huggingface.co) — kostenlose Basisnutzung, Stand: Oktober 2026
+[huggingface.co](https://huggingface.co) - kostenlose Basisnutzung, Stand: Oktober 2026
 :::
 
 ::: {.notes}
@@ -1617,13 +1617,13 @@ Live je nach Zeit eine Demo zeigen, z.B. Bild → 3D mit Hunyuan3D – das ist d
 
 # Bonus: Termine-Webseite
 
-Eine Webseite — komplett mit KI programmiert
+Eine Webseite - komplett mit KI programmiert
 
 ::: {.notes}
 Praxisbeispiel aus dem Verein: Die Termine-Webseite zeigt die Termine des Vereins und erklärt, wie diese öffentlich bereitgestellt werden. Sie wurde mit KI programmiert.
 :::
 
-## Plan erstellen
+## Webseite: Plan erstellen
 
 Der Plan ist das Herzstück, um die KI in die richtige Richtung zu lenken. Je genauer er ist, desto eher entsteht, was man sich vorstellt.
 
@@ -1637,19 +1637,19 @@ Der Plan ist das Herzstück, um die KI in die richtige Richtung zu lenken. Je ge
 Der Plan entspricht der SAND-Methode im Großen: Situation, Aufgabe, Nebenbedingungen und Darstellung werden vorab festgelegt.
 :::
 
-## Reicht ein Plan?
+## Webseite: Reicht ein Plan?
 
-Nein — auch ein guter Plan liefert selten sofort das perfekte Ergebnis.
+Nein - auch ein guter Plan liefert selten sofort das perfekte Ergebnis.
 
 - Ergebnis ansehen, dann **in kleinen Schritten** nachbessern
 - Ein Prompt pro Änderung
-- Beispiele auf den nächsten Folien: Herzanimation und Achievements
+- Beispiele auf den nächsten Folien: Herzanimation
 
 ::: {.notes}
 Überleitung zu den Prompt-Beispielen.
 :::
 
-## Prompt-Beispiel: Herzanimation 1/2
+## Webseite: Herzanimation (1/2)
 
 - Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Seite verlinkt [gsap.com](https://gsap.com/community/forums/topic/28814-using-gsap-to-loop-a-pulsing-animation/) (fig. 1)
 - folgend wurde gepromptet, dass die Animation mehr wie das eigentliche Herz aussehen soll (fig. 2).
@@ -1718,7 +1718,7 @@ Nein — auch ein guter Plan liefert selten sofort das perfekte Ergebnis.
 Links die ursprüngliche Animation (Kreis), rechts nach dem zweiten Prompt (Herzform).
 :::
 
-## Prompt-Beispiel: Herzanimation 2/2
+## Webseite: Herzanimation (2/2)
 
 ```{=html}
 <div class="prompt-window">
@@ -1746,22 +1746,22 @@ Links die ursprüngliche Animation (Kreis), rechts nach dem zweiten Prompt (Herz
 Zwei kurze Prompts reichen – der erste mit Link als Vorlage, der zweite als Verfeinerung.
 :::
 
-## CLAUDE.md
+## Tipp: CLAUDE.md
 
 - Textdatei im Projekt mit Regeln und Wissen für die KI
 - Wird bei jeder Sitzung automatisch mitgelesen
-- Im Internet manchmal als „Token-Fresser“ kritisiert — aber sehr hilfreich
+- Im Internet manchmal als „Token-Fresser“ kritisiert - aber sehr hilfreich
 - Tipp: Die KI regelmäßig bitten, neue Erkenntnisse in der CLAUDE.md zu ergänzen
 
 ::: {.notes}
-Die CLAUDE.md ist das Gedächtnis des Projekts (vgl. Folie Chat-Umgebung: mit/ohne Gedächtnis). Sie kostet bei jeder Anfrage etwas Kontext, spart aber viele Wiederholungen und Korrekturen.
+Die CLAUDE.md ist das Gedächtnis des Projekts (vgl. Folie „Prompting: Chat-Umgebung“: mit/ohne Gedächtnis). Sie kostet bei jeder Anfrage etwas Kontext, spart aber viele Wiederholungen und Korrekturen.
 :::
 
 ## Tipp: Diagramme
 
 Ein Bild sagt mehr als 1.000 Zeilen Code.
 
-- Menschen erfassen Grafiken in **Sekunden** — Text dauert deutlich länger
+- Menschen erfassen Grafiken in **Sekunden** - Text dauert deutlich länger
 - KI kann aus Code oder Beschreibungen Ablaufdiagramme erzeugen
 - Probleme im Ablauf werden so oft erst **sichtbar**
 
@@ -1775,7 +1775,7 @@ Mermaid ist eine einfache Text-Sprache für Diagramme – „Code ist Text“ gi
 Beispiel auf der nächsten Folie: ein Python-Skript, das Fotos für eine Galerie aufbereitet – Beschriftung per KI, Gesichter verpixeln, Vorschaubilder erzeugen.
 :::
 
-## Tipp: Diagramme: Vorher und Nachher
+## Tipp: Vorher und Nachher
 
 ::: columns
 ::: {.column width="50%"}
@@ -1831,21 +1831,54 @@ Alle Links abgerufen am 09.10.2026
 
 Erfindergeist finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden
 
-## Spenden: So können Sie helfen
+## Erfindergeist: Spenden
 
 ::: columns
-::: {.column width="65%"}
+::: {.column width="64%"}
+::: {.spend-lead}
+**Jeder Beitrag zählt** - Erfindergeist finanziert sich ausschließlich durch Mitgliedsbeiträge und Spenden.
+:::
+
+::: {.spend-grid}
 ::: {.card}
-**Danke!**
+**Miete**
 
-Wir danken allen Unterstützern, die unsere Arbeit ermöglichen.
+Räume für Werkstatt, Workshops und Treffen
+:::
+::: {.card}
+**Werkzeug**
 
-Spendenkonto und PayPal: [linktree.erfindergeist.org](https://linktree.erfindergeist.org/)
+Vom Schraubendreher bis zum Messschieber
+:::
+::: {.card}
+**Maschinen**
+
+3D-Drucker, CNC und KI‑Workstation
+:::
+::: {.card}
+**Repair Café**
+
+Ersatzteile und Material zum Reparieren
 :::
 :::
-::: {.column width="35%"}
-![](verein/linktree.svg){width="100%"}
 :::
+::: {.column width="36%"}
+::: {.card .qr}
+![](verein/linktree.svg){width="75%"}
+
+**Jetzt spenden**
+
+Spendenkonto und PayPal
+
+[linktree.erfindergeist.org](https://linktree.erfindergeist.org/)
+:::
+:::
+:::
+
+[Danke an alle, die unsere Arbeit möglich machen!]{.spend-thanks}
+
+::: {.notes}
+Zum Abschluss noch einmal auf die Spendenmöglichkeiten hinweisen und für die Teilnahme danken. Der QR-Code führt zu Spendenkonto und PayPal.
 :::
 
 # Ende
@@ -1857,36 +1890,3 @@ Vielen Dank für die Teilnahme!
 ::: {.notes}
 Dank an alle Teilnehmer, Hinweis auf die Online-Version der Präsentation. Dank an das Land NRW und den Kreis Düren für die Förderung (Förderhinweis laut Förderbescheid).
 :::
-
-## Zum Nachlesen
-
-::: columns
-::: {.column width="34%"}
-::: {.card}
-**Präsentation**
-
-Alle Folien online
-
-[ansehen](https://presentations.erfindergeist.org/ki2/)
-:::
-:::
-::: {.column width="33%"}
-::: {.card}
-**PDF**
-
-Zum Herunterladen
-
-[download](https://presentations.erfindergeist.org/ki2/index.pdf)
-:::
-:::
-::: {.column width="33%"}
-::: {.card}
-**Erfindergeist**
-
-Termine und Angebote
-
-[erfindergeist.org](https://erfindergeist.org)
-:::
-:::
-:::
-

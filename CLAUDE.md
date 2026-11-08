@@ -14,7 +14,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 5. 3D-Generierung (Hauptteil): Weg 1 Bild → 3D (ComfyUI + Hunyuan3D lokal, HuggingFace), Weg 2 Text → Code → 3D (OpenSCAD)
 6. Vom Modell zum Druck
 7. Zusammenfassung, Fragen & Diskussion
-8. Bonus: HuggingFace, Termine-Webseite, Azure Showcases (Unternehmens-Showcase)
+8. Bonus: HuggingFace, Termine-Webseite
 9. Referenzen, Spenden, Ende
 
 ## Dateien
@@ -72,6 +72,8 @@ subtitle: Mit KI zum eigenen 3D-Druck · 21.11.2026   # Untertitel wie auf dem P
 ```
 
 Navigation ist **vertikal** (`navigation-mode: vertical`) — `#` wechselt horizontal, `##` vertikal.
+
+**Folientitel:** Jede `##`-Folie beginnt mit dem Kurznamen ihrer Section (`Erfindergeist:`, `KI:`, `Prompting:`, `Eingabe:`, `3D:`, `Weg 1:`, `Weg 2:`, `Weg 3:`, `Zusammenfassung:`, `HuggingFace:`, `Webseite:`, `Tipp:`, `Referenzen:`). Titel **einzeilig** halten (max. ca. 34 Zeichen). Mehrteilige Folien mit `(1/2)` / `(2/2)`.
 
 **Achtung:** Auf `#`-Folien keine `###`-Überschriften verwenden (auch nicht in Spalten) — Pandoc beendet die Folie sonst vorzeitig und der restliche Inhalt hängt außerhalb jeder Folie. Inhalte mit Zwischenüberschriften immer auf eine `##`-Folie legen.
 
@@ -159,13 +161,13 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 [S]{.sand-letter}           ← Buchstabe im Mint-Kreis (z.B. für SAND-Beispiel)
 ::: {.chat-input}           ← Text als Chat-Eingabefeld (abgerundet, Mint-Senden-Button)
 ::: {.card}                 ← Karte: dunkle Box mit Mint-Rand oben, letzte Zeile in Mint (z.B. Problem → Lösung)
-::: {.card .qr}             ← QR-Karte: zentriert, QR-Code mit weißem Rahmen, Link in Mint (Folie „Wichtige Links“)
-::: {.spend-grid}           ← 2×2-Raster aus kleinen Karten (Folie „Spenden“); [Text]{.spend-thanks} = zentrierte Dankeszeile in Mint
-::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompt-Beispiele im Web“); {.link-grid .two} = 2 Spalten
+::: {.card .qr}             ← QR-Karte: zentriert, QR-Code mit weißem Rahmen, Link in Mint (Folie „Erfindergeist: Wichtige Links“)
+::: {.spend-grid}           ← 2×2-Raster aus kleinen Karten (Folie „Erfindergeist: Spenden“, am Anfang und identisch am Ende); [Text]{.spend-thanks} = zentrierte Dankeszeile in Mint
+::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompting: Beispiele im Web“); {.link-grid .two} = 2 Spalten
 [Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
-::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Das sollten Sie mitnehmen“)
-::: {.ctx-grid}             ← 3 Karten als Treppe, wachsen von links nach rechts (Folie „Wie groß ist ein Kontextfenster?“); [Text]{.ctx-seiten} = größere Mittelzeile, letzte Zeile grau
-::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „Drei Wege zum 3D-Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand
+::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Zusammenfassung: Zum Mitnehmen“)
+::: {.ctx-grid}             ← 3 Karten als Treppe, wachsen von links nach rechts (Folie „Prompting: Kontextfenster-Größe“); [Text]{.ctx-seiten} = größere Mittelzeile, letzte Zeile grau
+::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „3D: Drei Wege zum Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand
 ```
 
 ## HTML-Demo-Folien
@@ -216,7 +218,7 @@ podman compose run --rm qrcode
 
 ## Diagramme
 
-- `beispiele/bildverarbeitung-diagramm/diagramme.py` erzeugt die Ablaufdiagramme (Folie „Diagramme: Vorher und Nachher“) als SVG in CI-Farben — ohne externe Tools
+- `beispiele/bildverarbeitung-diagramm/diagramme.py` erzeugt die Ablaufdiagramme (Folie „Tipp: Vorher und Nachher“) als SVG in CI-Farben — ohne externe Tools
 - Aufruf: `python3 beispiele/bildverarbeitung-diagramm/diagramme.py` → `beispiele/bildverarbeitung-diagramm/*.svg`
 - Knoten und Pfeile werden im Skript mit Raster-Koordinaten gesetzt (`node(...)`, `edge(...)`)
 
