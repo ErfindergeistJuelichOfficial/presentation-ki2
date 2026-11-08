@@ -167,6 +167,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 [Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
 ::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Zusammenfassung: Zum Mitnehmen“)
 ::: {.ctx-grid}             ← 3 Karten als Treppe, wachsen von links nach rechts (Folie „Prompting: Kontextfenster-Größe“); [Text]{.ctx-seiten} = größere Mittelzeile, letzte Zeile grau
+::: {.columns .zoom-pair}   ← 2 Spalten mit Klick-Zoom (Folie „Tipp: Vorher und Nachher“): danach `[]{.fragment .zoom-l} []{.fragment .zoom-r}` — Klick 1 zoomt links, Klick 2 rechts
 ::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „3D: Drei Wege zum Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand
 ```
 

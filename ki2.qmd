@@ -678,9 +678,9 @@ Bild: Das Kontextfenster ist wie ein Schreibtisch. Was nicht mehr draufpasst, f�
 
 ::: {.ctx-grid}
 ::: {.card}
-**4.000** Token
+**16.000** Token
 
-[≈ 6 Seiten]{.ctx-seiten}
+[≈ 24 Seiten]{.ctx-seiten}
 
 lokale Modelle (Voreinstellung Ollama)
 :::
@@ -1777,7 +1777,7 @@ Beispiel auf der nächsten Folie: ein Python-Skript, das Fotos für eine Galerie
 
 ## Tipp: Vorher und Nachher
 
-::: columns
+::: {.columns .zoom-pair}
 ::: {.column width="50%"}
 [Vorher]{.rtfm style="font-size:0.55em"} [Alle KI-Modelle **gleichzeitig** im Speicher]{style="font-size:0.5em;color:#aaaaaa"}
 
@@ -1789,6 +1789,8 @@ Beispiel auf der nächsten Folie: ein Python-Skript, das Fotos für eine Galerie
 ![](beispiele/bildverarbeitung-diagramm/nachher.svg){fig-align="center" height="470"}
 :::
 :::
+
+[]{.fragment .zoom-l} []{.fragment .zoom-r}
 
 ::: {.notes}
 Links der ursprüngliche Ablauf: Alle KI-Modelle (Beschriftung und Gesichtserkennung) werden am Anfang geladen und bleiben die ganze Zeit im Arbeitsspeicher. Jedes Bild durchläuft eine lange Kette mit vielen Abzweigungen und Rücksprüngen.
