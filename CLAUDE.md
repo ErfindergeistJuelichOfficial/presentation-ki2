@@ -26,7 +26,7 @@ Die Präsentation deckt folgende Themen ab (Reihenfolge):
 | `_brand.yml` | Farb- und Typografie-Definitionen |
 | `_quarto.yml` | Projekt- und Format-Konfiguration |
 | `beispiele/<name>/` | **Alles zu einem Beispiel** in einem Ordner: Bilder, `.scad`, Prompt, Demo-HTML + `README.md` (z.B. `hexenturm/`, `tischfuss/`, `muttkrat/`) |
-| `grafiken/` | Erklär-Grafiken als SVG (neuronales Netz, MCP, VRAM, Weg-1-Prinzip) |
+| `grafiken/` | Erklär-Grafiken als SVG (neuronales Netz, MCP, VRAM, Weg-1- und Weg-2-Prinzip) |
 | `handouts/` | Druckvorlagen für den Workshop-Tag als `.md` → PDF (A4): Prompt-Beispiele (neben den KI-Rechner legen), QR-Aushang zur Präsentation (`qr-praesentation.md`) |
 | `verein/` | Logo, Linktree-QR, Werkstatt-Foto |
 | `qr-codes/` | Erzeugte QR-Codes (siehe Abschnitt QR-Codes) |
@@ -168,7 +168,8 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Zusammenfassung: Zum Mitnehmen“)
 ::: {.ctx-grid}             ← 3 Karten als Treppe, wachsen von links nach rechts (Folie „Prompting: Kontextfenster-Größe“); [Text]{.ctx-seiten} = größere Mittelzeile, letzte Zeile grau
 ::: {.columns .zoom-pair}   ← 2 Spalten mit Klick-Zoom (Folie „Tipp: Vorher und Nachher“): danach `[]{.fragment .zoom-l} []{.fragment .zoom-r}` — Klick 1 zoomt links, Klick 2 rechts
-::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „3D: Drei Wege zum Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand
+::: {.shot-ph}              ← Platzhalter für einen noch fehlenden Screenshot (gestrichelter Rahmen, Beschreibung + Dateiname); {.shot-ph .big} = Vollbild, ::: {.shot-cap} = Bildunterschrift darunter. Beim Einfügen des Bildes beides ersetzen (siehe TODO-Kommentar auf der Folie)
+::: {.weg-grid}             ← 3 zentrierte Karten mit Vorschaubild (Folie „3D: Drei Wege zum Modell“); [Weg 1]{.weg-nr} = Label, {.card .ausblick} = gestrichelter Rand; {.weg-grid .two} = 2 Karten mit großen Screenshots (Folie „Weg 2: Zwei Wege zur KI“)
 ```
 
 ## HTML-Demo-Folien

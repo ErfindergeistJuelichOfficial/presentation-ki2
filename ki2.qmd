@@ -1234,7 +1234,6 @@ Hier kommt alles zusammen: Coding-Agent (Eingabemöglichkeiten) + gute Prompts (
 Claude Code ist ein Coding-Agent von Anthropic und läuft in der Cloud. Lokale Modelle auf der Workstation schaffen einfache Formen wie den Turm, bei komplexen Modellen wie dem Hexenturm stoßen sie schnell an Grenzen.
 :::
 
-
 ## Weg 2: Was ist OpenSCAD?
 
 - Textbasierte Modellierung: Das 3D-Objekt entsteht rein durch Code. Es gibt keine Möglichkeit, Formen direkt mit der Maus in der 3D-Ansicht zu ziehen oder zu verschieben.
@@ -1245,6 +1244,68 @@ Claude Code ist ein Coding-Agent von Anthropic und läuft in der Cloud. Lokale M
 OpenSCAD ist kostenlos und Open Source. Parameter oben in der Datei (z.B. Breite, Höhe) kann man später ändern, ohne den restlichen Code zu verstehen.
 :::
 
+
+## Weg 2: Wer macht was?
+
+![](grafiken/weg2-prinzip.svg){fig-align="center" width="95%"}
+
+- Die KI **sieht das Modell nie** - sie schreibt nur Text
+- OpenSCAD macht aus dem Text die Form
+- Du prüfst das Ergebnis und sagst der KI, was sich ändern soll
+
+::: {.notes}
+Bezug zu „Eingabe: Code ist Text“: Die KI arbeitet hier genau wie beim Snake-Spiel. Sie schreibt eine Textdatei - nur dass am Ende kein Spiel, sondern ein 3D-Modell herauskommt.
+
+Weil die KI das Modell nicht sieht, ist Feedback wichtig: „Das Dach ist zu flach“, „Die Wand ist zu dünn“. Ein Screenshot der OpenSCAD-Ansicht im Chat hilft (multimodale Modelle).
+:::
+
+## Weg 2: Zwei Wege zur KI
+
+::: {.weg-grid .two}
+::: {.card}
+[Im Editor]{.weg-nr}
+
+**VS Code + Claude Code**
+
+![](beispiele/openscad-turm/openscad-turm_vscode.png)
+
+Erweiterung im gewohnten Editor
+
+für VS-Code-Nutzer
+:::
+::: {.card}
+[Im Terminal]{.weg-nr}
+
+**Claude Code CLI**
+
+![](beispiele/openscad-turm/openscad-turm_claude-cli.png)
+
+Ein Befehl, kein Editor nötig
+
+schnell & schlank
+:::
+:::
+
+::: {.notes}
+Beide können dasselbe: Dateien anlegen, lesen und ändern. Der Unterschied ist nur die Oberfläche (vgl. „Eingabe: Übersicht“). Auf beiden Screenshots steht derselbe Turm-Prompt wie auf „Weg 2: Der Prompt“.
+
+- VS Code + Claude Code: für alle, die schon mit VS Code arbeiten. Die Datei wird im Editor angelegt, Änderungen sieht man direkt.
+- Claude Code CLI: im Projektordner `claude` eintippen und lossprechen.
+
+Kosten (Stand: November 2026, ändert sich schnell): Claude Code braucht ein Claude-Abo oder API-Guthaben.
+:::
+
+## Weg 2: Der Arbeitsplatz
+
+![Links die KI im Editor, rechts OpenSCAD mit der Vorschau](beispiele/openscad-turm/openscad-turm_arbeitsplatz.png){fig-align="center" height="480"}
+
+::: {.notes}
+Das ist der eigentliche Aha-Moment: Links wird gepromptet, rechts entsteht das Modell. Gut für eine Live-Demo.
+
+Im Editor öffnet „Preview in OpenSCAD“ (F5) die Datei direkt in OpenSCAD. In OpenSCAD unter **Design → Automatic Reload and Preview** einschalten – dann aktualisiert sich die Vorschau bei jeder Änderung der KI, ohne dass man F5 drücken muss.
+
+Rechts im OpenSCAD-Editor sieht man die Parameter ganz oben – genau wie im Prompt verlangt.
+:::
 
 ## Weg 2: Der Prompt
 
@@ -1268,48 +1329,6 @@ Die SAND-Methode aus dem Prompting-Teil, angewendet auf 3D.
 Der wichtigste Teil steht unter N: Parameter. Ohne diese Vorgabe schreibt die KI Zahlen oft mitten in den Code (z.B. `cylinder(h = 50, r = 10)`). Dann muss man den Code verstehen, um etwas zu ändern. Mit Parametern ganz oben reicht es, eine Zahl auszutauschen – auch ohne Programmierkenntnisse.
 
 „Keine festen Zahlen im restlichen Code“ sorgt dafür, dass wirklich alles über die Parameter steuerbar ist. Die Farben helfen später zu erkennen, welcher Code welches Teil erzeugt.
-:::
-
-## Weg 2: Ein einfaches Beispiel
-
-::: columns
-::: {.column width="70%"}
-```openscad
-// Parameter
-hoehe      = 50;  // Höhe des Turms
-radius     = 10;  // Radius des Turms
-dach_hoehe = 20;  // Höhe des Dachs
-ueberstand = 3;   // So weit steht das Dach über
-
-// Turm (grün)
-color("#159989")
-  cylinder(h = hoehe, r = radius);
-
-// Dach: Kegel (gelb)
-color("#F9B338")
-  translate([0, 0, hoehe])
-    cylinder(h = dach_hoehe, r1 = radius + ueberstand, r2 = 0);
-```
-:::
-::: {.column width="30%"}
-![](beispiele/openscad-turm/openscad-turm.png){fig-align="center" height="400"}
-:::
-:::
-
-::: aside
-**Parameter ändern** (z.B. `hoehe = 80`) → der Turm wird sofort höher.
-:::
-
-::: {.notes}
-Zeile für Zeile:
-
-- Oben stehen vier Parameter – so wie im Prompt verlangt. Diese Zahlen kann jeder ändern, ohne den Rest zu verstehen.
-- `cylinder` erzeugt den Turm als Zylinder.
-- `translate` schiebt das Dach nach oben – genau um die Höhe des Turms.
-- Das Dach ist ebenfalls ein Zylinder, der oben auf Radius 0 zuläuft – also ein Kegel.
-- `color` färbt jedes Teil ein – so sieht man sofort, welche Codezeilen welches Teil erzeugen.
-
-Die Datei liegt unter `beispiele/openscad-turm/openscad-turm.scad` und kann in OpenSCAD geöffnet werden (F5 = Vorschau).
 :::
 
 
