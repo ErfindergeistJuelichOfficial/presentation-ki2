@@ -46,7 +46,7 @@ Gemeinnütziger Verein aus Jülich - seit 2021
 [Gefördert durch das Land Nordrhein-Westfalen, bewilligt durch den Kreis Düren.]{style="color:#aaaaaa;font-size:0.7em"}
 
 ::: {.notes}
-Förderhinweis laut Förderbescheid: Auf die Förderung durch das Land NRW und die Bewilligung durch den Kreis Düren muss hingewiesen werden – kurz erwähnen und sich bedanken.
+Danke an das Land NRW und die Bewilligung durch den Kreis Düren 
 
 Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker ist später der rote Faden des Workshops.
 :::
@@ -85,9 +85,6 @@ statt wegwerfen
 :::
 :::
 
-::: {.notes}
-Die Offene Werkstatt mit dem 3D-Drucker spielt heute die Hauptrolle: Am Ende soll aus einer KI-Idee ein echtes, gedrucktes Objekt werden.
-:::
 
 ## Erfindergeist: 3D-Druck (1/2)
 
@@ -124,7 +121,7 @@ Wo bekommt man 3D-Modelle her?
 
 
 ::: {.notes}
-Die Workstation ist der rote Faden für alle Live-Demos heute: Chat, Coding und 3D-Generierung laufen auf diesem Rechner, ohne Cloud.
+Die Workstation ist der rote Faden für alle Live-Demos heute: Chat und 3D-Generierung laufen auf diesem Rechner, ohne Cloud. Coding noch nicht.
 
 Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr bei den Eingabemöglichkeiten).
 :::
@@ -181,7 +178,7 @@ Alle Dateien der Präsentation
 :::
 
 ::: {.notes}
-Gleich am Anfang zeigen, damit alle die Präsentation auf dem eigenen Gerät mitlesen können. Die QR-Codes werden mit `podman compose run --rm qrcode` erzeugt (Links in `qrcodes.sh`).
+Gleich am Anfang zeigen, damit alle die Präsentation auf dem eigenen Gerät mitlesen können. 
 :::
 
 ## Erfindergeist: Spenden
@@ -231,9 +228,7 @@ Spendenkonto und PayPal
 [Danke an alle, die unsere Arbeit möglich machen!]{.spend-thanks}
 
 ::: {.notes}
-Kurz auf Spendenmöglichkeiten hinweisen – nicht zu lange verweilen, am Ende kommt die Folie noch einmal.
-
-Konkret machen, wofür das Geld gebraucht wird: Miete für die Räume, Werkzeug, Maschinen wie der 3D-Drucker aus diesem Workshop und Material für das Repair Café.
+Spenden gehen in Miete für die Räume, Werkzeug, Maschinen.
 :::
 
 # Was ist KI?
@@ -395,10 +390,6 @@ Sprachmodelle, die besonders viel **Programmcode** gelernt haben.
 ::: {.notes}
 Coding-Modelle sind normale LLMs, die zusätzlich mit großen Mengen Quellcode trainiert wurden. Dadurch beherrschen sie Syntax und typische Muster vieler Sprachen besser.
 
-„Ergänzen mitten in einer Datei“ (Fill-in-the-Middle): Das Modell sieht Code vor und nach der Cursorposition und füllt die Lücke – die Grundlage für Autovervollständigung im Editor.
-
-Werkzeuge: Moderne Coding-Modelle sind darauf trainiert, selbstständig Dateien zu lesen, zu bearbeiten und Befehle (z.B. Tests) auszuführen. Das nutzen Coding-Agenten wie OpenCode oder Claude Code – dazu später mehr.
-
 Große Allround-Modelle wie Claude oder GPT sind ebenfalls sehr gut im Programmieren. Spezielle Coding-Modelle lohnen sich vor allem lokal, weil ein kleineres Spezialmodell auf eigener Hardware läuft und beim Code trotzdem gute Ergebnisse liefert.
 :::
 
@@ -504,12 +495,6 @@ Erst das Publikum fragen, was an diesem Prompt fehlt, dann die Fragen per Klick 
 ::: {.fragment}
 [D]{.sand-letter} Als E-Mail mit Betreffzeile und drei Stichpunkten zum Ablauf.
 :::
-:::
-
-::: {.notes}
-Die vier Teile erscheinen nacheinander. Bei jedem Schritt kurz zurück auf die Fragen der vorherigen Folie verweisen: Jede SAND-Zeile beantwortet eine Frage, die die KI sonst hätte raten müssen.
-
-Idealerweise live vorführen: erst den kurzen Prompt, dann den SAND-Prompt in dieselbe KI eingeben und die Ergebnisse vergleichen.
 :::
 
 ## Prompting: Beispiele im Web
@@ -701,7 +686,7 @@ große Cloud-Modelle (z.B. Gemini, Claude)
 :::
 
 ::: aside
-**Faustregel:** 1 Seite deutscher Text ≈ 700 Token. Stand: Oktober 2026, Werte ändern sich schnell.
+**Faustregel:** 1 Seite deutscher Text ≈ 700 Token. 
 :::
 
 ::: {.notes}
@@ -1292,7 +1277,6 @@ Beide können dasselbe: Dateien anlegen, lesen und ändern. Der Unterschied ist 
 - VS Code + Claude Code: für alle, die schon mit VS Code arbeiten. Die Datei wird im Editor angelegt, Änderungen sieht man direkt.
 - Claude Code CLI: im Projektordner `claude` eintippen und lossprechen.
 
-Kosten (Stand: November 2026, ändert sich schnell): Claude Code braucht ein Claude-Abo oder API-Guthaben.
 :::
 
 ## Weg 2: Der Arbeitsplatz
@@ -1609,7 +1593,7 @@ Bonus je nach verfügbarer Zeit. Alle Demos laufen kostenlos im Browser.
 - Ideal, um ein Modell auszuprobieren, bevor man es lokal installiert
 
 ::: aside
-[huggingface.co](https://huggingface.co) - kostenlose Basisnutzung, Stand: Oktober 2026
+[huggingface.co](https://huggingface.co)
 :::
 
 ::: {.notes}
