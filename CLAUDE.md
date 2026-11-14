@@ -156,6 +156,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 
 ```markdown
 [Chip-Text]{.token-chip}   ← Gelber Chip im Monospace-Stil (z.B. für Token-Beispiele)
+[Nummer]{.token-id}        ← Mint-Chip im Monospace-Stil für Token-Nummern; <div class="tok-flow"> = Raster Text → Token → Nummern (HTML-Block, Folie „Prompting: Text wird zu Zahlen“)
 ::: {.plain-table}          ← Tabelle ohne Rahmen/Zebra, 1. Buchstabe der 1. Spalte in Mint
 ::: {.prompt-box}           ← Prompt-Darstellung: dunkle Box mit Mint-Rand (.prompt-weak = grauer Rand)
 [S]{.sand-letter}           ← Buchstabe im Mint-Kreis (z.B. für SAND-Beispiel)

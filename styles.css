@@ -441,3 +441,29 @@
 /* Wege-Raster mit 2 Karten (Nutzung: ::: {.weg-grid .two}) — größere Vorschaubilder für Screenshots */
 .reveal .weg-grid.two { grid-template-columns: repeat(2, 1fr); }
 .reveal .weg-grid.two .card img { height: 300px; }
+
+/* === Text → Token → Nummern (Nutzung: <div class="tok-flow"> als HTML-Block, Folie „Prompting: Text wird zu Zahlen“) ===
+   Raster: Beschriftung | Token 1 | Token 2 | Token 3 — so steht jede Nummer genau unter ihrem Puzzleteil */
+.reveal .tok-flow {
+  display: grid;
+  grid-template-columns: 6em repeat(3, auto);
+  justify-content: start;
+  justify-items: center;
+  align-items: center;
+  column-gap: 0.5em;
+  row-gap: 0.35em;
+  margin: 0.8em 0 0.6em;
+  font-size: 1.1em;
+}
+.reveal .tok-flow .tok-label { justify-self: start; color: #aaaaaa; font-size: 0.6em; }
+.reveal .tok-flow .tok-text  { grid-column: 2 / 5; justify-self: start; }
+.reveal .tok-flow .tok-arrow { grid-column: 2 / 5; justify-self: start; color: #159989; font-size: 0.6em; }
+.token-id {
+  background: #159989;
+  color: #222222;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85em;
+  font-weight: bold;
+}

@@ -618,28 +618,69 @@ Jede Chat-Umgebung weiß unterschiedlich viel über den Nutzer.
 Fachbegriffe: zustandsbehaftet (stateful) vs. zustandslos (stateless). Das Sprachmodell selbst merkt sich nie etwas – das Gedächtnis kommt von der Anwendung, die im Hintergrund Informationen in den Prompt einfügt.
 :::
 
+## Prompting: Text wird zu Zahlen
+
+Ein Computer rechnet nur mit Zahlen - auch die KI.
+
+```{=html}
+<div class="tok-flow">
+  <div class="tok-label">Text</div>
+  <div class="tok-text">Hallo Welt!</div>
+
+  <div class="tok-arrow fragment" data-fragment-index="1">↓ in Puzzleteile zerlegen</div>
+  <div class="tok-label fragment" data-fragment-index="1">Token</div>
+  <div class="fragment" data-fragment-index="1"><span class="token-chip">Hallo</span></div>
+  <div class="fragment" data-fragment-index="1"><span class="token-chip">␣Welt</span></div>
+  <div class="fragment" data-fragment-index="1"><span class="token-chip">!</span></div>
+
+  <div class="tok-arrow fragment" data-fragment-index="2">↓ im Wörterbuch nachschlagen</div>
+  <div class="tok-label fragment" data-fragment-index="2">Nummern</div>
+  <div class="fragment" data-fragment-index="2"><span class="token-id">18234</span></div>
+  <div class="fragment" data-fragment-index="2"><span class="token-id">4570</span></div>
+  <div class="fragment" data-fragment-index="2"><span class="token-id">0</span></div>
+</div>
+```
+
+::: {.fragment}
+**Wie Lego:** Jeder Stein hat eine Teilenummer - die KI kennt nur die Nummern.
+:::
+
+::: {.notes}
+Erst den Satz zeigen, dann per Klick: zerlegen → nachschlagen → Lego-Vergleich.
+
+Die Nummern sind beispielhaft – jedes Modell hat sein eigenes Wörterbuch (Vokabular) mit einigen zehntausend bis rund 200.000 Einträgen. Mit diesen Nummern rechnet das neuronale Netz (Bezug zu „KI: Wie ist ein Modell aufgebaut?“: Die Eingabe sind Zahlen). Die Antwort entsteht genauso rückwärts: Die KI sagt die Nummer des nächsten Tokens voraus, die Anwendung macht daraus wieder Text.
+
+Warum Wortstücke und nicht ganze Wörter oder Buchstaben?
+
+- Ganze Wörter als Einträge geht nicht: Es gibt unendlich viele (alle Sprachen, Namen, Tippfehler, neue Wörter wie „Muttkrat“).
+- Einzelne Buchstaben gehen auch nicht gut: Texte würden sehr lang, das Modell langsamer und das Kontextfenster wäre schnell voll.
+- Wortstücke sind der Kompromiss – mehr dazu auf der nächsten Folie.
+
+Das Leerzeichen (␣) gehört meist zum nächsten Wort und ist kein eigenes Token.
+:::
+
 ## Prompting: Token als Puzzleteile
 
-Die KI zerlegt jeden Text in kleine Stücke - **Token**.
+Häufige Wörter sind **ein** Stein, seltene werden aus **mehreren** zusammengesetzt.
 
 | Text | Token | Anzahl |
 |---|---|---|
 | Hallo Welt! | [Hallo]{.token-chip} [␣Welt]{.token-chip} [!]{.token-chip} | 3 |
 | Apfel | [Apfel]{.token-chip} | 1 |
-| Verständnisfragen | [Verständ]{.token-chip} [nis]{.token-chip} [fragen]{.token-chip} | mehrere |
+| Verständnisfragen | [Verständ]{.token-chip} [nis]{.token-chip} [fragen]{.token-chip} | 3 |
 
 : {tbl-colwidths="[30,55,15]"}
 
-**Faustregel:** 100 Token ≈ 75 Wörter
+**Faustregel:** 100 Token ≈ 75 Wörter · Deutsch braucht oft mehr Token als Englisch
 
 ::: aside
 Selbst ausprobieren: [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
 :::
 
 ::: {.notes}
-Häufige, kurze Wörter sind meist ein einzelnes Token. Lange oder seltene Wörter werden in mehrere Stücke zerlegt. Die Aufteilung bei „Verständnisfragen“ ist vereinfacht dargestellt.
+So kann die KI auch Wörter verarbeiten, die sie nie gesehen hat: Sie setzt sie aus bekannten Stücken zusammen. Die Aufteilung bei „Verständnisfragen“ ist vereinfacht dargestellt.
 
-Das Leerzeichen (␣) gehört meist zum nächsten Wort und ist kein eigenes Token.
+Das Wörterbuch entsteht automatisch aus den Trainingstexten: Buchstabenfolgen, die oft vorkommen, werden zu einem Token zusammengefasst (Fachbegriff: Byte-Pair Encoding). Weil die Trainingstexte überwiegend Englisch sind, sind englische Wörter öfter ein ganzes Token – deutsche werden häufiger zerlegt.
 
 Live: Den Tokenizer öffnen und einen deutschen und einen englischen Satz vergleichen – deutsche Texte brauchen oft mehr Token.
 :::
@@ -788,22 +829,6 @@ Die Web-GUI (Graphical User Interface = grafische Oberfläche) ist die Anwendung
 Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann das Modell das nicht wissen.
 :::
 
-
-## Eingabe: Ollama und Open WebUI
-
-- **Ollama:** startet Sprachmodelle auf dem eigenen Rechner
-- Modelle per Befehl starten, z.B. `ollama run qwen2.5-coder:14b`
-- **Open WebUI:** Chat-Oberfläche im Browser, ähnlich wie ChatGPT
-- Verbindet sich mit Ollama - alle Daten bleiben lokal
-- Dokumente hochladen, mehrere Modelle vergleichen
-
-::: {.notes}
-Ollama ist der „Motor“: Es lädt und betreibt die Modelle. Open WebUI ist das „Armaturenbrett“: eine Weboberfläche, über die man mit den Modellen chattet.
-
-Live-Demo: In Open WebUI ein lokales Modell auswählen und eine Frage stellen. Ggf. die Geschwindigkeit (Tokens pro Sekunde) zeigen – Bezug zur Folie „Eingabe: Wie schnell schreibt KI?“.
-
-Modelle auf der Workstation laut Wiki: gemma4:12b (sehr gutes Allgemeinwissen), qwen3.5:9b (Allgemeinwissen), qwen2.5-coder:14b (Programmieren).
-:::
 
 ## Eingabe: Dienste der Workstation
 
