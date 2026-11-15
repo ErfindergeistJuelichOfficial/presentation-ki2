@@ -54,7 +54,7 @@ format:
 
 > **Verantwortliche Stelle:**\
 > Erfindergeist Jülich e.V.\
-> Pfarrer-Engels-Straße, 52428 Jülich\
+> Pfarrer-Engels-Straße 24, 52428 Jülich\
 > vorstand@erfindergeist.org
 
 *Zutreffendes bitte ankreuzen.*
