@@ -19,4 +19,5 @@ erfindergeist  erfindergeist.org/
 wiki           wiki.erfindergeist.org/
 praesentation  presentations.erfindergeist.org/ki2/
 github         github.com/ErfindergeistJuelichOfficial/presentation-ki2
+linktree       linktree.erfindergeist.org/
 LINKS
