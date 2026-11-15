@@ -736,7 +736,58 @@ Lokale Werkzeuge wie Ollama stellen das Kontextfenster oft klein ein, um Arbeits
 Auch bei großen Fenstern gilt: Je voller, desto eher übersieht das Modell Details in der Mitte.
 :::
 
-## Prompting: Antworten (1/2)
+
+## Prompting: Zusammenfassung
+
+[Gute Prompts baut man auf **SAND**]{.sand-claim}
+
+::: {.sand-sum}
+::: {.fragment}
+[S]{.sand-letter}
+
+**Situation**
+
+Wer bin ich, für wen?
+:::
+::: {.fragment}
+[A]{.sand-letter}
+
+**Aufgabe**
+
+Was soll rauskommen?
+:::
+::: {.fragment}
+[N]{.sand-letter}
+
+**Nebenbedingungen**
+
+Welche Regeln gelten?
+:::
+::: {.fragment}
+[D]{.sand-letter}
+
+**Darstellung**
+
+In welcher Form?
+:::
+:::
+
+::: {.sand-tips .fragment}
+[Die KI liest **Token** - und nur, was ins **Kontextfenster** passt]{}
+[Unsicher? Die KI den Prompt **verbessern** lassen]{}
+[Kein Gedächtnis? Dann gehört **alles** in den Prompt]{}
+:::
+
+::: {.notes}
+Wortspiel zum Merken: Normalerweise ist etwas „auf Sand gebaut“, wenn es wackelig ist. Bei Prompts ist es umgekehrt – wer auf SAND baut, steht stabil.
+
+Die vier Buchstaben per Klick einblenden und das Publikum jeweils raten lassen, wofür der Buchstabe steht. Danach die drei Merksätze aus dem restlichen Prompting-Teil: Token und Kontextfenster, Prompt optimieren, Chat-Umgebung mit/ohne Gedächtnis.
+:::
+
+# Nützlich zu Wissen 
+
+
+## Nützlich: Antworten (1/2)
 
 ### **Nichtdeterminismus**
 
@@ -757,7 +808,7 @@ Halluzination: Das Modell erzeugt eine plausible Antwort, auch wenn es keine ver
 :::
 
 
-## Prompting: Antworten (2/2)
+## Nützlich: Antworten (2/2)
 
 ### **Bias**
 
@@ -781,91 +832,11 @@ Bias: Vorurteile aus den Trainingsdaten werden übernommen.
 Overreliance: Gerade bei Code und Fakten gilt – Ergebnis immer prüfen, bevor man es verwendet.
 :::
 
-# Eingabemöglichkeiten 
 
-Wie und wo kann man mit KI arbeiten?
-
-::: {.notes}
-Überleitung: Wir wissen jetzt, wie KI funktioniert und wie man gut fragt. Jetzt geht es darum, wo und wie man KI konkret benutzt.
-:::
-
-
-## Eingabe: Übersicht
-
-| **Art** | **Lokal** | **Cloud** |
-|---|---|---|
-| Chat im Browser | Open WebUI | ChatGPT, Claude.ai, Gemini |
-| Terminal (CLI) | OpenCode | Claude Code |
-| Im Editor (IDE) | VS Code + Continue | VS Code + GitHub Copilot |
-
-: {tbl-colwidths="[30,30,40]"}
-
-
-
-::: {.notes}
-Dasselbe Modell kann in verschiedenen Oberflächen laufen. Im Chat antwortet die KI nur mit Text. Als Agent im Terminal oder Editor darf sie zusätzlich Dateien anlegen, ändern und Befehle ausführen.
-
-Lokal heißt: Modell läuft über Ollama auf dem eigenen Rechner. Cloud heißt: Modell läuft beim Anbieter.
-:::
-
-
-## Eingabe: Tools
-
-- **Web-GUI:** die Chat-Oberfläche im Browser, z.B. ChatGPT oder Open WebUI
-- **Tools:** Werkzeuge, die die KI bei Bedarf selbst aufruft
-
-Typische Tools: Websuche, Rechnen, Dateien lesen, Bilder erzeugen, HTML anzeigen
-
-
-:::aside
-**Achtung:** Ältere Modelle können nur Text lesen und schreiben. Oberflächen unterstützen nicht alle Tools, manchmal nur als Plugin.
-:::
-
-::: {.notes}
-Das Sprachmodell allein kann nur Text lesen und schreiben. Es kann nicht ins Internet schauen, nicht zuverlässig rechnen und keine Dateien öffnen.
-
-Die Web-GUI (Graphical User Interface = grafische Oberfläche) ist die Anwendung rund um das Modell. Sie stellt dem Modell Tools zur Verfügung. Das Modell entscheidet selbst, wann es ein Tool braucht, z.B. „Für diese Frage brauche ich aktuelle Infos → Websuche“. Die Anwendung führt die Suche aus und gibt das Ergebnis an das Modell zurück, das daraus die Antwort formuliert.
-
-Beispiel: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann das Modell das nicht wissen.
-:::
-
-
-## Eingabe: Dienste der Workstation
-
-| Dienst | Wie |
-|---|---|
-| Open WebUI (Chat) | im Browser [http://localhost:8080](http://localhost:8080) |
-| ComfyUI (Bilder, 3D) | im Browser [http://localhost:8188](http://localhost:8188) |
-| Programmieren | im Terminal ` opencode `  |
-
-
-::: {.notes}
-Über die Ollama API können Programme auf dem eigenen Laptop die Modelle der Workstation nutzen – z.B. die VS-Code-Erweiterung Continue oder openCode. Die Rechenarbeit erledigt dann die Workstation. Die Anleitung inklusive Konfiguration steht im Wiki.
-:::
-
-## Eingabe: Was passt in 16 GB?
-
-![](grafiken/vram-passt.svg){fig-align="center" width="85%"}
-
-::: aside
-Installiert u.a.: `gemma4:12b`, `qwen3.5:9b`, `qwen2.5-coder:14b`
-:::
-
-::: {.notes}
-Der Grafikspeicher ist wie ein Schreibtisch: Das ganze Modell muss darauf Platz haben. Unsere Workstation hat 16 GB.
-
-Ollama speichert Modelle komprimiert. Ein 14B-Modell belegt so etwa 8–9 GB und passt gut hinein. Der Rest wird für das Kontextfenster gebraucht.
-
-Passt ein Modell nicht vollständig in den Grafikspeicher, lagert Ollama Teile in den normalen Arbeitsspeicher aus – das funktioniert, ist aber deutlich langsamer.
-
-Im Wiki-Test hat Qwen2.5-Coder 14B in unter 3 Sekunden geantwortet und ein HTML-Snake-Spiel erstellt.
-:::
-
-## Eingabe: Wie schnell schreibt KI?
+## Nützlich: Wie schnell schreibt KI?
 
 **Token pro Sekunde** = die Schreibgeschwindigkeit der KI
 
-<!-- TODO: Werte auf der Workstation messen: ollama run qwen3.5:9b --verbose bzw. qwen2.5-coder:14b --verbose ("eval rate") und Schätzwerte ersetzen -->
 
 ::: columns
 ::: {.column width="33%"}
@@ -907,10 +878,114 @@ Die Werte sind eine Schätzung: Die Geschwindigkeit hängt vor allem davon ab, w
 :::
 
 
-## Eingabe: Live-Coding Snake
+## Nützlich: Tools
+
+Das Modell allein kann nur **Text**. Tools geben ihm Hände:
+
+::: {.link-grid .tools}
+::: {.card}
+**Websuche**
+
+Ohne: Wissen endet am Trainingstag
+
+aktuelle News, Wetter, Preise
+:::
+::: {.card}
+**Code ausführen**
+
+Ohne: rechnet „nach Gefühl“
+
+exakt rechnen, Diagramme
+:::
+::: {.card}
+**Dateien lesen**
+
+Ohne: nur getippter Text
+
+PDF, Excel, Fotos auswerten
+:::
+::: {.card}
+**Bilder erzeugen**
+
+Ohne: kann nur beschreiben
+
+Bild aus einer Beschreibung
+:::
+::: {.card}
+**Vorschau**
+
+Ohne: Code nur als Text
+
+Webseite direkt ausprobieren
+:::
+::: {.card}
+**Gedächtnis**
+
+Ohne: jeder Chat bei null
+
+kennt frühere Chats
+:::
+:::
+
+::: aside
+**Achtung:** Nicht jede Oberfläche bietet alle Tools - manche nur als Plugin.
+:::
+
+::: {.notes}
+Bild: Das Modell ist das Gehirn, die Tools sind die Hände. Die KI entscheidet selbst, wann sie ein Tool braucht. Ältere Modelle können gar keine Tools nutzen. Die Web-Oberfläche (GUI = grafische Oberfläche) stellt die Tools bereit, das Modell entscheidet, wann es eins braucht – z.B. „Für diese Frage brauche ich aktuelle Infos → Websuche“. Die Oberfläche führt das Tool aus und gibt das Ergebnis an das Modell zurück, das daraus die Antwort formuliert.
+
+Beispiel zum Fragen ans Publikum: „Wie wird das Wetter morgen in Jülich?“ – ohne Websuche kann das Modell das nicht wissen und muss raten (Halluzination!).
+
+Bekannte Beispiele (Stand: November 2026):
+
+- Websuche: ChatGPT-Suche, Claude, Gemini – in Open WebUI zuschaltbar
+- Code ausführen: ChatGPT „Datenanalyse“, Code-Interpreter in Open WebUI
+- Vorschau: ChatGPT „Canvas“, Claude „Artifacts“ – Bezug zum Snake-Spiel gleich
+- Gedächtnis: siehe Folie „Prompting: Chat-Umgebung“
+
+Rechnen ist ein gutes Beispiel: Das Modell sagt das wahrscheinlichste nächste Token voraus – bei großen Zahlen ist das oft falsch. Mit Tool schreibt es ein kleines Programm, das exakt rechnet.
+:::
+
+
+
+
+## Nützlich: Live-Coding Snake
 
 ::: {.chat-input}
 Baue ein kleines Snake-Spiel, welches direkt im Browser läuft.
+:::
+
+[Worauf achten wir?]{.watch-lead}
+
+::: {.watch-grid .fragment}
+::: {}
+[⏱]{.watch-icon}
+
+**Tempo**
+
+Wie schnell erledigt die KI die Aufgabe?
+:::
+::: {}
+[▶]{.watch-icon}
+
+**Vorschau**
+
+Zeigt ein Tool das Spiel direkt im Browser?
+:::
+::: {}
+[✓]{.watch-icon}
+
+**Ergebnis**
+
+Ist es so, wie wir es erwartet haben?
+:::
+::: {}
+[+]{.watch-icon}
+
+**Weiter**
+
+Reicht uns das - oder fehlen noch Features?
+:::
 :::
 
 ::: {.notes}
@@ -919,7 +994,7 @@ Live-Demo: Denselben Prompt einmal im Web-UI (Open WebUI oder ChatGPT) und einma
 Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden. Agent: Die Datei wird direkt angelegt und kann sofort geöffnet werden.
 :::
 
-## Eingabe: Ergebnis Snake {background-color="#2c3e50"}
+## Nützlich: Ergebnis Snake {background-color="#2c3e50"}
 
 ```{=html}
 <iframe src="beispiele/snake/snake.html"
@@ -931,21 +1006,6 @@ Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden.
 Das Spiel live ausprobieren. Hinweis: Dieser Code wurde vollständig von der KI geschrieben.
 :::
 
-## Eingabe: Code ist Text
-
-LLMs schreiben Text - und **Code ist auch nur Text**.
-
-- Webseiten und Spiele (HTML, JavaScript)
-- Präsentationen (diese hier ist mit Quarto geschrieben)
-- **3D-Modelle** (OpenSCAD)
-
-::: aside
-**Merke:** Alles, was man als Code beschreiben kann, kann KI gut.
-:::
-
-::: {.notes}
-Überleitung zum Hauptteil: Wenn KI ein Spiel programmieren kann, kann sie auch ein 3D-Modell programmieren – das zeigt Weg 2 mit OpenSCAD. Zuerst kommt aber Weg 1: 3D ganz ohne Code, direkt aus einem Bild.
-:::
 
 # 3D-Generierung mit KI
 

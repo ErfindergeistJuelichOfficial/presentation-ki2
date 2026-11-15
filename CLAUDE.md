@@ -164,7 +164,7 @@ Wenn eine Folie zu voll wird: **aufteilen**, nicht verkleinern. Lieber eine Foli
 ::: {.card}                 ← Karte: dunkle Box mit Mint-Rand oben, letzte Zeile in Mint (z.B. Problem → Lösung)
 ::: {.card .qr}             ← QR-Karte: zentriert, QR-Code mit weißem Rahmen, Link in Mint (Folie „Erfindergeist: Wichtige Links“)
 ::: {.spend-grid}           ← 2×2-Raster aus kleinen Karten (Folie „Erfindergeist: Spenden“, am Anfang und identisch am Ende); [Text]{.spend-thanks} = zentrierte Dankeszeile in Mint
-::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompting: Beispiele im Web“); {.link-grid .two} = 2 Spalten
+::: {.link-grid}            ← 3-spaltiges Raster aus Link-Karten (Folie „Prompting: Beispiele im Web“); {.link-grid .two} = 2 Spalten; {.link-grid .tools} = Karten „Titel / Ohne: … (grau) / mit Tool (Mint)“ (Folie „Eingabe: Tools“)
 [Text]{.rtfm}               ← schräger Stempel in Amber (z.B. „RTFM“, „Abgucken erlaubt!“)
 ::: {.takeaways}            ← 3-spaltiges Raster mit automatisch nummerierten Karten (Folie „Zusammenfassung: Zum Mitnehmen“)
 ::: {.ctx-grid}             ← 3 Karten als Treppe, wachsen von links nach rechts (Folie „Prompting: Kontextfenster-Größe“); [Text]{.ctx-seiten} = größere Mittelzeile, letzte Zeile grau

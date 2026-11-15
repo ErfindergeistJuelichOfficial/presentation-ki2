@@ -467,3 +467,85 @@
   font-size: 0.85em;
   font-weight: bold;
 }
+/* Tool-Karten (Folie „Eingabe: Tools“): 2. Zeile „Ohne: …“ grau, letzte Zeile = was mit Tool möglich wird (Mint) */
+.reveal .link-grid.tools .card { font-size: 0.55em; }
+.reveal .link-grid.tools .card p:nth-child(2) { color: #aaaaaa; }
+
+/* === Prompting-Zusammenfassung (Folie „Prompting: Zusammenfassung“) ===
+   [Text]{.sand-claim} = große zentrierte Merkzeile; ::: {.sand-sum} = 4 Kacheln mit großem SAND-Buchstaben;
+   ::: {.sand-tips} = Zeile mit kleinen Merk-Chips (je ein []{}-Span) */
+.reveal .sand-claim {
+  display: block;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0.3em 0 0.6em;
+}
+.reveal .sand-claim strong { letter-spacing: 0.12em; }
+.reveal .sand-sum {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
+}
+.reveal .sand-sum > div {
+  background: #2d2d2d;
+  border-top: 4px solid #159989;
+  border-radius: 8px;
+  padding: 0.6em 0.4em 0.8em;
+  text-align: center;
+  font-size: 0.72em;
+}
+.reveal .sand-sum p { margin: 0.25em 0; }
+.reveal .sand-sum .sand-letter {
+  display: inline-block;
+  font-size: 2.2em;
+  margin-bottom: 0.1em;
+}
+.reveal .sand-sum p:last-child { color: #aaaaaa; }
+.reveal .sand-tips p {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.8em;
+}
+.reveal .sand-tips p > span {
+  border: 1px solid #159989;
+  border-radius: 999px;
+  padding: 0.3em 0.9em;
+  font-size: 0.58em;
+}
+
+/* === Beobachtungs-Karten für Live-Demos (Nutzung: [Frage]{.watch-lead} + ::: {.watch-grid} mit 4x ::: {} — [Icon]{.watch-icon}, **Stichwort**, Frage) === */
+.reveal .watch-lead {
+  display: block;
+  color: #aaaaaa;
+  font-size: 0.7em;
+  margin: 0.9em 0 0.3em;
+}
+.reveal .watch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
+}
+.reveal .watch-grid > div {
+  background: #2d2d2d;
+  border-top: 4px solid #159989;
+  border-radius: 8px;
+  padding: 0.5em 0.6em 0.7em;
+  text-align: center;
+  font-size: 0.62em;
+}
+.reveal .watch-grid p { margin: 0.25em 0; }
+.reveal .watch-grid p:last-child { color: #aaaaaa; }
+.reveal .watch-icon {
+  display: inline-block;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  border: 2px solid #159989;
+  color: #159989;
+  font-size: 1.4em;
+  font-weight: bold;
+}
