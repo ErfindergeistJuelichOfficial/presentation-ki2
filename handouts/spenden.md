@@ -80,13 +80,16 @@ Werkzeug     & Vom Schraubendreher bis zum Messschieber \\[1mm]
 Maschinen    & 3D-Drucker, CNC und KI-Workstation \\[1mm]
 Repair Café  & Ersatzteile und Material zum Reparieren \\
 \end{tabular}
+
+\vspace{4mm}
+Abonniere auch gerne unseren \textbf{Newsletter}!
 \end{minipage}\hfill
 \begin{minipage}[t]{0.33\textwidth}
 \centering
 \vspace{-2mm}
 \includegraphics[width=0.85\linewidth]{../qr-codes/linktree.png}\\[1mm]
 {\bfseries Jetzt spenden}\\
-Spendenkonto und PayPal\\
+Spendenkonto, PayPal, Newsletter, etc.\\
 {\small\color{mint} linktree.erfindergeist.org}
 \end{minipage}
 
