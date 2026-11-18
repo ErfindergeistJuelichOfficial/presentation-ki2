@@ -7,6 +7,7 @@ title-slide-attributes:
 subtitle: Mit KI zum eigenen 3D-Druck · 21.11.2026
 format:
   revealjs:
+    max-scale: 4.0 # Wichtig für Bildschrim von AWO
     link-external-newwindow: true
     transition: fade
     # transition-speed: fast
