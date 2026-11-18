@@ -108,7 +108,7 @@ Das Foto zeigt den Prusa CORE One+ der Offenen Werkstatt (Bauraum 250 × 220 × 
 Wo bekommt man 3D-Modelle her?
 
 - CAD: selbst konstruieren oder kaufen
-- Kostenlose Modelle: [https://www.thingiverse.com/](https://www.thingiverse.com/) oder [https://www.printables.com/](https://www.printables.com/)
+- Kostenlose Modelle: [https://www.thingiverse.com/](https://www.thingiverse.com/), [https://www.printables.com/](https://www.printables.com/) oder [https://makerworld.com/de/](https://makerworld.com/de/)
 - KI durch Text oder Bilder
 
 ## Erfindergeist: KI-Workstation
