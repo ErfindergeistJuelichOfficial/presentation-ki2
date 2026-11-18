@@ -3,6 +3,7 @@
 #   plakat-a3.pdf, plakat-a4.pdf, plakat-a5.pdf  — Plakat in drei Größen
 #   flyer-a5.pdf                                 — Flyer: Seite 1 Plakat A5, Seite 2 Rückseite
 #   flyer-a5-vorderseite.pdf, flyer-a5-rueckseite.pdf — Flyer als Einzelseiten (für die Druckerei)
+#   wegweiser-<a3|a4>-<hoch|quer>-<links|rechts|geradeaus>.pdf — Wegweiser zum Aufstellen (12 Varianten)
 # Benötigt Google Chrome oder Chromium und pdfunite (Paket poppler-utils).
 set -e
 cd "$(dirname "$0")"
@@ -27,3 +28,14 @@ echo "PDF erstellt: drucksachen/flyer-a5-vorderseite.pdf"
 print_pdf flyer-a5-rueckseite.pdf rueckseite.html
 pdfunite flyer-a5-vorderseite.pdf flyer-a5-rueckseite.pdf flyer-a5.pdf
 echo "PDF erstellt: drucksachen/flyer-a5.pdf"
+
+for FORMAT in a3 a4; do
+  for LAGE in hoch quer; do
+    for RICHTUNG in links rechts geradeaus; do
+      QUERY="$RICHTUNG"
+      [ "$LAGE" = quer ] && QUERY="$QUERY&quer"
+      [ "$FORMAT" = a4 ] && QUERY="$QUERY&a4"
+      print_pdf "wegweiser-$FORMAT-$LAGE-$RICHTUNG.pdf" "wegweiser.html?$QUERY"
+    done
+  done
+done

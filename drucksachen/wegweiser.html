@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Wegweiser KI to 3D</title>
+<!--
+  Wegweiser zum Aufstellen vor dem Veranstaltungsort. Alle Maße in mm für A3.
+  Über den Link steuerbar (beliebig kombinierbar, z.B. wegweiser.html?a4&quer&links):
+    ?links / ?rechts (Standard) / ?geradeaus  — Pfeilrichtung
+    ?quer                                      — Querformat (eigenes Layout: Pfeil und Text nebeneinander)
+    ?a4                                        — A4 statt A3 (gleiches Layout, per zoom um 1/√2 verkleinert)
+  PDF erzeugen:  ./drucksachen/pdf.sh  → wegweiser-<a3|a4>-<hoch|quer>-<links|rechts|geradeaus>.pdf (12 Dateien)
+  Farben und Schriften wie plakat.html (Rubik + Inter, siehe Hinweis dort).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=block">
+<style>
+  :root {
+    --mint: #159989;       /* CI Primary */
+    --amber: #F9B338;      /* CI Secondary */
+    --dark: #17201F;
+    --mint-dark: #0F6E63;
+    --font: "Inter", system-ui, sans-serif;
+    --font-display: "Rubik", "Inter", sans-serif;
+  }
+
+  @page { size: A3; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #888; }
+  * { box-sizing: border-box; }
+  @media print { html, body { background: none; } }
+
+  .sign {
+    width: 297mm;
+    height: 420mm;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    color: var(--dark);
+    font-family: var(--font);
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- Kopf (wie Plakat) ---------- */
+  .head {
+    padding: 16mm 21mm 15mm;
+    background: var(--mint);
+    color: #fff;
+  }
+  .head-top { display: flex; justify-content: space-between; align-items: center; gap: 6mm; margin-bottom: 9mm; }
+  .invite { font-size: 7.1mm; font-weight: 700; letter-spacing: 0.02em; }
+  .badge {
+    background: var(--amber); color: var(--dark);
+    font-size: 6.4mm; font-weight: 700;
+    padding: 3.7mm 6.7mm; border-radius: 999px;
+  }
+  .title { margin: 0; font-family: var(--font-display); font-size: 52mm; line-height: 0.95; font-weight: 800; letter-spacing: -0.03em; }
+  .claim { font-family: var(--font-display); font-size: 12.7mm; font-weight: 500; line-height: 1.15; margin-top: 4mm; }
+
+  /* ---------- Pfeil ---------- */
+  .arrow-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8mm;
+  }
+  .arrow { width: 205mm; height: 205mm; display: block; }
+  .arrow-text { font-family: var(--font-display); font-size: 15mm; font-weight: 700; color: var(--mint-dark); }
+
+  /* Richtung: Grundform zeigt nach rechts */
+  .links .arrow     { transform: rotate(180deg); }
+  .geradeaus .arrow { transform: rotate(-90deg); }
+
+  /* ---------- Querformat (?quer): 420 × 297 mm, Pfeil und Text nebeneinander ---------- */
+  .quer .sign       { width: 420mm; height: 297mm; }
+  .quer .head       { padding: 11mm 21mm 11mm; }
+  .quer .head-top   { margin-bottom: 4mm; }
+  .quer .title      { font-size: 40mm; display: inline; }
+  .quer .claim      { display: inline; margin-left: 8mm; font-size: 11mm; }
+  .quer .arrow-area { flex-direction: row; gap: 14mm; }
+  .quer.rechts .arrow-area { flex-direction: row-reverse; }   /* Text links, Pfeil zeigt nach außen */
+  .quer .arrow      { width: 135mm; height: 135mm; }
+  .quer .arrow-text { font-size: 17mm; max-width: 170mm; line-height: 1.15; }
+  .quer .foot       { padding: 7mm 21mm 9mm; }
+  .quer .foot-logo  { height: 26mm; }
+
+  /* ---------- A4 (?a4): gleiches Seitenverhältnis wie A3, Faktor 1/√2 ---------- */
+  .a4 .sign { zoom: calc(210 / 297); }
+
+  /* ---------- Fuß ---------- */
+  .foot {
+    display: flex;
+    align-items: center;
+    gap: 9mm;
+    padding: 10mm 21mm 13mm;
+    border-top: 2.5mm solid var(--mint);
+  }
+  .foot-logo { height: 34mm; display: block; flex: none; }
+  .foot-text { font-size: 6.2mm; line-height: 1.45; }
+  .foot-text .name { font-weight: 700; font-size: 7.5mm; }
+</style>
+<script>
+  // Varianten aus dem Link: Richtung (?links/?rechts/?geradeaus), ?quer, ?a4
+  const params = new URLSearchParams(location.search);
+  const richtung = ["links", "rechts", "geradeaus"].find(r => params.has(r)) || "rechts";
+  const format = params.has("a4") ? "A4" : "A3";
+  const quer = params.has("quer");
+  document.documentElement.classList.add(richtung);
+  if (quer) document.documentElement.classList.add("quer");
+  if (format === "A4") document.documentElement.classList.add("a4");
+  document.title += ` – ${format} ${quer ? "quer" : "hoch"} – ${richtung}`;
+  document.head.insertAdjacentHTML("beforeend",
+    `<style>@page { size: ${format} ${quer ? "landscape" : "portrait"}; margin: 0; }</style>`);
+</script>
+</head>
+<body>
+<div class="sign">
+
+  <header class="head">
+    <div class="head-top">
+      <div class="invite">Erfindergeist Jülich e.V. lädt ein</div>
+      <div class="badge">Eintritt frei</div>
+    </div>
+    <h1 class="title">KI to 3D</h1>
+    <div class="claim">Mit KI zum eigenen 3D-Druck</div>
+  </header>
+
+  <main class="arrow-area">
+    <!-- Breiter Pfeil nach rechts in Amber, Drehung per CSS -->
+    <svg class="arrow" viewBox="0 0 100 100" aria-label="Pfeil">
+      <path d="M8 38 H54 V18 L92 50 L54 82 V62 H8 Z"
+            fill="#F9B338" stroke="#17201F" stroke-width="2.5" stroke-linejoin="round"/>
+    </svg>
+    <div class="arrow-text">Hier entlang zum Workshop</div>
+  </main>
+
+  <footer class="foot">
+    <img class="foot-logo" src="../verein/logo.svg" alt="Logo Erfindergeist Jülich">
+    <div class="foot-text">
+      <div class="name">Erfindergeist Jülich e.V.</div>
+      <div>Samstag, 21.11.2026 · 14–18 Uhr</div>
+      <div>im AWO Stadt Jülich e.V. Gebäude</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

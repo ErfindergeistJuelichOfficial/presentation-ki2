@@ -1,4 +1,4 @@
-# Drucksachen „KI to 3D“: Plakat (A3 / A4 / A5) und Flyer (A5)
+# Drucksachen „KI to 3D“: Plakat (A3 / A4 / A5), Flyer (A5) und Wegweiser (A3 / A4)
 
 Plakat und Flyer als HTML-Dateien. Sie werden per Chrome/Chromium randlos als PDF exportiert. Das A5-Plakat ist zugleich die Vorderseite des Flyers.
 
@@ -6,7 +6,9 @@ Plakat und Flyer als HTML-Dateien. Sie werden per Chrome/Chromium randlos als PD
 |---|---|
 | `plakat.html` | Das Plakat — alle Maße in mm, Seitenformat A3 (`@page { size: A3 }`); mit `plakat.html?a4` als A4, mit `plakat.html?a5` als A5 |
 | `rueckseite.html` | Rückseite des Flyers — eigenes Layout, alle Maße in mm für A5 |
-| `pdf.sh` | Exportiert Plakat und Flyer als PDF |
+| `wegweiser.html` | Wegweiser zum Aufstellen vor dem Veranstaltungsort — Maße für A3; im Link kombinierbar: Richtung `?links` / `?rechts` / `?geradeaus`, `?quer` (eigenes Querformat-Layout), `?a4` (verkleinert), z.B. `wegweiser.html?a4&quer&links` |
+| `pdf.sh` | Exportiert Plakat, Flyer und Wegweiser als PDF |
+| `wegweiser-<a3\|a4>-<hoch\|quer>-<links\|rechts\|geradeaus>.pdf` | Erzeugte Wegweiser-PDFs (12 Varianten) |
 | `plakat-a3.pdf`, `plakat-a4.pdf`, `plakat-a5.pdf` | Erzeugte Plakat-PDFs (nicht im Repository, siehe `.gitignore`) |
 | `flyer-a5.pdf` | Flyer, zweiseitig in einer Datei |
 | `flyer-a5-vorderseite.pdf`, `flyer-a5-rueckseite.pdf` | Flyer als Einzelseiten — für Druckereien, die je Seite eine Datei verlangen |
