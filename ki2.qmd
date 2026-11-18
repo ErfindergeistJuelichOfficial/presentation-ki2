@@ -7,6 +7,7 @@ title-slide-attributes:
 subtitle: Mit KI zum eigenen 3D-Druck · 21.11.2026
 format:
   revealjs:
+    link-external-newwindow: true
     transition: fade
     # transition-speed: fast
     touch: true
@@ -998,7 +999,7 @@ Web-UI: Code erscheint als Text im Chat und muss kopiert und gespeichert werden.
 
 ```{=html}
 <iframe src="beispiele/snake/snake.html"
-  style="width:100%;height:85vh;border:none;background:#2c3e50;">
+  style="width:100%;height:100%;border:none;background:#2c3e50;">
 </iframe>
 ```
 
@@ -1737,7 +1738,7 @@ Nein - auch ein guter Plan liefert selten sofort das perfekte Ergebnis.
 Überleitung zu den Prompt-Beispielen.
 :::
 
-## Webseite: Herzanimation (1/2)
+## Webseite: Herzanimation (1/3)
 
 - Um der KI zu erklären, welche Animation gerne hätte, wurde auf eine example Seite verlinkt [gsap.com](https://gsap.com/community/forums/topic/28814-using-gsap-to-loop-a-pulsing-animation/) (fig. 1)
 - folgend wurde gepromptet, dass die Animation mehr wie das eigentliche Herz aussehen soll (fig. 2).
@@ -1806,7 +1807,7 @@ Nein - auch ein guter Plan liefert selten sofort das perfekte Ergebnis.
 Links die ursprüngliche Animation (Kreis), rechts nach dem zweiten Prompt (Herzform).
 :::
 
-## Webseite: Herzanimation (2/2)
+## Webseite: Herzanimation (2/3)
 
 ```{=html}
 <div class="prompt-window">
@@ -1832,6 +1833,41 @@ Links die ursprüngliche Animation (Kreis), rechts nach dem zweiten Prompt (Herz
 
 ::: {.notes}
 Zwei kurze Prompts reichen – der erste mit Link als Vorlage, der zweite als Verfeinerung.
+:::
+
+## Webseite: Herzanimation (3/3)
+
+Immer häufiger **blockieren Webseiten die KI**. Ein Link als Vorlage kann deshalb bald ins Leere laufen.
+
+::: columns
+::: {.column width="50%"}
+::: {.card}
+[Lösung 1]{.weg-nr}
+
+**Das Beispiel herunterladen**
+
+Seite oder Code speichern und der KI als Datei mitgeben
+
+klappt immer
+:::
+:::
+::: {.column width="50%"}
+::: {.card}
+[Lösung 2]{.weg-nr}
+
+**Die KI Beispiele erstellen lassen**
+
+„Erstelle die 10 beliebtesten Animationen als Referenz.“
+
+dann das Passende auswählen
+:::
+:::
+:::
+
+::: {.notes}
+Hintergrund: Viele Webseiten sperren KI-Programme inzwischen aus, z.B. um ihre Inhalte vor dem Abgreifen für Trainingsdaten zu schützen. Die KI bekommt dann eine Fehlermeldung statt der Seite – und rät im schlimmsten Fall, was dort stehen könnte.
+
+Lösung 1: Die Seite im Browser speichern oder den Code kopieren und als Datei an den Prompt anhängen. Lösung 2: Die KI erzeugt selbst eine Auswahl an Animationen – daraus sucht man sich die passende aus und verfeinert sie mit einem zweiten Prompt.
 :::
 
 ## Tipp: CLAUDE.md

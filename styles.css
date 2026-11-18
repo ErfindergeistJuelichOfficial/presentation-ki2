@@ -549,3 +549,21 @@
   font-size: 1.4em;
   font-weight: bold;
 }
+
+/* === Link-Icon: ↗-Symbol hinter jedem externen Link, damit klar ist, was klickbar ist ===
+   Per CSS-Maske gefärbt → übernimmt immer die Linkfarbe (Amber, in Karten Mint).
+   Ausnahme: Folie „Referenzen: Werkzeuge und Demos“ (dort ist alles offensichtlich ein Link). */
+.reveal .slides section a[href^="http"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  margin-left: 0.22em;
+  vertical-align: 0.02em;
+  background-color: currentColor;
+  -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>') no-repeat center / contain;
+          mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>') no-repeat center / contain;
+}
+.reveal .slides section#referenzen-werkzeuge-und-demos a::after { content: none; }
+/* QR-Karten: Link samt Icon nicht umbrechen, sonst landet das Icon allein in der nächsten Zeile */
+.reveal .card.qr p:last-child a { white-space: nowrap; }

@@ -107,6 +107,10 @@ Breiten-Prozent (`width="100%"`) nur in Spalten-Layouts.
 
 **Kein `.webp`** — der PDF-Export (LaTeX) in der Pipeline kann WebP nicht einbinden. Fotos als `.jpg`, Screenshots als `.png`, Grafiken als `.svg`.
 
+### Links
+
+Externe Links öffnen sich in einem neuen Tab (`link-external-newwindow: true`, `preview-links: false` im YAML-Kopf) und bekommen automatisch ein ↗-Icon in Linkfarbe (`styles.css`, Abschnitt „Link-Icon“). Grund: Links und `**fett**` sind beide Amber und sonst nicht zu unterscheiden. Ausnahme ohne Icon: Folie „Referenzen: Werkzeuge und Demos“ — weitere Ausnahmen dort per Folien-ID ergänzen.
+
 ### Fußnoten / Quellenangaben
 
 ```markdown
