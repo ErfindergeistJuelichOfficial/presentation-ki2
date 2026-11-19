@@ -109,7 +109,7 @@ Breiten-Prozent (`width="100%"`) nur in Spalten-Layouts.
 
 ### Links
 
-Externe Links öffnen sich in einem neuen Tab (`link-external-newwindow: true`, `preview-links: false` im YAML-Kopf) und bekommen automatisch ein ↗-Icon in Linkfarbe (`styles.css`, Abschnitt „Link-Icon“). Grund: Links und `**fett**` sind beide Amber und sonst nicht zu unterscheiden. Ausnahme ohne Icon: Folie „Referenzen: Werkzeuge und Demos“ — weitere Ausnahmen dort per Folien-ID ergänzen.
+Externe Links öffnen sich in einem neuen Tab (`link-external-newwindow: true`, `preview-links: false` im YAML-Kopf) und bekommen automatisch ein ↗-Icon in Linkfarbe (`styles.css`, Abschnitt „Link-Icon“). Grund: Links und `**fett**` sind beide Amber und sonst nicht zu unterscheiden. Ausnahme ohne Icon: die Folien „Referenzen: Werkzeuge und Demos“, „… Prompting und Tipps“, „… 3D-Modelle und Verein“ — weitere Ausnahmen dort per Folien-ID ergänzen.
 
 ### Fußnoten / Quellenangaben
 

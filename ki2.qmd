@@ -51,6 +51,8 @@ Gemeinnütziger Verein aus Jülich - seit 2021
 Danke an das Land NRW und die Bewilligung durch den Kreis Düren 
 
 Kurz den Verein vorstellen. Hinweis auf die Offene Werkstatt – der 3D-Drucker ist später der rote Faden des Workshops.
+
+
 :::
 
 ## Erfindergeist: Wer wir sind
@@ -103,6 +105,8 @@ statt wegwerfen
 
 ::: {.notes}
 Das Foto zeigt den Prusa CORE One+ der Offenen Werkstatt (Bauraum 250 × 220 × 270 mm). Frage ans Publikum: Wer hat schon einmal etwas 3D-gedruckt?
+
+Alle Infos zum 3D-Drucker in der Wiki: [Prusa CORE One+ Wiki](https://docs.erfindergeist.org/s/wiki/doc/3d-drucker2-6XvoftKCV9)
 :::
 
 ## Erfindergeist: 3D-Druck (2/2)
@@ -125,7 +129,9 @@ Wo bekommt man 3D-Modelle her?
 ::: {.notes}
 Die Workstation ist der rote Faden für alle Live-Demos heute: Chat und 3D-Generierung laufen auf diesem Rechner, ohne Cloud. Coding noch nicht.
 
-Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. Für KI zählt vor allem die Grafikkarte – die 16 GB Grafikspeicher bestimmen, wie große Modelle laufen (dazu mehr bei den Eingabemöglichkeiten).
+Weitere Daten: Intel i3-13100F, 16 GB Arbeitsspeicher, Betriebssystem NixOS. 
+
+Alle Infos zur Workstation in der Wiki: [Workstation Wiki](https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX?q=workstation)
 :::
 
 ## Erfindergeist: Wichtige Links
@@ -181,6 +187,15 @@ Alle Dateien der Präsentation
 
 ::: {.notes}
 Gleich am Anfang zeigen, damit alle die Präsentation auf dem eigenen Gerät mitlesen können. 
+
+Präsentation erklären:
+- Burger menu
+  - Übersicht Kapitel und Seiten
+  - Tools wie Fullscreen, Chalkboard
+- Seiten Zahl oben rechts. Bitte Notieren für fragen
+- Pfeiltasten
+  - Links/rechts Kapitel
+  - Hoch/Runter Seiten
 :::
 
 ## Erfindergeist: Spenden
@@ -231,6 +246,10 @@ Spendenkonto und PayPal
 
 ::: {.notes}
 Spenden gehen in Miete für die Räume, Werkzeug, Maschinen.
+
+Woher habe Sie vom Workshop erfahren? (Frage ans Publikum) – Flyer, Social Media, Bekannte, Verein, …?
+
+Siehe auch Whiteboard. Dort kann man sich eintragen.
 :::
 
 # Was ist KI?
@@ -1871,12 +1890,14 @@ Hintergrund: Viele Webseiten sperren KI-Programme inzwischen aus, z.B. um ihre I
 Lösung 1: Die Seite im Browser speichern oder den Code kopieren und als Datei an den Prompt anhängen. Lösung 2: Die KI erzeugt selbst eine Auswahl an Animationen – daraus sucht man sich die passende aus und verfeinert sie mit einem zweiten Prompt.
 :::
 
-## Tipp: CLAUDE.md
+## Tipp: CLAUDE.md / AGENTS.md
 
 - Textdatei im Projekt mit Regeln und Wissen für die KI
 - Wird bei jeder Sitzung automatisch mitgelesen
 - Im Internet manchmal als „Token-Fresser“ kritisiert - aber sehr hilfreich
 - Tipp: Die KI regelmäßig bitten, neue Erkenntnisse in der CLAUDE.md zu ergänzen
+
+Gute referenz: [claude.md optimieren](https://reneki.de/kosten-sparen-bei-der-softwareentwicklung-mit-claude-code/)
 
 ::: {.notes}
 Die CLAUDE.md ist das Gedächtnis des Projekts (vgl. Folie „Prompting: Chat-Umgebung“: mit/ohne Gedächtnis). Sie kostet bei jeder Anfrage etwas Kontext, spart aber viele Wiederholungen und Korrekturen.
@@ -1928,7 +1949,6 @@ Ergebnis: Der Speicherbedarf sinkt von „alle Modelle zusammen“ auf „das gr
 
 # Referenzen
 
-Alle Links abgerufen am 09.10.2026
 
 ## Referenzen: Werkzeuge und Demos
 
@@ -1941,16 +1961,55 @@ Alle Links abgerufen am 09.10.2026
 - [Claude Code](https://www.anthropic.com/claude-code)
 - [openscad.org](https://openscad.org)
 - [comfy.org](https://www.comfy.org)
+- [chatgpt.com](https://chatgpt.com/)
 :::
 ::: {.column width="50%"}
 - [huggingface.co](https://huggingface.co)
 - [Hunyuan3D-2.1](https://huggingface.co/spaces/tencent/Hunyuan3D-2.1)
 - [Pixal3D](https://huggingface.co/spaces/TencentARC/Pixal3D)
 - [FLUX.1](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell)
+- [Wan2.2](https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview-2)
 - [Whisper](https://huggingface.co/spaces/hf-audio/whisper-large-v3)
 - [Kokoro TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
 - [Azure KI](https://azure.microsoft.com/de-de/solutions/ai)
+:::
+:::
+
+## Referenzen: Prompting und Tipps
+
+::: columns
+::: {.column width="50%"}
+- [promptingguide.ai](https://www.promptingguide.ai/de)
+- [Claude Prompt Library](https://code.claude.com/docs/de/prompt-library)
+- [Qwen Prompts](https://qwen-3.com/de/prompt-library)
+- [copilot-prompts](https://github.com/pnp/copilot-prompts)
+- [VS Code Guide](https://github.com/microsoft/vscode-docs/blob/main/docs/agents/guides/add-a-feature.md)
+- [OpenAI Tokenizer](https://platform.openai.com/tokenizer)
+:::
+::: {.column width="50%"}
+- [Stable Diffusion Prompt-Guide](https://stable-diffusion-art.com/prompt-guide/)
+- [civitai.com/images](https://civitai.com/images)
+- [LLM-Wiki aufbauen](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+- [GSAP-Beispiel Pulsanimation](https://gsap.com/community/forums/topic/28814-using-gsap-to-loop-a-pulsing-animation/)
+:::
+:::
+
+## Referenzen: 3D-Modelle und Verein
+
+::: columns
+::: {.column width="50%"}
+- [thingiverse.com](https://www.thingiverse.com/)
+- [printables.com](https://www.printables.com/)
+- [makerworld.com](https://makerworld.com/de/)
+- [Wiki: Prusa CORE One+](https://docs.erfindergeist.org/s/wiki/doc/3d-drucker2-6XvoftKCV9)
 - [Wiki: Workstation](https://docs.erfindergeist.org/s/wiki/doc/workstation-kcLc2sv1PX)
+:::
+::: {.column width="50%"}
+- [erfindergeist.org](https://erfindergeist.org/)
+- [wiki.erfindergeist.org](https://wiki.erfindergeist.org/)
+- [linktree.erfindergeist.org](https://linktree.erfindergeist.org/)
+- [Präsentation online](https://presentations.erfindergeist.org/ki2/)
+- [Präsentation auf GitHub](https://github.com/ErfindergeistJuelichOfficial/presentation-ki2)
 :::
 :::
 
